@@ -24,18 +24,20 @@ lazy val Versions = new {
 
 lazy val amadou = project.in(file("."))
   .enablePlugins(MediativeGitHubPlugin, MediativeReleasePlugin)
-  .aggregate(runtime, core, bigquery)
+  .aggregate(core, bigquery, runtime)
   .settings(noPublishSettings)
 
-val runtime = project
-  .enablePlugins(MediativeDockerPlugin)
+val core = project
+  .enablePlugins(MediativeBintrayPlugin)
   .settings(
-    name := "amadou-runtime",
-    dockerRepository := Some("ypg-data-docker-container-registry.bintray.io/amadou"),
-    // XXX: Hack to make Snappy work with Alpine
-    dockerCommands += Cmd("RUN", "ln /lib/ld-musl-x86_64.so.1 /lib/ld-linux-x86-64.so.2"),
-    packageName in Docker := "runtime",
+    name := "amadou-core",
     libraryDependencies ++= Seq(
+      "com.typesafe" % "config" % "1.3.0",
+      "com.iheart" %% "ficus" % "1.2.6",
+      "com.lihaoyi" %% "upickle" % "0.3.6",
+      "io.prometheus" % "simpleclient_common" % Versions.prometheus,
+      "io.prometheus" % "simpleclient_hotspot" % Versions.prometheus,
+      "com.typesafe.scala-logging" %% "scala-logging" % "3.1.0",
       "org.apache.spark" %% "spark-core"  % Versions.spark,
       "org.apache.spark" %% "spark-mllib" % Versions.spark,
       "org.apache.spark" %% "spark-sql"   % Versions.spark,
@@ -50,27 +52,9 @@ val runtime = project
     )
   )
 
-// This project should be the only one to depend on runtime. It
-// marks the runtime dependencies as "provided" so downstream
-// projects won't include them in the final docker image.
-val core = project
-  .enablePlugins(MediativeBintrayPlugin)
-  .dependsOn(runtime % "test->test;provided->compile")
-  .settings(
-    name := "amadou-core",
-    libraryDependencies ++= Seq(
-      "com.typesafe" % "config" % "1.3.0",
-      "com.iheart" %% "ficus" % "1.2.6",
-      "com.lihaoyi" %% "upickle" % "0.3.6",
-      "io.prometheus" % "simpleclient_common" % Versions.prometheus,
-      "io.prometheus" % "simpleclient_hotspot" % Versions.prometheus,
-      "com.typesafe.scala-logging" %% "scala-logging" % "3.1.0"
-    )
-  )
-
 val bigquery = project
   .enablePlugins(MediativeBintrayPlugin)
-  .dependsOn(core % "test->test;compile->compile;provided->provided")
+  .dependsOn(core)
   .settings(
     name := "amadou-bigquery",
     libraryDependencies ++= Seq(
@@ -78,6 +62,19 @@ val bigquery = project
         exclude("com.google.apis", "google-api-services-bigquery"),
       "com.google.apis" % "google-api-services-bigquery" % "v2-rev320-1.22.0",
       "com.google.oauth-client" % "google-oauth-client-jetty" % "1.20.0"
-        exclude("org.mortbay.jetty", "servlet-api")
+        exclude("org.mortbay.jetty", "servlet-api"),
+      "com.holdenkarau" %% "spark-testing-base" % s"${Versions.spark}_0.4.7" % Test,
+      "org.apache.hadoop" % "hadoop-mapreduce-client-core"  % Versions.hadoop % Test force()
     )
+  )
+
+val runtime = project
+  .enablePlugins(MediativeDockerPlugin)
+  .dependsOn(core, bigquery)
+  .settings(
+    name := "amadou-runtime",
+    dockerRepository := Some("ypg-data-docker-container-registry.bintray.io/amadou"),
+    // XXX: Hack to make Snappy work with Alpine
+    dockerCommands += Cmd("RUN", "ln /lib/ld-musl-x86_64.so.1 /lib/ld-linux-x86-64.so.2"),
+    packageName in Docker := "runtime"
   )
