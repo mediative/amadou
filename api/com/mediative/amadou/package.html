@@ -1,0 +1,702 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>amadou - com.mediative.amadou</title>
+          <meta name="description" content="amadou - com.mediative.amadou" />
+          <meta name="keywords" content="amadou com.mediative.amadou" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../index.html';
+            var hash = 'com.mediative.amadou.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img alt="Package" src="../../../lib/package_big.png" />
+        <p id="owner"><a href="../../package.html" class="extype" name="com">com</a>.<a href="../package.html" class="extype" name="com.mediative">mediative</a></p>
+        <h1>amadou</h1><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">amadou</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="com.mediative.amadou"><span>amadou</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show All</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="com.mediative.amadou.Config" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Config=com.typesafe.config.Config"></a>
+      <a id="Config:Config"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Config</span><span class="result"> = <span class="extype" name="com.typesafe.config.Config">typesafe.config.Config</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@Config=com.typesafe.config.Config" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.ConfigLoader" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ConfigLoaderextendsArbitraryTypeReaderwithFicusInstances"></a>
+      <a id="ConfigLoader:ConfigLoader"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ConfigLoader.html"><span class="name">ConfigLoader</span></a><span class="result"> extends <span class="extype" name="net.ceedubs.ficus.readers.ArbitraryTypeReader">ArbitraryTypeReader</span> with <span class="extype" name="net.ceedubs.ficus.FicusInstances">FicusInstances</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@ConfigLoaderextendsArbitraryTypeReaderwithFicusInstances" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Mixin for loading and injecting values from configuration files.</p>
+    </li><li name="com.mediative.amadou.Counter" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Counter=io.prometheus.client.Counter"></a>
+      <a id="Counter:Counter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Counter</span><span class="result"> = <span class="extype" name="io.prometheus.client.Counter">io.prometheus.client.Counter</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@Counter=io.prometheus.client.Counter" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.DateInterval" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="DateIntervalextendsOrdered[com.mediative.amadou.DateInterval]withTraversable[com.mediative.amadou.DateInterval]withProductwithSerializable"></a>
+      <a id="DateInterval:DateInterval"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="DateInterval.html"><span class="name">DateInterval</span></a><span class="params">(<span name="timestamp">timestamp: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="interval">interval: <a href="DateIntervalType.html" class="extype" name="com.mediative.amadou.DateIntervalType">DateIntervalType</a></span>, <span name="toOpt">toOpt: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Ordered">Ordered</span>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>] with <span class="extype" name="scala.Traversable">Traversable</span>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>] with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@DateIntervalextendsOrdered[com.mediative.amadou.DateInterval]withTraversable[com.mediative.amadou.DateInterval]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Base class for date intervals.</p><div class="fullcomment"><div class="comment cmt"><p>Base class for date intervals.</p><p>The interval is represented as the half open range between <code>from</code> and <code>to</code>.
+For instance, May 2014 is represented as <code>from = 2014-05-01</code>, <code>to = 2014-06-01</code>.</p><p>Example:</p><pre>scala&gt; <span class="std">Seq</span>(Day(<span class="num">2016</span>, <span class="num">8</span>, <span class="num">11</span>), Month(<span class="num">2016</span>, <span class="num">8</span>), Year(<span class="num">2016</span>))
+res1: <span class="std">Seq</span>[DateInterval] = <span class="std">List</span>(<span class="num">2016</span>-<span class="num">08</span>-<span class="num">11</span>, <span class="num">2016</span>-<span class="num">08</span>, <span class="num">2016</span>)</pre></div></div>
+    </li><li name="com.mediative.amadou.DateIntervalType" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="DateIntervalTypeextendsAnyRef"></a>
+      <a id="DateIntervalType:DateIntervalType"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="DateIntervalType.html"><span class="name">DateIntervalType</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@DateIntervalTypeextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Base class for specific date intervals
+</p>
+    </li><li name="com.mediative.amadou.Gauge" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Gauge=io.prometheus.client.Gauge"></a>
+      <a id="Gauge:Gauge"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Gauge</span><span class="result"> = <span class="extype" name="io.prometheus.client.Gauge">io.prometheus.client.Gauge</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@Gauge=io.prometheus.client.Gauge" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.HdfsUrl" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="HdfsUrlextendsProductwithSerializable"></a>
+      <a id="HdfsUrl:HdfsUrl"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="HdfsUrl.html"><span class="name">HdfsUrl</span></a><span class="params">(<span name="url">url: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dateFormat">dateFormat: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@HdfsUrlextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Utility class for working with HDFS URLs.</p><div class="fullcomment"><div class="comment cmt"><p>Utility class for working with HDFS URLs.</p><p>It allows to customize how dates are formatted and then</p><pre>scala&gt; HdfsUrl(<span class="lit">"some/path"</span>) / <span class="lit">"somewhere"</span> / Day(<span class="num">2016</span>, <span class="num">8</span>, <span class="num">28</span>)
+res1: HdfsUrl = some/path/somewhere/<span class="num">2016</span>-<span class="num">08</span>-<span class="num">28</span>
+scala&gt; HdfsUrl(<span class="lit">"root"</span>, dateFormat = <span class="std">Some</span>(<span class="lit">"'year='yyyy/'month'=MM"</span>)) / Day(<span class="num">2016</span>, <span class="num">8</span>, <span class="num">28</span>)
+res2: HdfsUrl = root/year=<span class="num">2016</span>/month=<span class="num">08</span></pre></div></div>
+    </li><li name="com.mediative.amadou.Logging" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="LoggingextendsLazyLogging"></a>
+      <a id="Logging:Logging"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Logging.html"><span class="name">Logging</span></a><span class="result"> extends <span class="extype" name="com.typesafe.scalalogging.LazyLogging">LazyLogging</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@LoggingextendsLazyLogging" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.Schedule" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ScheduleextendsTraversable[com.mediative.amadou.DateInterval]withProductwithSerializable"></a>
+      <a id="Schedule:Schedule"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Schedule.html"><span class="name">Schedule</span></a><span class="params">(<span name="dates">dates: <span class="extype" name="scala.Stream">Stream</span>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Traversable">Traversable</span>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>] with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@ScheduleextendsTraversable[com.mediative.amadou.DateInterval]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A schedule is a sequence of monotonic decreasing dates.</p><div class="fullcomment"><div class="comment cmt"><p>A schedule is a sequence of monotonic decreasing dates. It can be
+composed with other schedules to form more complex execution plans.</p><p>Generating a list of days for a daily schedule:</p><pre>scala&gt; Schedule.iterate(Day(<span class="num">2016</span>, <span class="num">7</span>, <span class="num">2</span>)).take(<span class="num">3</span>).toList
+res2: <span class="std">List</span>[DateInterval] = <span class="std">List</span>(<span class="num">2016</span>-<span class="num">07</span>-<span class="num">02</span>, <span class="num">2016</span>-<span class="num">07</span>-<span class="num">01</span>, <span class="num">2016</span>-<span class="num">06</span>-<span class="num">30</span>)</pre><p>Generate a list of days for a monthly schedule:</p><pre>scala&gt; Schedule.iterate(Month(<span class="num">2016</span>, <span class="num">3</span>)).where(Year(<span class="num">2016</span>).&lt;=).toList
+res1: <span class="std">List</span>[DateInterval] = <span class="std">List</span>(<span class="num">2016</span>-<span class="num">03</span>, <span class="num">2016</span>-<span class="num">02</span>, <span class="num">2016</span>-<span class="num">01</span>)</pre></div></div>
+    </li><li name="com.mediative.amadou.ScheduleDsl" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="ScheduleDslextendsAnyRef"></a>
+      <a id="ScheduleDsl:ScheduleDsl"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ScheduleDsl.html"><span class="name">ScheduleDsl</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@ScheduleDslextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Mixin providing a DSL for defining schedules.</p><div class="fullcomment"><div class="comment cmt"><p>Mixin providing a DSL for defining schedules.</p><p>If for example, we want to run a report against a cumulative data source
+each day and must ensure that it runs the first of every month to generate
+a report for all of the previous month. This schedule can be defined as:</p><pre><span class="kw">val</span> schedule = today and monthly</pre><p>If we are only interested in &quot;backfilling&quot; jobs from a specific date use
+a <code>where</code> clause, e.g.:</p><pre><span class="kw">val</span> schedule = daily where (_ &gt;= Date(<span class="num">2016</span>, <span class="num">4</span>, <span class="num">12</span>)</pre></div></div>
+    </li><li name="com.mediative.amadou.Schema" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="SchemaextendsProduct"></a>
+      <a id="Schema:Schema"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Schema.html"><span class="name">Schema</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@SchemaextendsProduct" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Marker trait for case classes to automatically provide a Spark
+encoder.</p>
+    </li><li name="com.mediative.amadou.Slack" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SlackextendsLoggingwithProductwithSerializable"></a>
+      <a id="Slack:Slack"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Slack.html"><span class="name">Slack</span></a><span class="params">(<span name="url">url: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="channel">channel: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="user">user: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="icon">icon: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="Logging.html" class="extype" name="com.mediative.amadou.Logging">Logging</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@SlackextendsLoggingwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Wrap the functionality to send messages to a Slack channel.</p>
+    </li><li name="com.mediative.amadou.SparkJob" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="SparkJobextendsLogging"></a>
+      <a id="SparkJob:SparkJob"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="SparkJob.html"><span class="name">SparkJob</span></a><span class="result"> extends <a href="Logging.html" class="extype" name="com.mediative.amadou.Logging">Logging</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@SparkJobextendsLogging" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A Spark ETL job</p><div class="fullcomment"><div class="comment cmt"><p>A Spark ETL job</p><p>Jobs have a schedule of dates which is filtered using job specific
+logic and run in chronological order. For example, for jobs which run
+each day and at end of month, we check if it ran correctly &quot;today&quot;
+and if not we traverse if it ran for previous &quot;month's end&quot; etc.,
+until we find a completed run or we have traversed some magical max
+number.</p><p>The schedule can be overridden by defining the <code>start</code> environment
+variable with a date formatted as &quot;yyyy-MM-dd&quot;. In this case the job
+is only run the the specified date.
+</p></div></div>
+    </li><li name="com.mediative.amadou.SparkRunner" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="SparkRunner[Job&lt;:com.mediative.amadou.SparkJob]extendsLoggingwithScheduleDslwithConfigLoader"></a>
+      <a id="SparkRunner[Job&lt;:SparkJob]:SparkRunner[Job]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SparkRunner.html"><span class="name">SparkRunner</span></a><span class="tparams">[<span name="Job">Job &lt;: <a href="SparkJob.html" class="extype" name="com.mediative.amadou.SparkJob">SparkJob</a></span>]</span><span class="result"> extends <a href="Logging.html" class="extype" name="com.mediative.amadou.Logging">Logging</a> with <a href="ScheduleDsl.html" class="extype" name="com.mediative.amadou.ScheduleDsl">ScheduleDsl</a> with <a href="ConfigLoader.html" class="extype" name="com.mediative.amadou.ConfigLoader">ConfigLoader</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@SparkRunner[Job&lt;:com.mediative.amadou.SparkJob]extendsLoggingwithScheduleDslwithConfigLoader" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.Stage" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="StageextendsAnyRef"></a>
+      <a id="Stage:Stage"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Stage.html"><span class="name">Stage</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@StageextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="com.mediative.amadou.CleanData" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CleanData"></a>
+      <a id="CleanData:CleanData"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="CleanData$.html"><span class="name">CleanData</span></a><span class="result"> extends <a href="Stage.html" class="extype" name="com.mediative.amadou.Stage">Stage</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@CleanData" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.DateInterval" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DateInterval"></a>
+      <a id="DateInterval:DateInterval"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="DateInterval$.html"><span class="name">DateInterval</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@DateInterval" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.Day" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Day"></a>
+      <a id="Day:Day"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Day$.html"><span class="name">Day</span></a><span class="result"> extends <a href="DateIntervalType.html" class="extype" name="com.mediative.amadou.DateIntervalType">DateIntervalType</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@Day" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.HdfsUrl" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="HdfsUrl"></a>
+      <a id="HdfsUrl:HdfsUrl"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="HdfsUrl$.html"><span class="name">HdfsUrl</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@HdfsUrl" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.LoadToBigQuery" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LoadToBigQuery"></a>
+      <a id="LoadToBigQuery:LoadToBigQuery"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="LoadToBigQuery$.html"><span class="name">LoadToBigQuery</span></a><span class="result"> extends <a href="Stage.html" class="extype" name="com.mediative.amadou.Stage">Stage</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@LoadToBigQuery" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.Month" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Month"></a>
+      <a id="Month:Month"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Month$.html"><span class="name">Month</span></a><span class="result"> extends <a href="DateIntervalType.html" class="extype" name="com.mediative.amadou.DateIntervalType">DateIntervalType</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@Month" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.ReadRaw" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ReadRaw"></a>
+      <a id="ReadRaw:ReadRaw"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ReadRaw$.html"><span class="name">ReadRaw</span></a><span class="result"> extends <a href="Stage.html" class="extype" name="com.mediative.amadou.Stage">Stage</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@ReadRaw" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.Schedule" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Schedule"></a>
+      <a id="Schedule:Schedule"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Schedule$.html"><span class="name">Schedule</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@Schedule" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.Schema" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Schema"></a>
+      <a id="Schema:Schema"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Schema$.html"><span class="name">Schema</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@Schema" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.Slack" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Slack"></a>
+      <a id="Slack:Slack"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Slack$.html"><span class="name">Slack</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@Slack" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.SparkJob" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SparkJob"></a>
+      <a id="SparkJob:SparkJob"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="SparkJob$.html"><span class="name">SparkJob</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@SparkJob" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.Week" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Week"></a>
+      <a id="Week:Week"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Week$.html"><span class="name">Week</span></a><span class="result"> extends <a href="DateIntervalType.html" class="extype" name="com.mediative.amadou.DateIntervalType">DateIntervalType</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@Week" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">ISO 8601 week.</p><div class="fullcomment"><div class="comment cmt"><p>ISO 8601 week. Note that it has some counterintuitive behavior around new year.
+For instance Monday 29 December 2008 is week 2009-W01, and Sunday 3 January 2010 is week 2009-W53-7
+This example was taken from from http://en.wikipedia.org/wiki/ISO_8601#Week_dates:</p><pre>scala&gt; Week(Day(<span class="num">2008</span>, <span class="num">12</span>, <span class="num">29</span>))
+res1: DateInterval = <span class="num">2009</span>-W01
+scala&gt; Week(Day(<span class="num">2010</span>, <span class="num">1</span>, <span class="num">3</span>))
+res2: DateInterval = <span class="num">2009</span>-W53
+scala&gt; Week(<span class="num">2009</span>, <span class="num">53</span>, dayOfWeek = Week.Sunday).last
+res3: DateInterval = <span class="num">2010</span>-<span class="num">01</span>-<span class="num">03</span></pre></div></div>
+    </li><li name="com.mediative.amadou.WriteClean" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="WriteClean"></a>
+      <a id="WriteClean:WriteClean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="WriteClean$.html"><span class="name">WriteClean</span></a><span class="result"> extends <a href="Stage.html" class="extype" name="com.mediative.amadou.Stage">Stage</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@WriteClean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.WriteRaw" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="WriteRaw"></a>
+      <a id="WriteRaw:WriteRaw"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="WriteRaw$.html"><span class="name">WriteRaw</span></a><span class="result"> extends <a href="Stage.html" class="extype" name="com.mediative.amadou.Stage">Stage</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@WriteRaw" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.Year" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Year"></a>
+      <a id="Year:Year"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Year$.html"><span class="name">Year</span></a><span class="result"> extends <a href="DateIntervalType.html" class="extype" name="com.mediative.amadou.DateIntervalType">DateIntervalType</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@Year" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.bigquery" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="bigquery"></a>
+      <a id="bigquery:bigquery"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a href="bigquery/package.html"><span class="name">bigquery</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@bigquery" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.monitoring" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="monitoring"></a>
+      <a id="monitoring:monitoring"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a href="monitoring/package.html"><span class="name">monitoring</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@monitoring" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

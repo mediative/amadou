@@ -1,0 +1,1065 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>SparkRunner - com.mediative.amadou.SparkRunner</title>
+          <meta name="description" content="SparkRunner - com.mediative.amadou.SparkRunner" />
+          <meta name="keywords" content="SparkRunner com.mediative.amadou.SparkRunner" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../index.html';
+            var hash = 'com.mediative.amadou.SparkRunner';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img alt="Class" src="../../../lib/class_big.png" />
+        <p id="owner"><a href="../../package.html" class="extype" name="com">com</a>.<a href="../package.html" class="extype" name="com.mediative">mediative</a>.<a href="package.html" class="extype" name="com.mediative.amadou">amadou</a></p>
+        <h1>SparkRunner</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="com.mediative.amadou">package amadou</a>
+          </div></span></h3><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <span class="name">SparkRunner</span><span class="tparams">[<span name="Job">Job &lt;: <a href="SparkJob.html" class="extype" name="com.mediative.amadou.SparkJob">SparkJob</a></span>]</span><span class="result"> extends <a href="Logging.html" class="extype" name="com.mediative.amadou.Logging">Logging</a> with <a href="ScheduleDsl.html" class="extype" name="com.mediative.amadou.ScheduleDsl">ScheduleDsl</a> with <a href="ConfigLoader.html" class="extype" name="com.mediative.amadou.ConfigLoader">ConfigLoader</a></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a href="ConfigLoader.html" class="extype" name="com.mediative.amadou.ConfigLoader">ConfigLoader</a>, <span class="extype" name="net.ceedubs.ficus.FicusInstances">FicusInstances</span>, <span class="extype" name="net.ceedubs.ficus.readers.ISOZonedDateTimeReader">ISOZonedDateTimeReader</span>, <span class="extype" name="net.ceedubs.ficus.readers.BigNumberReaders">BigNumberReaders</span>, <span class="extype" name="net.ceedubs.ficus.readers.ConfigValueReader">ConfigValueReader</span>, <span class="extype" name="net.ceedubs.ficus.readers.TryReader">TryReader</span>, <span class="extype" name="net.ceedubs.ficus.readers.DurationReaders">DurationReaders</span>, <span class="extype" name="net.ceedubs.ficus.readers.ConfigReader">ConfigReader</span>, <span class="extype" name="net.ceedubs.ficus.readers.CollectionReaders">CollectionReaders</span>, <span class="extype" name="net.ceedubs.ficus.readers.OptionReader">OptionReader</span>, <span class="extype" name="net.ceedubs.ficus.readers.StringReader">StringReader</span>, <span class="extype" name="net.ceedubs.ficus.readers.AnyValReaders">AnyValReaders</span>, <span class="extype" name="net.ceedubs.ficus.readers.ArbitraryTypeReader">ArbitraryTypeReader</span>, <a href="ScheduleDsl.html" class="extype" name="com.mediative.amadou.ScheduleDsl">ScheduleDsl</a>, <a href="Logging.html" class="extype" name="com.mediative.amadou.Logging">Logging</a>, <span class="extype" name="com.typesafe.scalalogging.LazyLogging">LazyLogging</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="com.mediative.amadou.SparkRunner"><span>SparkRunner</span></li><li class="in" name="com.mediative.amadou.ConfigLoader"><span>ConfigLoader</span></li><li class="in" name="net.ceedubs.ficus.FicusInstances"><span>FicusInstances</span></li><li class="in" name="net.ceedubs.ficus.readers.ISOZonedDateTimeReader"><span>ISOZonedDateTimeReader</span></li><li class="in" name="net.ceedubs.ficus.readers.BigNumberReaders"><span>BigNumberReaders</span></li><li class="in" name="net.ceedubs.ficus.readers.ConfigValueReader"><span>ConfigValueReader</span></li><li class="in" name="net.ceedubs.ficus.readers.TryReader"><span>TryReader</span></li><li class="in" name="net.ceedubs.ficus.readers.DurationReaders"><span>DurationReaders</span></li><li class="in" name="net.ceedubs.ficus.readers.ConfigReader"><span>ConfigReader</span></li><li class="in" name="net.ceedubs.ficus.readers.CollectionReaders"><span>CollectionReaders</span></li><li class="in" name="net.ceedubs.ficus.readers.OptionReader"><span>OptionReader</span></li><li class="in" name="net.ceedubs.ficus.readers.StringReader"><span>StringReader</span></li><li class="in" name="net.ceedubs.ficus.readers.AnyValReaders"><span>AnyValReaders</span></li><li class="in" name="net.ceedubs.ficus.readers.ArbitraryTypeReader"><span>ArbitraryTypeReader</span></li><li class="in" name="com.mediative.amadou.ScheduleDsl"><span>ScheduleDsl</span></li><li class="in" name="com.mediative.amadou.Logging"><span>Logging</span></li><li class="in" name="com.typesafe.scalalogging.LazyLogging"><span>LazyLogging</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show All</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="com.mediative.amadou.SparkRunner#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;():com.mediative.amadou.SparkRunner[Job]"></a>
+      <a id="&lt;init&gt;:SparkRunner[Job]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">SparkRunner</span><span class="params">()</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@&lt;init&gt;():com.mediative.amadou.SparkRunner[Job]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Abstract Value Members</h3>
+              <ol><li name="com.mediative.amadou.SparkRunner#createJob" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="createJob(config:com.mediative.amadou.Config):Job"></a>
+      <a id="createJob(Config):Job"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createJob</span><span class="params">(<span name="config">config: <a href="package.html#Config=com.typesafe.config.Config" class="extmbr" name="com.mediative.amadou.Config">Config</a></span>)</span><span class="result">: <span class="extype" name="com.mediative.amadou.SparkRunner.Job">Job</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@createJob(config:com.mediative.amadou.Config):Job" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.SparkRunner#jobName" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="jobName:String"></a>
+      <a id="jobName:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">jobName</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@jobName:String" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.SparkRunner#schedule" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="schedule:com.mediative.amadou.Schedule"></a>
+      <a id="schedule:Schedule"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">schedule</span><span class="result">: <a href="Schedule.html" class="extype" name="com.mediative.amadou.Schedule">Schedule</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@schedule:com.mediative.amadou.Schedule" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Concrete Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@##():Int" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="net.ceedubs.ficus.readers.ArbitraryTypeReader#arbitraryTypeValueReader" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="arbitraryTypeValueReader[T]:net.ceedubs.ficus.readers.ValueReader[T]"></a>
+      <a id="arbitraryTypeValueReader[T]:ValueReader[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit macro </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">arbitraryTypeValueReader</span><span class="tparams">[<span name="T">T</span>]</span><span class="result">: <span class="extype" name="net.ceedubs.ficus.readers.ValueReader">ValueReader</span>[<span class="extype" name="net.ceedubs.ficus.readers.ArbitraryTypeReader.arbitraryTypeValueReader.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@arbitraryTypeValueReader[T]:net.ceedubs.ficus.readers.ValueReader[T]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>ArbitraryTypeReader</dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="net.ceedubs.ficus.readers.BigNumberReaders#bigDecimalReader" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="bigDecimalReader:net.ceedubs.ficus.readers.ValueReader[BigDecimal]"></a>
+      <a id="bigDecimalReader:ValueReader[BigDecimal]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bigDecimalReader</span><span class="result">: <span class="extype" name="net.ceedubs.ficus.readers.ValueReader">ValueReader</span>[<span class="extype" name="scala.BigDecimal">BigDecimal</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@bigDecimalReader:net.ceedubs.ficus.readers.ValueReader[BigDecimal]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>BigNumberReaders</dd></dl></div>
+    </li><li name="net.ceedubs.ficus.readers.BigNumberReaders#bigIntReader" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="bigIntReader:net.ceedubs.ficus.readers.ValueReader[BigInt]"></a>
+      <a id="bigIntReader:ValueReader[BigInt]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bigIntReader</span><span class="result">: <span class="extype" name="net.ceedubs.ficus.readers.ValueReader">ValueReader</span>[<span class="extype" name="scala.BigInt">BigInt</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@bigIntReader:net.ceedubs.ficus.readers.ValueReader[BigInt]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>BigNumberReaders</dd></dl></div>
+    </li><li name="net.ceedubs.ficus.readers.AnyValReaders#booleanValueReader" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="booleanValueReader:net.ceedubs.ficus.readers.ValueReader[Boolean]"></a>
+      <a id="booleanValueReader:ValueReader[Boolean]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">booleanValueReader</span><span class="result">: <span class="extype" name="net.ceedubs.ficus.readers.ValueReader">ValueReader</span>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@booleanValueReader:net.ceedubs.ficus.readers.ValueReader[Boolean]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyValReaders</dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@clone():Object" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="net.ceedubs.ficus.readers.ConfigReader#configValueReader" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="configValueReader:net.ceedubs.ficus.readers.ValueReader[com.typesafe.config.Config]"></a>
+      <a id="configValueReader:ValueReader[typesafe.config.Config]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">configValueReader</span><span class="result">: <span class="extype" name="net.ceedubs.ficus.readers.ValueReader">ValueReader</span>[<span class="extype" name="com.typesafe.config.Config">typesafe.config.Config</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@configValueReader:net.ceedubs.ficus.readers.ValueReader[com.typesafe.config.Config]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>ConfigReader</dd></dl></div>
+    </li><li name="net.ceedubs.ficus.readers.ConfigValueReader#configValueValueReader" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="configValueValueReader:net.ceedubs.ficus.readers.ValueReader[com.typesafe.config.ConfigValue]"></a>
+      <a id="configValueValueReader:ValueReader[ConfigValue]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">configValueValueReader</span><span class="result">: <span class="extype" name="net.ceedubs.ficus.readers.ValueReader">ValueReader</span>[<span class="extype" name="com.typesafe.config.ConfigValue">ConfigValue</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@configValueValueReader:net.ceedubs.ficus.readers.ValueReader[com.typesafe.config.ConfigValue]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>ConfigValueReader</dd></dl></div>
+    </li><li name="com.mediative.amadou.SparkRunner#counter" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="counter(name:String,help:String,labels:String*):com.mediative.amadou.Counter"></a>
+      <a id="counter(String,String,String*):Counter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">counter</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="help">help: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="labels">labels: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result">: <a href="package.html#Counter=io.prometheus.client.Counter" class="extmbr" name="com.mediative.amadou.Counter">Counter</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@counter(name:String,help:String,labels:String*):com.mediative.amadou.Counter" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Counters will be reset before each job run.</p><div class="fullcomment"><div class="comment cmt"><p>Counters will be reset before each job run.
+</p></div><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
+    </li><li name="com.mediative.amadou.ScheduleDsl#daily" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="daily:com.mediative.amadou.Schedule"></a>
+      <a id="daily:Schedule"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">daily</span><span class="result">: <a href="Schedule.html" class="extype" name="com.mediative.amadou.Schedule">Schedule</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@daily:com.mediative.amadou.Schedule" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ScheduleDsl.html" class="extype" name="com.mediative.amadou.ScheduleDsl">ScheduleDsl</a></dd></dl></div>
+    </li><li name="net.ceedubs.ficus.readers.AnyValReaders#doubleValueReader" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="doubleValueReader:net.ceedubs.ficus.readers.ValueReader[Double]"></a>
+      <a id="doubleValueReader:ValueReader[Double]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">doubleValueReader</span><span class="result">: <span class="extype" name="net.ceedubs.ficus.readers.ValueReader">ValueReader</span>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Double" class="extype" target="_top">Double</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@doubleValueReader:net.ceedubs.ficus.readers.ValueReader[Double]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyValReaders</dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="net.ceedubs.ficus.readers.ConfigReader#ficusConfigValueReader" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ficusConfigValueReader:net.ceedubs.ficus.readers.ValueReader[net.ceedubs.ficus.FicusConfig]"></a>
+      <a id="ficusConfigValueReader:ValueReader[FicusConfig]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ficusConfigValueReader</span><span class="result">: <span class="extype" name="net.ceedubs.ficus.readers.ValueReader">ValueReader</span>[<span class="extype" name="net.ceedubs.ficus.FicusConfig">FicusConfig</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@ficusConfigValueReader:net.ceedubs.ficus.readers.ValueReader[net.ceedubs.ficus.FicusConfig]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>ConfigReader</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="net.ceedubs.ficus.readers.DurationReaders#finiteDurationReader" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finiteDurationReader:net.ceedubs.ficus.readers.ValueReader[scala.concurrent.duration.FiniteDuration]"></a>
+      <a id="finiteDurationReader:ValueReader[FiniteDuration]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finiteDurationReader</span><span class="result">: <span class="extype" name="net.ceedubs.ficus.readers.ValueReader">ValueReader</span>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.concurrent.duration.FiniteDuration" class="extype" target="_top">FiniteDuration</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@finiteDurationReader:net.ceedubs.ficus.readers.ValueReader[scala.concurrent.duration.FiniteDuration]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>DurationReaders</dd></dl></div>
+    </li><li name="com.mediative.amadou.SparkRunner#gauge" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="gauge(name:String,help:String,labels:String*):com.mediative.amadou.Gauge"></a>
+      <a id="gauge(String,String,String*):Gauge"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">gauge</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="help">help: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="labels">labels: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result">: <a href="package.html#Gauge=io.prometheus.client.Gauge" class="extmbr" name="com.mediative.amadou.Gauge">Gauge</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@gauge(name:String,help:String,labels:String*):com.mediative.amadou.Gauge" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="net.ceedubs.ficus.readers.AnyValReaders#intValueReader" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="intValueReader:net.ceedubs.ficus.readers.ValueReader[Int]"></a>
+      <a id="intValueReader:ValueReader[Int]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">intValueReader</span><span class="result">: <span class="extype" name="net.ceedubs.ficus.readers.ValueReader">ValueReader</span>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@intValueReader:net.ceedubs.ficus.readers.ValueReader[Int]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyValReaders</dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="net.ceedubs.ficus.readers.ISOZonedDateTimeReader#isoZonedDateTimeReader" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isoZonedDateTimeReader:net.ceedubs.ficus.readers.ValueReader[java.time.ZonedDateTime]"></a>
+      <a id="isoZonedDateTimeReader:ValueReader[ZonedDateTime]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isoZonedDateTimeReader</span><span class="result">: <span class="extype" name="net.ceedubs.ficus.readers.ValueReader">ValueReader</span>[<span class="extype" name="java.time.ZonedDateTime">ZonedDateTime</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@isoZonedDateTimeReader:net.ceedubs.ficus.readers.ValueReader[java.time.ZonedDateTime]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>ISOZonedDateTimeReader</dd></dl></div>
+    </li><li name="com.typesafe.scalalogging.LazyLogging#logger" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="logger:com.typesafe.scalalogging.Logger"></a>
+      <a id="logger:Logger"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">logger</span><span class="result">: <span class="extype" name="com.typesafe.scalalogging.Logger">Logger</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@logger:com.typesafe.scalalogging.Logger" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd>LazyLogging</dd></dl></div>
+    </li><li name="net.ceedubs.ficus.readers.AnyValReaders#longValueReader" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="longValueReader:net.ceedubs.ficus.readers.ValueReader[Long]"></a>
+      <a id="longValueReader:ValueReader[Long]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">longValueReader</span><span class="result">: <span class="extype" name="net.ceedubs.ficus.readers.ValueReader">ValueReader</span>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@longValueReader:net.ceedubs.ficus.readers.ValueReader[Long]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyValReaders</dd></dl></div>
+    </li><li name="com.mediative.amadou.SparkRunner#main" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="main(args:Array[String]):Unit"></a>
+      <a id="main(Array[String]):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">main</span><span class="params">(<span name="args">args: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Array" class="extype" target="_top">Array</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@main(args:Array[String]):Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="net.ceedubs.ficus.readers.CollectionReaders#mapValueReader" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="mapValueReader[A](implicitentryReader:net.ceedubs.ficus.readers.ValueReader[A]):net.ceedubs.ficus.readers.ValueReader[Map[String,A]]"></a>
+      <a id="mapValueReader[A](ValueReader[A]):ValueReader[Map[String,A]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mapValueReader</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="entryReader">entryReader: <span class="extype" name="net.ceedubs.ficus.readers.ValueReader">ValueReader</span>[<span class="extype" name="net.ceedubs.ficus.readers.CollectionReaders.mapValueReader.A">A</span>]</span>)</span><span class="result">: <span class="extype" name="net.ceedubs.ficus.readers.ValueReader">ValueReader</span>[<span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="net.ceedubs.ficus.readers.CollectionReaders.mapValueReader.A">A</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@mapValueReader[A](implicitentryReader:net.ceedubs.ficus.readers.ValueReader[A]):net.ceedubs.ficus.readers.ValueReader[Map[String,A]]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>CollectionReaders</dd></dl></div>
+    </li><li name="com.mediative.amadou.ScheduleDsl#monthly" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="monthly:com.mediative.amadou.Schedule"></a>
+      <a id="monthly:Schedule"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">monthly</span><span class="result">: <a href="Schedule.html" class="extype" name="com.mediative.amadou.Schedule">Schedule</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@monthly:com.mediative.amadou.Schedule" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ScheduleDsl.html" class="extype" name="com.mediative.amadou.ScheduleDsl">ScheduleDsl</a></dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@notify():Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="net.ceedubs.ficus.readers.OptionReader#optionValueReader" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="optionValueReader[A](implicitvalueReader:net.ceedubs.ficus.readers.ValueReader[A]):net.ceedubs.ficus.readers.ValueReader[Option[A]]"></a>
+      <a id="optionValueReader[A](ValueReader[A]):ValueReader[Option[A]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">optionValueReader</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="valueReader">valueReader: <span class="extype" name="net.ceedubs.ficus.readers.ValueReader">ValueReader</span>[<span class="extype" name="net.ceedubs.ficus.readers.OptionReader.optionValueReader.A">A</span>]</span>)</span><span class="result">: <span class="extype" name="net.ceedubs.ficus.readers.ValueReader">ValueReader</span>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="net.ceedubs.ficus.readers.OptionReader.optionValueReader.A">A</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@optionValueReader[A](implicitvalueReader:net.ceedubs.ficus.readers.ValueReader[A]):net.ceedubs.ficus.readers.ValueReader[Option[A]]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>OptionReader</dd></dl></div>
+    </li><li name="com.mediative.amadou.SparkRunner#recordsProcessed" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="recordsProcessed:io.prometheus.client.Collector"></a>
+      <a id="recordsProcessed:Collector"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">recordsProcessed</span><span class="result">: <span class="extype" name="io.prometheus.client.Collector">Collector</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@recordsProcessed:io.prometheus.client.Collector" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.SparkRunner#run" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="run():Unit"></a>
+      <a id="run():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">run</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@run():Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.SparkRunner#runForDate" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="runForDate(spark:org.apache.spark.sql.SparkSession,job:Job)(date:com.mediative.amadou.DateInterval):Unit"></a>
+      <a id="runForDate(SparkSession,Job)(DateInterval):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">runForDate</span><span class="params">(<span name="spark">spark: <span class="extype" name="org.apache.spark.sql.SparkSession">SparkSession</span></span>, <span name="job">job: <span class="extype" name="com.mediative.amadou.SparkRunner.Job">Job</span></span>)</span><span class="params">(<span name="date">date: <a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@runForDate(spark:org.apache.spark.sql.SparkSession,job:Job)(date:com.mediative.amadou.DateInterval):Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="net.ceedubs.ficus.readers.StringReader#stringValueReader" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="stringValueReader:net.ceedubs.ficus.readers.ValueReader[String]"></a>
+      <a id="stringValueReader:ValueReader[String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">stringValueReader</span><span class="result">: <span class="extype" name="net.ceedubs.ficus.readers.ValueReader">ValueReader</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@stringValueReader:net.ceedubs.ficus.readers.ValueReader[String]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>StringReader</dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="com.mediative.amadou.ConfigLoader#toFicusConfig" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toFicusConfig(config:com.mediative.amadou.Config):net.ceedubs.ficus.FicusConfig"></a>
+      <a id="toFicusConfig(Config):FicusConfig"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toFicusConfig</span><span class="params">(<span name="config">config: <a href="package.html#Config=com.typesafe.config.Config" class="extmbr" name="com.mediative.amadou.Config">Config</a></span>)</span><span class="result">: <span class="extype" name="net.ceedubs.ficus.FicusConfig">FicusConfig</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@toFicusConfig(config:com.mediative.amadou.Config):net.ceedubs.ficus.FicusConfig" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ConfigLoader.html" class="extype" name="com.mediative.amadou.ConfigLoader">ConfigLoader</a></dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@toString():String" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="com.mediative.amadou.ScheduleDsl#today" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="today:com.mediative.amadou.Schedule"></a>
+      <a id="today:Schedule"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">today</span><span class="result">: <a href="Schedule.html" class="extype" name="com.mediative.amadou.Schedule">Schedule</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@today:com.mediative.amadou.Schedule" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ScheduleDsl.html" class="extype" name="com.mediative.amadou.ScheduleDsl">ScheduleDsl</a></dd></dl></div>
+    </li><li name="net.ceedubs.ficus.readers.CollectionReaders#traversableReader" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="traversableReader[C[_],A](implicitentryReader:net.ceedubs.ficus.readers.ValueReader[A],implicitcbf:scala.collection.generic.CanBuildFrom[Nothing,A,C[A]]):net.ceedubs.ficus.readers.ValueReader[C[A]]"></a>
+      <a id="traversableReader[C[_],A](ValueReader[A],CanBuildFrom[Nothing,A,C[A]]):ValueReader[C[A]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">traversableReader</span><span class="tparams">[<span name="C">C<span class="tparams">[<span name="_">_</span>]</span></span>, <span name="A">A</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="entryReader">entryReader: <span class="extype" name="net.ceedubs.ficus.readers.ValueReader">ValueReader</span>[<span class="extype" name="net.ceedubs.ficus.readers.CollectionReaders.traversableReader.A">A</span>]</span>, <span name="cbf">cbf: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.generic.CanBuildFrom" class="extype" target="_top">CanBuildFrom</a>[<span class="extype" name="scala.Nothing">Nothing</span>, <span class="extype" name="net.ceedubs.ficus.readers.CollectionReaders.traversableReader.A">A</span>, <span class="extype" name="net.ceedubs.ficus.readers.CollectionReaders.traversableReader.C">C</span>[<span class="extype" name="net.ceedubs.ficus.readers.CollectionReaders.traversableReader.A">A</span>]]</span>)</span><span class="result">: <span class="extype" name="net.ceedubs.ficus.readers.ValueReader">ValueReader</span>[<span class="extype" name="net.ceedubs.ficus.readers.CollectionReaders.traversableReader.C">C</span>[<span class="extype" name="net.ceedubs.ficus.readers.CollectionReaders.traversableReader.A">A</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@traversableReader[C[_],A](implicitentryReader:net.ceedubs.ficus.readers.ValueReader[A],implicitcbf:scala.collection.generic.CanBuildFrom[Nothing,A,C[A]]):net.ceedubs.ficus.readers.ValueReader[C[A]]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>CollectionReaders</dd></dl></div>
+    </li><li name="net.ceedubs.ficus.readers.TryReader#tryValueReader" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="tryValueReader[A](implicitvalueReader:net.ceedubs.ficus.readers.ValueReader[A]):net.ceedubs.ficus.readers.ValueReader[scala.util.Try[A]]"></a>
+      <a id="tryValueReader[A](ValueReader[A]):ValueReader[Try[A]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">tryValueReader</span><span class="tparams">[<span name="A">A</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="valueReader">valueReader: <span class="extype" name="net.ceedubs.ficus.readers.ValueReader">ValueReader</span>[<span class="extype" name="net.ceedubs.ficus.readers.TryReader.tryValueReader.A">A</span>]</span>)</span><span class="result">: <span class="extype" name="net.ceedubs.ficus.readers.ValueReader">ValueReader</span>[<span class="extype" name="scala.util.Try">Try</span>[<span class="extype" name="net.ceedubs.ficus.readers.TryReader.tryValueReader.A">A</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@tryValueReader[A](implicitvalueReader:net.ceedubs.ficus.readers.ValueReader[A]):net.ceedubs.ficus.readers.ValueReader[scala.util.Try[A]]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TryReader</dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@wait():Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="arg1">arg1: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="com.mediative.amadou.ConfigLoader">
+              <h3>Inherited from <a href="ConfigLoader.html" class="extype" name="com.mediative.amadou.ConfigLoader">ConfigLoader</a></h3>
+            </div><div class="parent" name="net.ceedubs.ficus.FicusInstances">
+              <h3>Inherited from <span class="extype" name="net.ceedubs.ficus.FicusInstances">FicusInstances</span></h3>
+            </div><div class="parent" name="net.ceedubs.ficus.readers.ISOZonedDateTimeReader">
+              <h3>Inherited from <span class="extype" name="net.ceedubs.ficus.readers.ISOZonedDateTimeReader">ISOZonedDateTimeReader</span></h3>
+            </div><div class="parent" name="net.ceedubs.ficus.readers.BigNumberReaders">
+              <h3>Inherited from <span class="extype" name="net.ceedubs.ficus.readers.BigNumberReaders">BigNumberReaders</span></h3>
+            </div><div class="parent" name="net.ceedubs.ficus.readers.ConfigValueReader">
+              <h3>Inherited from <span class="extype" name="net.ceedubs.ficus.readers.ConfigValueReader">ConfigValueReader</span></h3>
+            </div><div class="parent" name="net.ceedubs.ficus.readers.TryReader">
+              <h3>Inherited from <span class="extype" name="net.ceedubs.ficus.readers.TryReader">TryReader</span></h3>
+            </div><div class="parent" name="net.ceedubs.ficus.readers.DurationReaders">
+              <h3>Inherited from <span class="extype" name="net.ceedubs.ficus.readers.DurationReaders">DurationReaders</span></h3>
+            </div><div class="parent" name="net.ceedubs.ficus.readers.ConfigReader">
+              <h3>Inherited from <span class="extype" name="net.ceedubs.ficus.readers.ConfigReader">ConfigReader</span></h3>
+            </div><div class="parent" name="net.ceedubs.ficus.readers.CollectionReaders">
+              <h3>Inherited from <span class="extype" name="net.ceedubs.ficus.readers.CollectionReaders">CollectionReaders</span></h3>
+            </div><div class="parent" name="net.ceedubs.ficus.readers.OptionReader">
+              <h3>Inherited from <span class="extype" name="net.ceedubs.ficus.readers.OptionReader">OptionReader</span></h3>
+            </div><div class="parent" name="net.ceedubs.ficus.readers.StringReader">
+              <h3>Inherited from <span class="extype" name="net.ceedubs.ficus.readers.StringReader">StringReader</span></h3>
+            </div><div class="parent" name="net.ceedubs.ficus.readers.AnyValReaders">
+              <h3>Inherited from <span class="extype" name="net.ceedubs.ficus.readers.AnyValReaders">AnyValReaders</span></h3>
+            </div><div class="parent" name="net.ceedubs.ficus.readers.ArbitraryTypeReader">
+              <h3>Inherited from <span class="extype" name="net.ceedubs.ficus.readers.ArbitraryTypeReader">ArbitraryTypeReader</span></h3>
+            </div><div class="parent" name="com.mediative.amadou.ScheduleDsl">
+              <h3>Inherited from <a href="ScheduleDsl.html" class="extype" name="com.mediative.amadou.ScheduleDsl">ScheduleDsl</a></h3>
+            </div><div class="parent" name="com.mediative.amadou.Logging">
+              <h3>Inherited from <a href="Logging.html" class="extype" name="com.mediative.amadou.Logging">Logging</a></h3>
+            </div><div class="parent" name="com.typesafe.scalalogging.LazyLogging">
+              <h3>Inherited from <span class="extype" name="com.typesafe.scalalogging.LazyLogging">LazyLogging</span></h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

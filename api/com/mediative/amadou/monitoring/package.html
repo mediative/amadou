@@ -1,0 +1,342 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>monitoring - com.mediative.amadou.monitoring</title>
+          <meta name="description" content="monitoring - com.mediative.amadou.monitoring" />
+          <meta name="keywords" content="monitoring com.mediative.amadou.monitoring" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../index.html';
+            var hash = 'com.mediative.amadou.monitoring.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img alt="Package" src="../../../../lib/package_big.png" />
+        <p id="owner"><a href="../../../package.html" class="extype" name="com">com</a>.<a href="../../package.html" class="extype" name="com.mediative">mediative</a>.<a href="../package.html" class="extype" name="com.mediative.amadou">amadou</a></p>
+        <h1>monitoring</h1><span class="permalink">
+      <a href="../../../../index.html#com.mediative.amadou.monitoring.package" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">monitoring</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="com.mediative.amadou.monitoring.KafkaMessagingSystem" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="KafkaMessagingSystemextendsMessagingSystemwithLogging"></a>
+      <a id="KafkaMessagingSystem:KafkaMessagingSystem"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="KafkaMessagingSystem.html"><span class="name">KafkaMessagingSystem</span></a><span class="result"> extends <a href="MessagingSystem.html" class="extype" name="com.mediative.amadou.monitoring.MessagingSystem">MessagingSystem</a> with <a href="../Logging.html" class="extype" name="com.mediative.amadou.Logging">Logging</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.mediative.amadou.monitoring.package@KafkaMessagingSystemextendsMessagingSystemwithLogging" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.monitoring.MessagingSystem" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="MessagingSystemextendsAnyRef"></a>
+      <a id="MessagingSystem:MessagingSystem"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="MessagingSystem.html"><span class="name">MessagingSystem</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.mediative.amadou.monitoring.package@MessagingSystemextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.monitoring.MetricsEvent" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MetricsEventextendsProductwithSerializable"></a>
+      <a id="MetricsEvent:MetricsEvent"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="MetricsEvent.html"><span class="name">MetricsEvent</span></a><span class="params">(<span name="jobId">jobId: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="processId">processId: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="stage">stage: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="timestamp">timestamp: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="message">message: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Double" class="extype" target="_top">Double</a>]</span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.mediative.amadou.monitoring.package@MetricsEventextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.monitoring.PrintMessagingSystem" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="PrintMessagingSystemextendsMessagingSystemwithLogging"></a>
+      <a id="PrintMessagingSystem:PrintMessagingSystem"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="PrintMessagingSystem.html"><span class="name">PrintMessagingSystem</span></a><span class="result"> extends <a href="MessagingSystem.html" class="extype" name="com.mediative.amadou.monitoring.MessagingSystem">MessagingSystem</a> with <a href="../Logging.html" class="extype" name="com.mediative.amadou.Logging">Logging</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.mediative.amadou.monitoring.package@PrintMessagingSystemextendsMessagingSystemwithLogging" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.monitoring.ProcessContext" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ProcessContextextendsProductwithSerializable"></a>
+      <a id="ProcessContext:ProcessContext"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ProcessContext.html"><span class="name">ProcessContext</span></a><span class="params">(<span name="jobId">jobId: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="processingDate">processingDate: <a href="../DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>, <span name="processId">processId: <span class="extype" name="scala.Predef.String">String</span> = <span class="defval" name="java.util.UUID.randomUUID().toString">...</span></span>, <span name="startTime">startTime: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">System.currentTimeMillis</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.mediative.amadou.monitoring.package@ProcessContextextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.monitoring.RunEvent" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="RunEventextendsProductwithSerializable"></a>
+      <a id="RunEvent:RunEvent"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="RunEvent.html"><span class="name">RunEvent</span></a><span class="params">(<span name="jobId">jobId: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="processId">processId: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="state">state: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="processingDate">processingDate: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="timestamp">timestamp: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="duration">duration: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="message">message: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.mediative.amadou.monitoring.package@RunEventextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.monitoring.StageEvent" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="StageEventextendsProductwithSerializable"></a>
+      <a id="StageEvent:StageEvent"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="StageEvent.html"><span class="name">StageEvent</span></a><span class="params">(<span name="jobId">jobId: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="processId">processId: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="stage">stage: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="state">state: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="timestamp">timestamp: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="duration">duration: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="message">message: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.mediative.amadou.monitoring.package@StageEventextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.monitoring.StateRecord" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="StateRecordextendsAnyRef"></a>
+      <a id="StateRecord:StateRecord"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="StateRecord.html"><span class="name">StateRecord</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.mediative.amadou.monitoring.package@StateRecordextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Process and stage states registry.</p>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="com.mediative.amadou.monitoring.Complete" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Complete"></a>
+      <a id="Complete:Complete"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Complete$.html"><span class="name">Complete</span></a><span class="result"> extends <a href="StateRecord.html" class="extype" name="com.mediative.amadou.monitoring.StateRecord">StateRecord</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.mediative.amadou.monitoring.package@Complete" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.monitoring.Failed" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Failed"></a>
+      <a id="Failed:Failed"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Failed$.html"><span class="name">Failed</span></a><span class="result"> extends <a href="StateRecord.html" class="extype" name="com.mediative.amadou.monitoring.StateRecord">StateRecord</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.mediative.amadou.monitoring.package@Failed" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.monitoring.KafkaMessagingSystem" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="KafkaMessagingSystem"></a>
+      <a id="KafkaMessagingSystem:KafkaMessagingSystem"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="KafkaMessagingSystem$.html"><span class="name">KafkaMessagingSystem</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.mediative.amadou.monitoring.package@KafkaMessagingSystem" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.monitoring.MessagingSystem" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MessagingSystem"></a>
+      <a id="MessagingSystem:MessagingSystem"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="MessagingSystem$.html"><span class="name">MessagingSystem</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.mediative.amadou.monitoring.package@MessagingSystem" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.monitoring.Processing" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Processing"></a>
+      <a id="Processing:Processing"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Processing$.html"><span class="name">Processing</span></a><span class="result"> extends <a href="StateRecord.html" class="extype" name="com.mediative.amadou.monitoring.StateRecord">StateRecord</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.mediative.amadou.monitoring.package@Processing" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.monitoring.Retrying" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Retrying"></a>
+      <a id="Retrying:Retrying"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Retrying$.html"><span class="name">Retrying</span></a><span class="result"> extends <a href="StateRecord.html" class="extype" name="com.mediative.amadou.monitoring.StateRecord">StateRecord</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.mediative.amadou.monitoring.package@Retrying" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>
