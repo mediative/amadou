@@ -1,4 +1,6 @@
 # Amadou - Ignite your Spark ETL jobs
+[![Build Status](https://travis-ci.org/ypg-data/amadou.svg?branch=master)](https://travis-ci.org/ypg-data/amadou)
+[![Latest version](https://api.bintray.com/packages/ypg-data/maven/amadou-core/images/download.svg)](https://bintray.com/ypg-data/maven/amadou-core/_latestVersion)
 
 > Amadou was a precious resource to ancient people, allowing them to start a
 > fire by catching sparks from flint struck against iron pyrites.
