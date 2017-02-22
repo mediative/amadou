@@ -8,9 +8,20 @@
 
 ## Getting Started
 
+Add the following to your `build.sbt`:
+
+```sbt
+resolvers += Resolver.bintrayRepo("ypg-data", "maven")
+libraryDependencies += "com.mediative" %% "amadou-core" % "0.1.0"
+```
+
 See the [TestEtl] job to get an idea of what the library provides.
 
  [TestEtl]: core/src/test/scala/com.mediative.amadou/test/TestEtl.scala
+
+## Documentation
+
+ - [Scaladoc](https://ypg-data.github.io/amadou/api/#com.mediative.amadou.package)
 
 ## Building and Testing
 
