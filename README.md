@@ -1,6 +1,11 @@
 # Amadou - Ignite your Spark ETL jobs
-[![Build Status](https://travis-ci.org/ypg-data/amadou.svg?branch=master)](https://travis-ci.org/ypg-data/amadou)
-[![Latest version](https://api.bintray.com/packages/ypg-data/maven/amadou-core/images/download.svg)](https://bintray.com/ypg-data/maven/amadou-core/_latestVersion)
+[![Build Status]][Travis]
+[![Latest version]][Bintray]
+
+  [Build Status]: https://travis-ci.org/ypg-data/amadou.svg?branch=master
+  [Travis]: https://travis-ci.org/ypg-data/amadou
+  [Latest version]: https://api.bintray.com/packages/ypg-data/maven/amadou-core/images/download.svg
+  [Bintray]: https://bintray.com/ypg-data/maven/amadou-core/_latestVersion
 
 > Amadou was a precious resource to ancient people, allowing them to start a
 > fire by catching sparks from flint struck against iron pyrites.
@@ -14,7 +19,7 @@ Add the following to your `build.sbt`:
 
 ```sbt
 resolvers += Resolver.bintrayRepo("ypg-data", "maven")
-libraryDependencies += "com.mediative" %% "amadou-core" % "0.1.0"
+libraryDependencies += "com.mediative" %% "amadou-core" % "0.1.1"
 ```
 
 See the [TestEtl] job to get an idea of what the library provides.

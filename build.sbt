@@ -25,7 +25,10 @@ lazy val Versions = new {
 lazy val amadou = project.in(file("."))
   .enablePlugins(MediativeGitHubPlugin, MediativeReleasePlugin)
   .aggregate(core, bigquery, runtime)
-  .settings(noPublishSettings)
+  .settings(
+    noPublishSettings,
+    postReleaseSteps += releaseStepTask(publish in Docker in runtime)
+  )
 
 val core = project
   .enablePlugins(MediativeBintrayPlugin)
