@@ -31,8 +31,10 @@ val runtime = project
   .enablePlugins(MediativeDockerPlugin)
   .settings(
     name := "amadou-runtime",
-    // XXX: Hack to make Snappy work with Spark
+    dockerRepository := Some("ypg-data-docker-container-registry.bintray.io/amadou"),
+    // XXX: Hack to make Snappy work with Alpine
     dockerCommands += Cmd("RUN", "ln /lib/ld-musl-x86_64.so.1 /lib/ld-linux-x86-64.so.2"),
+    packageName in Docker := "runtime",
     libraryDependencies ++= Seq(
       "org.apache.spark" %% "spark-core"  % Versions.spark,
       "org.apache.spark" %% "spark-mllib" % Versions.spark,
