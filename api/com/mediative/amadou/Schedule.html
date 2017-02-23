@@ -54,7 +54,7 @@
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A schedule is a sequence of monotonic decreasing dates. It can be
 composed with other schedules to form more complex execution plans.</p><p>Generating a list of days for a daily schedule:</p><pre>scala&gt; Schedule.iterate(Day(<span class="num">2016</span>, <span class="num">7</span>, <span class="num">2</span>)).take(<span class="num">3</span>).toList
 res2: <span class="std">List</span>[DateInterval] = <span class="std">List</span>(<span class="num">2016</span>-<span class="num">07</span>-<span class="num">02</span>, <span class="num">2016</span>-<span class="num">07</span>-<span class="num">01</span>, <span class="num">2016</span>-<span class="num">06</span>-<span class="num">30</span>)</pre><p>Generate a list of days for a monthly schedule:</p><pre>scala&gt; Schedule.iterate(Month(<span class="num">2016</span>, <span class="num">3</span>)).where(Year(<span class="num">2016</span>).&lt;=).toList
-res1: <span class="std">List</span>[DateInterval] = <span class="std">List</span>(<span class="num">2016</span>-<span class="num">03</span>, <span class="num">2016</span>-<span class="num">02</span>, <span class="num">2016</span>-<span class="num">01</span>)</pre></div><div class="toggleContainer block">
+res1: <span class="std">List</span>[DateInterval] = <span class="std">List</span>(<span class="num">2016</span>-<span class="num">03</span>, <span class="num">2016</span>-<span class="num">02</span>, <span class="num">2016</span>-<span class="num">01</span>)</pre></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/ypg-data/amadou/tree/master/core/src/main/scala/com.mediative.amadou/Schedule.scala" target="_blank">Schedule.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Equals" class="extype" target="_top">Equals</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.GenTraversable" class="extype" target="_top">GenTraversable</a>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.generic.GenericTraversableTemplate" class="extype" target="_top">GenericTraversableTemplate</a>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.TraversableLike" class="extype" target="_top">TraversableLike</a>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.GenTraversableLike" class="extype" target="_top">GenTraversableLike</a>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Parallelizable" class="extype" target="_top">Parallelizable</a>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.parallel.ParIterable" class="extype" target="_top">ParIterable</a>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.TraversableOnce" class="extype" target="_top">TraversableOnce</a>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.GenTraversableOnce" class="extype" target="_top">GenTraversableOnce</a>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.generic.FilterMonadic" class="extype" target="_top">FilterMonadic</a>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.generic.HasNewBuilder" class="extype" target="_top">HasNewBuilder</a>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -75,6 +75,11 @@ res1: <span class="std">List</span>[DateInterval] = <span class="std">List</span
                 </span>
                 <ol id="linearization">
                   <li class="in" name="com.mediative.amadou.Schedule"><span>Schedule</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="scala.collection.Traversable"><span>Traversable</span></li><li class="in" name="scala.collection.GenTraversable"><span>GenTraversable</span></li><li class="in" name="scala.collection.generic.GenericTraversableTemplate"><span>GenericTraversableTemplate</span></li><li class="in" name="scala.collection.TraversableLike"><span>TraversableLike</span></li><li class="in" name="scala.collection.GenTraversableLike"><span>GenTraversableLike</span></li><li class="in" name="scala.collection.Parallelizable"><span>Parallelizable</span></li><li class="in" name="scala.collection.TraversableOnce"><span>TraversableOnce</span></li><li class="in" name="scala.collection.GenTraversableOnce"><span>GenTraversableOnce</span></li><li class="in" name="scala.collection.generic.FilterMonadic"><span>FilterMonadic</span></li><li class="in" name="scala.collection.generic.HasNewBuilder"><span>HasNewBuilder</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+                <span class="filtertype">Implicitly<br />
+                </span>
+                <ol id="implicits"> <li class="in" name="scala.collection.parallel.CollectionsHaveToParArray" data-hidden="false"><span>by CollectionsHaveToParArray</span></li><li class="in" name="scala.collection.TraversableOnce.MonadOps" data-hidden="false"><span>by MonadOps</span></li><li class="in" name="scala.Predef.any2stringadd" data-hidden="true"><span>by any2stringadd</span></li><li class="in" name="scala.Predef.StringFormat" data-hidden="true"><span>by StringFormat</span></li><li class="in" name="scala.Predef.Ensuring" data-hidden="true"><span>by Ensuring</span></li><li class="in" name="scala.Predef.ArrowAssoc" data-hidden="true"><span>by ArrowAssoc</span></li><li class="in" name="scala.collection.TraversableOnce.alternateImplicit" data-hidden="true"><span>by alternateImplicit</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -190,6 +195,27 @@ res1: <span class="std">List</span>[DateInterval] = <span class="std">List</span
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Predef.any2stringadd#+" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="+(other:String):String"></a>
+      <a id="+(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $plus" class="implicit">+</span><span class="params">(<span name="other">other: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.Schedule@+(other:String):String" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a> to
+            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a>] performed by method any2stringadd in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>any2stringadd</dd></dl></div>
     </li><li name="scala.collection.TraversableLike#++" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="++[B&gt;:A,That](that:scala.collection.GenTraversableOnce[B])(implicitbf:scala.collection.generic.CanBuildFrom[Repr,B,That]):That"></a>
       <a id="++[B&gt;:DateInterval,That](GenTraversableOnce[B])(CanBuildFrom[Traversable[DateInterval],B,That]):That"></a>
@@ -241,6 +267,30 @@ res1: <span class="std">List</span>[DateInterval] = <span class="std">List</span
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike</dd></dl></div>
+    </li><li name="scala.Predef.ArrowAssoc#-&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="-&gt;[B](y:B):(A,B)"></a>
+      <a id="-&gt;[B](B):(Schedule,B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a>, <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.Schedule@-&gt;[B](y:B):(A,B)" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a>] performed by method ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#/:" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="/:[B](z:B)(op:(B,A)=&gt;B):B"></a>
       <a id="/:[B](B)((B,DateInterval)⇒B):B"></a>
@@ -604,6 +654,90 @@ res1: <span class="std">List</span>[DateInterval] = <span class="std">List</span
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → GenTraversableLike</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring((Schedule)⇒Boolean,⇒Any):Schedule"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.Schedule@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean):A"></a>
+      <a id="ensuring((Schedule)⇒Boolean):Schedule"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.Schedule@ensuring(cond:A=&gt;Boolean):A" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring(Boolean,⇒Any):Schedule"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.Schedule@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean):A"></a>
+      <a id="ensuring(Boolean):Schedule"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.Schedule@ensuring(cond:Boolean):A" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -831,6 +965,30 @@ res1: <span class="std">List</span>[DateInterval] = <span class="std">List</span
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a> → GenericTraversableTemplate → TraversableLike → GenTraversableLike → TraversableOnce → GenTraversableOnce → FilterMonadic</dd></dl></div>
+    </li><li name="scala.Predef.StringFormat#formatted" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="formatted(fmtstr:String):String"></a>
+      <a id="formatted(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">formatted</span><span class="params">(<span name="fmtstr">fmtstr: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.Schedule@formatted(fmtstr:String):String" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a> to
+            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a>] performed by method StringFormat in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
     </li><li name="scala.collection.generic.GenericTraversableTemplate#genericBuilder" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="genericBuilder[B&lt;:&lt;?&gt;]:scala.collection.mutable.Builder[B,CC[B]]"></a>
       <a id="genericBuilder[B]:Builder[B,Traversable[B]]"></a>
@@ -1905,6 +2063,27 @@ res1: <span class="std">List</span>[DateInterval] = <span class="std">List</span
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
+    </li><li name="scala.collection.parallel.CollectionsHaveToParArray#toParArray" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toParArray:scala.collection.parallel.mutable.ParArray[T]"></a>
+      <a id="toParArray:ParArray[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">toParArray</span><span class="result">: <span class="extype" name="scala.collection.parallel.mutable.ParArray">ParArray</span>[<span class="extype" name="scala.collection.parallel.CollectionsHaveToParArray.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.Schedule@toParArray:scala.collection.parallel.mutable.ParArray[T]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a> to
+            <span class="extype" name="scala.collection.parallel.CollectionsHaveToParArray">CollectionsHaveToParArray</span>[<a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a>, <span class="extype" name="scala.collection.parallel.CollectionsHaveToParArray.T">T</span>] performed by method CollectionsHaveToParArray in scala.collection.parallel.
+            This conversion will take place only if an implicit value of type (<a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.GenTraversableOnce" class="extype" target="_top">GenTraversableOnce</a>[<span class="extype" name="scala.collection.parallel.CollectionsHaveToParArray.T">T</span>] is in scope.
+          </dd><dt>Definition Classes</dt><dd>CollectionsHaveToParArray</dd></dl></div>
     </li><li name="scala.collection.TraversableOnce#toSeq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toSeq:Seq[A]"></a>
       <a id="toSeq:Seq[DateInterval]"></a>
@@ -2207,10 +2386,118 @@ res1: <span class="std">List</span>[DateInterval] = <span class="std">List</span
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → FilterMonadic</dd></dl></div>
+    </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="→[B](y:B):(A,B)"></a>
+      <a id="→[B](B):(Schedule,B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a>, <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.Schedule@→[B](y:B):(A,B)" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a>] performed by method ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
     </li></ol>
             </div>
 
-        
+        <div id="values" class="values members">
+              <h3>Shadowed Implicit Value Members</h3>
+              <ol><li name="scala.collection.TraversableOnce.MonadOps#filter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="filter(p:A=&gt;Boolean):scala.collection.TraversableOnce[A]"></a>
+      <a id="filter((DateInterval)⇒Boolean):TraversableOnce[DateInterval]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed">filter</span><span class="params">(<span name="p">p: (<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.TraversableOnce" class="extype" target="_top">TraversableOnce</a>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.Schedule@filter(p:A=&gt;Boolean):scala.collection.TraversableOnce[A]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a> to
+            <span class="extype" name="scala.collection.TraversableOnce.MonadOps">MonadOps</span>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>] performed by method MonadOps in scala.collection.TraversableOnce.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is shadowed by one or more members in this class.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(schedule: MonadOps[DateInterval]).filter(p)</pre></div></dd><dt>Definition Classes</dt><dd>MonadOps</dd></dl></div>
+    </li><li name="scala.collection.TraversableOnce.MonadOps#flatMap" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="flatMap[B](f:A=&gt;scala.collection.GenTraversableOnce[B]):scala.collection.TraversableOnce[B]"></a>
+      <a id="flatMap[B]((DateInterval)⇒GenTraversableOnce[B]):TraversableOnce[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed">flatMap</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.GenTraversableOnce" class="extype" target="_top">GenTraversableOnce</a>[<span class="extype" name="scala.collection.TraversableOnce.MonadOps.flatMap.B">B</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.TraversableOnce" class="extype" target="_top">TraversableOnce</a>[<span class="extype" name="scala.collection.TraversableOnce.MonadOps.flatMap.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.Schedule@flatMap[B](f:A=&gt;scala.collection.GenTraversableOnce[B]):scala.collection.TraversableOnce[B]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a> to
+            <span class="extype" name="scala.collection.TraversableOnce.MonadOps">MonadOps</span>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>] performed by method MonadOps in scala.collection.TraversableOnce.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is shadowed by one or more members in this class.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(schedule: MonadOps[DateInterval]).flatMap(f)</pre></div></dd><dt>Definition Classes</dt><dd>MonadOps</dd></dl></div>
+    </li><li name="scala.collection.TraversableOnce.MonadOps#map" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="map[B](f:A=&gt;B):scala.collection.TraversableOnce[B]"></a>
+      <a id="map[B]((DateInterval)⇒B):TraversableOnce[B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed">map</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.MonadOps.map.B">B</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.TraversableOnce" class="extype" target="_top">TraversableOnce</a>[<span class="extype" name="scala.collection.TraversableOnce.MonadOps.map.B">B</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.Schedule@map[B](f:A=&gt;B):scala.collection.TraversableOnce[B]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a> to
+            <span class="extype" name="scala.collection.TraversableOnce.MonadOps">MonadOps</span>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>] performed by method MonadOps in scala.collection.TraversableOnce.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is shadowed by one or more members in this class.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(schedule: MonadOps[DateInterval]).map(f)</pre></div></dd><dt>Definition Classes</dt><dd>MonadOps</dd></dl></div>
+    </li><li name="scala.collection.TraversableOnce.MonadOps#withFilter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="withFilter(p:A=&gt;Boolean):Iterator[A]"></a>
+      <a id="withFilter((DateInterval)⇒Boolean):Iterator[DateInterval]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed">withFilter</span><span class="params">(<span name="p">p: (<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.Schedule@withFilter(p:A=&gt;Boolean):Iterator[A]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a> to
+            <span class="extype" name="scala.collection.TraversableOnce.MonadOps">MonadOps</span>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>] performed by method MonadOps in scala.collection.TraversableOnce.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is shadowed by one or more members in this class.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(schedule: MonadOps[DateInterval]).withFilter(p)</pre></div></dd><dt>Definition Classes</dt><dd>MonadOps</dd></dl></div>
+    </li></ol>
+            </div>
 
         
         </div>
@@ -2249,7 +2536,35 @@ res1: <span class="std">List</span>[DateInterval] = <span class="std">List</span
             </div><div class="parent" name="scala.Any">
               <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
             </div>
-        
+        <div class="conversion" name="scala.collection.parallel.CollectionsHaveToParArray">
+              <h3>Inherited by implicit conversion CollectionsHaveToParArray from
+                <a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a> to <span class="extype" name="scala.collection.parallel.CollectionsHaveToParArray">CollectionsHaveToParArray</span>[<a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a>, <span class="extype" name="scala.collection.parallel.CollectionsHaveToParArray.T">T</span>]
+              </h3>
+            </div><div class="conversion" name="scala.collection.TraversableOnce.MonadOps">
+              <h3>Inherited by implicit conversion MonadOps from
+                <a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a> to <span class="extype" name="scala.collection.TraversableOnce.MonadOps">MonadOps</span>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.any2stringadd">
+              <h3>Inherited by implicit conversion any2stringadd from
+                <a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a> to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.StringFormat">
+              <h3>Inherited by implicit conversion StringFormat from
+                <a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a> to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.Ensuring">
+              <h3>Inherited by implicit conversion Ensuring from
+                <a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a> to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.ArrowAssoc">
+              <h3>Inherited by implicit conversion ArrowAssoc from
+                <a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a>]
+              </h3>
+            </div><div class="conversion" name="scala.collection.TraversableOnce.alternateImplicit">
+              <h3>Inherited by implicit conversion alternateImplicit from
+                <a href="" class="extype" name="com.mediative.amadou.Schedule">Schedule</a> to <span class="extype" name="scala.collection.TraversableOnce.ForceImplicitAmbiguity">ForceImplicitAmbiguity</span>
+              </h3>
+            </div>
         </div>
 
         <div id="groupedMembers">
