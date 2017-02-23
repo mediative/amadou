@@ -18,8 +18,6 @@ package com.mediative.amadou
 package bigquery
 
 import com.google.api.services.bigquery.model.TableReference
-import net.ceedubs.ficus.readers.ValueReader
-import net.ceedubs.ficus.FicusInstances
 
 object BigQueryTable {
   type PartitionMapper = DateInterval => DateInterval
@@ -30,16 +28,6 @@ object BigQueryTable {
 
   case class PartitionStrategy(mapper: PartitionMapper) {
     def partitionSuffix(date: DateInterval): String = "$" + mapper(date).format("yyyyMMdd")
-  }
-
-  object PartitionStrategy extends FicusInstances {
-    implicit val valueReader: ValueReader[PartitionStrategy] = ValueReader[String].map {
-      _ match {
-        case "month" => BigQueryTable.PartitionByMonth
-        case "day" => BigQueryTable.PartitionByDay
-        case other => sys.error(s"Unknown partition strategy")
-      }
-    }
   }
 }
 

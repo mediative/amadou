@@ -24,11 +24,13 @@ import org.apache.hadoop.io.LongWritable
 import org.apache.hadoop.mapreduce.InputFormat
 import org.apache.spark.sql.types._
 import org.apache.spark.sql.{ Dataset => _, _ }
+import net.ceedubs.ficus.readers.ValueReader
+import net.ceedubs.ficus.FicusInstances
 
 import scala.util.Random
 import scala.collection.JavaConversions._
 
-package object bigquery {
+package object bigquery extends FicusInstances {
 
   object CreateDisposition extends Enumeration {
     val CREATE_IF_NEEDED, CREATE_NEVER = Value
@@ -190,4 +192,11 @@ package object bigquery {
 
   }
 
+  implicit val valueReader: ValueReader[BigQueryTable.PartitionStrategy] = ValueReader[String].map {
+    _ match {
+      case "month" => BigQueryTable.PartitionByMonth
+      case "day" => BigQueryTable.PartitionByDay
+      case other => sys.error(s"Unknown partition strategy")
+    }
+  }
 }
