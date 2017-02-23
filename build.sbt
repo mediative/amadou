@@ -67,7 +67,7 @@ val bigquery = project
       "com.google.oauth-client" % "google-oauth-client-jetty" % "1.20.0"
         exclude("org.mortbay.jetty", "servlet-api"),
       "com.holdenkarau" %% "spark-testing-base" % s"${Versions.spark}_0.4.7" % Test,
-      "org.apache.hadoop" % "hadoop-mapreduce-client-core"  % Versions.hadoop % Test force()
+      "org.apache.hadoop" % "hadoop-mapreduce-client-core" % Versions.hadoop % Test force()
     )
   )
 
@@ -77,7 +77,5 @@ val runtime = project
   .settings(
     name := "amadou-runtime",
     dockerRepository := Some("ypg-data-docker-container-registry.bintray.io/amadou"),
-    // XXX: Hack to make Snappy work with Alpine
-    dockerCommands += Cmd("RUN", "ln /lib/ld-musl-x86_64.so.1 /lib/ld-linux-x86-64.so.2"),
     packageName in Docker := "runtime"
   )
