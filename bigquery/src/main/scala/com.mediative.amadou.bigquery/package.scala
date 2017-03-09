@@ -20,14 +20,11 @@ import com.google.api.services.bigquery.model._
 import com.google.cloud.hadoop.fs.gcs.GoogleHadoopFileSystem
 import com.google.cloud.hadoop.io.bigquery._
 import org.apache.hadoop.fs.{ FileSystem, Path }
-import org.apache.hadoop.io.LongWritable
-import org.apache.hadoop.mapreduce.InputFormat
-import org.apache.spark.sql.types._
-import org.apache.spark.sql.{ Dataset => _, _ }
 import net.ceedubs.ficus.readers.ValueReader
 import net.ceedubs.ficus.FicusInstances
 
-import scala.util.Random
+import org.apache.spark.sql.{ DataFrame, SparkSession, Encoder }
+import java.util.concurrent.ThreadLocalRandom
 import scala.collection.JavaConversions._
 
 package object bigquery extends FicusInstances {
@@ -40,19 +37,21 @@ package object bigquery extends FicusInstances {
     val WRITE_TRUNCATE, WRITE_APPEND, WRITE_EMPTY = Value
   }
 
+  val BQ_CSV_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss zzz"
+
   def tableHasDataForDate(spark: SparkSession, table: TableReference, date: java.sql.Date, column: String): Boolean = {
     val bq = BigQueryClient.getInstance(spark.sparkContext.hadoopConfiguration)
     bq.hasDataForDate(table, date, column)
   }
 
-  /* *
-   * Enhanced version of [[SQLContext]] with BigQuery support.
+  /**
+   * Enhanced version of SparkSession with BigQuery support.
    */
-  implicit class BigQuerySQLContext(self: SQLContext) {
+  implicit class BigQuerySparkSession(self: SparkSession) {
 
-    val sc = self.sparkContext
+    val sc = self.sqlContext.sparkContext
     val conf = sc.hadoopConfiguration
-    val bq = BigQueryClient.getInstance(conf)
+    lazy val bq = BigQueryClient.getInstance(conf)
 
     // Register GCS implementation
     if (conf.get("fs.gs.impl") == null) {
@@ -91,69 +90,56 @@ package object bigquery extends FicusInstances {
       conf.set("fs.gs.auth.service.account.json.keyfile", jsonKeyFile)
     }
 
-    /* *
-     * Perform a BigQuery SELECT query and load results as a [[DataFrame]].
-     * @param sqlQuery SQL query in SQL-2011 dialect.
-    def bigQuerySelect(sqlQuery: String): DataFrame = bigQueryTable(bq.query(sqlQuery))
-    */
-
-    /* *
-     * Load a BigQuery table as a [[DataFrame]].
-    def bigQueryTable(tableRef: TableReference): DataFrame = {
-      conf.setClass(
-        AbstractBigQueryInputFormat.INPUT_FORMAT_CLASS_KEY,
-        classOf[AvroBigQueryInputFormat], classOf[InputFormat[LongWritable, GenericData.Record]])
-
-      BigQueryConfiguration.configureBigQueryInput(
-        conf, tableRef.getProjectId, tableRef.getDatasetId, tableRef.getTableId)
-
-      val fClass = classOf[AvroBigQueryInputFormat]
-      val kClass = classOf[LongWritable]
-      val vClass = classOf[GenericData.Record]
-      val rdd = sc
-        .newAPIHadoopRDD(conf, fClass, kClass, vClass)
-        .map(_._2)
-      val schemaString = rdd.map(_.getSchema.toString).first()
-      val schema = new Schema.Parser().parse(schemaString)
-
-      val structType = SchemaConverters.toSqlType(schema).dataType.asInstanceOf[StructType]
-      val converter = SchemaConverters.createConverterToSQL(schema)
-        .asInstanceOf[GenericData.Record => Row]
-      self.createDataFrame(rdd.map(converter), structType)
-    }
-    */
-
-    /* *
-     * Load a BigQuery table as a [[DataFrame]].
+    /**
+     * Set GCP pk12 key file.
      */
-    /*
-    def bigQueryTable(tableSpec: String): DataFrame =
-      bigQueryTable(BigQueryStrings.parseTableReference(tableSpec))
-      */
+    def setGcpPk12KeyFile(pk12KeyFile: String): Unit = {
+      conf.set("google.cloud.auth.service.account.keyfile", pk12KeyFile)
+      conf.set("mapred.bq.auth.service.account.keyfile", pk12KeyFile)
+      conf.set("fs.gs.auth.service.account.keyfile", pk12KeyFile)
+    }
+
+    /**
+     * Reads a CSV extract of a BigQuery table.
+     */
+    def readBigQueryCSVExtract[T: Encoder](url: String, dateFormat: String = BQ_CSV_DATE_FORMAT): Seq[T] = {
+      self.read
+        .option("header", true)
+        .option("timestampFormat", dateFormat)
+        .option("escape", "\"")
+        .schema(implicitly[Encoder[T]].schema)
+        .csv(url)
+        .as[T]
+        .collect
+        .toSeq
+    }
 
   }
 
   /**
-   * Enhanced version of [[org.apache.spark.sql.DataFrame]] with BigQuery support.
+   * Enhanced version of DataFrame with BigQuery support.
    */
   implicit class BigQueryDataFrame(self: DataFrame) {
 
     val sqlContext = self.sqlContext
     val conf = sqlContext.sparkContext.hadoopConfiguration
-    private def bq = BigQueryClient.getInstance(conf)
+    val bq = BigQueryClient.getInstance(conf)
 
     /**
-     * Save a [[org.apache.spark.sql.DataFrame]] to a BigQuery table.
+     * Save a DataFrame to a BigQuery table.
      */
-    def saveAsBigQueryTable(tableRef: TableReference,
+    def saveAsBigQueryTable(
+      tableRef: TableReference,
       writeDisposition: WriteDisposition.Value,
       createDisposition: CreateDisposition.Value): Unit = {
       val bucket = conf.get(BigQueryConfiguration.GCS_BUCKET_KEY)
-      val temp = s"spark-bigquery-${System.currentTimeMillis()}=${Random.nextInt(Int.MaxValue)}"
+      val temp = s"spark-bigquery-${System.currentTimeMillis()}=${ThreadLocalRandom.current.nextInt(Int.MaxValue)}"
       val gcsPath = s"gs://$bucket/spark-bigquery-tmp/$temp"
       self.write.json(gcsPath)
 
       val schemaFields = self.schema.fields.map { field =>
+        import org.apache.spark.sql.types._
+
         val fieldType = field.dataType match {
           case BooleanType => "BOOLEAN"
           case LongType => "INTEGER"
@@ -173,16 +159,6 @@ package object bigquery extends FicusInstances {
       df
     }
 
-    /**
-     * Save a [[org.apache.spark.sql.DataFrame]] to a BigQuery table.
-     */
-    def saveAsBigQueryTable(tableSpec: String,
-      writeDisposition: WriteDisposition.Value = null,
-      createDisposition: CreateDisposition.Value = null): Unit =
-      saveAsBigQueryTable(
-        BigQueryStrings.parseTableReference(tableSpec),
-        writeDisposition,
-        createDisposition)
 
     private def delete(path: Path): Unit = {
       val fs = FileSystem.get(path.toUri, conf)

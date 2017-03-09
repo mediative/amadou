@@ -30,13 +30,11 @@ import com.google.cloud.hadoop.io.bigquery._
 import com.google.common.cache.{ CacheBuilder, CacheLoader, LoadingCache }
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.util.Progressable
-//import org.joda.time.Instant
-//import org.joda.time.format.DateTimeFormat
 import org.slf4j.{ Logger, LoggerFactory }
 
 import scala.collection.JavaConverters._
-import scala.util.{ Random, Try }
 import scala.util.control.NonFatal
+import scala.util.Try
 
 private[bigquery] object BigQueryClient {
   val STAGING_DATASET_PREFIX = "bq.staging_dataset.prefix"
@@ -73,33 +71,11 @@ private[bigquery] class BigQueryClient(conf: Configuration) {
 
   private def projectId: String = conf.get(BigQueryConfiguration.PROJECT_ID_KEY)
 
-  /*
-  private val queryCache: LoadingCache[String, TableReference] =
-    CacheBuilder.newBuilder()
-      .expireAfterWrite(STAGING_DATASET_TABLE_EXPIRATION_MS, TimeUnit.MILLISECONDS)
-      .build[String, TableReference](new CacheLoader[String, TableReference] {
-      override def load(key: String): TableReference = {
-        val sqlQuery = key
-        logger.info(s"Executing query $sqlQuery")
-
-        val location = conf.get(STAGING_DATASET_LOCATION, STAGING_DATASET_LOCATION_DEFAULT)
-        val destinationTable = temporaryTable(location)
-        val tableName = BigQueryStrings.toString(destinationTable)
-        logger.info(s"Destination table: $destinationTable")
-
-        val job = createQueryJob(sqlQuery, destinationTable, dryRun = false)
-        waitForJob(job)
-        destinationTable
-      }
-    })
-    */
-
   private def inConsole = Thread.currentThread().getStackTrace.exists(
     _.getClassName.startsWith("scala.tools.nsc.interpreter."))
   private val PRIORITY = if (inConsole) "INTERACTIVE" else "BATCH"
   private val TABLE_ID_PREFIX = "spark_bigquery"
   private val JOB_ID_PREFIX = "spark_bigquery"
-  //private val TIME_FORMATTER = DateTimeFormat.forPattern("yyyyMMddHHmmss")
 
   /** Matcher for "Missing table" errors. */
   object TableNotFound {
@@ -110,6 +86,41 @@ private[bigquery] class BigQueryClient(conf: Configuration) {
           .flatMap(_.getErrors.asScala.find(_.getReason == "notFound"))
       case _ => None
     }
+  }
+
+  def tableInfo(table: TableReference): Table =
+    bigquery.tables().get(table.getProjectId, table.getDatasetId, table.getTableId).execute()
+
+  /**
+   * Perform a BigQuery SELECT query and save results to the destination table.
+   */
+  def query(sqlQuery: String, destinationTable: TableReference, writeDisposition: WriteDisposition.Value): TableReference = {
+    logger.info(s"Executing query $sqlQuery")
+    logger.info(s"Destination table: $destinationTable")
+
+    val job = createQueryJob(sqlQuery, destinationTable, dryRun = false, PRIORITY, writeDisposition)
+    logger.info("JOB ID: " + job.getId)
+    waitForJob(job)
+    logger.info("JOB STATUS: " + job.getStatus.getState)
+    destinationTable
+  }
+
+  /**
+   * Extract table to *.csv.gz files in GCS
+   */
+  def extract(sourceTable: TableReference, gcsPath: String): Unit = {
+    val destination = gcsPath + "/*.csv.gz"
+    logger.info(s"extracting $sourceTable to $destination")
+    val extractConfig = new JobConfigurationExtract()
+      .setDestinationFormat("CSV")
+      .setCompression("GZIP")
+      .setDestinationUri(destination)
+      .setSourceTable(sourceTable)
+    val jobConfig = new JobConfiguration().setExtract(extractConfig)
+    val jobReference = createJobReference(projectId, JOB_ID_PREFIX)
+    val job = new Job().setConfiguration(jobConfig).setJobReference(jobReference)
+    bigquery.jobs().insert(projectId, job).execute()
+    waitForJob(job)
   }
 
   /**
@@ -173,7 +184,8 @@ private[bigquery] class BigQueryClient(conf: Configuration) {
   /**
    * Load an JSON data set on GCS to a BigQuery table.
    */
-  def load(gcsPath: String, destinationTable: TableReference, schema: TableSchema,
+  def load(
+    gcsPath: String, destinationTable: TableReference, schema: TableSchema,
     writeDisposition: WriteDisposition.Value = null,
     createDisposition: CreateDisposition.Value = null): Unit = {
     val tableName = BigQueryStrings.toString(destinationTable)
@@ -182,16 +194,18 @@ private[bigquery] class BigQueryClient(conf: Configuration) {
       .setDestinationTable(destinationTable)
       .setSourceFormat("NEWLINE_DELIMITED_JSON")
       .setSourceUris(List(gcsPath + "/*.json").asJava)
+      .setSchema(schema)
+
     if (writeDisposition != null) {
       loadConfig = loadConfig.setWriteDisposition(writeDisposition.toString)
     }
+
     if (createDisposition != null) {
       if (createDisposition == CreateDisposition.CREATE_IF_NEEDED && destinationTable.getTableId.contains("$"))
         createPartitionedTableIfMissing(destinationTable)
       else
         loadConfig = loadConfig.setCreateDisposition(createDisposition.toString)
     }
-    loadConfig.setSchema(schema)
 
     val jobConfig = new JobConfiguration().setLoad(loadConfig)
     val jobReference = createJobReference(projectId, JOB_ID_PREFIX)
@@ -202,7 +216,7 @@ private[bigquery] class BigQueryClient(conf: Configuration) {
 
   private def waitForJob(job: Job): Unit = {
     BigQueryUtils.waitForJobCompletion(bigquery, projectId, job.getJobReference, new Progressable {
-      override def progress(): Unit = println(".")
+      override def progress(): Unit = println("<BQ process>")
     })
   }
 
@@ -232,26 +246,16 @@ private[bigquery] class BigQueryClient(conf: Configuration) {
     new DatasetReference().setProjectId(projectId).setDatasetId(datasetId)
   }
 
-  /*
-  private def temporaryTable(location: String): TableReference = {
-    val now = Instant.now().toString(TIME_FORMATTER)
-    val tableId = TABLE_ID_PREFIX + "_" + now + "_" + Random.nextInt(Int.MaxValue)
-    new TableReference()
-      .setProjectId(projectId)
-      .setDatasetId(stagingDataset(location).getDatasetId)
-      .setTableId(tableId)
-  }
-  */
-
   private def createQueryJob(sqlQuery: String,
     destinationTable: TableReference,
     dryRun: Boolean,
-    priority: String = PRIORITY): Job = {
+    priority: String,
+    writeDisposition: WriteDisposition.Value = WriteDisposition.WRITE_EMPTY): Job = {
     var queryConfig = new JobConfigurationQuery()
       .setQuery(sqlQuery)
       .setPriority(priority)
       .setCreateDisposition("CREATE_IF_NEEDED")
-      .setWriteDisposition("WRITE_EMPTY")
+      .setWriteDisposition(writeDisposition.toString)
     if (destinationTable != null) {
       queryConfig = queryConfig
         .setDestinationTable(destinationTable)
@@ -261,7 +265,14 @@ private[bigquery] class BigQueryClient(conf: Configuration) {
     val jobConfig = new JobConfiguration().setQuery(queryConfig).setDryRun(dryRun)
     val jobReference = createJobReference(projectId, JOB_ID_PREFIX)
     val job = new Job().setConfiguration(jobConfig).setJobReference(jobReference)
-    bigquery.jobs().insert(projectId, job).execute()
+    try {
+      bigquery.jobs().insert(projectId, job).execute()
+    } catch {
+      case ex: Exception =>
+        logger.error(ex.getMessage, ex)
+        ex.printStackTrace()
+        throw ex
+    }
   }
 
   private def createJobReference(projectId: String, jobIdPrefix: String): JobReference = {
