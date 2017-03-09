@@ -17,8 +17,9 @@ inThisBuild(Def.settings(
 
 lazy val Versions = new {
   val kafka = "0.8.2.2"
-  val spark = "2.0.0"
-  val prometheus = "0.0.19"
+  val spark = "2.1.0"
+  val sparkTestingBase = s"${spark}_0.6.0"
+  val prometheus = "0.0.21"
   val hadoop = "2.7.2"
 }
 
@@ -50,8 +51,8 @@ val core = project
       "joda-time" % "joda-time" % "2.9.7", // XXX: Use explicit joda-time dependency for AWS SDK
       "org.apache.kafka" % "kafka-clients" % Versions.kafka
         exclude("org.slf4j", "slf4j-log4j12"),
-      "com.holdenkarau" %% "spark-testing-base" % s"${Versions.spark}_0.4.7" % Test,
-      "org.apache.hadoop" % "hadoop-mapreduce-client-core"  % Versions.hadoop % Test force()
+      "com.holdenkarau" %% "spark-testing-base" % Versions.sparkTestingBase % Test,
+      "org.apache.hadoop" % "hadoop-mapreduce-client-core" % Versions.hadoop % Test force()
     )
   )
 
@@ -66,7 +67,7 @@ val bigquery = project
       "com.google.apis" % "google-api-services-bigquery" % "v2-rev320-1.22.0",
       "com.google.oauth-client" % "google-oauth-client-jetty" % "1.20.0"
         exclude("org.mortbay.jetty", "servlet-api"),
-      "com.holdenkarau" %% "spark-testing-base" % s"${Versions.spark}_0.4.7" % Test,
+      "com.holdenkarau" %% "spark-testing-base" % Versions.sparkTestingBase % Test,
       "org.apache.hadoop" % "hadoop-mapreduce-client-core" % Versions.hadoop % Test force()
     )
   )
