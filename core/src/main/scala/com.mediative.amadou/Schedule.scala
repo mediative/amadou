@@ -40,6 +40,7 @@ trait ScheduleDsl {
   def today = Schedule(Day.today)
   def daily = Schedule.iterate(Day.today)
   def monthly = Schedule.iterate(Month.today)
+  def yearly = Schedule.iterate(Year.today)
 }
 
 /**
