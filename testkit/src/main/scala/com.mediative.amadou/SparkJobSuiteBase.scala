@@ -20,6 +20,7 @@ import org.scalatest.BeforeAndAfterAll
 import org.scalatest.Suite
 import com.holdenkarau.spark.testing.DatasetSuiteBase
 import com.typesafe.config.ConfigFactory
+import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.fs.{ FileSystem, Path }
 
 /**
@@ -27,16 +28,20 @@ import org.apache.hadoop.fs.{ FileSystem, Path }
  */
 trait SparkJobSuiteBase extends DatasetSuiteBase with BeforeAndAfterAll { self: Suite =>
   val config = ConfigFactory.load()
-  val rootUrl = HdfsUrl(config.getString("hdfs.root"))
-  def fileSystem = rootUrl.path.getFileSystem(spark.sparkContext.hadoopConfiguration)
+  val fileSystem = FileSystem.get(new Configuration())
 
   override def beforeAll() = {
     super.beforeAll()
 
-    /* Cleanup the HDFS root before running the test. */
-    if (rootUrl.path.toString.startsWith("target/")
-      && rootUrl.exists(spark)) {
-      assert(fileSystem.delete(rootUrl.path, true))
+    if (config.hasPath("hdfs.root")) {
+      val rootUrl = config.getString("hdfs.root")
+      val path = new Path(rootUrl)
+
+      /* Cleanup the HDFS root before running the test. */
+      if (rootUrl.startsWith("target/") && fileSystem.exists(path)) {
+        assert(fileSystem.delete(path, true))
+      }
     }
+    ()
   }
 }

@@ -25,7 +25,7 @@ lazy val Versions = new {
 
 lazy val amadou = project.in(file("."))
   .enablePlugins(MediativeGitHubPlugin, MediativeReleasePlugin)
-  .aggregate(base, core, bigquery, runtime)
+  .aggregate(base, testkit, core, bigquery, runtime)
   .settings(
     noPublishSettings,
     postReleaseSteps += releaseStepTask(publish in Docker in runtime)
@@ -56,20 +56,27 @@ val base = project
     )
   )
 
-val core = project
+val testkit = project
   .enablePlugins(MediativeBintrayPlugin)
   .dependsOn(base)
   .settings(
-    name := "amadou-core",
+    name := "amadou-testkit",
     libraryDependencies ++= Seq(
-      "com.holdenkarau" %% "spark-testing-base" % Versions.sparkTestingBase % Test,
-      "org.apache.hadoop" % "hadoop-mapreduce-client-core" % Versions.hadoop % Test force()
+      "com.holdenkarau" %% "spark-testing-base" % Versions.sparkTestingBase,
+      "org.apache.hadoop" % "hadoop-mapreduce-client-core" % Versions.hadoop force()
     )
+  )
+
+val core = project
+  .enablePlugins(MediativeBintrayPlugin)
+  .dependsOn(base, testkit % Test)
+  .settings(
+    name := "amadou-core"
   )
 
 val bigquery = project
   .enablePlugins(MediativeBintrayPlugin)
-  .dependsOn(core)
+  .dependsOn(core, testkit % Test)
   .settings(
     name := "amadou-bigquery",
     libraryDependencies ++= Seq(
@@ -77,9 +84,7 @@ val bigquery = project
         exclude("com.google.apis", "google-api-services-bigquery"),
       "com.google.apis" % "google-api-services-bigquery" % "v2-rev320-1.22.0",
       "com.google.oauth-client" % "google-oauth-client-jetty" % "1.20.0"
-        exclude("org.mortbay.jetty", "servlet-api"),
-      "com.holdenkarau" %% "spark-testing-base" % Versions.sparkTestingBase % Test,
-      "org.apache.hadoop" % "hadoop-mapreduce-client-core" % Versions.hadoop % Test force()
+        exclude("org.mortbay.jetty", "servlet-api")
     )
   )
 
