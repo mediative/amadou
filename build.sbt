@@ -25,16 +25,18 @@ lazy val Versions = new {
 
 lazy val amadou = project.in(file("."))
   .enablePlugins(MediativeGitHubPlugin, MediativeReleasePlugin)
-  .aggregate(core, bigquery, runtime)
+  .aggregate(base, core, bigquery, runtime)
   .settings(
     noPublishSettings,
     postReleaseSteps += releaseStepTask(publish in Docker in runtime)
   )
 
-val core = project
-  .enablePlugins(MediativeBintrayPlugin)
+val base = project
+  .enablePlugins(MediativeBintrayPlugin, MediativeDockerPlugin)
   .settings(
-    name := "amadou-core",
+    name := "amadou-base",
+    dockerRepository := Some("ypg-data-docker-container-registry.bintray.io/amadou"),
+    packageName := "base",
     libraryDependencies ++= Seq(
       "com.typesafe" % "config" % "1.3.0",
       "com.iheart" %% "ficus" % "1.2.6",
@@ -50,7 +52,16 @@ val core = project
         exclude("joda-time", "joda-time"),
       "joda-time" % "joda-time" % "2.9.7", // XXX: Use explicit joda-time dependency for AWS SDK
       "org.apache.kafka" % "kafka-clients" % Versions.kafka
-        exclude("org.slf4j", "slf4j-log4j12"),
+        exclude("org.slf4j", "slf4j-log4j12")
+    )
+  )
+
+val core = project
+  .enablePlugins(MediativeBintrayPlugin)
+  .dependsOn(base)
+  .settings(
+    name := "amadou-core",
+    libraryDependencies ++= Seq(
       "com.holdenkarau" %% "spark-testing-base" % Versions.sparkTestingBase % Test,
       "org.apache.hadoop" % "hadoop-mapreduce-client-core" % Versions.hadoop % Test force()
     )
@@ -77,6 +88,7 @@ val runtime = project
   .dependsOn(core, bigquery)
   .settings(
     name := "amadou-runtime",
+    dockerBaseImage := (dockerAlias in base).value.versioned,
     dockerRepository := Some("ypg-data-docker-container-registry.bintray.io/amadou"),
-    packageName in Docker := "runtime"
+    packageName := "runtime"
   )
