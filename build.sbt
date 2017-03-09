@@ -90,7 +90,7 @@ val bigquery = project
 
 val runtime = project
   .enablePlugins(MediativeBintrayPlugin, MediativeDockerPlugin)
-  .dependsOn(core, bigquery)
+  .dependsOn(core % Provided, bigquery % Provided)
   .settings(
     name := "amadou-runtime",
     dockerBaseImage := (dockerAlias in base).value.versioned,
