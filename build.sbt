@@ -28,7 +28,7 @@ lazy val amadou = project.in(file("."))
   .aggregate(base, testkit, core, bigquery, runtime)
   .settings(
     noPublishSettings,
-    postReleaseSteps += releaseStepTask(publish in Docker in runtime)
+    postReleaseSteps ++= Seq(base, runtime).map(p => releaseStepTask(publish in Docker in p))
   )
 
 val base = project
