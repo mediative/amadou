@@ -49,7 +49,7 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Enhanced version of <span class="extype" name="org.apache.spark.sql.DataFrame">org.apache.spark.sql.DataFrame</span> with BigQuery support.
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Enhanced version of DataFrame with BigQuery support.
 </p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/ypg-data/amadou/tree/master/bigquery/src/main/scala/com.mediative.amadou.bigquery/package.scala" target="_blank">package.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
@@ -233,6 +233,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="com.mediative.amadou.bigquery.BigQueryDataFrame#bq" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="bq:com.mediative.amadou.bigquery.BigQueryClient"></a>
+      <a id="bq:BigQueryClient"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bq</span><span class="result">: <span class="extype" name="com.mediative.amadou.bigquery.BigQueryClient">BigQueryClient</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.mediative.amadou.bigquery.package$$BigQueryDataFrame@bq:com.mediative.amadou.bigquery.BigQueryClient" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a>
       <a id="clone():AnyRef"></a>
@@ -541,23 +558,6 @@
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
     </li><li name="com.mediative.amadou.bigquery.BigQueryDataFrame#saveAsBigQueryTable" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="saveAsBigQueryTable(tableSpec:String,writeDisposition:com.mediative.amadou.bigquery.package.WriteDisposition.Value,createDisposition:com.mediative.amadou.bigquery.package.CreateDisposition.Value):Unit"></a>
-      <a id="saveAsBigQueryTable(String,WriteDisposition.Value,CreateDisposition.Value):Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">saveAsBigQueryTable</span><span class="params">(<span name="tableSpec">tableSpec: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="writeDisposition">writeDisposition: <a href="package$$WriteDisposition$.html#ValueextendsOrdered[Enumeration.this.Value]withSerializable" class="extmbr" name="com.mediative.amadou.bigquery.WriteDisposition.Value">WriteDisposition.Value</a> = <span class="symbol">null</span></span>, <span name="createDisposition">createDisposition: <a href="package$$CreateDisposition$.html#ValueextendsOrdered[Enumeration.this.Value]withSerializable" class="extmbr" name="com.mediative.amadou.bigquery.CreateDisposition.Value">CreateDisposition.Value</a> = <span class="symbol">null</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#com.mediative.amadou.bigquery.package$$BigQueryDataFrame@saveAsBigQueryTable(tableSpec:String,writeDisposition:com.mediative.amadou.bigquery.package.WriteDisposition.Value,createDisposition:com.mediative.amadou.bigquery.package.CreateDisposition.Value):Unit" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Save a <span class="extype" name="org.apache.spark.sql.DataFrame">org.apache.spark.sql.DataFrame</span> to a BigQuery table.</p>
-    </li><li name="com.mediative.amadou.bigquery.BigQueryDataFrame#saveAsBigQueryTable" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="saveAsBigQueryTable(tableRef:com.google.api.services.bigquery.model.TableReference,writeDisposition:com.mediative.amadou.bigquery.package.WriteDisposition.Value,createDisposition:com.mediative.amadou.bigquery.package.CreateDisposition.Value):Unit"></a>
       <a id="saveAsBigQueryTable(TableReference,WriteDisposition.Value,CreateDisposition.Value):Unit"></a>
       <h4 class="signature">
@@ -573,7 +573,7 @@
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <p class="shortcomment cmt">Save a <span class="extype" name="org.apache.spark.sql.DataFrame">org.apache.spark.sql.DataFrame</span> to a BigQuery table.</p>
+      <p class="shortcomment cmt">Save a DataFrame to a BigQuery table.</p>
     </li><li name="com.mediative.amadou.bigquery.BigQueryDataFrame#sqlContext" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="sqlContext:org.apache.spark.sql.SQLContext"></a>
       <a id="sqlContext:SQLContext"></a>
