@@ -18,7 +18,7 @@ package com.mediative.amadou
 
 import scala.concurrent.duration._
 import org.apache.spark.SparkConf
-import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql._
 
 sealed trait Stage
 case object ReadRaw extends Stage
@@ -65,4 +65,23 @@ trait SparkJob extends Logging {
    * measured. For example, many Spark operations are lazy.
    */
   def stage[T](stage: Stage)(f: => T): T = f
+
+  implicit class SparkReadOps(self: DataFrameReader) {
+    def csv(url: HdfsUrl*) = self.csv(url.map(_.toString): _*)
+    def json(url: HdfsUrl*) = self.json(url.map(_.toString): _*)
+    def load(url: HdfsUrl*) = self.load(url.map(_.toString): _*)
+    def orc(url: HdfsUrl*) = self.orc(url.map(_.toString): _*)
+    def parquet(url: HdfsUrl*) = self.parquet(url.map(_.toString): _*)
+    def text(url: HdfsUrl*) = self.text(url.map(_.toString): _*)
+    def textFile(url: HdfsUrl*) = self.textFile(url.map(_.toString): _*)
+  }
+
+  implicit class SparkWriteOps[T](self: DataFrameWriter[T]) {
+    def csv(url: HdfsUrl) = self.csv(url.toString)
+    def json(url: HdfsUrl) = self.json(url.toString)
+    def save(url: HdfsUrl) = self.save(url.toString)
+    def orc(url: HdfsUrl) = self.orc(url.toString)
+    def parquet(url: HdfsUrl) = self.parquet(url.toString)
+    def text(url: HdfsUrl) = self.text(url.toString)
+  }
 }
