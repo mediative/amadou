@@ -37,7 +37,7 @@ import scala.util.Try
 case class DateInterval(
     timestamp: Long,
     interval: DateIntervalType,
-    toOpt: Option[DateInterval] = None) extends Ordered[DateInterval] with Traversable[DateInterval] {
+    toOpt: Option[DateInterval] = None) extends Ordered[DateInterval] {
 
   val from = interval.truncate(timestamp)
 
@@ -50,7 +50,7 @@ case class DateInterval(
    * {{{
    * scala> Month(2016, 8) to Day(2016, 8, 29)
    * res1: DateInterval = 2016-08:2016-08-29
-   * scala> (Day(2016, 8, 11) to Day(2016, 8, 29)).size
+   * scala> (Day(2016, 8, 11) to Day(2016, 8, 29)).by(Day).size
    * res2: Int = 18
    * }}}
    */
@@ -88,19 +88,16 @@ case class DateInterval(
    *
    * Example:
    * {{{
-   * scala> Week(2016, 11).size
+   * scala> Week(2016, 11).by(Day).size
    * res1: Int = 7
-   * scala> Week(2016, 11).toList
+   * scala> Week(2016, 11).by(Day).toList
    * res2: List[DateInterval] = List(2016-03-14, 2016-03-15, 2016-03-16, 2016-03-17, 2016-03-18, 2016-03-19, 2016-03-20)
    * }}}
    */
-  override def foreach[U](f: DateInterval => U): Unit = {
-    var d = Day(this)
+  def by(interval: DateIntervalType): Traversable[DateInterval] = {
+    var d = interval.apply(this)
 
-    while (d.from.before(end.from)) {
-      f(d)
-      d = d.next
-    }
+    Stream.iterate(d)(_.next).takeWhile(_.from.before(end.from))
   }
 
   /**
@@ -256,7 +253,7 @@ object Day extends DateIntervalType(Calendar.DAY_OF_MONTH, "yyyy-MM-dd") {
  * res1: DateInterval = 2009-W01
  * scala> Week(Day(2010, 1, 3))
  * res2: DateInterval = 2009-W53
- * scala> Week(2009, 53, dayOfWeek = Week.Sunday).last
+ * scala> Week(2009, 53, dayOfWeek = Week.Sunday).by(Day).last
  * res3: DateInterval = 2010-01-03
  * }}}
  */

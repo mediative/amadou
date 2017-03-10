@@ -57,7 +57,3 @@ case class HdfsUrl(url: String, dateFormat: Option[String] = None) {
 
   override def toString = path.toString
 }
-
-object HdfsUrl {
-  implicit def hdfsUrlToString(hdfsUrl: HdfsUrl) = hdfsUrl.toString
-}

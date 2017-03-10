@@ -45,7 +45,7 @@ class DateIntervalSpec extends FreeSpec {
 
     "should have iterator for dates" in {
       val dt = Day(2016, 6, 5)
-      assert(dt.size == 1)
+      assert(dt.by(Day).size == 1)
     }
   }
 
@@ -74,7 +74,7 @@ class DateIntervalSpec extends FreeSpec {
 
     "should have iterator for dates" in {
       val dt = Week(2016, 6)
-      assert(dt.size == 7)
+      assert(dt.by(Day).size == 7)
     }
   }
 
@@ -103,13 +103,13 @@ class DateIntervalSpec extends FreeSpec {
 
     "should have iterator for dates" in {
       val dt = Month(2016, 6)
-      assert(dt.size == 30)
+      assert(dt.by(Day).size == 30)
 
       val dt2 = Month(2016, 2)
-      assert(dt2.size == 29)
+      assert(dt2.by(Day).size == 29)
 
       val dt3 = Month(1999, 2)
-      assert(dt3.size == 28)
+      assert(dt3.by(Day).size == 28)
     }
   }
 
@@ -138,10 +138,10 @@ class DateIntervalSpec extends FreeSpec {
 
     "should have iterator for dates" in {
       val dt = Year(2016)
-      assert(dt.size == 366)
+      assert(dt.by(Day).size == 366)
 
       val dt2 = Year(1999)
-      assert(dt2.size == 365)
+      assert(dt2.by(Day).size == 365)
     }
   }
 
