@@ -30,8 +30,8 @@ import scala.util.Try
  *
  * Example:
  * {{{
- * scala> Seq(Day(2016, 8, 11), Month(2016, 8), Year(2016))
- * res1: Seq[DateInterval] = List(2016-08-11, 2016-08, 2016)
+ * scala> Seq(Day(2016, 8, 11), Week(2016, 32), Month(2016, 8), Quarter(2016, Quarter.Q3), Year(2016))
+ * res1: Seq[DateInterval] = List(2016-08-11, 2016-W32, 2016-08, 2016-Q3, 2016)
  * }}}
  */
 case class DateInterval(
@@ -59,7 +59,7 @@ case class DateInterval(
 
   def +(delta: Int): DateInterval = DateInterval(interval) { cal =>
     cal.setTimeInMillis(from.getTime)
-    cal.add(interval.calendarField, delta)
+    cal.add(interval.calendarField, delta * interval.deltaMultiplier)
   }
 
   def -(delta: Int): DateInterval = this.+(-delta)
@@ -71,7 +71,8 @@ case class DateInterval(
 
   override def compare(that: DateInterval) = from.compareTo(that.from)
 
-  override def toString = format(interval.dateFormat)
+  override def toString =
+    interval.defaultFormatter.format(from) + toOpt.fold("")(":" + _.toString)
 
   def format(dateFormat: String): String = {
     val formatter = interval.formatter(dateFormat)
@@ -150,7 +151,7 @@ object DateInterval {
 /**
  * Base class for specific date intervals
  */
-sealed abstract class DateIntervalType(val calendarField: Int, val dateFormat: String) {
+sealed abstract class DateIntervalType(val calendarField: Int, val dateFormat: String, val deltaMultiplier: Int = 1) {
   protected def create(year: Int, month: Int = 1, day: Int = 1): DateInterval = DateInterval(this) { cal =>
     require(1 <= month && month <= 12, "month must be between 1-12")
     cal.set(year, month - 1, day)
@@ -178,12 +179,16 @@ sealed abstract class DateIntervalType(val calendarField: Int, val dateFormat: S
    * {{{
    * scala> Day(1431000000000L)
    * res1: DateInterval = 2015-05-07
+   * scala> Week(Day(1431000000000L))
+   * res2: DateInterval = 2015-W19
    * scala> Month(Day(1431000000000L))
-   * res2: DateInterval = 2015-05
+   * res3: DateInterval = 2015-05
+   * scala> Quarter(1431000000000L)
+   * res4: DateInterval = 2015-Q2
    * scala> Year(Day(1431000000000L))
-   * res3: DateInterval = 2015
+   * res5: DateInterval = 2015
    * scala> Year(Day(1431000000000L)).format("yyyy-MM-dd HH:mm ZZ")
-   * res4: String = 2015-01-01 00:00 +0000
+   * res6: String = 2015-01-01 00:00 +0000
    * }}}
    */
   def apply(date: DateInterval): DateInterval =
@@ -229,14 +234,17 @@ sealed abstract class DateIntervalType(val calendarField: Int, val dateFormat: S
    * }}}
    */
   def parse(input: String): Option[DateInterval] =
-    Try(formatter(dateFormat).parse(input)).map(date => DateInterval(date.getTime, this)).toOption
+    Try(defaultFormatter.parse(input)).map(date => DateInterval(date.getTime, this)).toOption
 
-  def formatter(pattern: String = dateFormat): DateFormat = {
+  private[amadou] def formatter(pattern: String = dateFormat): SimpleDateFormat = {
     val cal = DateInterval.createUTCCalendar()
     val dateFormat = new SimpleDateFormat(pattern)
     dateFormat.setCalendar(cal)
     dateFormat
   }
+
+  private[amadou] def defaultFormatter: SimpleDateFormat =
+    formatter(dateFormat)
 }
 
 object Day extends DateIntervalType(Calendar.DAY_OF_MONTH, "yyyy-MM-dd") {
@@ -285,6 +293,46 @@ object Week extends DateIntervalType(Calendar.WEEK_OF_YEAR, "YYYY-'W'ww") {
 
 object Month extends DateIntervalType(Calendar.MONTH, "yyyy-MM") {
   def apply(year: Int, month: Int): DateInterval = create(year, month)
+}
+
+sealed abstract class Quarter(val month: Int)
+
+/**
+ * Quarters of the year.
+ *
+ * {{{
+ * scala> Quarter(2017, Quarter.Q1)
+ * res1: DateInterval = 2017-Q1
+ * scala> Year(2017).by(Quarter).toList
+ * res2: List[DateInterval] = List(2017-Q1, 2017-Q2, 2017-Q3, 2017-Q4)
+ * scala> Quarter(2017, Quarter.Q1).by(Month).toList
+ * res3: List[DateInterval] = List(2017-01, 2017-02, 2017-03)
+ * scala> Quarter.parse("2008-Q4")
+ * res4: Option[DateInterval] = Some(2008-Q4)
+ * scala> Quarter(2017, Quarter.Q2).format("yyyy-MM-dd")
+ * res5: String = 2017-04-01
+ * }}}
+ */
+object Quarter extends DateIntervalType(Calendar.MONTH, "yyyy-MMM", 3) {
+  case object Q1 extends Quarter(month = 1)
+  case object Q2 extends Quarter(month = 4)
+  case object Q3 extends Quarter(month = 7)
+  case object Q4 extends Quarter(month = 10)
+
+  private val MonthSymbols = Array(Q1, Q2, Q3, Q4).flatMap(q => Array.fill(3)(q.toString))
+  private def dateFormatSymbols = new java.text.DateFormatSymbols() {
+    setMonths(MonthSymbols)
+    setShortMonths(MonthSymbols)
+  }
+
+  override private[amadou] def defaultFormatter: SimpleDateFormat ={
+    val format = super.formatter(dateFormat)
+    format.setDateFormatSymbols(dateFormatSymbols)
+    format
+  }
+
+  def apply(year: Int, quarter: Quarter): DateInterval =
+    create(year, quarter.month)
 }
 
 object Year extends DateIntervalType(Calendar.YEAR, "yyyy") {
