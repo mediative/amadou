@@ -113,6 +113,41 @@ class DateIntervalSpec extends FreeSpec {
     }
   }
 
+  "Quarter" - {
+    "should print date" in {
+      assert(Quarter(1999, Quarter.Q1).toString == "1999-Q1")
+      assert(Quarter(2016, Quarter.Q3).toString == "2016-Q3")
+    }
+
+    "should parse date" in {
+      val dt = Quarter.parse("2016-Q4")
+      assert(dt == Some(Quarter(2016, Quarter.Q4)))
+    }
+
+    "should have next/prev" in {
+      val dt = Quarter(2014, Quarter.Q1)
+      assert(dt.prev < dt)
+      assert(dt < dt.next)
+      assert(dt.prev == Quarter(2013, Quarter.Q4))
+      assert(dt.next == Quarter(2014, Quarter.Q2))
+
+      val dt2 = Quarter(1999, Quarter.Q4)
+      assert(dt2.prev == Quarter(1999, Quarter.Q3))
+      assert(dt2.next == Quarter(2000, Quarter.Q1))
+    }
+
+    "should have iterator for dates" in {
+      val dt = Quarter(2016, Quarter.Q1)
+      assert(dt.by(Day).size == 91)
+
+      val dt2 = Quarter(1999, Quarter.Q1)
+      assert(dt2.by(Day).size == 90)
+
+      val dt3 = Quarter(1999, Quarter.Q4)
+      assert(dt3.by(Day).size == 92)
+    }
+  }
+
   "Year" - {
     "should print date" in {
       assert(Year(1999).toString == "1999")
@@ -142,6 +177,8 @@ class DateIntervalSpec extends FreeSpec {
 
       val dt2 = Year(1999)
       assert(dt2.by(Day).size == 365)
+
+      assert(Year(1999).by(Quarter).size == 4)
     }
   }
 
