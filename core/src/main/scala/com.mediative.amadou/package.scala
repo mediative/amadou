@@ -16,8 +16,29 @@
 
 package com.mediative
 
+import org.apache.spark.sql._
+
 package object amadou {
   type Config = com.typesafe.config.Config
   type Gauge = io.prometheus.client.Gauge
   type Counter = io.prometheus.client.Counter
+
+  implicit class SparkHdfsUrlReaderOps(val self: DataFrameReader) extends AnyVal{
+    def csv(url: HdfsUrl*) = self.csv(url.map(_.toString): _*)
+    def json(url: HdfsUrl*) = self.json(url.map(_.toString): _*)
+    def load(url: HdfsUrl*) = self.load(url.map(_.toString): _*)
+    def orc(url: HdfsUrl*) = self.orc(url.map(_.toString): _*)
+    def parquet(url: HdfsUrl*) = self.parquet(url.map(_.toString): _*)
+    def text(url: HdfsUrl*) = self.text(url.map(_.toString): _*)
+    def textFile(url: HdfsUrl*) = self.textFile(url.map(_.toString): _*)
+  }
+
+  implicit class SparkHdfsUrlWriteOps[T](val self: DataFrameWriter[T]) extends AnyVal {
+    def csv(url: HdfsUrl) = self.csv(url.toString)
+    def json(url: HdfsUrl) = self.json(url.toString)
+    def save(url: HdfsUrl) = self.save(url.toString)
+    def orc(url: HdfsUrl) = self.orc(url.toString)
+    def parquet(url: HdfsUrl) = self.parquet(url.toString)
+    def text(url: HdfsUrl) = self.text(url.toString)
+  }
 }
