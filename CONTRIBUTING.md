@@ -1,7 +1,7 @@
 # Contributing
 
 Bugs and feature requests should be reported in the [GitHub issue
-tracker](https://github.com/ypg-data/amadou/issues/new) and
+tracker](https://github.com/mediative/amadou/issues/new) and
 answer the following questions:
 
  - Motivation: Why should this be addressed? What is the purpose?
@@ -13,7 +13,7 @@ For code contributions, these are the suggested steps:
 
  - Identify the change you'd like to make, e.g. fix a bug or add a feature.
    Larger contributions should always begin with [first creating an
-   issue](https://github.com/ypg-data/amadou/issues/new) to ensure
+   issue](https://github.com/mediative/amadou/issues/new) to ensure
    that the change is properly scoped.
  - Fork the repository on GitHub.
  - Develop your change on a feature branch.

@@ -10,7 +10,7 @@ inThisBuild(Def.settings(
   doctestTestFramework := DoctestTestFramework.ScalaTest,
   doctestWithDependencies := false,
   resolvers ++= Seq(
-    Resolver.bintrayRepo("ypg-data", "maven"),
+    Resolver.bintrayRepo("mediative", "maven"),
     Resolver.jcenterRepo
   )
 ))
@@ -35,7 +35,7 @@ val base = project
   .enablePlugins(MediativeBintrayPlugin, MediativeDockerPlugin)
   .settings(
     name := "amadou-base",
-    dockerRepository := Some("ypg-data-docker-container-registry.bintray.io/amadou"),
+    dockerRepository := Some("mediative-docker-container-registry.bintray.io/amadou"),
     packageName := "base",
     libraryDependencies ++= Seq(
       "com.typesafe" % "config" % "1.3.0",
@@ -94,6 +94,6 @@ val runtime = project
   .settings(
     name := "amadou-runtime",
     dockerBaseImage := (dockerAlias in base).value.versioned,
-    dockerRepository := Some("ypg-data-docker-container-registry.bintray.io/amadou"),
+    dockerRepository := Some("mediative-docker-container-registry.bintray.io/amadou"),
     packageName := "runtime"
   )

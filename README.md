@@ -2,10 +2,10 @@
 [![Build Status]][Travis]
 [![Latest version]][Bintray]
 
-  [Build Status]: https://travis-ci.org/ypg-data/amadou.svg?branch=master
-  [Travis]: https://travis-ci.org/ypg-data/amadou
-  [Latest version]: https://api.bintray.com/packages/ypg-data/maven/amadou-core/images/download.svg
-  [Bintray]: https://bintray.com/ypg-data/maven/amadou-core/_latestVersion
+  [Build Status]: https://travis-ci.org/mediative/amadou.svg?branch=master
+  [Travis]: https://travis-ci.org/mediative/amadou
+  [Latest version]: https://api.bintray.com/packages/mediative/maven/amadou-core/images/download.svg
+  [Bintray]: https://bintray.com/mediative/maven/amadou-core/_latestVersion
 
 > Amadou was a precious resource to ancient people, allowing them to start a
 > fire by catching sparks from flint struck against iron pyrites.
@@ -18,7 +18,7 @@
 Add the following to your `build.sbt`:
 
 ```sbt
-resolvers += Resolver.bintrayRepo("ypg-data", "maven")
+resolvers += Resolver.bintrayRepo("mediative", "maven")
 libraryDependencies += "com.mediative" %% "amadou-core" % "0.2.1"
 ```
 
@@ -28,7 +28,7 @@ See the [TestEtl] job to get an idea of what the library provides.
 
 ## Documentation
 
- - [Scaladoc](https://ypg-data.github.io/amadou/api/#com.mediative.amadou.package)
+ - [Scaladoc](https://mediative.github.io/amadou/api/#com.mediative.amadou.package)
 
 ## Building and Testing
 
