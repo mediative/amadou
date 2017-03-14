@@ -39,7 +39,7 @@ val base = project
     packageName := "base",
     libraryDependencies ++= Seq(
       "com.typesafe" % "config" % "1.3.0",
-      "com.iheart" %% "ficus" % "1.2.6",
+      "com.iheart" %% "ficus" % "1.4.0",
       "com.lihaoyi" %% "upickle" % "0.3.6",
       "io.prometheus" % "simpleclient_common" % Versions.prometheus,
       "io.prometheus" % "simpleclient_hotspot" % Versions.prometheus,
