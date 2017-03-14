@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>Week - com.mediative.amadou.Week</title>
-          <meta name="description" content="Week - com.mediative.amadou.Week" />
-          <meta name="keywords" content="Week com.mediative.amadou.Week" />
+          <title>Quarter - com.mediative.amadou.Quarter</title>
+          <meta name="description" content="Quarter - com.mediative.amadou.Quarter" />
+          <meta name="keywords" content="Quarter com.mediative.amadou.Quarter" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -16,7 +16,7 @@
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../index.html';
-            var hash = 'com.mediative.amadou.Week$';
+            var hash = 'com.mediative.amadou.Quarter$';
             var anchor = window.location.hash;
             var anchor_opt = '';
             if (anchor.length >= 1)
@@ -28,12 +28,14 @@
         </head>
         <body class="value">
       <div id="definition">
-        <img alt="Object" src="../../../lib/object_big.png" />
+        <a href="Quarter.html" title="See companion class"><img alt="Object/Class" src="../../../lib/object_to_class_big.png" /></a>
         <p id="owner"><a href="../../package.html" class="extype" name="com">com</a>.<a href="../package.html" class="extype" name="com.mediative">mediative</a>.<a href="package.html" class="extype" name="com.mediative.amadou">amadou</a></p>
-        <h1>Week</h1><h3><span class="morelinks"><div>Related Doc:
-            <a href="package.html" class="extype" name="com.mediative.amadou">package amadou</a>
+        <h1><a href="Quarter.html" title="See companion class">Quarter</a></h1><h3><span class="morelinks"><div>
+            Related Docs:
+            <a href="Quarter.html" title="See companion class">class Quarter</a>
+            | <a href="package.html" class="extype" name="com.mediative.amadou">package amadou</a>
           </div></span></h3><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -45,18 +47,20 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name">Week</span><span class="result"> extends <a href="DateIntervalType.html" class="extype" name="com.mediative.amadou.DateIntervalType">DateIntervalType</a></span>
+        <span class="name">Quarter</span><span class="result"> extends <a href="DateIntervalType.html" class="extype" name="com.mediative.amadou.DateIntervalType">DateIntervalType</a></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>ISO 8601 week. Note that it has some counterintuitive behavior around new year.
-For instance Monday 29 December 2008 is week 2009-W01, and Sunday 3 January 2010 is week 2009-W53-7
-This example was taken from from http://en.wikipedia.org/wiki/ISO_8601#Week_dates:</p><pre>scala&gt; Week(Day(<span class="num">2008</span>, <span class="num">12</span>, <span class="num">29</span>))
-res1: DateInterval = <span class="num">2009</span>-W01
-scala&gt; Week(Day(<span class="num">2010</span>, <span class="num">1</span>, <span class="num">3</span>))
-res2: DateInterval = <span class="num">2009</span>-W53
-scala&gt; Week(<span class="num">2009</span>, <span class="num">53</span>, dayOfWeek = Week.Sunday).by(Day).last
-res3: DateInterval = <span class="num">2010</span>-<span class="num">01</span>-<span class="num">03</span></pre></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/mediative/amadou/tree/master/core/src/main/scala/com.mediative.amadou/DateInterval.scala" target="_blank">DateInterval.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Quarters of the year.</p><pre>scala&gt; Quarter(<span class="num">2017</span>, Quarter.Q1)
+res1: DateInterval = <span class="num">2017</span>-Q1
+scala&gt; Year(<span class="num">2017</span>).by(Quarter).toList
+res2: <span class="std">List</span>[DateInterval] = <span class="std">List</span>(<span class="num">2017</span>-Q1, <span class="num">2017</span>-Q2, <span class="num">2017</span>-Q3, <span class="num">2017</span>-Q4)
+scala&gt; Quarter(<span class="num">2017</span>, Quarter.Q1).by(Month).toList
+res3: <span class="std">List</span>[DateInterval] = <span class="std">List</span>(<span class="num">2017</span>-<span class="num">01</span>, <span class="num">2017</span>-<span class="num">02</span>, <span class="num">2017</span>-<span class="num">03</span>)
+scala&gt; Quarter.parse(<span class="lit">"2008-Q4"</span>)
+res4: <span class="std">Option</span>[DateInterval] = <span class="std">Some</span>(<span class="num">2008</span>-Q4)
+scala&gt; Quarter(<span class="num">2017</span>, Quarter.Q2).format(<span class="lit">"yyyy-MM-dd"</span>)
+res5: <span class="std">String</span> = <span class="num">2017</span>-<span class="num">04</span>-<span class="num">01</span></pre></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/mediative/amadou/tree/master/core/src/main/scala/com.mediative.amadou/DateInterval.scala" target="_blank">DateInterval.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><a href="DateIntervalType.html" class="extype" name="com.mediative.amadou.DateIntervalType">DateIntervalType</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -76,7 +80,7 @@ res3: DateInterval = <span class="num">2010</span>-<span class="num">01</span>-<
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="com.mediative.amadou.Week"><span>Week</span></li><li class="in" name="com.mediative.amadou.DateIntervalType"><span>DateIntervalType</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="com.mediative.amadou.Quarter"><span>Quarter</span></li><li class="in" name="com.mediative.amadou.DateIntervalType"><span>DateIntervalType</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -95,27 +99,7 @@ res3: DateInterval = <span class="num">2010</span>-<span class="num">01</span>-<
         <div id="allMembers">
         
 
-        <div id="types" class="types members">
-              <h3>Type Members</h3>
-              <ol><li name="com.mediative.amadou.Week.WeekDay" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="WeekDayextendsAnyRef"></a>
-      <a id="WeekDay:WeekDay"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">sealed </span>
-        <span class="kind">trait</span>
-      </span>
-      <span class="symbol">
-        <a href="Week$$WeekDay.html"><span class="name">WeekDay</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@WeekDayextendsAnyRef" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li></ol>
-            </div>
+        
 
         
 
@@ -133,7 +117,7 @@ res3: DateInterval = <span class="num">2010</span>-<span class="num">01</span>-<
         <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@!=(x$1:Any):Boolean" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -150,7 +134,7 @@ res3: DateInterval = <span class="num">2010</span>-<span class="num">01</span>-<
         <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@##():Int" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@##():Int" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -167,143 +151,92 @@ res3: DateInterval = <span class="num">2010</span>-<span class="num">01</span>-<
         <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@==(x$1:Any):Boolean" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@==(x$1:Any):Boolean" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="com.mediative.amadou.Week.Friday" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="Friday"></a>
-      <a id="Friday:Friday"></a>
+    </li><li name="com.mediative.amadou.Quarter.Q1" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Q1"></a>
+      <a id="Q1:Q1"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="Week$$Friday$.html"><span class="name">Friday</span></a><span class="result"> extends <a href="Week$$WeekDay.html" class="extype" name="com.mediative.amadou.Week.WeekDay">WeekDay</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <a href="Quarter$$Q1$.html"><span class="name">Q1</span></a><span class="result"> extends <a href="Quarter.html" class="extype" name="com.mediative.amadou.Quarter">Quarter</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@Friday" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@Q1" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       
-    </li><li name="com.mediative.amadou.Week.Monday" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="Monday"></a>
-      <a id="Monday:Monday"></a>
+    </li><li name="com.mediative.amadou.Quarter.Q2" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Q2"></a>
+      <a id="Q2:Q2"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="Week$$Monday$.html"><span class="name">Monday</span></a><span class="result"> extends <a href="Week$$WeekDay.html" class="extype" name="com.mediative.amadou.Week.WeekDay">WeekDay</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <a href="Quarter$$Q2$.html"><span class="name">Q2</span></a><span class="result"> extends <a href="Quarter.html" class="extype" name="com.mediative.amadou.Quarter">Quarter</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@Monday" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@Q2" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       
-    </li><li name="com.mediative.amadou.Week.Saturday" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="Saturday"></a>
-      <a id="Saturday:Saturday"></a>
+    </li><li name="com.mediative.amadou.Quarter.Q3" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Q3"></a>
+      <a id="Q3:Q3"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="Week$$Saturday$.html"><span class="name">Saturday</span></a><span class="result"> extends <a href="Week$$WeekDay.html" class="extype" name="com.mediative.amadou.Week.WeekDay">WeekDay</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <a href="Quarter$$Q3$.html"><span class="name">Q3</span></a><span class="result"> extends <a href="Quarter.html" class="extype" name="com.mediative.amadou.Quarter">Quarter</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@Saturday" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@Q3" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       
-    </li><li name="com.mediative.amadou.Week.Sunday" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="Sunday"></a>
-      <a id="Sunday:Sunday"></a>
+    </li><li name="com.mediative.amadou.Quarter.Q4" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Q4"></a>
+      <a id="Q4:Q4"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="Week$$Sunday$.html"><span class="name">Sunday</span></a><span class="result"> extends <a href="Week$$WeekDay.html" class="extype" name="com.mediative.amadou.Week.WeekDay">WeekDay</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <a href="Quarter$$Q4$.html"><span class="name">Q4</span></a><span class="result"> extends <a href="Quarter.html" class="extype" name="com.mediative.amadou.Quarter">Quarter</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@Sunday" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@Q4" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       
-    </li><li name="com.mediative.amadou.Week.Thursday" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="Thursday"></a>
-      <a id="Thursday:Thursday"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a href="Week$$Thursday$.html"><span class="name">Thursday</span></a><span class="result"> extends <a href="Week$$WeekDay.html" class="extype" name="com.mediative.amadou.Week.WeekDay">WeekDay</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@Thursday" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.mediative.amadou.Week.Tuesday" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="Tuesday"></a>
-      <a id="Tuesday:Tuesday"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a href="Week$$Tuesday$.html"><span class="name">Tuesday</span></a><span class="result"> extends <a href="Week$$WeekDay.html" class="extype" name="com.mediative.amadou.Week.WeekDay">WeekDay</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@Tuesday" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.mediative.amadou.Week.Wednesday" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="Wednesday"></a>
-      <a id="Wednesday:Wednesday"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a href="Week$$Wednesday$.html"><span class="name">Wednesday</span></a><span class="result"> extends <a href="Week$$WeekDay.html" class="extype" name="com.mediative.amadou.Week.WeekDay">WeekDay</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@Wednesday" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.mediative.amadou.Week#apply" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="apply(year:Int,week:Int,dayOfWeek:com.mediative.amadou.Week.WeekDay):com.mediative.amadou.DateInterval"></a>
-      <a id="apply(Int,Int,WeekDay):DateInterval"></a>
+    </li><li name="com.mediative.amadou.Quarter#apply" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="apply(year:Int,quarter:com.mediative.amadou.Quarter):com.mediative.amadou.DateInterval"></a>
+      <a id="apply(Int,Quarter):DateInterval"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">apply</span><span class="params">(<span name="year">year: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="week">week: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="dayOfWeek">dayOfWeek: <a href="Week$$WeekDay.html" class="extype" name="com.mediative.amadou.Week.WeekDay">WeekDay</a> = <span class="symbol"><span class="name"><a href="Week$$Monday$.html">Monday</a></span></span></span>)</span><span class="result">: <a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>
+        <span class="name">apply</span><span class="params">(<span name="year">year: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="quarter">quarter: <a href="Quarter.html" class="extype" name="com.mediative.amadou.Quarter">Quarter</a></span>)</span><span class="result">: <a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@apply(year:Int,week:Int,dayOfWeek:com.mediative.amadou.Week.WeekDay):com.mediative.amadou.DateInterval" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@apply(year:Int,quarter:com.mediative.amadou.Quarter):com.mediative.amadou.DateInterval" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -320,7 +253,7 @@ res3: DateInterval = <span class="num">2010</span>-<span class="num">01</span>-<
         <span class="name">apply</span><span class="params">(<span name="timestamp">timestamp: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@apply(timestamp:Long):com.mediative.amadou.DateInterval" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@apply(timestamp:Long):com.mediative.amadou.DateInterval" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -345,7 +278,7 @@ res3: <span class="std">String</span> = <span class="num">2015</span>-<span clas
         <span class="name">apply</span><span class="params">(<span name="date">date: <a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>)</span><span class="result">: <a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@apply(date:com.mediative.amadou.DateInterval):com.mediative.amadou.DateInterval" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@apply(date:com.mediative.amadou.DateInterval):com.mediative.amadou.DateInterval" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -375,7 +308,7 @@ res6: <span class="std">String</span> = <span class="num">2015</span>-<span clas
         <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@asInstanceOf[T0]:T0" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -392,7 +325,7 @@ res6: <span class="std">String</span> = <span class="num">2015</span>-<span clas
         <span class="name">calendarField</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@calendarField:Int" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@calendarField:Int" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -409,7 +342,7 @@ res6: <span class="std">String</span> = <span class="num">2015</span>-<span clas
         <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@clone():Object" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@clone():Object" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -432,7 +365,7 @@ res6: <span class="std">String</span> = <span class="num">2015</span>-<span clas
         <span class="name">create</span><span class="params">(<span name="year">year: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="month">month: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">1</span></span>, <span name="day">day: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">1</span></span>)</span><span class="result">: <a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@create(year:Int,month:Int,day:Int):com.mediative.amadou.DateInterval" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@create(year:Int,month:Int,day:Int):com.mediative.amadou.DateInterval" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -449,7 +382,7 @@ res6: <span class="std">String</span> = <span class="num">2015</span>-<span clas
         <span class="name">dateFormat</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@dateFormat:String" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@dateFormat:String" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -466,7 +399,7 @@ res6: <span class="std">String</span> = <span class="num">2015</span>-<span clas
         <span class="name">deltaMultiplier</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@deltaMultiplier:Int" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@deltaMultiplier:Int" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -483,7 +416,7 @@ res6: <span class="std">String</span> = <span class="num">2015</span>-<span clas
         <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -500,7 +433,7 @@ res6: <span class="std">String</span> = <span class="num">2015</span>-<span clas
         <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@equals(x$1:Any):Boolean" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -517,7 +450,7 @@ res6: <span class="std">String</span> = <span class="num">2015</span>-<span clas
         <span class="name">finalize</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@finalize():Unit" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@finalize():Unit" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -540,7 +473,7 @@ res6: <span class="std">String</span> = <span class="num">2015</span>-<span clas
         <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@getClass():Class[_]" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@getClass():Class[_]" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -557,7 +490,7 @@ res6: <span class="std">String</span> = <span class="num">2015</span>-<span clas
         <span class="name">hashCode</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@hashCode():Int" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@hashCode():Int" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -574,7 +507,7 @@ res6: <span class="std">String</span> = <span class="num">2015</span>-<span clas
         <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -591,7 +524,7 @@ res6: <span class="std">String</span> = <span class="num">2015</span>-<span clas
         <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -608,7 +541,7 @@ res6: <span class="std">String</span> = <span class="num">2015</span>-<span clas
         <span class="name">notify</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@notify():Unit" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@notify():Unit" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -625,7 +558,7 @@ res6: <span class="std">String</span> = <span class="num">2015</span>-<span clas
         <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@notifyAll():Unit" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@notifyAll():Unit" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -642,7 +575,7 @@ res6: <span class="std">String</span> = <span class="num">2015</span>-<span clas
         <span class="name">parse</span><span class="params">(<span name="input">input: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@parse(input:String):Option[com.mediative.amadou.DateInterval]" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@parse(input:String):Option[com.mediative.amadou.DateInterval]" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -662,7 +595,7 @@ res2: <span class="std">String</span> = <span class="num">2015</span>-<span clas
         <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -679,7 +612,7 @@ res2: <span class="std">String</span> = <span class="num">2015</span>-<span clas
         <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@toString():String" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@toString():String" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -696,14 +629,14 @@ res2: <span class="std">String</span> = <span class="num">2015</span>-<span clas
         <span class="name">today</span><span class="result">: <a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@today:com.mediative.amadou.DateInterval" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@today:com.mediative.amadou.DateInterval" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Represent the interval for today using the specified interval type.</p><div class="fullcomment"><div class="comment cmt"><p>Represent the interval for today using the specified interval type.</p><p>This will truncate lower resolution date fields to their initial
 value, for example for months the day of month field is set to 1.
 </p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="DateIntervalType.html" class="extype" name="com.mediative.amadou.DateIntervalType">DateIntervalType</a></dd></dl></div>
-    </li><li name="com.mediative.amadou.Week#truncate" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="com.mediative.amadou.DateIntervalType#truncate" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="truncate(orig:java.util.Calendar,cal:java.util.Calendar):Unit"></a>
       <a id="truncate(Calendar,Calendar):Unit"></a>
       <h4 class="signature">
@@ -715,11 +648,11 @@ value, for example for months the day of month field is set to 1.
         <span class="name">truncate</span><span class="params">(<span name="orig">orig: <span class="extype" name="java.util.Calendar">Calendar</span></span>, <span name="cal">cal: <span class="extype" name="java.util.Calendar">Calendar</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@truncate(orig:java.util.Calendar,cal:java.util.Calendar):Unit" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@truncate(orig:java.util.Calendar,cal:java.util.Calendar):Unit" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="" class="extype" name="com.mediative.amadou.Week">Week</a> → <a href="DateIntervalType.html" class="extype" name="com.mediative.amadou.DateIntervalType">DateIntervalType</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="DateIntervalType.html" class="extype" name="com.mediative.amadou.DateIntervalType">DateIntervalType</a></dd></dl></div>
     </li><li name="com.mediative.amadou.DateIntervalType#truncate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="truncate(timestamp:Long):java.sql.Date"></a>
       <a id="truncate(Long):Date"></a>
@@ -732,7 +665,7 @@ value, for example for months the day of month field is set to 1.
         <span class="name">truncate</span><span class="params">(<span name="timestamp">timestamp: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <span class="extype" name="java.sql.Date">Date</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@truncate(timestamp:Long):java.sql.Date" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@truncate(timestamp:Long):java.sql.Date" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -749,7 +682,7 @@ value, for example for months the day of month field is set to 1.
         <span class="name">wait</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@wait():Unit" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@wait():Unit" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -772,7 +705,7 @@ value, for example for months the day of month field is set to 1.
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="arg1">arg1: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -795,7 +728,7 @@ value, for example for months the day of month field is set to 1.
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Week$@wait(x$1:Long):Unit" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Quarter$@wait(x$1:Long):Unit" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>

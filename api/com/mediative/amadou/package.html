@@ -47,7 +47,7 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/ypg-data/amadou/tree/master/core/src/main/scala/com.mediative.amadou/package.scala" target="_blank">package.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/mediative/amadou/tree/master/core/src/main/scala/com.mediative.amadou/package.scala" target="_blank">package.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -140,7 +140,7 @@
     </span>
       
     </li><li name="com.mediative.amadou.DateInterval" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="DateIntervalextendsOrdered[com.mediative.amadou.DateInterval]withTraversable[com.mediative.amadou.DateInterval]withProductwithSerializable"></a>
+      <a id="DateIntervalextendsOrdered[com.mediative.amadou.DateInterval]withProductwithSerializable"></a>
       <a id="DateInterval:DateInterval"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -148,16 +148,16 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <a href="DateInterval.html"><span class="name">DateInterval</span></a><span class="params">(<span name="timestamp">timestamp: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="interval">interval: <a href="DateIntervalType.html" class="extype" name="com.mediative.amadou.DateIntervalType">DateIntervalType</a></span>, <span name="toOpt">toOpt: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Ordered">Ordered</span>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>] with <span class="extype" name="scala.Traversable">Traversable</span>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>] with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <a href="DateInterval.html"><span class="name">DateInterval</span></a><span class="params">(<span name="timestamp">timestamp: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="interval">interval: <a href="DateIntervalType.html" class="extype" name="com.mediative.amadou.DateIntervalType">DateIntervalType</a></span>, <span name="toOpt">toOpt: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Ordered">Ordered</span>[<a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>] with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.package@DateIntervalextendsOrdered[com.mediative.amadou.DateInterval]withTraversable[com.mediative.amadou.DateInterval]withProductwithSerializable" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.package@DateIntervalextendsOrdered[com.mediative.amadou.DateInterval]withProductwithSerializable" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Base class for date intervals.</p><div class="fullcomment"><div class="comment cmt"><p>Base class for date intervals.</p><p>The interval is represented as the half open range between <code>from</code> and <code>to</code>.
-For instance, May 2014 is represented as <code>from = 2014-05-01</code>, <code>to = 2014-06-01</code>.</p><p>Example:</p><pre>scala&gt; <span class="std">Seq</span>(Day(<span class="num">2016</span>, <span class="num">8</span>, <span class="num">11</span>), Month(<span class="num">2016</span>, <span class="num">8</span>), Year(<span class="num">2016</span>))
-res1: <span class="std">Seq</span>[DateInterval] = <span class="std">List</span>(<span class="num">2016</span>-<span class="num">08</span>-<span class="num">11</span>, <span class="num">2016</span>-<span class="num">08</span>, <span class="num">2016</span>)</pre></div></div>
+For instance, May 2014 is represented as <code>from = 2014-05-01</code>, <code>to = 2014-06-01</code>.</p><p>Example:</p><pre>scala&gt; <span class="std">Seq</span>(Day(<span class="num">2016</span>, <span class="num">8</span>, <span class="num">11</span>), Week(<span class="num">2016</span>, <span class="num">32</span>), Month(<span class="num">2016</span>, <span class="num">8</span>), Quarter(<span class="num">2016</span>, Quarter.Q3), Year(<span class="num">2016</span>))
+res1: <span class="std">Seq</span>[DateInterval] = <span class="std">List</span>(<span class="num">2016</span>-<span class="num">08</span>-<span class="num">11</span>, <span class="num">2016</span>-W32, <span class="num">2016</span>-<span class="num">08</span>, <span class="num">2016</span>-Q3, <span class="num">2016</span>)</pre></div></div>
     </li><li name="com.mediative.amadou.DateIntervalType" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="DateIntervalTypeextendsAnyRef"></a>
       <a id="DateIntervalType:DateIntervalType"></a>
@@ -226,6 +226,23 @@ res2: HdfsUrl = root/year=<span class="num">2016</span>/month=<span class="num">
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#com.mediative.amadou.package@LoggingextendsLazyLogging" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.Quarter" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="QuarterextendsAnyRef"></a>
+      <a id="Quarter:Quarter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Quarter.html"><span class="name">Quarter</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@QuarterextendsAnyRef" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -305,6 +322,40 @@ encoder.</p>
       </a>
     </span>
       <p class="shortcomment cmt">Wrap the functionality to send messages to a Slack channel.</p>
+    </li><li name="com.mediative.amadou.SparkHdfsUrlReaderOps" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SparkHdfsUrlReaderOpsextendsAnyVal"></a>
+      <a id="SparkHdfsUrlReaderOps:SparkHdfsUrlReaderOps"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="package$$SparkHdfsUrlReaderOps.html"><span class="name">SparkHdfsUrlReaderOps</span></a><span class="result"> extends <span class="extype" name="scala.AnyVal">AnyVal</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@SparkHdfsUrlReaderOpsextendsAnyVal" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.SparkHdfsUrlWriteOps" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SparkHdfsUrlWriteOps[T]extendsAnyVal"></a>
+      <a id="SparkHdfsUrlWriteOps[T]:SparkHdfsUrlWriteOps[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="package$$SparkHdfsUrlWriteOps.html"><span class="name">SparkHdfsUrlWriteOps</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyVal">AnyVal</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@SparkHdfsUrlWriteOps[T]extendsAnyVal" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="com.mediative.amadou.SparkJob" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="SparkJobextendsLogging"></a>
       <a id="SparkJob:SparkJob"></a>
@@ -439,23 +490,6 @@ is only run the the specified date.
       </a>
     </span>
       
-    </li><li name="com.mediative.amadou.HdfsUrl" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="HdfsUrl"></a>
-      <a id="HdfsUrl:HdfsUrl"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a href="HdfsUrl$.html"><span class="name">HdfsUrl</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.package@HdfsUrl" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="com.mediative.amadou.LoadToBigQuery" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="LoadToBigQuery"></a>
       <a id="LoadToBigQuery:LoadToBigQuery"></a>
@@ -490,6 +524,32 @@ is only run the the specified date.
       </a>
     </span>
       
+    </li><li name="com.mediative.amadou.Quarter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Quarter"></a>
+      <a id="Quarter:Quarter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Quarter$.html"><span class="name">Quarter</span></a><span class="result"> extends <a href="DateIntervalType.html" class="extype" name="com.mediative.amadou.DateIntervalType">DateIntervalType</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@Quarter" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Quarters of the year.</p><div class="fullcomment"><div class="comment cmt"><p>Quarters of the year.</p><pre>scala&gt; Quarter(<span class="num">2017</span>, Quarter.Q1)
+res1: DateInterval = <span class="num">2017</span>-Q1
+scala&gt; Year(<span class="num">2017</span>).by(Quarter).toList
+res2: <span class="std">List</span>[DateInterval] = <span class="std">List</span>(<span class="num">2017</span>-Q1, <span class="num">2017</span>-Q2, <span class="num">2017</span>-Q3, <span class="num">2017</span>-Q4)
+scala&gt; Quarter(<span class="num">2017</span>, Quarter.Q1).by(Month).toList
+res3: <span class="std">List</span>[DateInterval] = <span class="std">List</span>(<span class="num">2017</span>-<span class="num">01</span>, <span class="num">2017</span>-<span class="num">02</span>, <span class="num">2017</span>-<span class="num">03</span>)
+scala&gt; Quarter.parse(<span class="lit">"2008-Q4"</span>)
+res4: <span class="std">Option</span>[DateInterval] = <span class="std">Some</span>(<span class="num">2008</span>-Q4)
+scala&gt; Quarter(<span class="num">2017</span>, Quarter.Q2).format(<span class="lit">"yyyy-MM-dd"</span>)
+res5: <span class="std">String</span> = <span class="num">2017</span>-<span class="num">04</span>-<span class="num">01</span></pre></div></div>
     </li><li name="com.mediative.amadou.ReadRaw" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="ReadRaw"></a>
       <a id="ReadRaw:ReadRaw"></a>
@@ -597,7 +657,7 @@ This example was taken from from http://en.wikipedia.org/wiki/ISO_8601#Week_date
 res1: DateInterval = <span class="num">2009</span>-W01
 scala&gt; Week(Day(<span class="num">2010</span>, <span class="num">1</span>, <span class="num">3</span>))
 res2: DateInterval = <span class="num">2009</span>-W53
-scala&gt; Week(<span class="num">2009</span>, <span class="num">53</span>, dayOfWeek = Week.Sunday).last
+scala&gt; Week(<span class="num">2009</span>, <span class="num">53</span>, dayOfWeek = Week.Sunday).by(Day).last
 res3: DateInterval = <span class="num">2010</span>-<span class="num">01</span>-<span class="num">03</span></pre></div></div>
     </li><li name="com.mediative.amadou.WriteClean" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="WriteClean"></a>

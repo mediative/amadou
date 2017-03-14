@@ -52,7 +52,7 @@
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Mixin providing a DSL for defining schedules.</p><p>If for example, we want to run a report against a cumulative data source
 each day and must ensure that it runs the first of every month to generate
 a report for all of the previous month. This schedule can be defined as:</p><pre><span class="kw">val</span> schedule = today and monthly</pre><p>If we are only interested in &quot;backfilling&quot; jobs from a specific date use
-a <code>where</code> clause, e.g.:</p><pre><span class="kw">val</span> schedule = daily where (_ &gt;= Date(<span class="num">2016</span>, <span class="num">4</span>, <span class="num">12</span>)</pre></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/ypg-data/amadou/tree/master/core/src/main/scala/com.mediative.amadou/Schedule.scala" target="_blank">Schedule.scala</a></dd></dl><div class="toggleContainer block">
+a <code>where</code> clause, e.g.:</p><pre><span class="kw">val</span> schedule = daily where (_ &gt;= Date(<span class="num">2016</span>, <span class="num">4</span>, <span class="num">12</span>)</pre></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/mediative/amadou/tree/master/core/src/main/scala/com.mediative.amadou/Schedule.scala" target="_blank">Schedule.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div><div class="toggleContainer block">
@@ -542,6 +542,23 @@ a <code>where</code> clause, e.g.:</p><pre><span class="kw">val</span> schedule 
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="com.mediative.amadou.ScheduleDsl#quarterly" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="quarterly:com.mediative.amadou.Schedule"></a>
+      <a id="quarterly:Schedule"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">quarterly</span><span class="result">: <a href="Schedule.html" class="extype" name="com.mediative.amadou.Schedule">Schedule</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.ScheduleDsl@quarterly:com.mediative.amadou.Schedule" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>

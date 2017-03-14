@@ -47,15 +47,15 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">DateInterval</span><span class="params">(<span name="timestamp">timestamp: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="interval">interval: <a href="DateIntervalType.html" class="extype" name="com.mediative.amadou.DateIntervalType">DateIntervalType</a></span>, <span name="toOpt">toOpt: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Ordered">Ordered</span>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>] with <span class="extype" name="scala.Traversable">Traversable</span>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>] with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <span class="name">DateInterval</span><span class="params">(<span name="timestamp">timestamp: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="interval">interval: <a href="DateIntervalType.html" class="extype" name="com.mediative.amadou.DateIntervalType">DateIntervalType</a></span>, <span name="toOpt">toOpt: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Ordered">Ordered</span>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>] with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Base class for date intervals.</p><p>The interval is represented as the half open range between <code>from</code> and <code>to</code>.
-For instance, May 2014 is represented as <code>from = 2014-05-01</code>, <code>to = 2014-06-01</code>.</p><p>Example:</p><pre>scala&gt; <span class="std">Seq</span>(Day(<span class="num">2016</span>, <span class="num">8</span>, <span class="num">11</span>), Month(<span class="num">2016</span>, <span class="num">8</span>), Year(<span class="num">2016</span>))
-res1: <span class="std">Seq</span>[DateInterval] = <span class="std">List</span>(<span class="num">2016</span>-<span class="num">08</span>-<span class="num">11</span>, <span class="num">2016</span>-<span class="num">08</span>, <span class="num">2016</span>)</pre></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/ypg-data/amadou/tree/master/core/src/main/scala/com.mediative.amadou/DateInterval.scala" target="_blank">DateInterval.scala</a></dd></dl><div class="toggleContainer block">
+For instance, May 2014 is represented as <code>from = 2014-05-01</code>, <code>to = 2014-06-01</code>.</p><p>Example:</p><pre>scala&gt; <span class="std">Seq</span>(Day(<span class="num">2016</span>, <span class="num">8</span>, <span class="num">11</span>), Week(<span class="num">2016</span>, <span class="num">32</span>), Month(<span class="num">2016</span>, <span class="num">8</span>), Quarter(<span class="num">2016</span>, Quarter.Q3), Year(<span class="num">2016</span>))
+res1: <span class="std">Seq</span>[DateInterval] = <span class="std">List</span>(<span class="num">2016</span>-<span class="num">08</span>-<span class="num">11</span>, <span class="num">2016</span>-W32, <span class="num">2016</span>-<span class="num">08</span>, <span class="num">2016</span>-Q3, <span class="num">2016</span>)</pre></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/mediative/amadou/tree/master/core/src/main/scala/com.mediative.amadou/DateInterval.scala" target="_blank">DateInterval.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Equals" class="extype" target="_top">Equals</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.GenTraversable" class="extype" target="_top">GenTraversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.generic.GenericTraversableTemplate" class="extype" target="_top">GenericTraversableTemplate</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.TraversableLike" class="extype" target="_top">TraversableLike</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.GenTraversableLike" class="extype" target="_top">GenTraversableLike</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Parallelizable" class="extype" target="_top">Parallelizable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.parallel.ParIterable" class="extype" target="_top">ParIterable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.TraversableOnce" class="extype" target="_top">TraversableOnce</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.GenTraversableOnce" class="extype" target="_top">GenTraversableOnce</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.generic.FilterMonadic" class="extype" target="_top">FilterMonadic</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.generic.HasNewBuilder" class="extype" target="_top">HasNewBuilder</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.math.Ordered" class="extype" target="_top">Ordered</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>], <span class="extype" name="java.lang.Comparable">Comparable</span>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Equals" class="extype" target="_top">Equals</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.math.Ordered" class="extype" target="_top">Ordered</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>], <span class="extype" name="java.lang.Comparable">Comparable</span>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -73,12 +73,12 @@ res1: <span class="std">Seq</span>[DateInterval] = <span class="std">List</span>
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="com.mediative.amadou.DateInterval"><span>DateInterval</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="scala.collection.Traversable"><span>Traversable</span></li><li class="in" name="scala.collection.GenTraversable"><span>GenTraversable</span></li><li class="in" name="scala.collection.generic.GenericTraversableTemplate"><span>GenericTraversableTemplate</span></li><li class="in" name="scala.collection.TraversableLike"><span>TraversableLike</span></li><li class="in" name="scala.collection.GenTraversableLike"><span>GenTraversableLike</span></li><li class="in" name="scala.collection.Parallelizable"><span>Parallelizable</span></li><li class="in" name="scala.collection.TraversableOnce"><span>TraversableOnce</span></li><li class="in" name="scala.collection.GenTraversableOnce"><span>GenTraversableOnce</span></li><li class="in" name="scala.collection.generic.FilterMonadic"><span>FilterMonadic</span></li><li class="in" name="scala.collection.generic.HasNewBuilder"><span>HasNewBuilder</span></li><li class="in" name="scala.math.Ordered"><span>Ordered</span></li><li class="in" name="java.lang.Comparable"><span>Comparable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="com.mediative.amadou.DateInterval"><span>DateInterval</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="scala.math.Ordered"><span>Ordered</span></li><li class="in" name="java.lang.Comparable"><span>Comparable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
                 <span class="filtertype">Implicitly<br />
                 </span>
-                <ol id="implicits"> <li class="in" name="scala.collection.parallel.CollectionsHaveToParArray" data-hidden="false"><span>by CollectionsHaveToParArray</span></li><li class="in" name="scala.collection.TraversableOnce.MonadOps" data-hidden="false"><span>by MonadOps</span></li><li class="in" name="scala.math.Ordered.orderingToOrdered" data-hidden="false"><span>by orderingToOrdered</span></li><li class="in" name="scala.Predef.any2stringadd" data-hidden="true"><span>by any2stringadd</span></li><li class="in" name="scala.Predef.StringFormat" data-hidden="true"><span>by StringFormat</span></li><li class="in" name="scala.Predef.Ensuring" data-hidden="true"><span>by Ensuring</span></li><li class="in" name="scala.Predef.ArrowAssoc" data-hidden="true"><span>by ArrowAssoc</span></li><li class="in" name="scala.collection.TraversableOnce.alternateImplicit" data-hidden="true"><span>by alternateImplicit</span></li>
+                <ol id="implicits"> <li class="in" name="scala.math.Ordered.orderingToOrdered" data-hidden="false"><span>by orderingToOrdered</span></li><li class="in" name="scala.Predef.any2stringadd" data-hidden="true"><span>by any2stringadd</span></li><li class="in" name="scala.Predef.StringFormat" data-hidden="true"><span>by StringFormat</span></li><li class="in" name="scala.Predef.Ensuring" data-hidden="true"><span>by Ensuring</span></li><li class="in" name="scala.Predef.ArrowAssoc" data-hidden="true"><span>by ArrowAssoc</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -117,44 +117,7 @@ res1: <span class="std">Seq</span>[DateInterval] = <span class="std">List</span>
     </li></ol>
             </div>
 
-        <div id="types" class="types members">
-              <h3>Type Members</h3>
-              <ol><li name="scala.collection.TraversableLike.Self" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="Self=Repr"></a>
-      <a id="Self:Self"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">type</span>
-      </span>
-      <span class="symbol">
-        <span class="name">Self</span><span class="result"> = <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@Self=Repr" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[this] </dd><dt>Definition Classes</dt><dd>TraversableLike</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike.WithFilter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="WithFilterextendsFilterMonadic[A,Repr]"></a>
-      <a id="WithFilter:WithFilter"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">class</span>
-      </span>
-      <span class="symbol">
-        <span class="name">WithFilter</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.generic.FilterMonadic" class="extype" target="_top">FilterMonadic</a>[<span class="extype" name="scala.collection.TraversableLike.A">A</span>, <span class="extype" name="scala.collection.TraversableLike.Repr">Repr</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@WithFilterextendsFilterMonadic[A,Repr]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike</dd></dl></div>
-    </li></ol>
-            </div>
+        
 
         
 
@@ -211,57 +174,6 @@ res1: <span class="std">Seq</span>[DateInterval] = <span class="std">List</span>
       </a>
     </span>
       
-    </li><li name="scala.collection.TraversableLike#++" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="++[B&gt;:A,That](that:scala.collection.GenTraversableOnce[B])(implicitbf:scala.collection.generic.CanBuildFrom[Repr,B,That]):That"></a>
-      <a id="++[B&gt;:DateInterval,That](GenTraversableOnce[B])(CanBuildFrom[Traversable[DateInterval],B,That]):That"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span title="gt4s: $plus$plus" class="name">++</span><span class="tparams">[<span name="B">B &gt;: <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>, <span name="That">That</span>]</span><span class="params">(<span name="that">that: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.GenTraversableOnce" class="extype" target="_top">GenTraversableOnce</a>[<span class="extype" name="scala.collection.TraversableLike.++.B">B</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="bf">bf: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.generic.CanBuildFrom" class="extype" target="_top">CanBuildFrom</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>], <span class="extype" name="scala.collection.TraversableLike.++.B">B</span>, <span class="extype" name="scala.collection.TraversableLike.++.That">That</span>]</span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableLike.++.That">That</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@++[B&gt;:A,That](that:scala.collection.GenTraversableOnce[B])(implicitbf:scala.collection.generic.CanBuildFrom[Repr,B,That]):That" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → GenTraversableLike</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#++:" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="++:[B&gt;:A,That](that:Traversable[B])(implicitbf:scala.collection.generic.CanBuildFrom[Repr,B,That]):That"></a>
-      <a id="++:[B&gt;:DateInterval,That](Traversable[B])(CanBuildFrom[Traversable[DateInterval],B,That]):That"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span title="gt4s: $plus$plus$colon" class="name">++:</span><span class="tparams">[<span name="B">B &gt;: <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>, <span name="That">That</span>]</span><span class="params">(<span name="that">that: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<span class="extype" name="scala.collection.TraversableLike.++:.B">B</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="bf">bf: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.generic.CanBuildFrom" class="extype" target="_top">CanBuildFrom</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>], <span class="extype" name="scala.collection.TraversableLike.++:.B">B</span>, <span class="extype" name="scala.collection.TraversableLike.++:.That">That</span>]</span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableLike.++:.That">That</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@++:[B&gt;:A,That](that:Traversable[B])(implicitbf:scala.collection.generic.CanBuildFrom[Repr,B,That]):That" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#++:" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="++:[B&gt;:A,That](that:scala.collection.TraversableOnce[B])(implicitbf:scala.collection.generic.CanBuildFrom[Repr,B,That]):That"></a>
-      <a id="++:[B&gt;:DateInterval,That](TraversableOnce[B])(CanBuildFrom[Traversable[DateInterval],B,That]):That"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span title="gt4s: $plus$plus$colon" class="name">++:</span><span class="tparams">[<span name="B">B &gt;: <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>, <span name="That">That</span>]</span><span class="params">(<span name="that">that: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.TraversableOnce" class="extype" target="_top">TraversableOnce</a>[<span class="extype" name="scala.collection.TraversableLike.++:.B">B</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="bf">bf: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.generic.CanBuildFrom" class="extype" target="_top">CanBuildFrom</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>], <span class="extype" name="scala.collection.TraversableLike.++:.B">B</span>, <span class="extype" name="scala.collection.TraversableLike.++:.That">That</span>]</span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableLike.++:.That">That</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@++:[B&gt;:A,That](that:scala.collection.TraversableOnce[B])(implicitbf:scala.collection.generic.CanBuildFrom[Repr,B,That]):That" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike</dd></dl></div>
     </li><li name="com.mediative.amadou.DateInterval#-" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="-(delta:Int):com.mediative.amadou.DateInterval"></a>
       <a id="-(Int):DateInterval"></a>
@@ -303,40 +215,6 @@ res1: <span class="std">Seq</span>[DateInterval] = <span class="std">List</span>
                 <span class="name">@inline</span><span class="args">()</span>
               
         </dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#/:" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="/:[B](z:B)(op:(B,A)=&gt;B):B"></a>
-      <a id="/:[B](B)((B,DateInterval)⇒B):B"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span title="gt4s: $div$colon" class="name">/:</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="z">z: <span class="extype" name="scala.collection.TraversableOnce./:.B">B</span></span>)</span><span class="params">(<span name="op">op: (<span class="extype" name="scala.collection.TraversableOnce./:.B">B</span>, <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <span class="extype" name="scala.collection.TraversableOnce./:.B">B</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce./:.B">B</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@/:[B](z:B)(op:(B,A)=&gt;B):B" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#:\" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id=":\[B](z:B)(op:(A,B)=&gt;B):B"></a>
-      <a id=":\[B](B)((DateInterval,B)⇒B):B"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span title="gt4s: $colon$bslash" class="name">:\</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="z">z: <span class="extype" name="scala.collection.TraversableOnce.:\.B">B</span></span>)</span><span class="params">(<span name="op">op: (<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <span class="extype" name="scala.collection.TraversableOnce.:\.B">B</span>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.:\.B">B</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.:\.B">B</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@:\[B](z:B)(op:(A,B)=&gt;B):B" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.math.Ordered#&lt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="&lt;(that:A):Boolean"></a>
       <a id="&lt;(DateInterval):Boolean"></a>
@@ -422,74 +300,6 @@ res1: <span class="std">Seq</span>[DateInterval] = <span class="std">List</span>
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Ordered</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#addString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="addString(b:StringBuilder):StringBuilder"></a>
-      <a id="addString(StringBuilder):StringBuilder"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">addString</span><span class="params">(<span name="b">b: <span class="extype" name="scala.StringBuilder">StringBuilder</span></span>)</span><span class="result">: <span class="extype" name="scala.StringBuilder">StringBuilder</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@addString(b:StringBuilder):StringBuilder" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#addString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="addString(b:StringBuilder,sep:String):StringBuilder"></a>
-      <a id="addString(StringBuilder,String):StringBuilder"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">addString</span><span class="params">(<span name="b">b: <span class="extype" name="scala.StringBuilder">StringBuilder</span></span>, <span name="sep">sep: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.StringBuilder">StringBuilder</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@addString(b:StringBuilder,sep:String):StringBuilder" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#addString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="addString(b:StringBuilder,start:String,sep:String,end:String):StringBuilder"></a>
-      <a id="addString(StringBuilder,String,String,String):StringBuilder"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">addString</span><span class="params">(<span name="b">b: <span class="extype" name="scala.StringBuilder">StringBuilder</span></span>, <span name="start">start: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="sep">sep: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="end">end: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.StringBuilder">StringBuilder</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@addString(b:StringBuilder,start:String,sep:String,end:String):StringBuilder" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#aggregate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="aggregate[B](z:=&gt;B)(seqop:(B,A)=&gt;B,combop:(B,B)=&gt;B):B"></a>
-      <a id="aggregate[B](⇒B)((B,DateInterval)⇒B,(B,B)⇒B):B"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">aggregate</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="z">z: ⇒ <span class="extype" name="scala.collection.TraversableOnce.aggregate.B">B</span></span>)</span><span class="params">(<span name="seqop">seqop: (<span class="extype" name="scala.collection.TraversableOnce.aggregate.B">B</span>, <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.aggregate.B">B</span></span>, <span name="combop">combop: (<span class="extype" name="scala.collection.TraversableOnce.aggregate.B">B</span>, <span class="extype" name="scala.collection.TraversableOnce.aggregate.B">B</span>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.aggregate.B">B</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.aggregate.B">B</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@aggregate[B](z:=&gt;B)(seqop:(B,A)=&gt;B,combop:(B,B)=&gt;B):B" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -507,6 +317,26 @@ res1: <span class="std">Seq</span>[DateInterval] = <span class="std">List</span>
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="com.mediative.amadou.DateInterval#by" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="by(interval:com.mediative.amadou.DateIntervalType):Traversable[com.mediative.amadou.DateInterval]"></a>
+      <a id="by(DateIntervalType):Traversable[DateInterval]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">by</span><span class="params">(<span name="interval">interval: <a href="DateIntervalType.html" class="extype" name="com.mediative.amadou.DateIntervalType">DateIntervalType</a></span>)</span><span class="result">: <span class="extype" name="scala.Traversable">Traversable</span>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.DateInterval@by(interval:com.mediative.amadou.DateIntervalType):Traversable[com.mediative.amadou.DateInterval]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Iterate over all days in this date interval.</p><div class="fullcomment"><div class="comment cmt"><p>Iterate over all days in this date interval.</p><p>Example:</p><pre>scala&gt; Week(<span class="num">2016</span>, <span class="num">11</span>).by(Day).size
+res1: <span class="std">Int</span> = <span class="num">7</span>
+scala&gt; Week(<span class="num">2016</span>, <span class="num">11</span>).by(Day).toList
+res2: <span class="std">List</span>[DateInterval] = <span class="std">List</span>(<span class="num">2016</span>-<span class="num">03</span>-<span class="num">14</span>, <span class="num">2016</span>-<span class="num">03</span>-<span class="num">15</span>, <span class="num">2016</span>-<span class="num">03</span>-<span class="num">16</span>, <span class="num">2016</span>-<span class="num">03</span>-<span class="num">17</span>, <span class="num">2016</span>-<span class="num">03</span>-<span class="num">18</span>, <span class="num">2016</span>-<span class="num">03</span>-<span class="num">19</span>, <span class="num">2016</span>-<span class="num">03</span>-<span class="num">20</span>)</pre></div></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a>
       <a id="clone():AnyRef"></a>
@@ -530,57 +360,6 @@ res1: <span class="std">Seq</span>[DateInterval] = <span class="std">List</span>
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#collect" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="collect[B,That](pf:PartialFunction[A,B])(implicitbf:scala.collection.generic.CanBuildFrom[Repr,B,That]):That"></a>
-      <a id="collect[B,That](PartialFunction[DateInterval,B])(CanBuildFrom[Traversable[DateInterval],B,That]):That"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">collect</span><span class="tparams">[<span name="B">B</span>, <span name="That">That</span>]</span><span class="params">(<span name="pf">pf: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.PartialFunction" class="extype" target="_top">PartialFunction</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <span class="extype" name="scala.collection.TraversableLike.collect.B">B</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="bf">bf: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.generic.CanBuildFrom" class="extype" target="_top">CanBuildFrom</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>], <span class="extype" name="scala.collection.TraversableLike.collect.B">B</span>, <span class="extype" name="scala.collection.TraversableLike.collect.That">That</span>]</span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableLike.collect.That">That</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@collect[B,That](pf:PartialFunction[A,B])(implicitbf:scala.collection.generic.CanBuildFrom[Repr,B,That]):That" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → GenTraversableLike</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#collectFirst" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="collectFirst[B](pf:PartialFunction[A,B]):Option[B]"></a>
-      <a id="collectFirst[B](PartialFunction[DateInterval,B]):Option[B]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">collectFirst</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="pf">pf: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.PartialFunction" class="extype" target="_top">PartialFunction</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <span class="extype" name="scala.collection.TraversableOnce.collectFirst.B">B</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.collection.TraversableOnce.collectFirst.B">B</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@collectFirst[B](pf:PartialFunction[A,B]):Option[B]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.Traversable#companion" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="companion:scala.collection.generic.GenericCompanion[Traversable]"></a>
-      <a id="companion:GenericCompanion[Traversable]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">companion</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.generic.GenericCompanion" class="extype" target="_top">GenericCompanion</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@companion:scala.collection.generic.GenericCompanion[Traversable]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Traversable → GenTraversable → GenericTraversableTemplate</dd></dl></div>
     </li><li name="com.mediative.amadou.DateInterval#compare" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="compare(that:com.mediative.amadou.DateInterval):Int"></a>
       <a id="compare(DateInterval):Int"></a>
@@ -632,125 +411,6 @@ res1: <span class="std">Seq</span>[DateInterval] = <span class="std">List</span>
       </a>
     </span>
       
-    </li><li name="scala.collection.TraversableLike#copyToArray" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="copyToArray[B&gt;:A](xs:Array[B],start:Int,len:Int):Unit"></a>
-      <a id="copyToArray[B&gt;:DateInterval](Array[B],Int,Int):Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">copyToArray</span><span class="tparams">[<span name="B">B &gt;: <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>]</span><span class="params">(<span name="xs">xs: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Array" class="extype" target="_top">Array</a>[<span class="extype" name="scala.collection.TraversableLike.copyToArray.B">B</span>]</span>, <span name="start">start: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="len">len: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@copyToArray[B&gt;:A](xs:Array[B],start:Int,len:Int):Unit" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#copyToArray" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="copyToArray[B&gt;:A](xs:Array[B]):Unit"></a>
-      <a id="copyToArray[B&gt;:DateInterval](Array[B]):Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">copyToArray</span><span class="tparams">[<span name="B">B &gt;: <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>]</span><span class="params">(<span name="xs">xs: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Array" class="extype" target="_top">Array</a>[<span class="extype" name="scala.collection.TraversableOnce.copyToArray.B">B</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@copyToArray[B&gt;:A](xs:Array[B]):Unit" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#copyToArray" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="copyToArray[B&gt;:A](xs:Array[B],start:Int):Unit"></a>
-      <a id="copyToArray[B&gt;:DateInterval](Array[B],Int):Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">copyToArray</span><span class="tparams">[<span name="B">B &gt;: <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>]</span><span class="params">(<span name="xs">xs: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Array" class="extype" target="_top">Array</a>[<span class="extype" name="scala.collection.TraversableOnce.copyToArray.B">B</span>]</span>, <span name="start">start: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@copyToArray[B&gt;:A](xs:Array[B],start:Int):Unit" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#copyToBuffer" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="copyToBuffer[B&gt;:A](dest:scala.collection.mutable.Buffer[B]):Unit"></a>
-      <a id="copyToBuffer[B&gt;:DateInterval](Buffer[B]):Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">copyToBuffer</span><span class="tparams">[<span name="B">B &gt;: <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>]</span><span class="params">(<span name="dest">dest: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.mutable.Buffer" class="extype" target="_top">Buffer</a>[<span class="extype" name="scala.collection.TraversableOnce.copyToBuffer.B">B</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@copyToBuffer[B&gt;:A](dest:scala.collection.mutable.Buffer[B]):Unit" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#count" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="count(p:A=&gt;Boolean):Int"></a>
-      <a id="count((DateInterval)⇒Boolean):Int"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">count</span><span class="params">(<span name="p">p: (<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@count(p:A=&gt;Boolean):Int" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#drop" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="drop(n:Int):Repr"></a>
-      <a id="drop(Int):Traversable[DateInterval]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">drop</span><span class="params">(<span name="n">n: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@drop(n:Int):Repr" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → GenTraversableLike</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#dropWhile" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="dropWhile(p:A=&gt;Boolean):Repr"></a>
-      <a id="dropWhile((DateInterval)⇒Boolean):Traversable[DateInterval]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">dropWhile</span><span class="params">(<span name="p">p: (<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@dropWhile(p:A=&gt;Boolean):Repr" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → GenTraversableLike</dd></dl></div>
     </li><li name="com.mediative.amadou.DateInterval#end" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="end:com.mediative.amadou.DateInterval"></a>
       <a id="end:DateInterval"></a>
@@ -886,57 +546,6 @@ res1: <span class="std">Seq</span>[DateInterval] = <span class="std">List</span>
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a> → Equals → AnyRef → Any</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#exists" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="exists(p:A=&gt;Boolean):Boolean"></a>
-      <a id="exists((DateInterval)⇒Boolean):Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">exists</span><span class="params">(<span name="p">p: (<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@exists(p:A=&gt;Boolean):Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#filter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="filter(p:A=&gt;Boolean):Repr"></a>
-      <a id="filter((DateInterval)⇒Boolean):Traversable[DateInterval]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">filter</span><span class="params">(<span name="p">p: (<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@filter(p:A=&gt;Boolean):Repr" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → GenTraversableLike</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#filterNot" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="filterNot(p:A=&gt;Boolean):Repr"></a>
-      <a id="filterNot((DateInterval)⇒Boolean):Traversable[DateInterval]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">filterNot</span><span class="params">(<span name="p">p: (<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@filterNot(p:A=&gt;Boolean):Repr" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → GenTraversableLike</dd></dl></div>
     </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <a id="finalize():Unit"></a>
@@ -960,145 +569,6 @@ res1: <span class="std">Seq</span>[DateInterval] = <span class="std">List</span>
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#find" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="find(p:A=&gt;Boolean):Option[A]"></a>
-      <a id="find((DateInterval)⇒Boolean):Option[DateInterval]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">find</span><span class="params">(<span name="p">p: (<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@find(p:A=&gt;Boolean):Option[A]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#flatMap" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="flatMap[B,That](f:A=&gt;scala.collection.GenTraversableOnce[B])(implicitbf:scala.collection.generic.CanBuildFrom[Repr,B,That]):That"></a>
-      <a id="flatMap[B,That]((DateInterval)⇒GenTraversableOnce[B])(CanBuildFrom[Traversable[DateInterval],B,That]):That"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">flatMap</span><span class="tparams">[<span name="B">B</span>, <span name="That">That</span>]</span><span class="params">(<span name="f">f: (<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.GenTraversableOnce" class="extype" target="_top">GenTraversableOnce</a>[<span class="extype" name="scala.collection.TraversableLike.flatMap.B">B</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="bf">bf: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.generic.CanBuildFrom" class="extype" target="_top">CanBuildFrom</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>], <span class="extype" name="scala.collection.TraversableLike.flatMap.B">B</span>, <span class="extype" name="scala.collection.TraversableLike.flatMap.That">That</span>]</span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableLike.flatMap.That">That</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@flatMap[B,That](f:A=&gt;scala.collection.GenTraversableOnce[B])(implicitbf:scala.collection.generic.CanBuildFrom[Repr,B,That]):That" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → GenTraversableLike → FilterMonadic</dd></dl></div>
-    </li><li name="scala.collection.generic.GenericTraversableTemplate#flatten" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="flatten[B](implicitasTraversable:A=&gt;scala.collection.GenTraversableOnce[B]):CC[B]"></a>
-      <a id="flatten[B]((DateInterval)⇒GenTraversableOnce[B]):Traversable[B]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">flatten</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="asTraversable">asTraversable: (<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.GenTraversableOnce" class="extype" target="_top">GenTraversableOnce</a>[<span class="extype" name="scala.collection.generic.GenericTraversableTemplate.flatten.B">B</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<span class="extype" name="scala.collection.generic.GenericTraversableTemplate.flatten.B">B</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@flatten[B](implicitasTraversable:A=&gt;scala.collection.GenTraversableOnce[B]):CC[B]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>GenericTraversableTemplate</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#fold" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="fold[A1&gt;:A](z:A1)(op:(A1,A1)=&gt;A1):A1"></a>
-      <a id="fold[A1&gt;:DateInterval](A1)((A1,A1)⇒A1):A1"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">fold</span><span class="tparams">[<span name="A1">A1 &gt;: <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>]</span><span class="params">(<span name="z">z: <span class="extype" name="scala.collection.TraversableOnce.fold.A1">A1</span></span>)</span><span class="params">(<span name="op">op: (<span class="extype" name="scala.collection.TraversableOnce.fold.A1">A1</span>, <span class="extype" name="scala.collection.TraversableOnce.fold.A1">A1</span>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.fold.A1">A1</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.fold.A1">A1</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@fold[A1&gt;:A](z:A1)(op:(A1,A1)=&gt;A1):A1" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#foldLeft" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="foldLeft[B](z:B)(op:(B,A)=&gt;B):B"></a>
-      <a id="foldLeft[B](B)((B,DateInterval)⇒B):B"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">foldLeft</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="z">z: <span class="extype" name="scala.collection.TraversableOnce.foldLeft.B">B</span></span>)</span><span class="params">(<span name="op">op: (<span class="extype" name="scala.collection.TraversableOnce.foldLeft.B">B</span>, <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.foldLeft.B">B</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.foldLeft.B">B</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@foldLeft[B](z:B)(op:(B,A)=&gt;B):B" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#foldRight" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="foldRight[B](z:B)(op:(A,B)=&gt;B):B"></a>
-      <a id="foldRight[B](B)((DateInterval,B)⇒B):B"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">foldRight</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="z">z: <span class="extype" name="scala.collection.TraversableOnce.foldRight.B">B</span></span>)</span><span class="params">(<span name="op">op: (<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <span class="extype" name="scala.collection.TraversableOnce.foldRight.B">B</span>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.foldRight.B">B</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.foldRight.B">B</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@foldRight[B](z:B)(op:(A,B)=&gt;B):B" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#forall" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="forall(p:A=&gt;Boolean):Boolean"></a>
-      <a id="forall((DateInterval)⇒Boolean):Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">forall</span><span class="params">(<span name="p">p: (<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@forall(p:A=&gt;Boolean):Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="com.mediative.amadou.DateInterval#foreach" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="foreach[U](f:com.mediative.amadou.DateInterval=&gt;U):Unit"></a>
-      <a id="foreach[U]((DateInterval)⇒U):Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">foreach</span><span class="tparams">[<span name="U">U</span>]</span><span class="params">(<span name="f">f: (<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <span class="extype" name="com.mediative.amadou.DateInterval.foreach.U">U</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@foreach[U](f:com.mediative.amadou.DateInterval=&gt;U):Unit" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Iterate over all days in this date interval.</p><div class="fullcomment"><div class="comment cmt"><p>Iterate over all days in this date interval.</p><p>Example:</p><pre>scala&gt; Week(<span class="num">2016</span>, <span class="num">11</span>).size
-res1: <span class="std">Int</span> = <span class="num">7</span>
-scala&gt; Week(<span class="num">2016</span>, <span class="num">11</span>).toList
-res2: <span class="std">List</span>[DateInterval] = <span class="std">List</span>(<span class="num">2016</span>-<span class="num">03</span>-<span class="num">14</span>, <span class="num">2016</span>-<span class="num">03</span>-<span class="num">15</span>, <span class="num">2016</span>-<span class="num">03</span>-<span class="num">16</span>, <span class="num">2016</span>-<span class="num">03</span>-<span class="num">17</span>, <span class="num">2016</span>-<span class="num">03</span>-<span class="num">18</span>, <span class="num">2016</span>-<span class="num">03</span>-<span class="num">19</span>, <span class="num">2016</span>-<span class="num">03</span>-<span class="num">20</span>)</pre></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a> → GenericTraversableTemplate → TraversableLike → GenTraversableLike → TraversableOnce → GenTraversableOnce → FilterMonadic</dd></dl></div>
     </li><li name="com.mediative.amadou.DateInterval#format" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="format(dateFormat:String):String"></a>
       <a id="format(String):String"></a>
@@ -1157,23 +627,6 @@ res2: <span class="std">List</span>[DateInterval] = <span class="std">List</span
       </a>
     </span>
       
-    </li><li name="scala.collection.generic.GenericTraversableTemplate#genericBuilder" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="genericBuilder[B]:scala.collection.mutable.Builder[B,CC[B]]"></a>
-      <a id="genericBuilder[B]:Builder[B,Traversable[B]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">genericBuilder</span><span class="tparams">[<span name="B">B</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.mutable.Builder" class="extype" target="_top">Builder</a>[<span class="extype" name="scala.collection.generic.GenericTraversableTemplate.genericBuilder.B">B</span>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<span class="extype" name="scala.collection.generic.GenericTraversableTemplate.genericBuilder.B">B</span>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@genericBuilder[B]:scala.collection.mutable.Builder[B,CC[B]]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>GenericTraversableTemplate</dd></dl></div>
     </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <a id="getClass():Class[_]"></a>
@@ -1191,108 +644,6 @@ res2: <span class="std">List</span>[DateInterval] = <span class="std">List</span
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#groupBy" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="groupBy[K](f:A=&gt;K):scala.collection.immutable.Map[K,Repr]"></a>
-      <a id="groupBy[K]((DateInterval)⇒K):Map[K,Traversable[DateInterval]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">groupBy</span><span class="tparams">[<span name="K">K</span>]</span><span class="params">(<span name="f">f: (<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <span class="extype" name="scala.collection.TraversableLike.groupBy.K">K</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.immutable.Map" class="extype" target="_top">Map</a>[<span class="extype" name="scala.collection.TraversableLike.groupBy.K">K</span>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@groupBy[K](f:A=&gt;K):scala.collection.immutable.Map[K,Repr]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → GenTraversableLike</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#hasDefiniteSize" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="hasDefiniteSize:Boolean"></a>
-      <a id="hasDefiniteSize:Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">hasDefiniteSize</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@hasDefiniteSize:Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#head" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="head:A"></a>
-      <a id="head:DateInterval"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">head</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@head:A" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → GenTraversableLike</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#headOption" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="headOption:Option[A]"></a>
-      <a id="headOption:Option[DateInterval]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">headOption</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@headOption:Option[A]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → GenTraversableLike</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#init" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="init:Repr"></a>
-      <a id="init:Traversable[DateInterval]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">init</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@init:Repr" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → GenTraversableLike</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#inits" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="inits:Iterator[Repr]"></a>
-      <a id="inits:Iterator[Traversable[DateInterval]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">inits</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@inits:Iterator[Repr]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike</dd></dl></div>
     </li><li name="com.mediative.amadou.DateInterval#interval" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="interval:com.mediative.amadou.DateIntervalType"></a>
       <a id="interval:DateIntervalType"></a>
@@ -1310,23 +661,6 @@ res2: <span class="std">List</span>[DateInterval] = <span class="std">List</span
       </a>
     </span>
       
-    </li><li name="scala.collection.TraversableLike#isEmpty" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="isEmpty:Boolean"></a>
-      <a id="isEmpty:Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">isEmpty</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@isEmpty:Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <a id="isInstanceOf[T0]:Boolean"></a>
@@ -1344,193 +678,6 @@ res2: <span class="std">List</span>[DateInterval] = <span class="std">List</span
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#isTraversableAgain" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="isTraversableAgain:Boolean"></a>
-      <a id="isTraversableAgain:Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">final </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">isTraversableAgain</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@isTraversableAgain:Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → GenTraversableLike → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#last" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="last:A"></a>
-      <a id="last:DateInterval"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">last</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@last:A" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → GenTraversableLike</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#lastOption" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="lastOption:Option[A]"></a>
-      <a id="lastOption:Option[DateInterval]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">lastOption</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@lastOption:Option[A]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → GenTraversableLike</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#map" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="map[B,That](f:A=&gt;B)(implicitbf:scala.collection.generic.CanBuildFrom[Repr,B,That]):That"></a>
-      <a id="map[B,That]((DateInterval)⇒B)(CanBuildFrom[Traversable[DateInterval],B,That]):That"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">map</span><span class="tparams">[<span name="B">B</span>, <span name="That">That</span>]</span><span class="params">(<span name="f">f: (<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <span class="extype" name="scala.collection.TraversableLike.map.B">B</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="bf">bf: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.generic.CanBuildFrom" class="extype" target="_top">CanBuildFrom</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>], <span class="extype" name="scala.collection.TraversableLike.map.B">B</span>, <span class="extype" name="scala.collection.TraversableLike.map.That">That</span>]</span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableLike.map.That">That</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@map[B,That](f:A=&gt;B)(implicitbf:scala.collection.generic.CanBuildFrom[Repr,B,That]):That" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → GenTraversableLike → FilterMonadic</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#max" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="max[B&gt;:A](implicitcmp:Ordering[B]):A"></a>
-      <a id="max[B&gt;:DateInterval](Ordering[B]):DateInterval"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">max</span><span class="tparams">[<span name="B">B &gt;: <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>]</span><span class="params">(<span class="implicit">implicit </span><span name="cmp">cmp: <span class="extype" name="scala.Ordering">Ordering</span>[<span class="extype" name="scala.collection.TraversableOnce.max.B">B</span>]</span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@max[B&gt;:A](implicitcmp:Ordering[B]):A" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#maxBy" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="maxBy[B](f:A=&gt;B)(implicitcmp:Ordering[B]):A"></a>
-      <a id="maxBy[B]((DateInterval)⇒B)(Ordering[B]):DateInterval"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">maxBy</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.maxBy.B">B</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cmp">cmp: <span class="extype" name="scala.Ordering">Ordering</span>[<span class="extype" name="scala.collection.TraversableOnce.maxBy.B">B</span>]</span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@maxBy[B](f:A=&gt;B)(implicitcmp:Ordering[B]):A" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#min" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="min[B&gt;:A](implicitcmp:Ordering[B]):A"></a>
-      <a id="min[B&gt;:DateInterval](Ordering[B]):DateInterval"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">min</span><span class="tparams">[<span name="B">B &gt;: <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>]</span><span class="params">(<span class="implicit">implicit </span><span name="cmp">cmp: <span class="extype" name="scala.Ordering">Ordering</span>[<span class="extype" name="scala.collection.TraversableOnce.min.B">B</span>]</span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@min[B&gt;:A](implicitcmp:Ordering[B]):A" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#minBy" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="minBy[B](f:A=&gt;B)(implicitcmp:Ordering[B]):A"></a>
-      <a id="minBy[B]((DateInterval)⇒B)(Ordering[B]):DateInterval"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">minBy</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.minBy.B">B</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cmp">cmp: <span class="extype" name="scala.Ordering">Ordering</span>[<span class="extype" name="scala.collection.TraversableOnce.minBy.B">B</span>]</span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@minBy[B](f:A=&gt;B)(implicitcmp:Ordering[B]):A" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#mkString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="mkString:String"></a>
-      <a id="mkString:String"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">mkString</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@mkString:String" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#mkString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="mkString(sep:String):String"></a>
-      <a id="mkString(String):String"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">mkString</span><span class="params">(<span name="sep">sep: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@mkString(sep:String):String" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#mkString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="mkString(start:String,sep:String,end:String):String"></a>
-      <a id="mkString(String,String,String):String"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">mkString</span><span class="params">(<span name="start">start: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="sep">sep: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="end">end: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@mkString(start:String,sep:String,end:String):String" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -1548,23 +695,6 @@ res2: <span class="std">List</span>[DateInterval] = <span class="std">List</span
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.collection.generic.GenericTraversableTemplate#newBuilder" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="newBuilder:scala.collection.mutable.Builder[A,CC[A]]"></a>
-      <a id="newBuilder:Builder[DateInterval,Traversable[DateInterval]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">newBuilder</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.mutable.Builder" class="extype" target="_top">Builder</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@newBuilder:scala.collection.mutable.Builder[A,CC[A]]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[this] </dd><dt>Definition Classes</dt><dd>GenericTraversableTemplate → HasNewBuilder</dd></dl></div>
     </li><li name="com.mediative.amadou.DateInterval#next" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="next:com.mediative.amadou.DateInterval"></a>
       <a id="next:DateInterval"></a>
@@ -1583,23 +713,6 @@ res2: <span class="std">List</span>[DateInterval] = <span class="std">List</span
     </span>
       <p class="shortcomment cmt">Returns the subsequent corresponding date interval (eg.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the subsequent corresponding date interval (eg. 2014 -&gt; 2015).</p><p>Example:</p><pre>scala&gt; Year(<span class="num">2014</span>).next
 res1: DateInterval = <span class="num">2015</span></pre></div></div>
-    </li><li name="scala.collection.TraversableOnce#nonEmpty" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="nonEmpty:Boolean"></a>
-      <a id="nonEmpty:Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">nonEmpty</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@nonEmpty:Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
       <a id="notify():Unit"></a>
@@ -1634,57 +747,6 @@ res1: DateInterval = <span class="num">2015</span></pre></div></div>
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.collection.Parallelizable#par" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="par:ParRepr"></a>
-      <a id="par:ParIterable[DateInterval]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">par</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.parallel.ParIterable" class="extype" target="_top">ParIterable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@par:ParRepr" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Parallelizable</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#parCombiner" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="parCombiner:scala.collection.parallel.Combiner[A,scala.collection.parallel.ParIterable[A]]"></a>
-      <a id="parCombiner:Combiner[DateInterval,ParIterable[DateInterval]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">parCombiner</span><span class="result">: <span class="extype" name="scala.collection.parallel.Combiner">Combiner</span>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.parallel.ParIterable" class="extype" target="_top">ParIterable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@parCombiner:scala.collection.parallel.Combiner[A,scala.collection.parallel.ParIterable[A]]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[this] </dd><dt>Definition Classes</dt><dd>TraversableLike → Parallelizable</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#partition" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="partition(p:A=&gt;Boolean):(Repr,Repr)"></a>
-      <a id="partition((DateInterval)⇒Boolean):(Traversable[DateInterval],Traversable[DateInterval])"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">partition</span><span class="params">(<span name="p">p: (<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: (<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>])</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@partition(p:A=&gt;Boolean):(Repr,Repr)" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → GenTraversableLike</dd></dl></div>
     </li><li name="com.mediative.amadou.DateInterval#prev" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="prev:com.mediative.amadou.DateInterval"></a>
       <a id="prev:DateInterval"></a>
@@ -1703,332 +765,6 @@ res1: DateInterval = <span class="num">2015</span></pre></div></div>
     </span>
       <p class="shortcomment cmt">Returns the preceding corresponding date interval (eg.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the preceding corresponding date interval (eg. May -&gt; April).</p><p>Example:</p><pre>scala&gt; Month(<span class="num">2016</span>, <span class="num">5</span>).prev
 res1: DateInterval = <span class="num">2016</span>-<span class="num">04</span></pre></div></div>
-    </li><li name="scala.collection.TraversableOnce#product" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="product[B&gt;:A](implicitnum:Numeric[B]):B"></a>
-      <a id="product[B&gt;:DateInterval](Numeric[B]):B"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">product</span><span class="tparams">[<span name="B">B &gt;: <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>]</span><span class="params">(<span class="implicit">implicit </span><span name="num">num: <span class="extype" name="scala.Numeric">Numeric</span>[<span class="extype" name="scala.collection.TraversableOnce.product.B">B</span>]</span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.product.B">B</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@product[B&gt;:A](implicitnum:Numeric[B]):B" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#reduce" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="reduce[A1&gt;:A](op:(A1,A1)=&gt;A1):A1"></a>
-      <a id="reduce[A1&gt;:DateInterval]((A1,A1)⇒A1):A1"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">reduce</span><span class="tparams">[<span name="A1">A1 &gt;: <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>]</span><span class="params">(<span name="op">op: (<span class="extype" name="scala.collection.TraversableOnce.reduce.A1">A1</span>, <span class="extype" name="scala.collection.TraversableOnce.reduce.A1">A1</span>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.reduce.A1">A1</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.reduce.A1">A1</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@reduce[A1&gt;:A](op:(A1,A1)=&gt;A1):A1" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#reduceLeft" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="reduceLeft[B&gt;:A](op:(B,A)=&gt;B):B"></a>
-      <a id="reduceLeft[B&gt;:DateInterval]((B,DateInterval)⇒B):B"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">reduceLeft</span><span class="tparams">[<span name="B">B &gt;: <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>]</span><span class="params">(<span name="op">op: (<span class="extype" name="scala.collection.TraversableOnce.reduceLeft.B">B</span>, <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.reduceLeft.B">B</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.reduceLeft.B">B</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@reduceLeft[B&gt;:A](op:(B,A)=&gt;B):B" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#reduceLeftOption" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="reduceLeftOption[B&gt;:A](op:(B,A)=&gt;B):Option[B]"></a>
-      <a id="reduceLeftOption[B&gt;:DateInterval]((B,DateInterval)⇒B):Option[B]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">reduceLeftOption</span><span class="tparams">[<span name="B">B &gt;: <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>]</span><span class="params">(<span name="op">op: (<span class="extype" name="scala.collection.TraversableOnce.reduceLeftOption.B">B</span>, <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.reduceLeftOption.B">B</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.collection.TraversableOnce.reduceLeftOption.B">B</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@reduceLeftOption[B&gt;:A](op:(B,A)=&gt;B):Option[B]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#reduceOption" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="reduceOption[A1&gt;:A](op:(A1,A1)=&gt;A1):Option[A1]"></a>
-      <a id="reduceOption[A1&gt;:DateInterval]((A1,A1)⇒A1):Option[A1]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">reduceOption</span><span class="tparams">[<span name="A1">A1 &gt;: <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>]</span><span class="params">(<span name="op">op: (<span class="extype" name="scala.collection.TraversableOnce.reduceOption.A1">A1</span>, <span class="extype" name="scala.collection.TraversableOnce.reduceOption.A1">A1</span>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.reduceOption.A1">A1</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.collection.TraversableOnce.reduceOption.A1">A1</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@reduceOption[A1&gt;:A](op:(A1,A1)=&gt;A1):Option[A1]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#reduceRight" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="reduceRight[B&gt;:A](op:(A,B)=&gt;B):B"></a>
-      <a id="reduceRight[B&gt;:DateInterval]((DateInterval,B)⇒B):B"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">reduceRight</span><span class="tparams">[<span name="B">B &gt;: <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>]</span><span class="params">(<span name="op">op: (<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <span class="extype" name="scala.collection.TraversableOnce.reduceRight.B">B</span>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.reduceRight.B">B</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.reduceRight.B">B</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@reduceRight[B&gt;:A](op:(A,B)=&gt;B):B" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#reduceRightOption" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="reduceRightOption[B&gt;:A](op:(A,B)=&gt;B):Option[B]"></a>
-      <a id="reduceRightOption[B&gt;:DateInterval]((DateInterval,B)⇒B):Option[B]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">reduceRightOption</span><span class="tparams">[<span name="B">B &gt;: <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>]</span><span class="params">(<span name="op">op: (<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <span class="extype" name="scala.collection.TraversableOnce.reduceRightOption.B">B</span>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.reduceRightOption.B">B</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.collection.TraversableOnce.reduceRightOption.B">B</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@reduceRightOption[B&gt;:A](op:(A,B)=&gt;B):Option[B]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#repr" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="repr:Repr"></a>
-      <a id="repr:Traversable[DateInterval]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">repr</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@repr:Repr" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → GenTraversableLike</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#reversed" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="reversed:List[A]"></a>
-      <a id="reversed:List[DateInterval]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">reversed</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@reversed:List[A]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[this] </dd><dt>Definition Classes</dt><dd>TraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#scan" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="scan[B&gt;:A,That](z:B)(op:(B,B)=&gt;B)(implicitcbf:scala.collection.generic.CanBuildFrom[Repr,B,That]):That"></a>
-      <a id="scan[B&gt;:DateInterval,That](B)((B,B)⇒B)(CanBuildFrom[Traversable[DateInterval],B,That]):That"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">scan</span><span class="tparams">[<span name="B">B &gt;: <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>, <span name="That">That</span>]</span><span class="params">(<span name="z">z: <span class="extype" name="scala.collection.TraversableLike.scan.B">B</span></span>)</span><span class="params">(<span name="op">op: (<span class="extype" name="scala.collection.TraversableLike.scan.B">B</span>, <span class="extype" name="scala.collection.TraversableLike.scan.B">B</span>) ⇒ <span class="extype" name="scala.collection.TraversableLike.scan.B">B</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cbf">cbf: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.generic.CanBuildFrom" class="extype" target="_top">CanBuildFrom</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>], <span class="extype" name="scala.collection.TraversableLike.scan.B">B</span>, <span class="extype" name="scala.collection.TraversableLike.scan.That">That</span>]</span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableLike.scan.That">That</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@scan[B&gt;:A,That](z:B)(op:(B,B)=&gt;B)(implicitcbf:scala.collection.generic.CanBuildFrom[Repr,B,That]):That" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → GenTraversableLike</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#scanLeft" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="scanLeft[B,That](z:B)(op:(B,A)=&gt;B)(implicitbf:scala.collection.generic.CanBuildFrom[Repr,B,That]):That"></a>
-      <a id="scanLeft[B,That](B)((B,DateInterval)⇒B)(CanBuildFrom[Traversable[DateInterval],B,That]):That"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">scanLeft</span><span class="tparams">[<span name="B">B</span>, <span name="That">That</span>]</span><span class="params">(<span name="z">z: <span class="extype" name="scala.collection.TraversableLike.scanLeft.B">B</span></span>)</span><span class="params">(<span name="op">op: (<span class="extype" name="scala.collection.TraversableLike.scanLeft.B">B</span>, <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <span class="extype" name="scala.collection.TraversableLike.scanLeft.B">B</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="bf">bf: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.generic.CanBuildFrom" class="extype" target="_top">CanBuildFrom</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>], <span class="extype" name="scala.collection.TraversableLike.scanLeft.B">B</span>, <span class="extype" name="scala.collection.TraversableLike.scanLeft.That">That</span>]</span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableLike.scanLeft.That">That</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@scanLeft[B,That](z:B)(op:(B,A)=&gt;B)(implicitbf:scala.collection.generic.CanBuildFrom[Repr,B,That]):That" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → GenTraversableLike</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#scanRight" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="scanRight[B,That](z:B)(op:(A,B)=&gt;B)(implicitbf:scala.collection.generic.CanBuildFrom[Repr,B,That]):That"></a>
-      <a id="scanRight[B,That](B)((DateInterval,B)⇒B)(CanBuildFrom[Traversable[DateInterval],B,That]):That"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">scanRight</span><span class="tparams">[<span name="B">B</span>, <span name="That">That</span>]</span><span class="params">(<span name="z">z: <span class="extype" name="scala.collection.TraversableLike.scanRight.B">B</span></span>)</span><span class="params">(<span name="op">op: (<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <span class="extype" name="scala.collection.TraversableLike.scanRight.B">B</span>) ⇒ <span class="extype" name="scala.collection.TraversableLike.scanRight.B">B</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="bf">bf: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.generic.CanBuildFrom" class="extype" target="_top">CanBuildFrom</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>], <span class="extype" name="scala.collection.TraversableLike.scanRight.B">B</span>, <span class="extype" name="scala.collection.TraversableLike.scanRight.That">That</span>]</span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableLike.scanRight.That">That</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@scanRight[B,That](z:B)(op:(A,B)=&gt;B)(implicitbf:scala.collection.generic.CanBuildFrom[Repr,B,That]):That" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → GenTraversableLike</dd><dt>Annotations</dt><dd>
-                <span class="name">@migration</span>
-              
-        </dd><dt>Migration</dt><dd class="cmt"><p><i>(Changed in version 2.9.0)</i> The behavior of <code>scanRight</code> has changed. The previous behavior can be reproduced with scanRight.reverse.</p></dd></dl></div>
-    </li><li name="scala.collection.Traversable#seq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="seq:Traversable[A]"></a>
-      <a id="seq:Traversable[DateInterval]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">seq</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@seq:Traversable[A]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Traversable → GenTraversable → Parallelizable → TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#size" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="size:Int"></a>
-      <a id="size:Int"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">size</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@size:Int" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#slice" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="slice(from:Int,until:Int):Repr"></a>
-      <a id="slice(Int,Int):Traversable[DateInterval]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">slice</span><span class="params">(<span name="from">from: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="until">until: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@slice(from:Int,until:Int):Repr" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → GenTraversableLike</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#span" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="span(p:A=&gt;Boolean):(Repr,Repr)"></a>
-      <a id="span((DateInterval)⇒Boolean):(Traversable[DateInterval],Traversable[DateInterval])"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">span</span><span class="params">(<span name="p">p: (<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: (<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>])</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@span(p:A=&gt;Boolean):(Repr,Repr)" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → GenTraversableLike</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#splitAt" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="splitAt(n:Int):(Repr,Repr)"></a>
-      <a id="splitAt(Int):(Traversable[DateInterval],Traversable[DateInterval])"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">splitAt</span><span class="params">(<span name="n">n: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: (<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>])</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@splitAt(n:Int):(Repr,Repr)" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → GenTraversableLike</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#stringPrefix" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="stringPrefix:String"></a>
-      <a id="stringPrefix:String"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">stringPrefix</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@stringPrefix:String" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → GenTraversableLike</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#sum" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="sum[B&gt;:A](implicitnum:Numeric[B]):B"></a>
-      <a id="sum[B&gt;:DateInterval](Numeric[B]):B"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">sum</span><span class="tparams">[<span name="B">B &gt;: <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>]</span><span class="params">(<span class="implicit">implicit </span><span name="num">num: <span class="extype" name="scala.Numeric">Numeric</span>[<span class="extype" name="scala.collection.TraversableOnce.sum.B">B</span>]</span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableOnce.sum.B">B</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@sum[B&gt;:A](implicitnum:Numeric[B]):B" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -2046,91 +782,6 @@ res1: DateInterval = <span class="num">2016</span>-<span class="num">04</span></
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#tail" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="tail:Repr"></a>
-      <a id="tail:Traversable[DateInterval]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">tail</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@tail:Repr" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → GenTraversableLike</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#tails" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="tails:Iterator[Repr]"></a>
-      <a id="tails:Iterator[Traversable[DateInterval]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">tails</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@tails:Iterator[Repr]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#take" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="take(n:Int):Repr"></a>
-      <a id="take(Int):Traversable[DateInterval]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">take</span><span class="params">(<span name="n">n: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@take(n:Int):Repr" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → GenTraversableLike</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#takeWhile" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="takeWhile(p:A=&gt;Boolean):Repr"></a>
-      <a id="takeWhile((DateInterval)⇒Boolean):Traversable[DateInterval]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">takeWhile</span><span class="params">(<span name="p">p: (<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@takeWhile(p:A=&gt;Boolean):Repr" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → GenTraversableLike</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#thisCollection" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="thisCollection:Traversable[A]"></a>
-      <a id="thisCollection:Traversable[DateInterval]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">thisCollection</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@thisCollection:Traversable[A]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[this] </dd><dt>Definition Classes</dt><dd>TraversableLike</dd></dl></div>
     </li><li name="com.mediative.amadou.DateInterval#timestamp" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="timestamp:Long"></a>
       <a id="timestamp:Long"></a>
@@ -2166,161 +817,8 @@ res1: DateInterval = <span class="num">2016</span>-<span class="num">04</span></
     </span>
       <p class="shortcomment cmt">Define a custom interval.</p><div class="fullcomment"><div class="comment cmt"><p>Define a custom interval.</p><p>Example:</p><pre>scala&gt; Month(<span class="num">2016</span>, <span class="num">8</span>) to Day(<span class="num">2016</span>, <span class="num">8</span>, <span class="num">29</span>)
 res1: DateInterval = <span class="num">2016</span>-<span class="num">08</span>:<span class="num">2016</span>-<span class="num">08</span>-<span class="num">29</span>
-scala&gt; (Day(<span class="num">2016</span>, <span class="num">8</span>, <span class="num">11</span>) to Day(<span class="num">2016</span>, <span class="num">8</span>, <span class="num">29</span>)).size
+scala&gt; (Day(<span class="num">2016</span>, <span class="num">8</span>, <span class="num">11</span>) to Day(<span class="num">2016</span>, <span class="num">8</span>, <span class="num">29</span>)).by(Day).size
 res2: <span class="std">Int</span> = <span class="num">18</span></pre></div></div>
-    </li><li name="scala.collection.TraversableLike#to" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="to[Col[_]](implicitcbf:scala.collection.generic.CanBuildFrom[Nothing,A,Col[A@scala.annotation.unchecked.uncheckedVariance]]):Col[A@scala.annotation.unchecked.uncheckedVariance]"></a>
-      <a id="to[Col[_]](CanBuildFrom[Nothing,DateInterval,Col[DateInterval]]):Col[DateInterval]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">to</span><span class="tparams">[<span name="Col">Col<span class="tparams">[<span name="_">_</span>]</span></span>]</span><span class="params">(<span class="implicit">implicit </span><span name="cbf">cbf: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.generic.CanBuildFrom" class="extype" target="_top">CanBuildFrom</a>[<span class="extype" name="scala.Nothing">Nothing</span>, <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <span class="extype" name="scala.collection.TraversableLike.to.Col">Col</span>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]]</span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableLike.to.Col">Col</span>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@to[Col[_]](implicitcbf:scala.collection.generic.CanBuildFrom[Nothing,A,Col[A@scala.annotation.unchecked.uncheckedVariance]]):Col[A@scala.annotation.unchecked.uncheckedVariance]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#toArray" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="toArray[B&gt;:A](implicitevidence$1:scala.reflect.ClassTag[B]):Array[B]"></a>
-      <a id="toArray[B&gt;:DateInterval](ClassTag[B]):Array[B]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">toArray</span><span class="tparams">[<span name="B">B &gt;: <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>]</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.reflect.ClassTag" class="extype" target="_top">ClassTag</a>[<span class="extype" name="scala.collection.TraversableOnce.toArray.B">B</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Array" class="extype" target="_top">Array</a>[<span class="extype" name="scala.collection.TraversableOnce.toArray.B">B</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@toArray[B&gt;:A](implicitevidence$1:scala.reflect.ClassTag[B]):Array[B]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#toBuffer" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="toBuffer[B&gt;:A]:scala.collection.mutable.Buffer[B]"></a>
-      <a id="toBuffer[B&gt;:DateInterval]:Buffer[B]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">toBuffer</span><span class="tparams">[<span name="B">B &gt;: <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.mutable.Buffer" class="extype" target="_top">Buffer</a>[<span class="extype" name="scala.collection.TraversableOnce.toBuffer.B">B</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@toBuffer[B&gt;:A]:scala.collection.mutable.Buffer[B]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#toCollection" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="toCollection(repr:Repr):Traversable[A]"></a>
-      <a id="toCollection(Traversable[DateInterval]):Traversable[DateInterval]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">toCollection</span><span class="params">(<span name="repr">repr: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@toCollection(repr:Repr):Traversable[A]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[this] </dd><dt>Definition Classes</dt><dd>TraversableLike</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#toIndexedSeq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="toIndexedSeq:scala.collection.immutable.IndexedSeq[A]"></a>
-      <a id="toIndexedSeq:IndexedSeq[DateInterval]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">toIndexedSeq</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.immutable.IndexedSeq" class="extype" target="_top">IndexedSeq</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@toIndexedSeq:scala.collection.immutable.IndexedSeq[A]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#toIterable" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="toIterable:Iterable[A]"></a>
-      <a id="toIterable:Iterable[DateInterval]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">toIterable</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterable" class="extype" target="_top">Iterable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@toIterable:Iterable[A]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#toIterator" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="toIterator:Iterator[A]"></a>
-      <a id="toIterator:Iterator[DateInterval]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">toIterator</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@toIterator:Iterator[A]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#toList" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="toList:List[A]"></a>
-      <a id="toList:List[DateInterval]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">toList</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@toList:List[A]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#toMap" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="toMap[T,U](implicitev:&lt;:&lt;[A,(T,U)]):scala.collection.immutable.Map[T,U]"></a>
-      <a id="toMap[T,U](&lt;:&lt;[DateInterval,(T,U)]):Map[T,U]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">toMap</span><span class="tparams">[<span name="T">T</span>, <span name="U">U</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="ev">ev: <span class="extype" name="scala.Predef.&lt;:&lt;">&lt;:&lt;</span>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, (<span class="extype" name="scala.collection.TraversableOnce.toMap.T">T</span>, <span class="extype" name="scala.collection.TraversableOnce.toMap.U">U</span>)]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.immutable.Map" class="extype" target="_top">Map</a>[<span class="extype" name="scala.collection.TraversableOnce.toMap.T">T</span>, <span class="extype" name="scala.collection.TraversableOnce.toMap.U">U</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@toMap[T,U](implicitev:&lt;:&lt;[A,(T,U)]):scala.collection.immutable.Map[T,U]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
     </li><li name="com.mediative.amadou.DateInterval#toOpt" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="toOpt:Option[com.mediative.amadou.DateInterval]"></a>
       <a id="toOpt:Option[DateInterval]"></a>
@@ -2338,78 +836,6 @@ res2: <span class="std">Int</span> = <span class="num">18</span></pre></div></di
       </a>
     </span>
       
-    </li><li name="scala.collection.parallel.CollectionsHaveToParArray#toParArray" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="toParArray:scala.collection.parallel.mutable.ParArray[T]"></a>
-      <a id="toParArray:ParArray[T]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="implicit">toParArray</span><span class="result">: <span class="extype" name="scala.collection.parallel.mutable.ParArray">ParArray</span>[<span class="extype" name="scala.collection.parallel.CollectionsHaveToParArray.T">T</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@toParArray:scala.collection.parallel.mutable.ParArray[T]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a> to
-            <span class="extype" name="scala.collection.parallel.CollectionsHaveToParArray">CollectionsHaveToParArray</span>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <span class="extype" name="scala.collection.parallel.CollectionsHaveToParArray.T">T</span>] performed by method CollectionsHaveToParArray in scala.collection.parallel.
-            This conversion will take place only if an implicit value of type (<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.GenTraversableOnce" class="extype" target="_top">GenTraversableOnce</a>[<span class="extype" name="scala.collection.parallel.CollectionsHaveToParArray.T">T</span>] is in scope.
-          </dd><dt>Definition Classes</dt><dd>CollectionsHaveToParArray</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#toSeq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="toSeq:Seq[A]"></a>
-      <a id="toSeq:Seq[DateInterval]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">toSeq</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Seq" class="extype" target="_top">Seq</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@toSeq:Seq[A]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#toSet" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="toSet[B&gt;:A]:scala.collection.immutable.Set[B]"></a>
-      <a id="toSet[B&gt;:DateInterval]:Set[B]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">toSet</span><span class="tparams">[<span name="B">B &gt;: <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.immutable.Set" class="extype" target="_top">Set</a>[<span class="extype" name="scala.collection.TraversableOnce.toSet.B">B</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@toSet[B&gt;:A]:scala.collection.immutable.Set[B]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#toStream" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="toStream:Stream[A]"></a>
-      <a id="toStream:Stream[DateInterval]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">toStream</span><span class="result">: <span class="extype" name="scala.Stream">Stream</span>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@toStream:Stream[A]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → GenTraversableOnce</dd></dl></div>
     </li><li name="com.mediative.amadou.DateInterval#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
       <a id="toString():String"></a>
@@ -2419,14 +845,14 @@ res2: <span class="std">Int</span> = <span class="num">18</span></pre></div></di
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#com.mediative.amadou.DateInterval@toString():String" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a> → TraversableLike → AnyRef → Any</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a> → AnyRef → Any</dd></dl></div>
     </li><li name="com.mediative.amadou.DateInterval#toTimestamp" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="toTimestamp:java.sql.Timestamp"></a>
       <a id="toTimestamp:Timestamp"></a>
@@ -2444,137 +870,6 @@ res2: <span class="std">Int</span> = <span class="num">18</span></pre></div></di
       </a>
     </span>
       
-    </li><li name="scala.collection.TraversableLike#toTraversable" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="toTraversable:Traversable[A]"></a>
-      <a id="toTraversable:Traversable[DateInterval]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">toTraversable</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@toTraversable:Traversable[A]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → TraversableOnce → GenTraversableOnce</dd><dt>Annotations</dt><dd>
-                <span class="name">@deprecatedOverriding</span><span class="args">(<span>
-      
-      <span class="defval" name="&quot;Enforce contract of toTraversable that if it is Traversable it returns itself.&quot;">...</span>
-    </span>, <span>
-      
-      <span class="symbol">&quot;2.11.0&quot;</span>
-    </span>)</span>
-              
-        </dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce#toVector" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="toVector:Vector[A]"></a>
-      <a id="toVector:Vector[DateInterval]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">toVector</span><span class="result">: <span class="extype" name="scala.Vector">Vector</span>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@toVector:Vector[A]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableOnce → GenTraversableOnce</dd></dl></div>
-    </li><li name="scala.collection.generic.GenericTraversableTemplate#transpose" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="transpose[B](implicitasTraversable:A=&gt;scala.collection.GenTraversableOnce[B]):CC[CC[B]@scala.annotation.unchecked.uncheckedVariance]"></a>
-      <a id="transpose[B]((DateInterval)⇒GenTraversableOnce[B]):Traversable[Traversable[B]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">transpose</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="asTraversable">asTraversable: (<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.GenTraversableOnce" class="extype" target="_top">GenTraversableOnce</a>[<span class="extype" name="scala.collection.generic.GenericTraversableTemplate.transpose.B">B</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<span class="extype" name="scala.collection.generic.GenericTraversableTemplate.transpose.B">B</span>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@transpose[B](implicitasTraversable:A=&gt;scala.collection.GenTraversableOnce[B]):CC[CC[B]@scala.annotation.unchecked.uncheckedVariance]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>GenericTraversableTemplate</dd><dt>Annotations</dt><dd>
-                <span class="name">@migration</span>
-              
-        </dd><dt>Migration</dt><dd class="cmt"><p><i>(Changed in version 2.9.0)</i> <code>transpose</code> throws an <code>IllegalArgumentException</code> if collections are not uniformly sized.</p></dd></dl></div>
-    </li><li name="scala.collection.generic.GenericTraversableTemplate#unzip" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="unzip[A1,A2](implicitasPair:A=&gt;(A1,A2)):(CC[A1],CC[A2])"></a>
-      <a id="unzip[A1,A2]((DateInterval)⇒(A1,A2)):(Traversable[A1],Traversable[A2])"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">unzip</span><span class="tparams">[<span name="A1">A1</span>, <span name="A2">A2</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="asPair">asPair: (<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ (<span class="extype" name="scala.collection.generic.GenericTraversableTemplate.unzip.A1">A1</span>, <span class="extype" name="scala.collection.generic.GenericTraversableTemplate.unzip.A2">A2</span>)</span>)</span><span class="result">: (<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<span class="extype" name="scala.collection.generic.GenericTraversableTemplate.unzip.A1">A1</span>], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<span class="extype" name="scala.collection.generic.GenericTraversableTemplate.unzip.A2">A2</span>])</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@unzip[A1,A2](implicitasPair:A=&gt;(A1,A2)):(CC[A1],CC[A2])" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>GenericTraversableTemplate</dd></dl></div>
-    </li><li name="scala.collection.generic.GenericTraversableTemplate#unzip3" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="unzip3[A1,A2,A3](implicitasTriple:A=&gt;(A1,A2,A3)):(CC[A1],CC[A2],CC[A3])"></a>
-      <a id="unzip3[A1,A2,A3]((DateInterval)⇒(A1,A2,A3)):(Traversable[A1],Traversable[A2],Traversable[A3])"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">unzip3</span><span class="tparams">[<span name="A1">A1</span>, <span name="A2">A2</span>, <span name="A3">A3</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="asTriple">asTriple: (<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ (<span class="extype" name="scala.collection.generic.GenericTraversableTemplate.unzip3.A1">A1</span>, <span class="extype" name="scala.collection.generic.GenericTraversableTemplate.unzip3.A2">A2</span>, <span class="extype" name="scala.collection.generic.GenericTraversableTemplate.unzip3.A3">A3</span>)</span>)</span><span class="result">: (<a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<span class="extype" name="scala.collection.generic.GenericTraversableTemplate.unzip3.A1">A1</span>], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<span class="extype" name="scala.collection.generic.GenericTraversableTemplate.unzip3.A2">A2</span>], <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<span class="extype" name="scala.collection.generic.GenericTraversableTemplate.unzip3.A3">A3</span>])</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@unzip3[A1,A2,A3](implicitasTriple:A=&gt;(A1,A2,A3)):(CC[A1],CC[A2],CC[A3])" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>GenericTraversableTemplate</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#view" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="view(from:Int,until:Int):scala.collection.TraversableView[A,Repr]"></a>
-      <a id="view(Int,Int):TraversableView[DateInterval,Traversable[DateInterval]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">view</span><span class="params">(<span name="from">from: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>, <span name="until">until: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <span class="extype" name="scala.collection.TraversableView">TraversableView</span>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@view(from:Int,until:Int):scala.collection.TraversableView[A,Repr]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike</dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#view" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="view:scala.collection.TraversableView[A,Repr]"></a>
-      <a id="view:TraversableView[DateInterval,Traversable[DateInterval]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">view</span><span class="result">: <span class="extype" name="scala.collection.TraversableView">TraversableView</span>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@view:scala.collection.TraversableView[A,Repr]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike</dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>
@@ -2644,23 +939,6 @@ res2: <span class="std">Int</span> = <span class="num">18</span></pre></div></di
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="scala.collection.TraversableLike#withFilter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="withFilter(p:A=&gt;Boolean):scala.collection.generic.FilterMonadic[A,Repr]"></a>
-      <a id="withFilter((DateInterval)⇒Boolean):FilterMonadic[DateInterval,Traversable[DateInterval]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">withFilter</span><span class="params">(<span name="p">p: (<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.generic.FilterMonadic" class="extype" target="_top">FilterMonadic</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@withFilter(p:A=&gt;Boolean):scala.collection.generic.FilterMonadic[A,Repr]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>TraversableLike → FilterMonadic</dd></dl></div>
     </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="→[B](y:B):(A,B)"></a>
       <a id="→[B](B):(DateInterval,B)"></a>
@@ -2834,90 +1112,6 @@ res2: <span class="std">Int</span> = <span class="num">18</span></pre></div></di
             <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.math.Ordered" class="extype" target="_top">Ordered</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>] performed by method orderingToOrdered in scala.math.Ordered.
             
           </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is shadowed by one or more members in this class.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(dateInterval: Ordered[DateInterval]).compareTo(that)</pre></div></dd><dt>Definition Classes</dt><dd>Ordered → Comparable</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce.MonadOps#filter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="filter(p:A=&gt;Boolean):scala.collection.TraversableOnce[A]"></a>
-      <a id="filter((DateInterval)⇒Boolean):TraversableOnce[DateInterval]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="implicit shadowed">filter</span><span class="params">(<span name="p">p: (<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.TraversableOnce" class="extype" target="_top">TraversableOnce</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@filter(p:A=&gt;Boolean):scala.collection.TraversableOnce[A]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a> to
-            <span class="extype" name="scala.collection.TraversableOnce.MonadOps">MonadOps</span>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>] performed by method MonadOps in scala.collection.TraversableOnce.
-            
-          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is shadowed by one or more members in this class.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(dateInterval: MonadOps[DateInterval]).filter(p)</pre></div></dd><dt>Definition Classes</dt><dd>MonadOps</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce.MonadOps#flatMap" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="flatMap[B](f:A=&gt;scala.collection.GenTraversableOnce[B]):scala.collection.TraversableOnce[B]"></a>
-      <a id="flatMap[B]((DateInterval)⇒GenTraversableOnce[B]):TraversableOnce[B]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="implicit shadowed">flatMap</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.GenTraversableOnce" class="extype" target="_top">GenTraversableOnce</a>[<span class="extype" name="scala.collection.TraversableOnce.MonadOps.flatMap.B">B</span>]</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.TraversableOnce" class="extype" target="_top">TraversableOnce</a>[<span class="extype" name="scala.collection.TraversableOnce.MonadOps.flatMap.B">B</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@flatMap[B](f:A=&gt;scala.collection.GenTraversableOnce[B]):scala.collection.TraversableOnce[B]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a> to
-            <span class="extype" name="scala.collection.TraversableOnce.MonadOps">MonadOps</span>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>] performed by method MonadOps in scala.collection.TraversableOnce.
-            
-          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is shadowed by one or more members in this class.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(dateInterval: MonadOps[DateInterval]).flatMap(f)</pre></div></dd><dt>Definition Classes</dt><dd>MonadOps</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce.MonadOps#map" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="map[B](f:A=&gt;B):scala.collection.TraversableOnce[B]"></a>
-      <a id="map[B]((DateInterval)⇒B):TraversableOnce[B]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="implicit shadowed">map</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="f">f: (<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <span class="extype" name="scala.collection.TraversableOnce.MonadOps.map.B">B</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.TraversableOnce" class="extype" target="_top">TraversableOnce</a>[<span class="extype" name="scala.collection.TraversableOnce.MonadOps.map.B">B</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@map[B](f:A=&gt;B):scala.collection.TraversableOnce[B]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a> to
-            <span class="extype" name="scala.collection.TraversableOnce.MonadOps">MonadOps</span>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>] performed by method MonadOps in scala.collection.TraversableOnce.
-            
-          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is shadowed by one or more members in this class.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(dateInterval: MonadOps[DateInterval]).map(f)</pre></div></dd><dt>Definition Classes</dt><dd>MonadOps</dd></dl></div>
-    </li><li name="scala.collection.TraversableOnce.MonadOps#withFilter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="withFilter(p:A=&gt;Boolean):Iterator[A]"></a>
-      <a id="withFilter((DateInterval)⇒Boolean):Iterator[DateInterval]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="implicit shadowed">withFilter</span><span class="params">(<span name="p">p: (<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Iterator" class="extype" target="_top">Iterator</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@withFilter(p:A=&gt;Boolean):Iterator[A]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a> to
-            <span class="extype" name="scala.collection.TraversableOnce.MonadOps">MonadOps</span>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>] performed by method MonadOps in scala.collection.TraversableOnce.
-            
-          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is shadowed by one or more members in this class.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(dateInterval: MonadOps[DateInterval]).withFilter(p)</pre></div></dd><dt>Definition Classes</dt><dd>MonadOps</dd></dl></div>
     </li></ol>
             </div>
 
@@ -2933,26 +1127,6 @@ res2: <span class="std">Int</span> = <span class="num">18</span></pre></div></di
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a></h3>
             </div><div class="parent" name="scala.Equals">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Equals" class="extype" target="_top">Equals</a></h3>
-            </div><div class="parent" name="scala.collection.Traversable">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</h3>
-            </div><div class="parent" name="scala.collection.GenTraversable">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.GenTraversable" class="extype" target="_top">GenTraversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</h3>
-            </div><div class="parent" name="scala.collection.generic.GenericTraversableTemplate">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.generic.GenericTraversableTemplate" class="extype" target="_top">GenericTraversableTemplate</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>]</h3>
-            </div><div class="parent" name="scala.collection.TraversableLike">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.TraversableLike" class="extype" target="_top">TraversableLike</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]]</h3>
-            </div><div class="parent" name="scala.collection.GenTraversableLike">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.GenTraversableLike" class="extype" target="_top">GenTraversableLike</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]]</h3>
-            </div><div class="parent" name="scala.collection.Parallelizable">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Parallelizable" class="extype" target="_top">Parallelizable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.parallel.ParIterable" class="extype" target="_top">ParIterable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]]</h3>
-            </div><div class="parent" name="scala.collection.TraversableOnce">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.TraversableOnce" class="extype" target="_top">TraversableOnce</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</h3>
-            </div><div class="parent" name="scala.collection.GenTraversableOnce">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.GenTraversableOnce" class="extype" target="_top">GenTraversableOnce</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</h3>
-            </div><div class="parent" name="scala.collection.generic.FilterMonadic">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.generic.FilterMonadic" class="extype" target="_top">FilterMonadic</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]]</h3>
-            </div><div class="parent" name="scala.collection.generic.HasNewBuilder">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.generic.HasNewBuilder" class="extype" target="_top">HasNewBuilder</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.collection.Traversable" class="extype" target="_top">Traversable</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]]</h3>
             </div><div class="parent" name="scala.math.Ordered">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.math.Ordered" class="extype" target="_top">Ordered</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</h3>
             </div><div class="parent" name="java.lang.Comparable">
@@ -2962,15 +1136,7 @@ res2: <span class="std">Int</span> = <span class="num">18</span></pre></div></di
             </div><div class="parent" name="scala.Any">
               <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
             </div>
-        <div class="conversion" name="scala.collection.parallel.CollectionsHaveToParArray">
-              <h3>Inherited by implicit conversion CollectionsHaveToParArray from
-                <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a> to <span class="extype" name="scala.collection.parallel.CollectionsHaveToParArray">CollectionsHaveToParArray</span>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>, <span class="extype" name="scala.collection.parallel.CollectionsHaveToParArray.T">T</span>]
-              </h3>
-            </div><div class="conversion" name="scala.collection.TraversableOnce.MonadOps">
-              <h3>Inherited by implicit conversion MonadOps from
-                <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a> to <span class="extype" name="scala.collection.TraversableOnce.MonadOps">MonadOps</span>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]
-              </h3>
-            </div><div class="conversion" name="scala.math.Ordered.orderingToOrdered">
+        <div class="conversion" name="scala.math.Ordered.orderingToOrdered">
               <h3>Inherited by implicit conversion orderingToOrdered from
                 <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a> to <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.math.Ordered" class="extype" target="_top">Ordered</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]
               </h3>
@@ -2989,10 +1155,6 @@ res2: <span class="std">Int</span> = <span class="num">18</span></pre></div></di
             </div><div class="conversion" name="scala.Predef.ArrowAssoc">
               <h3>Inherited by implicit conversion ArrowAssoc from
                 <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]
-              </h3>
-            </div><div class="conversion" name="scala.collection.TraversableOnce.alternateImplicit">
-              <h3>Inherited by implicit conversion alternateImplicit from
-                <a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a> to <span class="extype" name="scala.collection.TraversableOnce.ForceImplicitAmbiguity">ForceImplicitAmbiguity</span>
               </h3>
             </div>
         </div>

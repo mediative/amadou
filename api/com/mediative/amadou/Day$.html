@@ -49,7 +49,7 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/ypg-data/amadou/tree/master/core/src/main/scala/com.mediative.amadou/DateInterval.scala" target="_blank">DateInterval.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/mediative/amadou/tree/master/core/src/main/scala/com.mediative.amadou/DateInterval.scala" target="_blank">DateInterval.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><a href="DateIntervalType.html" class="extype" name="com.mediative.amadou.DateIntervalType">DateIntervalType</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -207,12 +207,16 @@ res3: <span class="std">String</span> = <span class="num">2015</span>-<span clas
 resolution date fields accordingly.</p><div class="fullcomment"><div class="comment cmt"><p>Create a date interval with a different type and truncate lower
 resolution date fields accordingly.</p><p>Example:</p><pre>scala&gt; Day(<span class="num">1431000000000</span>L)
 res1: DateInterval = <span class="num">2015</span>-<span class="num">05</span>-<span class="num">07</span>
+scala&gt; Week(Day(<span class="num">1431000000000</span>L))
+res2: DateInterval = <span class="num">2015</span>-W19
 scala&gt; Month(Day(<span class="num">1431000000000</span>L))
-res2: DateInterval = <span class="num">2015</span>-<span class="num">05</span>
+res3: DateInterval = <span class="num">2015</span>-<span class="num">05</span>
+scala&gt; Quarter(<span class="num">1431000000000</span>L)
+res4: DateInterval = <span class="num">2015</span>-Q2
 scala&gt; Year(Day(<span class="num">1431000000000</span>L))
-res3: DateInterval = <span class="num">2015</span>
+res5: DateInterval = <span class="num">2015</span>
 scala&gt; Year(Day(<span class="num">1431000000000</span>L)).format(<span class="lit">"yyyy-MM-dd HH:mm ZZ"</span>)
-res4: <span class="std">String</span> = <span class="num">2015</span>-<span class="num">01</span>-<span class="num">01</span> <span class="num">00</span>:<span class="num">00</span> +<span class="num">0000</span></pre></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="DateIntervalType.html" class="extype" name="com.mediative.amadou.DateIntervalType">DateIntervalType</a></dd></dl></div>
+res6: <span class="std">String</span> = <span class="num">2015</span>-<span class="num">01</span>-<span class="num">01</span> <span class="num">00</span>:<span class="num">00</span> +<span class="num">0000</span></pre></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="DateIntervalType.html" class="extype" name="com.mediative.amadou.DateIntervalType">DateIntervalType</a></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -304,6 +308,23 @@ res4: <span class="std">String</span> = <span class="num">2015</span>-<span clas
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="DateIntervalType.html" class="extype" name="com.mediative.amadou.DateIntervalType">DateIntervalType</a></dd></dl></div>
+    </li><li name="com.mediative.amadou.DateIntervalType#deltaMultiplier" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="deltaMultiplier:Int"></a>
+      <a id="deltaMultiplier:Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">deltaMultiplier</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.Day$@deltaMultiplier:Int" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="DateIntervalType.html" class="extype" name="com.mediative.amadou.DateIntervalType">DateIntervalType</a></dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -361,23 +382,6 @@ res4: <span class="std">String</span> = <span class="num">2015</span>-<span clas
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="com.mediative.amadou.DateIntervalType#formatter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="formatter(pattern:String):java.text.DateFormat"></a>
-      <a id="formatter(String):DateFormat"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">formatter</span><span class="params">(<span name="pattern">pattern: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol"><span class="name"><a href="DateIntervalType.html#dateFormat:String">dateFormat</a></span></span></span>)</span><span class="result">: <span class="extype" name="java.text.DateFormat">DateFormat</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Day$@formatter(pattern:String):java.text.DateFormat" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="DateIntervalType.html" class="extype" name="com.mediative.amadou.DateIntervalType">DateIntervalType</a></dd></dl></div>
     </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <a id="getClass():Class[_]"></a>
