@@ -114,6 +114,17 @@ class DateIntervalSpec extends FreeSpec {
   }
 
   "Quarter" - {
+    "should truncate month" in {
+      assert(Month(Quarter(2016, Quarter.Q1)) == Month(2016, 1))
+      assert(Month(Quarter(2016, Quarter.Q2)) == Month(2016, 4))
+      assert(Month(Quarter(2016, Quarter.Q3)) == Month(2016, 7))
+      assert(Month(Quarter(2016, Quarter.Q4)) == Month(2016, 10))
+
+      assert(Month(Quarter(Month(2016, 2))) == Month(2016, 1))
+      assert(Month(Quarter(Month(2016, 3))) == Month(2016, 1))
+      assert(Month(Quarter(Month(2016, 12))) == Month(2016, 10))
+    }
+
     "should print date" in {
       assert(Quarter(1999, Quarter.Q1).toString == "1999-Q1")
       assert(Quarter(2016, Quarter.Q3).toString == "2016-Q3")
@@ -122,6 +133,7 @@ class DateIntervalSpec extends FreeSpec {
     "should parse date" in {
       val dt = Quarter.parse("2016-Q4")
       assert(dt == Some(Quarter(2016, Quarter.Q4)))
+      assert(Month(dt.get) == Month(2016, 10))
     }
 
     "should have next/prev" in {

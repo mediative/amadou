@@ -34,12 +34,10 @@ import scala.util.Try
  * res1: Seq[DateInterval] = List(2016-08-11, 2016-W32, 2016-08, 2016-Q3, 2016)
  * }}}
  */
-case class DateInterval(
-    timestamp: Long,
-    interval: DateIntervalType,
-    toOpt: Option[DateInterval] = None) extends Ordered[DateInterval] {
-
-  val from = interval.truncate(timestamp)
+sealed abstract class DateInterval(
+    val from: Long,
+    val interval: DateIntervalType,
+    val toOpt: Option[DateInterval] = None) extends Ordered[DateInterval] {
 
   def end = toOpt.getOrElse(next)
 
@@ -55,13 +53,12 @@ case class DateInterval(
    * }}}
    */
   def to(other: DateInterval): DateInterval =
-    copy(toOpt = Some(other))
+    if (toOpt.forall(_ < other))
+      interval.newBuilder.from(from).to(other).build
+    else
+      this
 
-  def +(delta: Int): DateInterval = DateInterval(interval) { cal =>
-    cal.setTimeInMillis(from.getTime)
-    cal.add(interval.calendarField, delta * interval.deltaMultiplier)
-  }
-
+  def +(delta: Int): DateInterval = interval.newBuilder.from(from).add(delta).build
   def -(delta: Int): DateInterval = this.+(-delta)
 
   override def equals(other: Any): Boolean = other match {
@@ -72,14 +69,15 @@ case class DateInterval(
   override def compare(that: DateInterval) = from.compareTo(that.from)
 
   override def toString =
-    interval.defaultFormatter.format(from) + toOpt.fold("")(":" + _.toString)
+    interval.defaultFormatter.format(asDate) + toOpt.fold("")(":" + _.toString)
 
   def format(dateFormat: String): String = {
     val formatter = interval.formatter(dateFormat)
-    formatter.format(from) + toOpt.fold("")(":" + _.toString)
+    formatter.format(asDate) + toOpt.fold("")(":" + _.toString)
   }
 
-  def toTimestamp: Timestamp = new Timestamp(from.getTime)
+  def asDate = new Date(from)
+  def asTimestamp = new Timestamp(from)
 
   def contains(date: DateInterval): Boolean =
     this <= date && date < end
@@ -98,7 +96,7 @@ case class DateInterval(
   def by(interval: DateIntervalType): Traversable[DateInterval] = {
     var d = interval.apply(this)
 
-    Stream.iterate(d)(_.next).takeWhile(_.from.before(end.from))
+    Stream.iterate(d)(_.next).takeWhile(_.from < end.from)
   }
 
   /**
@@ -126,50 +124,12 @@ case class DateInterval(
 
 object DateInterval {
   val UTC = TimeZone.getTimeZone("UTC")
-
-  private[amadou] def createUTCCalendar(): Calendar = {
-    val cal = Calendar.getInstance(DateInterval.UTC)
-    cal.clear()
-    cal.setLenient(false)
-    /*
-     * Configure the calendar for ISO 8601 standard compatible settings:
-     * http://docs.oracle.com/javase/7/docs/api/java/util/GregorianCalendar.html#week_and_year
-     */
-    cal.setFirstDayOfWeek(Week.Monday.id)
-    cal.setMinimalDaysInFirstWeek(4)
-    cal.setTimeZone(DateInterval.UTC)
-    cal
-  }
-
-  private[amadou] def apply(interval: DateIntervalType)(f: Calendar => Unit): DateInterval = {
-    val cal = createUTCCalendar()
-    f(cal)
-    DateInterval(cal.getTimeInMillis, interval)
-  }
 }
 
 /**
  * Base class for specific date intervals
  */
-sealed abstract class DateIntervalType(val calendarField: Int, val dateFormat: String, val deltaMultiplier: Int = 1) {
-  protected def create(year: Int, month: Int = 1, day: Int = 1): DateInterval = DateInterval(this) { cal =>
-    require(1 <= month && month <= 12, "month must be between 1-12")
-    cal.set(year, month - 1, day)
-  }
-
-  def truncate(timestamp: Long): Date = {
-    val orig = DateInterval.createUTCCalendar()
-    orig.setTimeInMillis(timestamp)
-    val cal = DateInterval.createUTCCalendar()
-    truncate(orig, cal)
-    new Date(cal.getTimeInMillis)
-  }
-
-  protected def truncate(orig: Calendar, cal: Calendar): Unit = {
-    val fields = Seq(Calendar.DAY_OF_MONTH, Calendar.MONTH, Calendar.YEAR).dropWhile(_ != calendarField)
-    for (field <- fields.reverse)
-      cal.set(field, orig.get(field))
-  }
+sealed abstract class DateIntervalType(val calendarField: Int, val dateFormat: String) {
 
   /**
    * Create a date interval with a different type and truncate lower
@@ -192,7 +152,7 @@ sealed abstract class DateIntervalType(val calendarField: Int, val dateFormat: S
    * }}}
    */
   def apply(date: DateInterval): DateInterval =
-    DateInterval(date.from.getTime, this)
+    apply(date.from)
 
   /**
    * Represent the interval for a given timestamp using the specified
@@ -212,7 +172,7 @@ sealed abstract class DateIntervalType(val calendarField: Int, val dateFormat: S
    * }}}
    */
   def apply(timestamp: Long): DateInterval =
-    DateInterval(timestamp, this)
+    newBuilder.from(timestamp).build
 
   /**
    * Represent the interval for today using the specified interval type.
@@ -234,22 +194,95 @@ sealed abstract class DateIntervalType(val calendarField: Int, val dateFormat: S
    * }}}
    */
   def parse(input: String): Option[DateInterval] =
-    Try(defaultFormatter.parse(input)).map(date => DateInterval(date.getTime, this)).toOption
+    Try(defaultFormatter.parse(input)).map(date => newBuilder.from(date.getTime).build).toOption
 
   private[amadou] def formatter(pattern: String = dateFormat): SimpleDateFormat = {
-    val cal = DateInterval.createUTCCalendar()
     val dateFormat = new SimpleDateFormat(pattern)
-    dateFormat.setCalendar(cal)
+    dateFormat.setCalendar(Builder.newCalendar)
     dateFormat
   }
 
   private[amadou] def defaultFormatter: SimpleDateFormat =
     formatter(dateFormat)
+
+  private[amadou] def newBuilder(): Builder =
+    new Builder()
+
+  private class Instance(from: Long, toOpt: Option[DateInterval])
+    extends DateInterval(from, DateIntervalType.this, toOpt)
+
+  private[amadou] case class Builder(from: Long = 0, toOpt: Option[DateInterval] = None) {
+    def update(f: Calendar => Unit): Builder = {
+      val cal = Builder.newCalendar
+      cal.setTimeInMillis(from)
+      f(cal)
+      copy(from = cal.getTimeInMillis)
+    }
+
+    def from(date: DateInterval): Builder = copy(from = date.from)
+    def from(timestamp: Long): Builder = copy(from = timestamp)
+    def to(date: DateInterval): Builder = copy(toOpt = Some(date))
+
+    def add(delta: Int): Builder = {
+      DateIntervalType.this match {
+        case Quarter => update(_.add(calendarField, delta * 3))
+        case _ => update(_.add(calendarField, delta))
+      }
+    }
+
+    def set(year: Int, month: Int = 1, day: Int = 1): Builder = {
+      require(1 <= month && month <= 12, "month must be between 1-12")
+      update(_.set(year, month - 1, day))
+    }
+
+    def build(): DateInterval = {
+      val cal = Builder.newCalendar
+      cal.setTimeInMillis(from)
+      val truncated = Builder.newCalendar
+      DateIntervalType.this match {
+        case Week =>
+          truncated.setWeekDate(
+            cal.getWeekYear(),
+            cal.get(Calendar.WEEK_OF_YEAR),
+            Week.Monday.id)
+
+        case Quarter =>
+          truncated.set(
+            cal.get(Calendar.YEAR),
+            (cal.get(Calendar.MONTH) / 3) * 3,
+            1)
+
+        case _ =>
+          Seq(Calendar.DAY_OF_MONTH, Calendar.MONTH, Calendar.YEAR)
+            .dropWhile(_ != calendarField)
+            .reverse
+            .foreach(field => truncated.set(field, cal.get(field)))
+      }
+
+      new Instance(truncated.getTimeInMillis, toOpt)
+    }
+  }
+
+  object Builder {
+    def newCalendar: Calendar = {
+      val cal = Calendar.getInstance(DateInterval.UTC)
+      cal.clear()
+      cal.setLenient(false)
+      /*
+       * Configure the calendar for ISO 8601 standard compatible settings:
+       * http://docs.oracle.com/javase/7/docs/api/java/util/GregorianCalendar.html#week_and_year
+       */
+      cal.setFirstDayOfWeek(Week.Monday.id)
+      cal.setMinimalDaysInFirstWeek(4)
+      cal.setTimeZone(DateInterval.UTC)
+      cal
+    }
+  }
 }
 
 object Day extends DateIntervalType(Calendar.DAY_OF_MONTH, "yyyy-MM-dd") {
   def apply(year: Int, month: Int, day: Int): DateInterval =
-    create(year, month, day)
+    newBuilder.set(year, month, day).build
 }
 
 /**
@@ -277,22 +310,14 @@ object Week extends DateIntervalType(Calendar.WEEK_OF_YEAR, "YYYY-'W'ww") {
   case object Saturday extends WeekDay { val id = Calendar.SATURDAY }
   case object Sunday extends WeekDay { val id = Calendar.SUNDAY }
 
-  def apply(year: Int, week: Int, dayOfWeek: WeekDay = Monday): DateInterval = DateInterval(this) { cal =>
+  def apply(year: Int, week: Int, dayOfWeek: WeekDay = Monday): DateInterval = {
     require(1 <= week && week <= 53, "week must be between 1-53")
-    cal.setWeekDate(year, week, dayOfWeek.id)
-  }
-
-  override protected def truncate(orig: Calendar, cal: Calendar): Unit = {
-    cal.setWeekDate(
-      orig.getWeekYear(),
-      orig.get(Calendar.WEEK_OF_YEAR),
-      Monday.id
-    )
+    newBuilder.update(_.setWeekDate(year, week, dayOfWeek.id)).build
   }
 }
 
 object Month extends DateIntervalType(Calendar.MONTH, "yyyy-MM") {
-  def apply(year: Int, month: Int): DateInterval = create(year, month)
+  def apply(year: Int, month: Int): DateInterval = newBuilder.set(year, month).build
 }
 
 sealed abstract class Quarter(val month: Int)
@@ -313,7 +338,7 @@ sealed abstract class Quarter(val month: Int)
  * res5: String = 2017-04-01
  * }}}
  */
-object Quarter extends DateIntervalType(Calendar.MONTH, "yyyy-MMM", 3) {
+object Quarter extends DateIntervalType(Calendar.MONTH, "yyyy-MMM") {
   case object Q1 extends Quarter(month = 1)
   case object Q2 extends Quarter(month = 4)
   case object Q3 extends Quarter(month = 7)
@@ -332,9 +357,9 @@ object Quarter extends DateIntervalType(Calendar.MONTH, "yyyy-MMM", 3) {
   }
 
   def apply(year: Int, quarter: Quarter): DateInterval =
-    create(year, quarter.month)
+    newBuilder.set(year, quarter.month).build
 }
 
 object Year extends DateIntervalType(Calendar.YEAR, "yyyy") {
-  def apply(year: Int): DateInterval = create(year)
+  def apply(year: Int): DateInterval = newBuilder.set(year).build
 }
