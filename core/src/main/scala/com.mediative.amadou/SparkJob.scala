@@ -19,13 +19,6 @@ package com.mediative.amadou
 import scala.concurrent.duration._
 import org.apache.spark.sql._
 
-sealed trait Stage
-case object ReadRaw extends Stage
-case object WriteRaw extends Stage
-case object CleanData extends Stage
-case object WriteClean extends Stage
-case object LoadToBigQuery extends Stage
-
 object SparkJob {
   /**
    * Maximum number of dates considered from a schedule.
@@ -48,20 +41,10 @@ object SparkJob {
  * is only run the the specified date.
  */
 trait SparkJob extends Logging {
-  def run(spark: SparkSession, date: DateInterval): Unit
+  def run(spark: SparkSession, date: DateInterval): Unit = ()
   def shouldRunForDate(spark: SparkSession, date: DateInterval): Boolean
+  def stages: Stage[SparkSession, _] = Stage("Spark")(ctx => run(ctx.spark, ctx.date))
 
   def maxRetries = 3
   def delayBetweenRetries: FiniteDuration = 20.minutes
-
-  /**
-   * Marks a set of operations as a job stage.
-   *
-   * This allows to monitor the stage in terms of duration and errors,
-   * and potentially retry it.
-   *
-   * Care should be taken to encapsulate operations that can be
-   * measured. For example, many Spark operations are lazy.
-   */
-  def stage[T](stage: Stage)(f: => T): T = f
 }

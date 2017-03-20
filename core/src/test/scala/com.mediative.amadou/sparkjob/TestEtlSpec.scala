@@ -15,7 +15,7 @@
  */
 
 package com.mediative.amadou
-package test
+package sparkjob
 
 import org.scalatest._
 import org.apache.spark.sql.types._
@@ -37,11 +37,10 @@ class TestEtlSpec extends FreeSpec with SparkJobSuiteBase {
 
   "TestEtl" - {
     "should have expected schema and number of entries" in {
-      val clean = job.clean.run(Stage.Context(spark, date))
+      val clean = job.clean(spark, date)
 
-      assert(clean.isSuccess)
-      assert(clean.get.schema == cleanSchema)
-      assert(clean.get.count == 3)
+      assert(clean.schema == cleanSchema)
+      assert(clean.count == 3)
     }
 
     "should persist raw data" in {
@@ -53,7 +52,7 @@ class TestEtlSpec extends FreeSpec with SparkJobSuiteBase {
     "should persist clean data" in {
       val cleanPath = job.cleanUrl / "date=2017-02-21"
 
-      job.stages.run(Stage.Context(spark, date))
+      job.run(spark, date)
       assert(cleanPath.exists(spark), s"$cleanPath does not exist")
     }
   }

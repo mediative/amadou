@@ -17,8 +17,7 @@
 package com.mediative.amadou
 
 import scala.collection.JavaConversions._
-import scala.util.{ Failure, Try }
-import scala.util.control.NonFatal
+import scala.util.{ Failure, Success, Try }
 import com.typesafe.config._
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.SparkSession
@@ -92,36 +91,45 @@ abstract class SparkRunner[Job <: SparkJob] extends Logging with ScheduleDsl wit
 
   def runForDate(spark: SparkSession, job: Job)(date: DateInterval): Unit = {
     val processContext = ProcessContext(jobName, date)
-
-    def runStage(stage: String, callCount: Int = 1): Unit = {
-      logger.info(s"[$processContext] Running stage $stage try #$callCount")
-      messaging.publishStageStarting(processContext, stage)
-
-      try {
-        counters.foreach(_.clear())
-        job.run(spark, date)
-        messaging.publishStageComplete(processContext, stage)
-        messaging.publishMetrics(processContext, stage, collectMetrics())
-      } catch {
-        case NonFatal(failure) => {
-          if (callCount >= job.maxRetries) {
-            logger.error(s"[$processContext] Giving up after ${job.maxRetries} retries", failure)
-            messaging.publishStageFailed(processContext, stage, failure)
-            messaging.publishProcessFailed(processContext, failure)
-            throw failure
-          } else {
-            logger.error(s"[$processContext] Will retry stage $stage in ${job.delayBetweenRetries}", failure)
-            messaging.publishStageRetrying(processContext, stage)
-            Thread.sleep(job.delayBetweenRetries.toMillis)
-            runStage(stage, callCount + 1)
-          }
-        }
-      }
-    }
+    val ctx = new Context(job, processContext, spark, date, spark)
 
     messaging.publishProcessStarting(processContext)
-    runStage("Spark")
+    job.stages.run(ctx)
     messaging.publishProcessComplete(processContext)
+  }
+
+  class Context[+I](job: Job, processContext: ProcessContext, spark: SparkSession, date: DateInterval, value: I)
+      extends Stage.Context(spark, date, value) {
+
+    override def withValue[U](value: U) = new Context(job, processContext, spark, date, value)
+
+    override def run[T](stage: Stage[I, T], result: => T): Stage.Result[T] = {
+      def runStage(callCount: Int): Stage.Result[T] = {
+        logger.info(s"[$processContext] Running stage ${stage.name} try #$callCount")
+        counters.foreach(_.clear())
+        messaging.publishStageStarting(processContext, stage.name)
+        Try(result) match {
+          case v @ Success(_) =>
+            messaging.publishStageComplete(processContext, stage.name)
+            messaging.publishMetrics(processContext, stage.name, collectMetrics())
+            v
+          case Failure(failure) =>
+            if (callCount >= job.maxRetries) {
+              logger.error(s"[$processContext] Giving up after ${job.maxRetries} retries", failure)
+              messaging.publishStageFailed(processContext, stage.name, failure)
+              messaging.publishProcessFailed(processContext, failure)
+              throw failure
+            } else {
+              logger.error(s"[$processContext] Will retry stage $stage in ${job.delayBetweenRetries}", failure)
+              messaging.publishStageRetrying(processContext, stage.name)
+              Thread.sleep(job.delayBetweenRetries.toMillis)
+              runStage(callCount + 1)
+            }
+        }
+      }
+
+      runStage(1)
+    }
   }
 
   private val config =

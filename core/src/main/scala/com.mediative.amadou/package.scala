@@ -41,4 +41,11 @@ package object amadou {
     def parquet(url: HdfsUrl) = self.parquet(url.toString)
     def text(url: HdfsUrl) = self.text(url.toString)
   }
+
+  implicit class SymbolToStage(val self: Symbol) extends AnyVal {
+    def stage[I, T](f: Stage.Context[I] => T) = Stage(self.name)(f)
+    def source[T](read: Stage.Context[SparkSession] => Dataset[T]) = Stage.source(self.name)(read)
+    def transform[S, T](transform: Stage.Context[Dataset[S]] => Dataset[T]) = Stage.transform(self.name)(transform)
+    def sink[T](write: Stage.Context[Dataset[T]] => Unit) = Stage.sink(self.name)(write)
+  }
 }
