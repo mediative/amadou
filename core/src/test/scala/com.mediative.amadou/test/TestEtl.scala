@@ -88,7 +88,7 @@ case class TestEtlJob(testEtlUrl: HdfsUrl, rawUrl: HdfsUrl, cleanUrl: HdfsUrl, r
       .withColumnRenamed("Observed Longitude", "longitude")
       .withColumnRenamed("Speed", "speed")
       .withColumn("isPink", isPink($"Object Colour"))
-      .withColumn("processingDate", lit(date.toTimestamp))
+      .withColumn("processingDate", lit(date.asTimestamp))
       .select(CleanSchema.fieldNames.map(col): _*)
       .as[Clean]
   }
