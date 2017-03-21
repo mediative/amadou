@@ -16,16 +16,12 @@
 
 package com.mediative.amadou
 
-import java.util.NoSuchElementException
-
 import org.apache.http.client.methods.HttpPost
 import org.apache.http.entity.{ ContentType, StringEntity }
 import org.apache.http.impl.client.HttpClients
 import org.json4s.NoTypeHints
 import org.json4s.jackson.Serialization
 import org.json4s.jackson.Serialization.{ write }
-
-import scala.concurrent.{ ExecutionContext, Future }
 
 object Slack {
   case class PostException(msg: String) extends RuntimeException(msg)

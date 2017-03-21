@@ -17,7 +17,6 @@
 package com.mediative.amadou.bigquery
 
 import java.util.UUID
-import java.util.concurrent.TimeUnit
 
 import com.google.api.client.googleapis.auth.oauth2.GoogleCredential
 import com.google.api.client.googleapis.json.GoogleJsonResponseException
@@ -27,7 +26,6 @@ import com.google.api.client.json.jackson2.JacksonFactory
 import com.google.api.services.bigquery.model._
 import com.google.api.services.bigquery.{ Bigquery, BigqueryScopes }
 import com.google.cloud.hadoop.io.bigquery._
-import com.google.common.cache.{ CacheBuilder, CacheLoader, LoadingCache }
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.util.Progressable
 import org.slf4j.{ Logger, LoggerFactory }
