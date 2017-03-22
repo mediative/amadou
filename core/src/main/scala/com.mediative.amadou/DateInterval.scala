@@ -17,7 +17,7 @@
 package com.mediative.amadou
 
 import java.sql.{ Date, Timestamp }
-import java.text.{ DateFormat, SimpleDateFormat }
+import java.text.SimpleDateFormat
 import java.util.{ Calendar, TimeZone }
 
 import scala.util.Try

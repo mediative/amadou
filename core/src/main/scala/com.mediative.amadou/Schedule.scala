@@ -16,8 +16,6 @@
 
 package com.mediative.amadou
 
-import java.sql.Date
-
 /**
  * Mixin providing a DSL for defining schedules.
  *

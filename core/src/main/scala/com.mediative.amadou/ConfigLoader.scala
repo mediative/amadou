@@ -18,7 +18,6 @@ package com.mediative.amadou
 
 import net.ceedubs.ficus.{ Ficus, FicusConfig, FicusInstances }
 import net.ceedubs.ficus.readers.ArbitraryTypeReader
-import net.ceedubs.ficus.readers.ValueReader
 
 /**
  * Mixin for loading and injecting values from configuration files.

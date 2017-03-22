@@ -17,7 +17,6 @@
 package com.mediative.amadou
 
 import scala.concurrent.duration._
-import org.apache.spark.SparkConf
 import org.apache.spark.sql._
 
 sealed trait Stage

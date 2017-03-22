@@ -5,6 +5,7 @@ Jvm.`1.8`.required
 inThisBuild(Def.settings(
   organization := "com.mediative",
   scalaVersion := "2.11.8",
+  scalacOptions += "-Ywarn-unused-import",
   publishArtifact in (Compile, packageDoc) := false,
   publishArtifact in (Compile, packageSrc) := false,
   doctestTestFramework := DoctestTestFramework.ScalaTest,

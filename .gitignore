@@ -3,5 +3,8 @@ target/
 .idea/
 .iml
 
+# spark-testing-base runtime files
+derby.log
+
 # Ensime
 .ensime*
