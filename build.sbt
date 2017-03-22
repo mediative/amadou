@@ -39,7 +39,6 @@ val base = project
     dockerRepository := Some("mediative-docker-container-registry.bintray.io/amadou"),
     packageName := "base",
     libraryDependencies ++= Seq(
-      "com.typesafe" % "config" % "1.3.0",
       "com.iheart" %% "ficus" % "1.4.0",
       "com.lihaoyi" %% "upickle" % "0.3.6",
       "io.prometheus" % "simpleclient_common" % Versions.prometheus,
