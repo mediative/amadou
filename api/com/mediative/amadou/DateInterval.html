@@ -43,11 +43,11 @@
 
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">case class</span>
+        <span class="modifier">sealed abstract </span>
+        <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">DateInterval</span><span class="params">(<span name="timestamp">timestamp: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="interval">interval: <a href="DateIntervalType.html" class="extype" name="com.mediative.amadou.DateIntervalType">DateIntervalType</a></span>, <span name="toOpt">toOpt: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Ordered">Ordered</span>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>] with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <span class="name">DateInterval</span><span class="result"> extends <span class="extype" name="scala.Ordered">Ordered</span>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</span>
       </span>
       </h4>
       
@@ -55,7 +55,7 @@
 For instance, May 2014 is represented as <code>from = 2014-05-01</code>, <code>to = 2014-06-01</code>.</p><p>Example:</p><pre>scala&gt; <span class="std">Seq</span>(Day(<span class="num">2016</span>, <span class="num">8</span>, <span class="num">11</span>), Week(<span class="num">2016</span>, <span class="num">32</span>), Month(<span class="num">2016</span>, <span class="num">8</span>), Quarter(<span class="num">2016</span>, Quarter.Q3), Year(<span class="num">2016</span>))
 res1: <span class="std">Seq</span>[DateInterval] = <span class="std">List</span>(<span class="num">2016</span>-<span class="num">08</span>-<span class="num">11</span>, <span class="num">2016</span>-W32, <span class="num">2016</span>-<span class="num">08</span>, <span class="num">2016</span>-Q3, <span class="num">2016</span>)</pre></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/mediative/amadou/tree/master/core/src/main/scala/com.mediative.amadou/DateInterval.scala" target="_blank">DateInterval.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Equals" class="extype" target="_top">Equals</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.math.Ordered" class="extype" target="_top">Ordered</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>], <span class="extype" name="java.lang.Comparable">Comparable</span>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.math.Ordered" class="extype" target="_top">Ordered</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>], <span class="extype" name="java.lang.Comparable">Comparable</span>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -73,7 +73,7 @@ res1: <span class="std">Seq</span>[DateInterval] = <span class="std">List</span>
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="com.mediative.amadou.DateInterval"><span>DateInterval</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="scala.math.Ordered"><span>Ordered</span></li><li class="in" name="java.lang.Comparable"><span>Comparable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="com.mediative.amadou.DateInterval"><span>DateInterval</span></li><li class="in" name="scala.math.Ordered"><span>Ordered</span></li><li class="in" name="java.lang.Comparable"><span>Comparable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
                 <span class="filtertype">Implicitly<br />
@@ -95,27 +95,7 @@ res1: <span class="std">Seq</span>[DateInterval] = <span class="std">List</span>
 
       <div id="template">
         <div id="allMembers">
-        <div id="constructors" class="members">
-              <h3>Instance Constructors</h3>
-              <ol><li name="com.mediative.amadou.DateInterval#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(timestamp:Long,interval:com.mediative.amadou.DateIntervalType,toOpt:Option[com.mediative.amadou.DateInterval]):com.mediative.amadou.DateInterval"></a>
-      <a id="&lt;init&gt;:DateInterval"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">new</span>
-      </span>
-      <span class="symbol">
-        <span class="name">DateInterval</span><span class="params">(<span name="timestamp">timestamp: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="interval">interval: <a href="DateIntervalType.html" class="extype" name="com.mediative.amadou.DateIntervalType">DateIntervalType</a></span>, <span name="toOpt">toOpt: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>] = <span class="symbol">None</span></span>)</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@&lt;init&gt;(timestamp:Long,interval:com.mediative.amadou.DateIntervalType,toOpt:Option[com.mediative.amadou.DateInterval]):com.mediative.amadou.DateInterval" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li></ol>
-            </div>
+        
 
         
 
@@ -300,6 +280,23 @@ res1: <span class="std">Seq</span>[DateInterval] = <span class="std">List</span>
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Ordered</dd></dl></div>
+    </li><li name="com.mediative.amadou.DateInterval#asDate" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="asDate:java.sql.Date"></a>
+      <a id="asDate:Date"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asDate</span><span class="result">: <span class="extype" name="java.sql.Date">Date</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.DateInterval@asDate:java.sql.Date" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -317,6 +314,23 @@ res1: <span class="std">Seq</span>[DateInterval] = <span class="std">List</span>
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="com.mediative.amadou.DateInterval#asTimestamp" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="asTimestamp:java.sql.Timestamp"></a>
+      <a id="asTimestamp:Timestamp"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asTimestamp</span><span class="result">: <span class="extype" name="java.sql.Timestamp">Timestamp</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.DateInterval@asTimestamp:java.sql.Timestamp" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="com.mediative.amadou.DateInterval#by" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="by(interval:com.mediative.amadou.DateIntervalType):Traversable[com.mediative.amadou.DateInterval]"></a>
       <a id="by(DateIntervalType):Traversable[DateInterval]"></a>
@@ -545,7 +559,7 @@ res2: <span class="std">List</span>[DateInterval] = <span class="std">List</span
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a> → Equals → AnyRef → Any</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a> → AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <a id="finalize():Unit"></a>
@@ -611,18 +625,18 @@ res2: <span class="std">List</span>[DateInterval] = <span class="std">List</span
               
         </dd></dl></div>
     </li><li name="com.mediative.amadou.DateInterval#from" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="from:java.sql.Date"></a>
-      <a id="from:Date"></a>
+      <a id="from:Long"></a>
+      <a id="from:Long"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">from</span><span class="result">: <span class="extype" name="java.sql.Date">Date</span></span>
+        <span class="name">from</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@from:java.sql.Date" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.DateInterval@from:Long" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -640,6 +654,23 @@ res2: <span class="std">List</span>[DateInterval] = <span class="std">List</span
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#com.mediative.amadou.DateInterval@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.DateInterval@hashCode():Int" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -782,23 +813,6 @@ res1: DateInterval = <span class="num">2016</span>-<span class="num">04</span></
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="com.mediative.amadou.DateInterval#timestamp" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="timestamp:Long"></a>
-      <a id="timestamp:Long"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">timestamp</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@timestamp:Long" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="com.mediative.amadou.DateInterval#to" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="to(other:com.mediative.amadou.DateInterval):com.mediative.amadou.DateInterval"></a>
       <a id="to(DateInterval):DateInterval"></a>
@@ -853,23 +867,6 @@ res2: <span class="std">Int</span> = <span class="num">18</span></pre></div></di
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a> → AnyRef → Any</dd></dl></div>
-    </li><li name="com.mediative.amadou.DateInterval#toTimestamp" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="toTimestamp:java.sql.Timestamp"></a>
-      <a id="toTimestamp:Timestamp"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">toTimestamp</span><span class="result">: <span class="extype" name="java.sql.Timestamp">Timestamp</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.DateInterval@toTimestamp:java.sql.Timestamp" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>
@@ -1119,15 +1116,7 @@ res2: <span class="std">Int</span> = <span class="num">18</span></pre></div></di
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="scala.Serializable">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></h3>
-            </div><div class="parent" name="java.io.Serializable">
-              <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
-            </div><div class="parent" name="scala.Product">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a></h3>
-            </div><div class="parent" name="scala.Equals">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Equals" class="extype" target="_top">Equals</a></h3>
-            </div><div class="parent" name="scala.math.Ordered">
+        <div class="parent" name="scala.math.Ordered">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.math.Ordered" class="extype" target="_top">Ordered</a>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</h3>
             </div><div class="parent" name="java.lang.Comparable">
               <h3>Inherited from <span class="extype" name="java.lang.Comparable">Comparable</span>[<a href="" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a>]</h3>
