@@ -23,7 +23,7 @@ package object amadou {
   type Gauge = io.prometheus.client.Gauge
   type Counter = io.prometheus.client.Counter
 
-  implicit class SparkHdfsUrlReaderOps(val self: DataFrameReader) extends AnyVal{
+  implicit class SparkHdfsUrlReaderOps(val self: DataFrameReader) extends AnyVal {
     def csv(url: HdfsUrl*) = self.csv(url.map(_.toString): _*)
     def json(url: HdfsUrl*) = self.json(url.map(_.toString): _*)
     def load(url: HdfsUrl*) = self.load(url.map(_.toString): _*)

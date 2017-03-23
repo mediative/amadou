@@ -159,7 +159,6 @@ package object bigquery extends FicusInstances {
       df
     }
 
-
     private def delete(path: Path): Unit = {
       val fs = FileSystem.get(path.toUri, conf)
       fs.delete(path, true)

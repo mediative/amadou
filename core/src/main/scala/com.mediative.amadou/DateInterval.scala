@@ -350,7 +350,7 @@ object Quarter extends DateIntervalType(Calendar.MONTH, "yyyy-MMM") {
     setShortMonths(MonthSymbols)
   }
 
-  override private[amadou] def defaultFormatter: SimpleDateFormat ={
+  override private[amadou] def defaultFormatter: SimpleDateFormat = {
     val format = super.formatter(dateFormat)
     format.setDateFormatSymbols(dateFormatSymbols)
     format
