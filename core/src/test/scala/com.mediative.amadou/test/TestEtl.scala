@@ -20,20 +20,13 @@ package test
 import org.apache.spark.sql._
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql.types._
+import scala.concurrent.duration._
 
 object TestEtl extends SparkRunner[TestEtlJob] {
   val jobName = "test_etl"
   val schedule = today
 
   override val recordsProcessed = gauge("test_etl_processed", "Number of processed rows")
-
-  override def createJob(config: Config) =
-    TestEtlJob(
-      config.as[HdfsUrl]("test_etl"),
-      config.as[HdfsUrl]("hdfs.raw") / jobName,
-      config.as[HdfsUrl]("hdfs.clean") / jobName,
-      recordsProcessed
-    )
 
   val RawSchema = StructType(Array(
     StructField("Object Name", StringType),
@@ -52,45 +45,57 @@ object TestEtl extends SparkRunner[TestEtlJob] {
     longitude: Double,
     speed: Long,
     processingDate: java.sql.Timestamp)
+
+  override def createJob(config: Config) =
+    TestEtlJob(
+      config.as[HdfsUrl]("test_etl"),
+      config.as[HdfsUrl]("hdfs.raw") / jobName,
+      config.as[HdfsUrl]("hdfs.clean") / jobName,
+      recordsProcessed
+    )
+
 }
 
 case class TestEtlJob(testEtlUrl: HdfsUrl, rawUrl: HdfsUrl, cleanUrl: HdfsUrl, recordsProcessed: Gauge) extends SparkJob {
 
   import TestEtl.{ RawSchema, Clean }
 
+  override val maxRetries = 1
+  override val delayBetweenRetries = 10.seconds
+
   def shouldRunForDate(spark: SparkSession, date: DateInterval): Boolean = true
 
-  def run(spark: SparkSession, date: DateInterval): Unit = {
-    clean(spark, date).write.parquet(cleanUrl / date)
-  }
+  override val stages =
+    clean ~> 'SaveClean.sink[Clean](ctx => ctx.value.write.mode(SaveMode.Overwrite).parquet(cleanUrl / ctx.date))
 
-  def clean(spark: SparkSession, date: DateInterval): Dataset[Clean] = {
-    import spark.implicits._
-
-    val CleanSchema = implicitly[Encoder[Clean]].schema
-    val isPink = udf((colorName: String) => colorName.compareToIgnoreCase("pink") == 0)
-
+  def clean: Stage[SparkSession, Dataset[Clean]] = for {
     // Read raw input from input
-    val raw = spark.read
-      .option("header", true)
-      .option("dateFormat", "yyyy-MM-dd")
-      .schema(RawSchema)
-      .csv(testEtlUrl / date / "*.csv")
-      .cache()
+    rawData <- 'ReadRaw.source[Row] { ctx =>
+      ctx.spark.read
+        .option("header", true)
+        .option("dateFormat", "yyyy-MM-dd")
+        .schema(RawSchema)
+        .csv(testEtlUrl / ctx.date / "*.csv")
+    }
 
-    // Save raw
-    raw.write.mode(SaveMode.Overwrite).csv(rawUrl / date)
+    saveRaw <- 'SaveRaw.sink[Row](ctx => ctx.value.write.mode(SaveMode.Overwrite).csv(rawUrl / ctx.date))
 
-    raw
-      .withColumnRenamed("Object Name", "name")
-      .withColumnRenamed("Observed Time", "eventDate")
-      .withColumnRenamed("Observed Latitude", "latitude")
-      .withColumnRenamed("Observed Longitude", "longitude")
-      .withColumnRenamed("Speed", "speed")
-      .withColumn("isPink", isPink($"Object Colour"))
-      .withColumn("processingDate", lit(date.asTimestamp))
-      .select(CleanSchema.fieldNames.map(col): _*)
-      .as[Clean]
-  }
+    cleanData <- 'CleanData.transform[Row, Clean] { ctx =>
+      import ctx.spark.implicits._
 
+      val CleanSchema = implicitly[Encoder[Clean]].schema
+      val isPink = udf((colorName: String) => colorName.compareToIgnoreCase("pink") == 0)
+
+      ctx.value
+        .withColumnRenamed("Object Name", "name")
+        .withColumnRenamed("Observed Time", "eventDate")
+        .withColumnRenamed("Observed Latitude", "latitude")
+        .withColumnRenamed("Observed Longitude", "longitude")
+        .withColumnRenamed("Speed", "speed")
+        .withColumn("isPink", isPink($"Object Colour"))
+        .withColumn("processingDate", lit(ctx.date.asTimestamp))
+        .select(CleanSchema.fieldNames.map(col): _*)
+        .as[Clean]
+    }
+  } yield cleanData
 }
