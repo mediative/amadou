@@ -28,10 +28,12 @@
         </head>
         <body class="type">
       <div id="definition">
-        <img alt="Trait" src="../../../lib/trait_big.png" />
+        <a href="Stage$.html" title="See companion object"><img alt="Trait/Object" src="../../../lib/trait_to_object_big.png" /></a>
         <p id="owner"><a href="../../package.html" class="extype" name="com">com</a>.<a href="../package.html" class="extype" name="com.mediative">mediative</a>.<a href="package.html" class="extype" name="com.mediative.amadou">amadou</a></p>
-        <h1>Stage</h1><h3><span class="morelinks"><div>Related Doc:
-            <a href="package.html" class="extype" name="com.mediative.amadou">package amadou</a>
+        <h1><a href="Stage$.html" title="See companion object">Stage</a></h1><h3><span class="morelinks"><div>
+            Related Docs:
+            <a href="Stage$.html" title="See companion object">object Stage</a>
+            | <a href="package.html" class="extype" name="com.mediative.amadou">package amadou</a>
           </div></span></h3><span class="permalink">
       <a href="../../../index.html#com.mediative.amadou.Stage" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
@@ -45,17 +47,14 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <span class="name">Stage</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <span class="name">Stage</span><span class="tparams">[<span name="I">-I</span>, <span name="T">+T</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/mediative/amadou/tree/master/core/src/main/scala/com.mediative.amadou/SparkJob.scala" target="_blank">SparkJob.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Self Type</dt><dd><a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>]</dd><dt>Source</dt><dd><a href="https://github.com/mediative/amadou/tree/master/core/src/main/scala/com.mediative.amadou/Stage.scala" target="_blank">Stage.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
-        </div><div class="toggleContainer block">
-            <span class="toggle">Known Subclasses</span>
-            <div class="subClasses hiddenContent"><a href="CleanData$.html" class="extype" name="com.mediative.amadou.CleanData">CleanData</a>, <a href="LoadToBigQuery$.html" class="extype" name="com.mediative.amadou.LoadToBigQuery">LoadToBigQuery</a>, <a href="ReadRaw$.html" class="extype" name="com.mediative.amadou.ReadRaw">ReadRaw</a>, <a href="WriteClean$.html" class="extype" name="com.mediative.amadou.WriteClean">WriteClean</a>, <a href="WriteRaw$.html" class="extype" name="com.mediative.amadou.WriteRaw">WriteRaw</a></div>
-          </div></div>
+        </div></div>
         
 
       <div id="mbrsel">
@@ -98,10 +97,47 @@
 
         
 
-        
+        <div id="values" class="values members">
+              <h3>Abstract Value Members</h3>
+              <ol><li name="com.mediative.amadou.Stage#name" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="name:String"></a>
+      <a id="name:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">name</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.Stage@name:String" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.Stage#run" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="run(ctx:com.mediative.amadou.Stage.Context[I]):com.mediative.amadou.Stage.Result[T]"></a>
+      <a id="run(Context[I]):Result[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">run</span><span class="params">(<span name="ctx">ctx: <a href="Stage$$Context.html" class="extype" name="com.mediative.amadou.Stage.Context">Context</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>]</span>)</span><span class="result">: <a href="Stage$.html#Result[A]=scala.util.Try[A]" class="extmbr" name="com.mediative.amadou.Stage.Result">Result</a>[<span class="extype" name="com.mediative.amadou.Stage.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.Stage@run(ctx:com.mediative.amadou.Stage.Context[I]):com.mediative.amadou.Stage.Result[T]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
 
         <div id="values" class="values members">
-              <h3>Value Members</h3>
+              <h3>Concrete Value Members</h3>
               <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:Any):Boolean"></a>
       <a id="!=(Any):Boolean"></a>
@@ -153,20 +189,20 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a> to
-            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>] performed by method any2stringadd in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>] to
+            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>]] performed by method any2stringadd in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>any2stringadd</dd></dl></div>
     </li><li name="scala.Predef.ArrowAssoc#-&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="-&gt;[B](y:B):(A,B)"></a>
-      <a id="-&gt;[B](B):(Stage,B)"></a>
+      <a id="-&gt;[B](B):(Stage[I,T],B)"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>, <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>], <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#com.mediative.amadou.Stage@-&gt;[B](y:B):(A,B)" title="Permalink" target="_top">
@@ -174,8 +210,8 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a> to
-            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>] performed by method ArrowAssoc in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>] to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>]] performed by method ArrowAssoc in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
                 <span class="name">@inline</span><span class="args">()</span>
@@ -198,6 +234,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="com.mediative.amadou.Stage#andThen" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="andThen[U](s:com.mediative.amadou.Stage[T,U]):com.mediative.amadou.Stage[I,U]"></a>
+      <a id="andThen[U](Stage[T,U]):Stage[I,U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">andThen</span><span class="tparams">[<span name="U">U</span>]</span><span class="params">(<span name="s">s: <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.T">T</span>, <span class="extype" name="com.mediative.amadou.Stage.andThen.U">U</span>]</span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.andThen.U">U</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.Stage@andThen[U](s:com.mediative.amadou.Stage[T,U]):com.mediative.amadou.Stage[I,U]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -240,14 +293,14 @@
         </dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
-      <a id="ensuring((Stage)⇒Boolean,⇒Any):Stage"></a>
+      <a id="ensuring((Stage[I,T])⇒Boolean,⇒Any):Stage[I,T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>]) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#com.mediative.amadou.Stage@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
@@ -255,20 +308,20 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean):A"></a>
-      <a id="ensuring((Stage)⇒Boolean):Stage"></a>
+      <a id="ensuring((Stage[I,T])⇒Boolean):Stage[I,T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>]) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#com.mediative.amadou.Stage@ensuring(cond:A=&gt;Boolean):A" title="Permalink" target="_top">
@@ -276,20 +329,20 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a>
-      <a id="ensuring(Boolean,⇒Any):Stage"></a>
+      <a id="ensuring(Boolean,⇒Any):Stage[I,T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#com.mediative.amadou.Stage@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
@@ -297,20 +350,20 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:Boolean):A"></a>
-      <a id="ensuring(Boolean):Stage"></a>
+      <a id="ensuring(Boolean):Stage[I,T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#com.mediative.amadou.Stage@ensuring(cond:Boolean):A" title="Permalink" target="_top">
@@ -318,8 +371,8 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -379,6 +432,23 @@
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="com.mediative.amadou.Stage#flatMap" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="flatMap[U](f:T=&gt;com.mediative.amadou.Stage[T,U]):com.mediative.amadou.Stage[I,U]"></a>
+      <a id="flatMap[U]((T)⇒Stage[T,U]):Stage[I,U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">flatMap</span><span class="tparams">[<span name="U">U</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="com.mediative.amadou.Stage.T">T</span>) ⇒ <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.T">T</span>, <span class="extype" name="com.mediative.amadou.Stage.flatMap.U">U</span>]</span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.flatMap.U">U</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.Stage@flatMap[U](f:T=&gt;com.mediative.amadou.Stage[T,U]):com.mediative.amadou.Stage[I,U]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="scala.Predef.StringFormat#formatted" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="formatted(fmtstr:String):String"></a>
       <a id="formatted(String):String"></a>
@@ -396,8 +466,8 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a> to
-            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>] performed by method StringFormat in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>] to
+            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>]] performed by method StringFormat in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
                 <span class="name">@inline</span><span class="args">()</span>
@@ -454,6 +524,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="com.mediative.amadou.Stage#map" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="map[U](f:T=&gt;U):com.mediative.amadou.Stage[I,U]"></a>
+      <a id="map[U]((T)⇒U):Stage[I,U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">map</span><span class="tparams">[<span name="U">U</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="com.mediative.amadou.Stage.T">T</span>) ⇒ <span class="extype" name="com.mediative.amadou.Stage.map.U">U</span></span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.map.U">U</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.Stage@map[U](f:T=&gt;U):com.mediative.amadou.Stage[I,U]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -608,16 +695,33 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="→[B](y:B):(A,B)"></a>
-      <a id="→[B](B):(Stage,B)"></a>
+    </li><li name="com.mediative.amadou.Stage#~&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="~&gt;[U](s:com.mediative.amadou.Stage[T,U]):com.mediative.amadou.Stage[I,U]"></a>
+      <a id="~&gt;[U](Stage[T,U]):Stage[I,U]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>, <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+        <span title="gt4s: $tilde$greater" class="name">~&gt;</span><span class="tparams">[<span name="U">U</span>]</span><span class="params">(<span name="s">s: <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.T">T</span>, <span class="extype" name="com.mediative.amadou.Stage.~&gt;.U">U</span>]</span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.~&gt;.U">U</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.Stage@~&gt;[U](s:com.mediative.amadou.Stage[T,U]):com.mediative.amadou.Stage[I,U]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="→[B](y:B):(A,B)"></a>
+      <a id="→[B](B):(Stage[I,T],B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>], <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#com.mediative.amadou.Stage@→[B](y:B):(A,B)" title="Permalink" target="_top">
@@ -625,8 +729,8 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a> to
-            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>] performed by method ArrowAssoc in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>] to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>]] performed by method ArrowAssoc in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
     </li></ol>
@@ -645,19 +749,19 @@
             </div>
         <div class="conversion" name="scala.Predef.any2stringadd">
               <h3>Inherited by implicit conversion any2stringadd from
-                <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a> to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>]
+                <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>] to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>]]
               </h3>
             </div><div class="conversion" name="scala.Predef.StringFormat">
               <h3>Inherited by implicit conversion StringFormat from
-                <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a> to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>]
+                <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>] to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>]]
               </h3>
             </div><div class="conversion" name="scala.Predef.Ensuring">
               <h3>Inherited by implicit conversion Ensuring from
-                <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a> to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>]
+                <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>] to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>]]
               </h3>
             </div><div class="conversion" name="scala.Predef.ArrowAssoc">
               <h3>Inherited by implicit conversion ArrowAssoc from
-                <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>]
+                <a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>] to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.I">I</span>, <span class="extype" name="com.mediative.amadou.Stage.T">T</span>]]
               </h3>
             </div>
         </div>

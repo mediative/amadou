@@ -416,18 +416,35 @@ is only run the the specified date.
     </span>
       
     </li><li name="com.mediative.amadou.Stage" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="StageextendsAnyRef"></a>
-      <a id="Stage:Stage"></a>
+      <a id="Stage[-I,+T]extendsAnyRef"></a>
+      <a id="Stage[-I,+T]:Stage[I,T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">sealed </span>
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a href="Stage.html"><span class="name">Stage</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <a href="Stage.html"><span class="name">Stage</span></a><span class="tparams">[<span name="I">-I</span>, <span name="T">+T</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.package@StageextendsAnyRef" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.package@Stage[-I,+T]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.SymbolToStage" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SymbolToStageextendsAnyVal"></a>
+      <a id="SymbolToStage:SymbolToStage"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="package$$SymbolToStage.html"><span class="name">SymbolToStage</span></a><span class="result"> extends <span class="extype" name="scala.AnyVal">AnyVal</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@SymbolToStageextendsAnyVal" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -439,24 +456,7 @@ is only run the the specified date.
 
         <div id="values" class="values members">
               <h3>Value Members</h3>
-              <ol><li name="com.mediative.amadou.CleanData" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="CleanData"></a>
-      <a id="CleanData:CleanData"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a href="CleanData$.html"><span class="name">CleanData</span></a><span class="result"> extends <a href="Stage.html" class="extype" name="com.mediative.amadou.Stage">Stage</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.package@CleanData" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.mediative.amadou.DateInterval" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+              <ol><li name="com.mediative.amadou.DateInterval" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="DateInterval"></a>
       <a id="DateInterval:DateInterval"></a>
       <h4 class="signature">
@@ -486,23 +486,6 @@ is only run the the specified date.
       </span>
       </h4><span class="permalink">
       <a href="../../../index.html#com.mediative.amadou.package@Day" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.mediative.amadou.LoadToBigQuery" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="LoadToBigQuery"></a>
-      <a id="LoadToBigQuery:LoadToBigQuery"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a href="LoadToBigQuery$.html"><span class="name">LoadToBigQuery</span></a><span class="result"> extends <a href="Stage.html" class="extype" name="com.mediative.amadou.Stage">Stage</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.package@LoadToBigQuery" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -550,23 +533,6 @@ scala&gt; Quarter.parse(<span class="lit">"2008-Q4"</span>)
 res4: <span class="std">Option</span>[DateInterval] = <span class="std">Some</span>(<span class="num">2008</span>-Q4)
 scala&gt; Quarter(<span class="num">2017</span>, Quarter.Q2).format(<span class="lit">"yyyy-MM-dd"</span>)
 res5: <span class="std">String</span> = <span class="num">2017</span>-<span class="num">04</span>-<span class="num">01</span></pre></div></div>
-    </li><li name="com.mediative.amadou.ReadRaw" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="ReadRaw"></a>
-      <a id="ReadRaw:ReadRaw"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a href="ReadRaw$.html"><span class="name">ReadRaw</span></a><span class="result"> extends <a href="Stage.html" class="extype" name="com.mediative.amadou.Stage">Stage</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.package@ReadRaw" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="com.mediative.amadou.Schedule" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Schedule"></a>
       <a id="Schedule:Schedule"></a>
@@ -635,6 +601,23 @@ res5: <span class="std">String</span> = <span class="num">2017</span>-<span clas
       </a>
     </span>
       
+    </li><li name="com.mediative.amadou.Stage" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Stage"></a>
+      <a id="Stage:Stage"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Stage$.html"><span class="name">Stage</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.package@Stage" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="com.mediative.amadou.Week" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="Week"></a>
       <a id="Week:Week"></a>
@@ -659,40 +642,6 @@ scala&gt; Week(Day(<span class="num">2010</span>, <span class="num">1</span>, <s
 res2: DateInterval = <span class="num">2009</span>-W53
 scala&gt; Week(<span class="num">2009</span>, <span class="num">53</span>, dayOfWeek = Week.Sunday).by(Day).last
 res3: DateInterval = <span class="num">2010</span>-<span class="num">01</span>-<span class="num">03</span></pre></div></div>
-    </li><li name="com.mediative.amadou.WriteClean" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="WriteClean"></a>
-      <a id="WriteClean:WriteClean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a href="WriteClean$.html"><span class="name">WriteClean</span></a><span class="result"> extends <a href="Stage.html" class="extype" name="com.mediative.amadou.Stage">Stage</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.package@WriteClean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.mediative.amadou.WriteRaw" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="WriteRaw"></a>
-      <a id="WriteRaw:WriteRaw"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">object</span>
-      </span>
-      <span class="symbol">
-        <a href="WriteRaw$.html"><span class="name">WriteRaw</span></a><span class="result"> extends <a href="Stage.html" class="extype" name="com.mediative.amadou.Stage">Stage</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.package@WriteRaw" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="com.mediative.amadou.Year" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Year"></a>
       <a id="Year:Year"></a>
