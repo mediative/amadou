@@ -19,7 +19,7 @@ Add the following to your `build.sbt`:
 
 ```sbt
 resolvers += Resolver.bintrayRepo("mediative", "maven")
-libraryDependencies += "com.mediative" %% "amadou-core" % "0.3.2"
+libraryDependencies += "com.mediative" %% "amadou-core" % "0.4.0"
 ```
 
 See the [TestEtl] job to get an idea of what the library provides.
