@@ -198,6 +198,31 @@ class StageSpec extends FreeSpec with Matchers with SparkJobSuiteBase {
       }
     }
 
+    "sequenceAll" - {
+      "combines list of stages into one list of results" in {
+        val ctx = TestContext(spark, Day.today, 42)
+        val sequence = for (i <- 0 to 3) yield Stage[Int, Int](i.toString) { ctx => i + 1 }
+        val stages = Stage.sequenceAll(sequence)
+
+        stages.run(ctx) should be(Success(Seq(1, 2, 3, 4)))
+        ctx.stagesRun should be("0" :: "1" :: "2" :: "3" :: Nil)
+      }
+
+      "failing operation" in {
+        val ctx = TestContext(spark, Day.today, 42)
+        val sequence = for (i <- 0 to 3) yield Stage[Int, Int](i.toString) { ctx => i / (i - 2) }
+        val stages = Stage.sequenceAll(sequence)
+        val result = stages.run(ctx)
+
+        result.isFailure should be(true)
+        the[Stage.SequenceAllException[Int, Int]] thrownBy result.get should have message (
+          """1 stage(s) failed:
+            | - 2 failed: (java.lang.ArithmeticException) / by zero""".stripMargin
+        )
+        ctx.stagesRun should be("0" :: "1" :: "2" :: "3" :: Nil)
+      }
+    }
+
     "identity" - {
       "passes original value" in {
         val ctx = TestContext(spark, Day.today, 42)

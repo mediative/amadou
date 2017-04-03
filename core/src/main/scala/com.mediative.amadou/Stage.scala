@@ -98,6 +98,28 @@ object Stage {
     }
   }
 
+  case class SequenceAllException[S, T](failures: Seq[(Stage[S, T], Throwable)]) extends Exception {
+    override def getMessage =
+      failures
+        .map { case (stage, failure) => s"${stage.name} failed: (${failure.getClass.getName}) ${failure.getMessage}" }
+        .mkString(s"${failures.size} stage(s) failed:\n - ", "\n - ", "")
+  }
+
+  /**
+   * Combine multiple stages into a single stage which fails if any of them results
+   * in a failure.
+   */
+  def sequenceAll[S, T](stages: Seq[Stage[S, T]]): Stage[S, Seq[T]] = new Stage[S, Seq[T]] {
+    override def name = "sequenceAll"
+    override def run(ctx: Stage.Context[S]): Stage.Result[Seq[T]] = {
+      val results: Seq[(Stage[S, T], Stage.Result[T])] = stages.map(stage => stage -> stage.run(ctx))
+      results.filter(_._2.isFailure) match {
+        case Seq() => Success(results.map(_._2.get))
+        case failures => Failure(SequenceAllException(failures.map { case (stage, result) => stage -> result.failed.get }))
+      }
+    }
+  }
+
   def identity[T] = new Stage[T, T] { self =>
     override def name = "identity"
 
