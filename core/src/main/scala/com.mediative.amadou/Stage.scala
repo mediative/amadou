@@ -17,7 +17,7 @@
 package com.mediative.amadou
 
 import org.apache.spark.sql._
-import scala.util.Try
+import scala.util.{ Failure, Success, Try }
 
 sealed trait Stage[-I, +T] { self =>
   def name: String
@@ -70,6 +70,24 @@ object Stage {
     Stage(name)(transform)
   def sink[T](name: String)(write: Stage.Context[Dataset[T]] => Unit) =
     Stage(name)((ctx: Stage.Context[Dataset[T]]) => { write(ctx); ctx.value })
+
+  def sequence[S, T](stages: Seq[Stage[S, T]]): Stage[S, Seq[T]] = new Stage[S, Seq[T]] {
+    override def name = "sequence"
+    override def run(ctx: Stage.Context[S]): Stage.Result[Seq[T]] = {
+      @scala.annotation.tailrec
+      def iterate(stages: Seq[Stage[S, T]], results: Seq[T]): Stage.Result[Seq[T]] =
+        stages match {
+          case Seq() => Success(results)
+          case Seq(stage, rest @ _*) =>
+            stage.run(ctx) match {
+              case Success(result) => iterate(rest, results :+ result)
+              case Failure(exception) => Failure(exception)
+            }
+        }
+
+      iterate(stages, Seq.empty)
+    }
+  }
 
   def identity[T] = new Stage[T, T] { self =>
     override def name = "identity"
