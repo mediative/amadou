@@ -64,10 +64,19 @@ object Stage {
     override def run(ctx: Stage.Context[S]) = ctx.run(this, f(ctx))
   }
 
+  /**
+   * Read data from a data source.
+   *
+   * May be used anywhere in a for-expression to read from a data source.
+   */
   def source[T](name: String)(read: Stage.Context[SparkSession] => Dataset[T]) =
-    Stage(name)(read)
+    Stage(name) { ctx: Stage.Context[_] =>
+      read(ctx.withValue(ctx.spark))
+    }
+
   def transform[S, T](name: String)(transform: Stage.Context[Dataset[S]] => Dataset[T]) =
     Stage(name)(transform)
+
   def sink[T](name: String)(write: Stage.Context[Dataset[T]] => Unit) =
     Stage(name)((ctx: Stage.Context[Dataset[T]]) => { write(ctx); ctx.value })
 

@@ -219,5 +219,30 @@ class StageSpec extends FreeSpec with Matchers with SparkJobSuiteBase {
         ctx.stagesRun should be("toString" :: Nil)
       }
     }
+
+    "source" - {
+      "passes original value" in {
+        val ctx = TestContext(spark, Day.today, 42)
+        import spark.implicits._
+
+        val stages = for {
+          raw1 <- 'Read1.source[String] { ctx =>
+            ctx.spark.read.textFile("src/test/resources/hdfs/test_etl/year=2017/month=02/data.csv")
+          }
+
+          wordCount1 <- 'CountWords1.transform[String, Int](_.value.map(_.split(" ").length))
+
+          raw2 <- 'Read2.source[String] { ctx =>
+            ctx.spark.read.textFile("src/test/resources/hdfs/quotes.txt")
+          }
+
+          wordCount2 <- 'CountWords2.transform[String, Int](_.value.map(_.split(" ").length))
+
+        } yield wordCount1.collect.sum + wordCount2.collect.sum
+
+        stages.run(ctx) should be(Success(112))
+        ctx.stagesRun should be("Read1" :: "CountWords1" :: "Read2" :: "CountWords2" :: Nil)
+      }
+    }
   }
 }
