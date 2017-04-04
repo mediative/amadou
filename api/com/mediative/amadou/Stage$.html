@@ -126,6 +126,23 @@
       </a>
     </span>
       
+    </li><li name="com.mediative.amadou.Stage.SequenceAllException" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SequenceAllException[S,T]extendsExceptionwithProductwithSerializable"></a>
+      <a id="SequenceAllException[S,T]:SequenceAllException[S,T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="Stage$$SequenceAllException.html"><span class="name">SequenceAllException</span></a><span class="tparams">[<span name="S">S</span>, <span name="T">T</span>]</span><span class="params">(<span name="failures">failures: <span class="extype" name="scala.Seq">Seq</span>[(<a href="Stage.html" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.SequenceAllException.S">S</span>, <span class="extype" name="com.mediative.amadou.Stage.SequenceAllException.T">T</span>], <span class="extype" name="scala.Throwable">Throwable</span>)]</span>)</span><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.Stage$@SequenceAllException[S,T]extendsExceptionwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="com.mediative.amadou.Stage.SimpleContext" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="SimpleContext[+I]extendsStage.Context[I]"></a>
       <a id="SimpleContext[+I]:SimpleContext[I]"></a>
@@ -451,6 +468,41 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="com.mediative.amadou.Stage#sequence" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="sequence[S,T](stages:Seq[com.mediative.amadou.Stage[S,T]]):com.mediative.amadou.Stage[S,Seq[T]]"></a>
+      <a id="sequence[S,T](Seq[Stage[S,T]]):Stage[S,Seq[T]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">sequence</span><span class="tparams">[<span name="S">S</span>, <span name="T">T</span>]</span><span class="params">(<span name="stages">stages: <span class="extype" name="scala.Seq">Seq</span>[<a href="Stage.html" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.sequence.S">S</span>, <span class="extype" name="com.mediative.amadou.Stage.sequence.T">T</span>]]</span>)</span><span class="result">: <a href="Stage.html" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.sequence.S">S</span>, <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="com.mediative.amadou.Stage.sequence.T">T</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.Stage$@sequence[S,T](stages:Seq[com.mediative.amadou.Stage[S,T]]):com.mediative.amadou.Stage[S,Seq[T]]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.Stage#sequenceAll" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="sequenceAll[S,T](stages:Seq[com.mediative.amadou.Stage[S,T]]):com.mediative.amadou.Stage[S,Seq[T]]"></a>
+      <a id="sequenceAll[S,T](Seq[Stage[S,T]]):Stage[S,Seq[T]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">sequenceAll</span><span class="tparams">[<span name="S">S</span>, <span name="T">T</span>]</span><span class="params">(<span name="stages">stages: <span class="extype" name="scala.Seq">Seq</span>[<a href="Stage.html" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.sequenceAll.S">S</span>, <span class="extype" name="com.mediative.amadou.Stage.sequenceAll.T">T</span>]]</span>)</span><span class="result">: <a href="Stage.html" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="com.mediative.amadou.Stage.sequenceAll.S">S</span>, <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="com.mediative.amadou.Stage.sequenceAll.T">T</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.Stage$@sequenceAll[S,T](stages:Seq[com.mediative.amadou.Stage[S,T]]):com.mediative.amadou.Stage[S,Seq[T]]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Combine multiple stages into a single stage which fails if any of them results
+in a failure.</p>
     </li><li name="com.mediative.amadou.Stage#sink" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="sink[T](name:String)(write:com.mediative.amadou.Stage.Context[org.apache.spark.sql.Dataset[T]]=&gt;Unit):com.mediative.amadou.Stage[org.apache.spark.sql.Dataset[T],org.apache.spark.sql.Dataset[T]]"></a>
       <a id="sink[T](String)((Context[Dataset[T]])⇒Unit):Stage[Dataset[T],Dataset[T]]"></a>
@@ -468,23 +520,24 @@
       </a>
     </span>
       
-    </li><li name="com.mediative.amadou.Stage#source" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="source[T](name:String)(read:com.mediative.amadou.Stage.Context[org.apache.spark.sql.SparkSession]=&gt;org.apache.spark.sql.Dataset[T]):com.mediative.amadou.Stage[org.apache.spark.sql.SparkSession,org.apache.spark.sql.Dataset[T]]"></a>
-      <a id="source[T](String)((Context[SparkSession])⇒Dataset[T]):Stage[SparkSession,Dataset[T]]"></a>
+    </li><li name="com.mediative.amadou.Stage#source" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="source[T](name:String)(read:com.mediative.amadou.Stage.Context[org.apache.spark.sql.SparkSession]=&gt;org.apache.spark.sql.Dataset[T]):com.mediative.amadou.Stage[Any,org.apache.spark.sql.Dataset[T]]"></a>
+      <a id="source[T](String)((Context[SparkSession])⇒Dataset[T]):Stage[Any,Dataset[T]]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">source</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span name="read">read: (<a href="Stage$$Context.html" class="extype" name="com.mediative.amadou.Stage.Context">Context</a>[<span class="extype" name="org.apache.spark.sql.SparkSession">SparkSession</span>]) ⇒ <span class="extype" name="org.apache.spark.sql.Dataset">Dataset</span>[<span class="extype" name="com.mediative.amadou.Stage.source.T">T</span>]</span>)</span><span class="result">: <a href="Stage.html" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="org.apache.spark.sql.SparkSession">SparkSession</span>, <span class="extype" name="org.apache.spark.sql.Dataset">Dataset</span>[<span class="extype" name="com.mediative.amadou.Stage.source.T">T</span>]]</span>
+        <span class="name">source</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span name="read">read: (<a href="Stage$$Context.html" class="extype" name="com.mediative.amadou.Stage.Context">Context</a>[<span class="extype" name="org.apache.spark.sql.SparkSession">SparkSession</span>]) ⇒ <span class="extype" name="org.apache.spark.sql.Dataset">Dataset</span>[<span class="extype" name="com.mediative.amadou.Stage.source.T">T</span>]</span>)</span><span class="result">: <a href="Stage.html" class="extype" name="com.mediative.amadou.Stage">Stage</a>[<span class="extype" name="scala.Any">Any</span>, <span class="extype" name="org.apache.spark.sql.Dataset">Dataset</span>[<span class="extype" name="com.mediative.amadou.Stage.source.T">T</span>]]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Stage$@source[T](name:String)(read:com.mediative.amadou.Stage.Context[org.apache.spark.sql.SparkSession]=&gt;org.apache.spark.sql.Dataset[T]):com.mediative.amadou.Stage[org.apache.spark.sql.SparkSession,org.apache.spark.sql.Dataset[T]]" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.Stage$@source[T](name:String)(read:com.mediative.amadou.Stage.Context[org.apache.spark.sql.SparkSession]=&gt;org.apache.spark.sql.Dataset[T]):com.mediative.amadou.Stage[Any,org.apache.spark.sql.Dataset[T]]" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">Read data from a data source.</p><div class="fullcomment"><div class="comment cmt"><p>Read data from a data source.</p><p>May be used anywhere in a for-expression to read from a data source.
+</p></div></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
