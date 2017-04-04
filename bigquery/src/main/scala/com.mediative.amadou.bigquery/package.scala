@@ -23,7 +23,7 @@ import org.apache.hadoop.fs.{ FileSystem, Path }
 import net.ceedubs.ficus.readers.ValueReader
 import net.ceedubs.ficus.FicusInstances
 
-import org.apache.spark.sql.{ DataFrame, SparkSession, Encoder }
+import org.apache.spark.sql.{ Dataset, SparkSession, Encoder }
 import java.util.concurrent.ThreadLocalRandom
 import scala.collection.JavaConversions._
 
@@ -102,7 +102,7 @@ package object bigquery extends FicusInstances {
     /**
      * Reads a CSV extract of a BigQuery table.
      */
-    def readBigQueryCSVExtract[T: Encoder](url: String, dateFormat: String = BQ_CSV_DATE_FORMAT): Seq[T] = {
+    def readBigQueryCSVExtract[T: Encoder](url: String, dateFormat: String): Seq[T] = {
       self.read
         .option("header", true)
         .option("timestampFormat", dateFormat)
@@ -114,12 +114,14 @@ package object bigquery extends FicusInstances {
         .toSeq
     }
 
+    def readBigQueryCSVExtract[T: Encoder](url: HdfsUrl, dateFormat: String = BQ_CSV_DATE_FORMAT): Seq[T] =
+      readBigQueryCSVExtract(url.toString, dateFormat)
   }
 
   /**
    * Enhanced version of DataFrame with BigQuery support.
    */
-  implicit class BigQueryDataFrame(self: DataFrame) {
+  implicit class BigQueryDataset[T](self: Dataset[T]) {
 
     val sqlContext = self.sqlContext
     val conf = sqlContext.sparkContext.hadoopConfiguration
@@ -154,9 +156,8 @@ package object bigquery extends FicusInstances {
 
       val tableSchema = new TableSchema().setFields(schemaFields)
 
-      val df = bq.load(gcsPath, tableRef, tableSchema, writeDisposition, createDisposition)
+      bq.load(gcsPath, tableRef, tableSchema, writeDisposition, createDisposition)
       delete(new Path(gcsPath))
-      df
     }
 
     private def delete(path: Path): Unit = {

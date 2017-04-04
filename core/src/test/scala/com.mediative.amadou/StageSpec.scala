@@ -178,6 +178,51 @@ class StageSpec extends FreeSpec with Matchers with SparkJobSuiteBase {
       }
     }
 
+    "sequence" - {
+      "combines list of stages into one list of results" in {
+        val ctx = TestContext(spark, Day.today, 42)
+        val sequence = for (i <- 0 to 10) yield Stage[Int, Int](i.toString) { ctx => i + 1 }
+        val stages = Stage.sequence(sequence)
+
+        stages.run(ctx) should be(Success(Seq(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11)))
+        ctx.stagesRun should be(List("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"))
+      }
+
+      "failing operation" in {
+        val ctx = TestContext(spark, Day.today, 42)
+        val sequence = for (i <- 0 to 10) yield Stage[Int, Int](i.toString) { ctx => i / (i - 5) }
+        val stages = Stage.sequence(sequence)
+
+        the[ArithmeticException] thrownBy stages.run(ctx).get should have message "/ by zero"
+        ctx.stagesRun should be("0" :: "1" :: "2" :: "3" :: "4" :: "5" :: Nil)
+      }
+    }
+
+    "sequenceAll" - {
+      "combines list of stages into one list of results" in {
+        val ctx = TestContext(spark, Day.today, 42)
+        val sequence = for (i <- 0 to 3) yield Stage[Int, Int](i.toString) { ctx => i + 1 }
+        val stages = Stage.sequenceAll(sequence)
+
+        stages.run(ctx) should be(Success(Seq(1, 2, 3, 4)))
+        ctx.stagesRun should be("0" :: "1" :: "2" :: "3" :: Nil)
+      }
+
+      "failing operation" in {
+        val ctx = TestContext(spark, Day.today, 42)
+        val sequence = for (i <- 0 to 3) yield Stage[Int, Int](i.toString) { ctx => i / (i - 2) }
+        val stages = Stage.sequenceAll(sequence)
+        val result = stages.run(ctx)
+
+        result.isFailure should be(true)
+        the[Stage.SequenceAllException[Int, Int]] thrownBy result.get should have message (
+          """1 stage(s) failed:
+            | - 2 failed: (java.lang.ArithmeticException) / by zero""".stripMargin
+        )
+        ctx.stagesRun should be("0" :: "1" :: "2" :: "3" :: Nil)
+      }
+    }
+
     "identity" - {
       "passes original value" in {
         val ctx = TestContext(spark, Day.today, 42)
@@ -197,6 +242,31 @@ class StageSpec extends FreeSpec with Matchers with SparkJobSuiteBase {
         val ctx = TestContext(spark, Day.today, 42)
         Stage.identity[Int].flatMap(_ => ToStringStage).run(ctx) should be(Success("42"))
         ctx.stagesRun should be("toString" :: Nil)
+      }
+    }
+
+    "source" - {
+      "passes original value" in {
+        val ctx = TestContext(spark, Day.today, 42)
+        import spark.implicits._
+
+        val stages = for {
+          raw1 <- 'Read1.source[String] { ctx =>
+            ctx.spark.read.textFile("src/test/resources/hdfs/test_etl/year=2017/month=02/data.csv")
+          }
+
+          wordCount1 <- 'CountWords1.transform[String, Int](_.value.map(_.split(" ").length))
+
+          raw2 <- 'Read2.source[String] { ctx =>
+            ctx.spark.read.textFile("src/test/resources/hdfs/quotes.txt")
+          }
+
+          wordCount2 <- 'CountWords2.transform[String, Int](_.value.map(_.split(" ").length))
+
+        } yield wordCount1.collect.sum + wordCount2.collect.sum
+
+        stages.run(ctx) should be(Success(112))
+        ctx.stagesRun should be("Read1" :: "CountWords1" :: "Read2" :: "CountWords2" :: Nil)
       }
     }
   }
