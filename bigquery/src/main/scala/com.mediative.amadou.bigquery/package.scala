@@ -102,7 +102,7 @@ package object bigquery extends FicusInstances {
     /**
      * Reads a CSV extract of a BigQuery table.
      */
-    def readBigQueryCSVExtract[T: Encoder](url: String, dateFormat: String = BQ_CSV_DATE_FORMAT): Seq[T] = {
+    def readBigQueryCSVExtract[T: Encoder](url: String, dateFormat: String): Seq[T] = {
       self.read
         .option("header", true)
         .option("timestampFormat", dateFormat)
@@ -114,6 +114,8 @@ package object bigquery extends FicusInstances {
         .toSeq
     }
 
+    def readBigQueryCSVExtract[T: Encoder](url: HdfsUrl, dateFormat: String = BQ_CSV_DATE_FORMAT): Seq[T] =
+      readBigQueryCSVExtract(url.toString, dateFormat)
   }
 
   /**
