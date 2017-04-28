@@ -120,7 +120,7 @@ abstract class SparkRunner[Job <: SparkJob] extends Logging with ScheduleDsl wit
               messaging.publishProcessFailed(processContext, failure)
               throw failure
             } else {
-              logger.error(s"[$processContext] Will retry stage $stage in ${job.delayBetweenRetries}", failure)
+              logger.error(s"[$processContext] Will retry stage ${stage.name} in ${job.delayBetweenRetries}", failure)
               messaging.publishStageRetrying(processContext, stage.name)
               Thread.sleep(job.delayBetweenRetries.toMillis)
               runStage(callCount + 1)
