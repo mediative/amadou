@@ -287,24 +287,6 @@ res1: <span class="std">List</span>[DateInterval] = <span class="std">List</span
 each day and must ensure that it runs the first of every month to generate
 a report for all of the previous month. This schedule can be defined as:</p><pre><span class="kw">val</span> schedule = today and monthly</pre><p>If we are only interested in &quot;backfilling&quot; jobs from a specific date use
 a <code>where</code> clause, e.g.:</p><pre><span class="kw">val</span> schedule = daily where (_ &gt;= Date(<span class="num">2016</span>, <span class="num">4</span>, <span class="num">12</span>)</pre></div></div>
-    </li><li name="com.mediative.amadou.Schema" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="SchemaextendsProduct"></a>
-      <a id="Schema:Schema"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">trait</span>
-      </span>
-      <span class="symbol">
-        <a href="Schema.html"><span class="name">Schema</span></a><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.package@SchemaextendsProduct" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Marker trait for case classes to automatically provide a Spark
-encoder.</p>
     </li><li name="com.mediative.amadou.Slack" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="SlackextendsLoggingwithProductwithSerializable"></a>
       <a id="Slack:Slack"></a>
@@ -566,7 +548,8 @@ res5: <span class="std">String</span> = <span class="num">2017</span>-<span clas
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">Marker trait for case classes to automatically provide a Spark
+encoder.</p>
     </li><li name="com.mediative.amadou.Slack" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Slack"></a>
       <a id="Slack:Slack"></a>
