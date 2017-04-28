@@ -44,6 +44,13 @@ abstract class SparkRunner[Job <: SparkJob] extends Logging with ScheduleDsl wit
   }
 
   def run(): Unit = {
+    val config =
+      sys.env.get("DEPLOY_ENVIRONMENT").fold(ConfigFactory.empty) { env =>
+        ConfigFactory.defaultOverrides().withFallback(ConfigFactory.load(env))
+      }.withFallback(ConfigFactory.load())
+
+    val messaging = MessagingSystem.create(config)
+
     val singleDate = sys.env.get("start").flatMap(Day.parse)
     val job = createJob(config)
     val sparkConfig = new SparkConf().setAppName(jobName)
@@ -84,24 +91,25 @@ abstract class SparkRunner[Job <: SparkJob] extends Logging with ScheduleDsl wit
       .toList.reverse
 
     logger.info(s"Scheduled dates are: $dates")
-    dates.foreach(runForDate(spark, job))
+    dates.foreach(runForDate(spark, job, messaging))
 
+    messaging.stop()
     spark.stop()
   }
 
-  def runForDate(spark: SparkSession, job: Job)(date: DateInterval): Unit = {
+  def runForDate(spark: SparkSession, job: Job, messaging: MessagingSystem)(date: DateInterval): Unit = {
     val processContext = ProcessContext(jobName, date)
-    val ctx = new Context(job, processContext, spark, date, spark)
+    val ctx = new Context(job, processContext, spark, messaging, date, spark)
 
     messaging.publishProcessStarting(processContext)
     job.stages.run(ctx)
     messaging.publishProcessComplete(processContext)
   }
 
-  class Context[+I](job: Job, processContext: ProcessContext, spark: SparkSession, date: DateInterval, value: I)
+  class Context[+I](job: Job, processContext: ProcessContext, spark: SparkSession, messaging: MessagingSystem, date: DateInterval, value: I)
       extends Stage.Context(spark, date, value) {
 
-    override def withValue[U](value: U) = new Context(job, processContext, spark, date, value)
+    override def withValue[U](value: U) = new Context(job, processContext, spark, messaging, date, value)
 
     override def run[T](stage: Stage[I, T], result: => T): Stage.Result[T] = {
       def runStage(callCount: Int): Stage.Result[T] = {
@@ -131,13 +139,6 @@ abstract class SparkRunner[Job <: SparkJob] extends Logging with ScheduleDsl wit
       runStage(1)
     }
   }
-
-  private val config =
-    sys.env.get("DEPLOY_ENVIRONMENT").fold(ConfigFactory.empty) { env =>
-      ConfigFactory.defaultOverrides().withFallback(ConfigFactory.load(env))
-    }.withFallback(ConfigFactory.load())
-
-  private val messaging = MessagingSystem.create(config)
 
   /*
    * Metrics management
