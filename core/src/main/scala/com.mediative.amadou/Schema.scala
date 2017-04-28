@@ -23,8 +23,6 @@ import org.apache.spark.sql.{ Encoder, Encoders }
  * Marker trait for case classes to automatically provide a Spark
  * encoder.
  */
-trait Schema extends Product
-
 object Schema {
-  implicit def encoder[T <: Schema: TypeTag]: Encoder[T] = Encoders.product[T]
+  implicit def encoder[T <: Product: TypeTag]: Encoder[T] = Encoders.product[T]
 }
