@@ -39,6 +39,20 @@ package object bigquery extends FicusInstances {
 
   val BQ_CSV_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss zzz"
 
+  object TableNotFound {
+    import com.google.api.client.googleapis.json.GoogleJsonResponseException
+    import com.google.api.client.googleapis.json.GoogleJsonError
+    import scala.collection.JavaConverters._
+
+    def unapply(error: Throwable): Option[GoogleJsonError.ErrorInfo] = error match {
+      case error: GoogleJsonResponseException =>
+        Some(error.getDetails)
+          .filter(_.getCode == 404)
+          .flatMap(_.getErrors.asScala.find(_.getReason == "notFound"))
+      case _ => None
+    }
+  }
+
   def tableHasDataForDate(spark: SparkSession, table: TableReference, date: java.sql.Date, column: String): Boolean = {
     val bq = BigQueryClient.getInstance(spark.sparkContext.hadoopConfiguration)
     bq.hasDataForDate(table, date, column)
