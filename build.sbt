@@ -18,8 +18,8 @@ inThisBuild(Def.settings(
 
 lazy val Versions = new {
   val kafka = "0.8.2.2"
-  val spark = "2.1.0"
-  val sparkTestingBase = s"${spark}_0.6.0"
+  val spark = "2.1.1"
+  val sparkTestingBase = "2.1.0_0.6.0" // FIXME: when available s"${spark}_0.6.0"
   val prometheus = "0.0.21"
   val hadoop = "2.7.2"
 }
