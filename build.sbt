@@ -4,7 +4,7 @@ Jvm.`1.8`.required
 
 inThisBuild(Def.settings(
   organization := "com.mediative",
-  scalaVersion := "2.11.8",
+  scalaVersion := "2.11.11",
   scalacOptions += "-Ywarn-unused-import",
   publishArtifact in (Compile, packageDoc) := false,
   publishArtifact in (Compile, packageSrc) := false,
@@ -20,7 +20,7 @@ lazy val Versions = new {
   val kafka = "0.8.2.2"
   val spark = "2.1.1"
   val sparkTestingBase = "2.1.0_0.6.0" // FIXME: when available s"${spark}_0.6.0"
-  val prometheus = "0.0.21"
+  val prometheus = "0.0.23"
   val hadoop = "2.7.2"
 }
 
