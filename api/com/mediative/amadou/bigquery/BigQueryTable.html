@@ -47,7 +47,7 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">BigQueryTable</span><span class="params">(<span name="project">project: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dataset">dataset: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="table">table: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="partitionBy">partitionBy: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="BigQueryTable$$PartitionStrategy.html" class="extype" name="com.mediative.amadou.bigquery.BigQueryTable.PartitionStrategy">PartitionStrategy</a>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
+        <span class="name">BigQueryTable</span><span class="params">(<span name="project">project: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dataset">dataset: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="table">table: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="partitionBy">partitionBy: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="BigQueryTable$$PartitionStrategy.html" class="extype" name="com.mediative.amadou.bigquery.BigQueryTable.PartitionStrategy">PartitionStrategy</a>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4>
       
@@ -60,7 +60,7 @@ res1: BigQueryTable.Reference = {datasetId=finance, projectId=company_bi, tableI
 scala&gt; table.partitionedByMonth.referenceFor(date)
 res1: BigQueryTable.Reference = {datasetId=finance, projectId=company_bi, tableId=billing20160901}</pre></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/mediative/amadou/tree/master/bigquery/src/main/scala/com.mediative.amadou.bigquery/BigQueryTable.scala" target="_blank">BigQueryTable.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a>, <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Equals" class="extype" target="_top">Equals</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Serializable" class="extype" target="_top">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Product" class="extype" target="_top">Product</a>, <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Equals" class="extype" target="_top">Equals</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -111,7 +111,7 @@ res1: BigQueryTable.Reference = {datasetId=finance, projectId=company_bi, tableI
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">BigQueryTable</span><span class="params">(<span name="project">project: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dataset">dataset: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="table">table: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="partitionBy">partitionBy: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="BigQueryTable$$PartitionStrategy.html" class="extype" name="com.mediative.amadou.bigquery.BigQueryTable.PartitionStrategy">PartitionStrategy</a>] = <span class="symbol">None</span></span>)</span>
+        <span class="name">BigQueryTable</span><span class="params">(<span name="project">project: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="dataset">dataset: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="table">table: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="partitionBy">partitionBy: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="BigQueryTable$$PartitionStrategy.html" class="extype" name="com.mediative.amadou.bigquery.BigQueryTable.PartitionStrategy">PartitionStrategy</a>] = <span class="symbol">None</span></span>)</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../index.html#com.mediative.amadou.bigquery.BigQueryTable@&lt;init&gt;(project:String,dataset:String,table:String,partitionBy:Option[com.mediative.amadou.bigquery.BigQueryTable.PartitionStrategy]):com.mediative.amadou.bigquery.BigQueryTable" title="Permalink" target="_top">
@@ -137,7 +137,7 @@ res1: BigQueryTable.Reference = {datasetId=finance, projectId=company_bi, tableI
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../index.html#com.mediative.amadou.bigquery.BigQueryTable@!=(x$1:Any):Boolean" title="Permalink" target="_top">
@@ -154,7 +154,7 @@ res1: BigQueryTable.Reference = {datasetId=finance, projectId=company_bi, tableI
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../index.html#com.mediative.amadou.bigquery.BigQueryTable@##():Int" title="Permalink" target="_top">
@@ -216,7 +216,7 @@ res1: BigQueryTable.Reference = {datasetId=finance, projectId=company_bi, tableI
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../index.html#com.mediative.amadou.bigquery.BigQueryTable@==(x$1:Any):Boolean" title="Permalink" target="_top">
@@ -290,7 +290,7 @@ res1: BigQueryTable.Reference = {datasetId=finance, projectId=company_bi, tableI
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.mediative.amadou.bigquery.BigQueryTable">BigQueryTable</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.bigquery.BigQueryTable">BigQueryTable</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.mediative.amadou.bigquery.BigQueryTable">BigQueryTable</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.bigquery.BigQueryTable">BigQueryTable</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../index.html#com.mediative.amadou.bigquery.BigQueryTable@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
@@ -311,7 +311,7 @@ res1: BigQueryTable.Reference = {datasetId=finance, projectId=company_bi, tableI
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.mediative.amadou.bigquery.BigQueryTable">BigQueryTable</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.bigquery.BigQueryTable">BigQueryTable</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.mediative.amadou.bigquery.BigQueryTable">BigQueryTable</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.bigquery.BigQueryTable">BigQueryTable</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../index.html#com.mediative.amadou.bigquery.BigQueryTable@ensuring(cond:A=&gt;Boolean):A" title="Permalink" target="_top">
@@ -332,7 +332,7 @@ res1: BigQueryTable.Reference = {datasetId=finance, projectId=company_bi, tableI
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.bigquery.BigQueryTable">BigQueryTable</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.bigquery.BigQueryTable">BigQueryTable</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../index.html#com.mediative.amadou.bigquery.BigQueryTable@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
@@ -353,7 +353,7 @@ res1: BigQueryTable.Reference = {datasetId=finance, projectId=company_bi, tableI
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.bigquery.BigQueryTable">BigQueryTable</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.bigquery.BigQueryTable">BigQueryTable</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../index.html#com.mediative.amadou.bigquery.BigQueryTable@ensuring(cond:Boolean):A" title="Permalink" target="_top">
@@ -374,7 +374,7 @@ res1: BigQueryTable.Reference = {datasetId=finance, projectId=company_bi, tableI
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../index.html#com.mediative.amadou.bigquery.BigQueryTable@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
@@ -391,7 +391,7 @@ res1: BigQueryTable.Reference = {datasetId=finance, projectId=company_bi, tableI
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">finalize</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../index.html#com.mediative.amadou.bigquery.BigQueryTable@finalize():Unit" title="Permalink" target="_top">
@@ -455,7 +455,7 @@ res1: BigQueryTable.Reference = {datasetId=finance, projectId=company_bi, tableI
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../index.html#com.mediative.amadou.bigquery.BigQueryTable@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
@@ -472,7 +472,7 @@ res1: BigQueryTable.Reference = {datasetId=finance, projectId=company_bi, tableI
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../index.html#com.mediative.amadou.bigquery.BigQueryTable@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
@@ -489,7 +489,7 @@ res1: BigQueryTable.Reference = {datasetId=finance, projectId=company_bi, tableI
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">notify</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../index.html#com.mediative.amadou.bigquery.BigQueryTable@notify():Unit" title="Permalink" target="_top">
@@ -506,7 +506,7 @@ res1: BigQueryTable.Reference = {datasetId=finance, projectId=company_bi, tableI
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../index.html#com.mediative.amadou.bigquery.BigQueryTable@notifyAll():Unit" title="Permalink" target="_top">
@@ -523,7 +523,7 @@ res1: BigQueryTable.Reference = {datasetId=finance, projectId=company_bi, tableI
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">partitionBy</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="BigQueryTable$$PartitionStrategy.html" class="extype" name="com.mediative.amadou.bigquery.BigQueryTable.PartitionStrategy">PartitionStrategy</a>]</span>
+        <span class="name">partitionBy</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="BigQueryTable$$PartitionStrategy.html" class="extype" name="com.mediative.amadou.bigquery.BigQueryTable.PartitionStrategy">PartitionStrategy</a>]</span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../index.html#com.mediative.amadou.bigquery.BigQueryTable@partitionBy:Option[com.mediative.amadou.bigquery.BigQueryTable.PartitionStrategy]" title="Permalink" target="_top">
@@ -659,7 +659,7 @@ res1: BigQueryTable.Reference = {datasetId=finance, projectId=company_bi, tableI
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../index.html#com.mediative.amadou.bigquery.BigQueryTable@wait():Unit" title="Permalink" target="_top">
@@ -682,7 +682,7 @@ res1: BigQueryTable.Reference = {datasetId=finance, projectId=company_bi, tableI
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="arg1">arg1: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="arg1">arg1: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../index.html#com.mediative.amadou.bigquery.BigQueryTable@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
@@ -705,7 +705,7 @@ res1: BigQueryTable.Reference = {datasetId=finance, projectId=company_bi, tableI
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../index.html#com.mediative.amadou.bigquery.BigQueryTable@wait(x$1:Long):Unit" title="Permalink" target="_top">
@@ -750,13 +750,13 @@ res1: BigQueryTable.Reference = {datasetId=finance, projectId=company_bi, tableI
 
         <div id="inheritedMembers">
         <div class="parent" name="scala.Serializable">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></h3>
             </div><div class="parent" name="java.io.Serializable">
               <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
             </div><div class="parent" name="scala.Product">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Product" class="extype" target="_top">Product</a></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Product" class="extype" target="_top">Product</a></h3>
             </div><div class="parent" name="scala.Equals">
-              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.8/index.html#scala.Equals" class="extype" target="_top">Equals</a></h3>
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Equals" class="extype" target="_top">Equals</a></h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
             </div><div class="parent" name="scala.Any">
