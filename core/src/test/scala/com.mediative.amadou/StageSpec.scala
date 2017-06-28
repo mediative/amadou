@@ -18,16 +18,16 @@ package com.mediative.amadou
 
 import org.scalatest._
 import org.apache.spark.sql.SparkSession
-import scala.util.{ Success, Try }
+import scala.util.{Success, Try}
 
 object StageSpec {
   case class Raw(a: String, b: String)
   case class Clean(a: Long, b: Int)
 
   case class TestContext[+I](
-    override val spark: SparkSession,
-    override val date: DateInterval,
-    override val value: I)
+      override val spark: SparkSession,
+      override val date: DateInterval,
+      override val value: I)
       extends Stage.Context(spark, date, value) { self =>
 
     override def withValue[U](u: U) = new TestContext(spark, date, u) {
@@ -38,7 +38,7 @@ object StageSpec {
       Try(result)
     }
 
-    def stagesRun = List(stageNames: _*)
+    def stagesRun            = List(stageNames: _*)
     protected var stageNames = scala.collection.mutable.ArrayBuffer[String]()
   }
 }
@@ -47,10 +47,10 @@ class StageSpec extends FreeSpec with Matchers with SparkJobSuiteBase {
 
   import StageSpec._
 
-  val InitStage = Stage[Int, Int]("init")(_.value)
+  val InitStage     = Stage[Int, Int]("init")(_.value)
   val ToStringStage = Stage[Any, String]("toString")(_.value.toString)
-  val ToIntStage = Stage[String, Int]("toInt")(_.value.toInt)
-  val FailStage = Stage[Int, Int]("fail")(_.value / 0)
+  val ToIntStage    = Stage[String, Int]("toInt")(_.value.toInt)
+  val FailStage     = Stage[Int, Int]("fail")(_.value / 0)
 
   "Stage" - {
     "name" - {
@@ -92,13 +92,20 @@ class StageSpec extends FreeSpec with Matchers with SparkJobSuiteBase {
 
       "failing operation" in {
         val ctx = TestContext(spark, Day.today, 1)
-        the[ArithmeticException] thrownBy InitStage.map(_ / 0).run(ctx).get should have message "/ by zero"
+        the[ArithmeticException] thrownBy InitStage
+          .map(_ / 0)
+          .run(ctx)
+          .get should have message "/ by zero"
         ctx.stagesRun should be("init" :: Nil)
       }
 
       "failing operation with unreachable mapping" in {
         val ctx = TestContext(spark, Day.today, 1)
-        the[ArithmeticException] thrownBy InitStage.map(_ / 0).map(_ + 1).run(ctx).get should have message "/ by zero"
+        the[ArithmeticException] thrownBy InitStage
+          .map(_ / 0)
+          .map(_ + 1)
+          .run(ctx)
+          .get should have message "/ by zero"
         ctx.stagesRun should be("init" :: Nil)
       }
     }
@@ -113,9 +120,9 @@ class StageSpec extends FreeSpec with Matchers with SparkJobSuiteBase {
       "multiple" in {
         val ctx = TestContext(spark, Day.today, 42)
         val stages = for {
-          init <- InitStage
+          init     <- InitStage
           toString <- ToStringStage
-          value <- 'stringToInt.stage[String, Int](_.value.toInt)
+          value    <- 'stringToInt.stage[String, Int](_.value.toInt)
         } yield value
 
         stages.run(ctx) should be(Success(42))
@@ -125,8 +132,8 @@ class StageSpec extends FreeSpec with Matchers with SparkJobSuiteBase {
       "failing operation" in {
         val ctx = TestContext(spark, Day.today, 42)
         val stages = for {
-          init <- InitStage
-          value <- FailStage
+          init     <- InitStage
+          value    <- FailStage
           toString <- ToStringStage
         } yield ()
 
@@ -137,10 +144,10 @@ class StageSpec extends FreeSpec with Matchers with SparkJobSuiteBase {
       "failing last operation" in {
         val ctx = TestContext(spark, Day.today, 42)
         val stages = for {
-          init <- InitStage
+          init     <- InitStage
           toString <- ToStringStage
-          toInt <- ToIntStage
-          value <- FailStage
+          toInt    <- ToIntStage
+          value    <- FailStage
         } yield ()
 
         the[ArithmeticException] thrownBy stages.run(ctx).get should have message "/ by zero"
@@ -162,7 +169,7 @@ class StageSpec extends FreeSpec with Matchers with SparkJobSuiteBase {
       }
 
       "failing operation" in {
-        val ctx = TestContext(spark, Day.today, 42)
+        val ctx                        = TestContext(spark, Day.today, 42)
         val stages: Stage[Int, String] = InitStage ~> FailStage ~> ToStringStage
 
         the[ArithmeticException] thrownBy stages.run(ctx).get should have message "/ by zero"
@@ -170,7 +177,7 @@ class StageSpec extends FreeSpec with Matchers with SparkJobSuiteBase {
       }
 
       "failing last operation" in {
-        val ctx = TestContext(spark, Day.today, 42)
+        val ctx                     = TestContext(spark, Day.today, 42)
         val stages: Stage[Int, Int] = InitStage ~> ToStringStage ~> ToIntStage ~> FailStage
 
         the[ArithmeticException] thrownBy stages.run(ctx).get should have message "/ by zero"
@@ -181,7 +188,11 @@ class StageSpec extends FreeSpec with Matchers with SparkJobSuiteBase {
     "sequence" - {
       "combines list of stages into one list of results" in {
         val ctx = TestContext(spark, Day.today, 42)
-        val sequence = for (i <- 0 to 10) yield Stage[Int, Int](i.toString) { ctx => i + 1 }
+        val sequence = for (i <- 0 to 10)
+          yield
+            Stage[Int, Int](i.toString) { ctx =>
+              i + 1
+            }
         val stages = Stage.sequence(sequence)
 
         stages.run(ctx) should be(Success(Seq(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11)))
@@ -190,7 +201,11 @@ class StageSpec extends FreeSpec with Matchers with SparkJobSuiteBase {
 
       "failing operation" in {
         val ctx = TestContext(spark, Day.today, 42)
-        val sequence = for (i <- 0 to 10) yield Stage[Int, Int](i.toString) { ctx => i / (i - 5) }
+        val sequence = for (i <- 0 to 10)
+          yield
+            Stage[Int, Int](i.toString) { ctx =>
+              i / (i - 5)
+            }
         val stages = Stage.sequence(sequence)
 
         the[ArithmeticException] thrownBy stages.run(ctx).get should have message "/ by zero"
@@ -201,7 +216,11 @@ class StageSpec extends FreeSpec with Matchers with SparkJobSuiteBase {
     "sequenceAll" - {
       "combines list of stages into one list of results" in {
         val ctx = TestContext(spark, Day.today, 42)
-        val sequence = for (i <- 0 to 3) yield Stage[Int, Int](i.toString) { ctx => i + 1 }
+        val sequence = for (i <- 0 to 3)
+          yield
+            Stage[Int, Int](i.toString) { ctx =>
+              i + 1
+            }
         val stages = Stage.sequenceAll(sequence)
 
         stages.run(ctx) should be(Success(Seq(1, 2, 3, 4)))
@@ -210,7 +229,11 @@ class StageSpec extends FreeSpec with Matchers with SparkJobSuiteBase {
 
       "failing operation" in {
         val ctx = TestContext(spark, Day.today, 42)
-        val sequence = for (i <- 0 to 3) yield Stage[Int, Int](i.toString) { ctx => i / (i - 2) }
+        val sequence = for (i <- 0 to 3)
+          yield
+            Stage[Int, Int](i.toString) { ctx =>
+              i / (i - 2)
+            }
         val stages = Stage.sequenceAll(sequence)
         val result = stages.run(ctx)
 
@@ -225,7 +248,7 @@ class StageSpec extends FreeSpec with Matchers with SparkJobSuiteBase {
 
     "identity" - {
       "passes original value" in {
-        val ctx = TestContext(spark, Day.today, 42)
+        val ctx                    = TestContext(spark, Day.today, 42)
         val empty: Stage[Int, Int] = Stage.identity
 
         empty.run(ctx) should be(Success(42))

@@ -6,7 +6,9 @@ scala:
 
 jdk: oraclejdk8
 
-script: sbt ++$TRAVIS_SCALA_VERSION reformat-code-check test
+script:
+  - bin/scalafmt --test
+  - sbt ++$TRAVIS_SCALA_VERSION test
 
 before_cache:
   # See http://www.scala-sbt.org/0.13/docs/Travis-CI-with-sbt.html
@@ -17,3 +19,4 @@ cache:
   directories:
     - $HOME/.ivy2/cache
     - $HOME/.sbt/boot
+    - $HOME/.coursier

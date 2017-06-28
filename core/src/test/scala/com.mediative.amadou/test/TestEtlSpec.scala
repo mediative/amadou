@@ -22,18 +22,19 @@ import org.apache.spark.sql.types._
 
 class TestEtlSpec extends FreeSpec with SparkJobSuiteBase {
 
-  val job = TestEtl.createJob(config)
+  val job  = TestEtl.createJob(config)
   val date = Day(2017, 2, 21)
 
-  val cleanSchema = StructType(Array(
-    StructField("name", StringType),
-    StructField("isPink", BooleanType),
-    StructField("eventDate", TimestampType),
-    StructField("latitude", DoubleType),
-    StructField("longitude", DoubleType),
-    StructField("speed", LongType),
-    StructField("processingDate", TimestampType, false)
-  ))
+  val cleanSchema = StructType(
+    Array(
+      StructField("name", StringType),
+      StructField("isPink", BooleanType),
+      StructField("eventDate", TimestampType),
+      StructField("latitude", DoubleType),
+      StructField("longitude", DoubleType),
+      StructField("speed", LongType),
+      StructField("processingDate", TimestampType, false)
+    ))
 
   "TestEtl" - {
     "should have expected schema and number of entries" in {

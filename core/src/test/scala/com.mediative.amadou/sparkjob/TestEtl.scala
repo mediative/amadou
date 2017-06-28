@@ -22,7 +22,7 @@ import org.apache.spark.sql.functions._
 import org.apache.spark.sql.types._
 
 object TestEtl extends SparkRunner[TestEtlJob] {
-  val jobName = "test_etl"
+  val jobName  = "test_etl"
   val schedule = today
 
   override val recordsProcessed = gauge("spark_job_test_etl_processed", "Number of processed rows")
@@ -35,40 +35,45 @@ object TestEtl extends SparkRunner[TestEtlJob] {
       recordsProcessed
     )
 
-  val RawSchema = StructType(Array(
-    StructField("Object Name", StringType),
-    StructField("Object Colour", StringType),
-    StructField("Observed Time", TimestampType),
-    StructField("Observed Latitude", DoubleType),
-    StructField("Observed Longitude", DoubleType),
-    StructField("Speed", LongType)
-  ))
+  val RawSchema = StructType(
+    Array(
+      StructField("Object Name", StringType),
+      StructField("Object Colour", StringType),
+      StructField("Observed Time", TimestampType),
+      StructField("Observed Latitude", DoubleType),
+      StructField("Observed Longitude", DoubleType),
+      StructField("Speed", LongType)
+    ))
 
   case class Clean(
-    name: String,
-    isPink: Boolean,
-    eventDate: java.sql.Timestamp,
-    latitude: Double,
-    longitude: Double,
-    speed: Long,
-    processingDate: java.sql.Timestamp)
+      name: String,
+      isPink: Boolean,
+      eventDate: java.sql.Timestamp,
+      latitude: Double,
+      longitude: Double,
+      speed: Long,
+      processingDate: java.sql.Timestamp)
 }
 
-case class TestEtlJob(testEtlUrl: HdfsUrl, rawUrl: HdfsUrl, cleanUrl: HdfsUrl, recordsProcessed: Gauge) extends SparkJob {
+case class TestEtlJob(
+    testEtlUrl: HdfsUrl,
+    rawUrl: HdfsUrl,
+    cleanUrl: HdfsUrl,
+    recordsProcessed: Gauge)
+    extends SparkJob {
 
-  import TestEtl.{ RawSchema, Clean }
+  import TestEtl.{RawSchema, Clean}
 
   def shouldRunForDate(spark: SparkSession, date: DateInterval): Boolean = true
 
-  override def run(spark: SparkSession, date: DateInterval): Unit = {
+  override def run(spark: SparkSession, date: DateInterval): Unit =
     clean(spark, date).write.parquet(cleanUrl / date)
-  }
 
   def clean(spark: SparkSession, date: DateInterval): Dataset[Clean] = {
     import spark.implicits._
 
     val CleanSchema = implicitly[Encoder[Clean]].schema
-    val isPink = udf((colorName: String) => colorName.compareToIgnoreCase("pink") == 0)
+    val isPink      = udf((colorName: String) => colorName.compareToIgnoreCase("pink") == 0)
 
     // Read raw input from input
     val raw = spark.read

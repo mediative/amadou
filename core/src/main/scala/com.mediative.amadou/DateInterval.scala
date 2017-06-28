@@ -16,9 +16,9 @@
 
 package com.mediative.amadou
 
-import java.sql.{ Date, Timestamp }
+import java.sql.{Date, Timestamp}
 import java.text.SimpleDateFormat
-import java.util.{ Calendar, TimeZone }
+import java.util.{Calendar, TimeZone}
 
 import scala.util.Try
 
@@ -37,7 +37,8 @@ import scala.util.Try
 sealed abstract class DateInterval(
     val from: Long,
     val interval: DateIntervalType,
-    val toOpt: Option[DateInterval] = None) extends Ordered[DateInterval] {
+    val toOpt: Option[DateInterval] = None)
+    extends Ordered[DateInterval] {
 
   def end = toOpt.getOrElse(next)
 
@@ -62,7 +63,8 @@ sealed abstract class DateInterval(
   def -(delta: Int): DateInterval = this.+(-delta)
 
   override def equals(other: Any): Boolean = other match {
-    case that: DateInterval => interval == that.interval && toOpt == that.toOpt && compare(that) == 0
+    case that: DateInterval =>
+      interval == that.interval && toOpt == that.toOpt && compare(that) == 0
     case _ => false
   }
 
@@ -76,7 +78,7 @@ sealed abstract class DateInterval(
     formatter.format(asDate) + toOpt.fold("")(":" + _.toString)
   }
 
-  def asDate = new Date(from)
+  def asDate      = new Date(from)
   def asTimestamp = new Timestamp(from)
 
   def contains(date: DateInterval): Boolean =
@@ -209,7 +211,7 @@ sealed abstract class DateIntervalType(val calendarField: Int, val dateFormat: S
     new Builder()
 
   private class Instance(from: Long, toOpt: Option[DateInterval])
-    extends DateInterval(from, DateIntervalType.this, toOpt)
+      extends DateInterval(from, DateIntervalType.this, toOpt)
 
   private[amadou] case class Builder(from: Long = 0, toOpt: Option[DateInterval] = None) {
     def update(f: Calendar => Unit): Builder = {
@@ -220,15 +222,14 @@ sealed abstract class DateIntervalType(val calendarField: Int, val dateFormat: S
     }
 
     def from(date: DateInterval): Builder = copy(from = date.from)
-    def from(timestamp: Long): Builder = copy(from = timestamp)
-    def to(date: DateInterval): Builder = copy(toOpt = Some(date))
+    def from(timestamp: Long): Builder    = copy(from = timestamp)
+    def to(date: DateInterval): Builder   = copy(toOpt = Some(date))
 
-    def add(delta: Int): Builder = {
+    def add(delta: Int): Builder =
       DateIntervalType.this match {
         case Quarter => update(_.add(calendarField, delta * 3))
-        case _ => update(_.add(calendarField, delta))
+        case _       => update(_.add(calendarField, delta))
       }
-    }
 
     def set(year: Int, month: Int = 1, day: Int = 1): Builder = {
       require(1 <= month && month <= 12, "month must be between 1-12")
@@ -241,16 +242,10 @@ sealed abstract class DateIntervalType(val calendarField: Int, val dateFormat: S
       val truncated = Builder.newCalendar
       DateIntervalType.this match {
         case Week =>
-          truncated.setWeekDate(
-            cal.getWeekYear(),
-            cal.get(Calendar.WEEK_OF_YEAR),
-            Week.Monday.id)
+          truncated.setWeekDate(cal.getWeekYear(), cal.get(Calendar.WEEK_OF_YEAR), Week.Monday.id)
 
         case Quarter =>
-          truncated.set(
-            cal.get(Calendar.YEAR),
-            (cal.get(Calendar.MONTH) / 3) * 3,
-            1)
+          truncated.set(cal.get(Calendar.YEAR), (cal.get(Calendar.MONTH) / 3) * 3, 1)
 
         case _ =>
           Seq(Calendar.DAY_OF_MONTH, Calendar.MONTH, Calendar.YEAR)
@@ -302,13 +297,13 @@ object Week extends DateIntervalType(Calendar.WEEK_OF_YEAR, "YYYY-'W'ww") {
   sealed trait WeekDay {
     def id: Int
   }
-  case object Monday extends WeekDay { val id = Calendar.MONDAY }
-  case object Tuesday extends WeekDay { val id = Calendar.TUESDAY }
+  case object Monday    extends WeekDay { val id = Calendar.MONDAY    }
+  case object Tuesday   extends WeekDay { val id = Calendar.TUESDAY   }
   case object Wednesday extends WeekDay { val id = Calendar.WEDNESDAY }
-  case object Thursday extends WeekDay { val id = Calendar.THURSDAY }
-  case object Friday extends WeekDay { val id = Calendar.FRIDAY }
-  case object Saturday extends WeekDay { val id = Calendar.SATURDAY }
-  case object Sunday extends WeekDay { val id = Calendar.SUNDAY }
+  case object Thursday  extends WeekDay { val id = Calendar.THURSDAY  }
+  case object Friday    extends WeekDay { val id = Calendar.FRIDAY    }
+  case object Saturday  extends WeekDay { val id = Calendar.SATURDAY  }
+  case object Sunday    extends WeekDay { val id = Calendar.SUNDAY    }
 
   def apply(year: Int, week: Int, dayOfWeek: WeekDay = Monday): DateInterval = {
     require(1 <= week && week <= 53, "week must be between 1-53")

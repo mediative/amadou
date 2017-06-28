@@ -17,7 +17,7 @@
 package com.mediative.amadou
 
 import scala.reflect.runtime.universe.TypeTag
-import org.apache.spark.sql.{ Encoder, Encoders }
+import org.apache.spark.sql.{Encoder, Encoders}
 
 /**
  * Marker trait for case classes to automatically provide a Spark

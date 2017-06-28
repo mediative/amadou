@@ -19,11 +19,11 @@ package com.mediative.amadou
 import com.google.api.services.bigquery.model._
 import com.google.cloud.hadoop.fs.gcs.GoogleHadoopFileSystem
 import com.google.cloud.hadoop.io.bigquery._
-import org.apache.hadoop.fs.{ FileSystem, Path }
+import org.apache.hadoop.fs.{FileSystem, Path}
 import net.ceedubs.ficus.readers.ValueReader
 import net.ceedubs.ficus.FicusInstances
 
-import org.apache.spark.sql.{ Dataset, SparkSession, Encoder }
+import org.apache.spark.sql.{Dataset, SparkSession, Encoder}
 import java.util.concurrent.ThreadLocalRandom
 import scala.collection.JavaConversions._
 
@@ -53,7 +53,11 @@ package object bigquery extends FicusInstances {
     }
   }
 
-  def tableHasDataForDate(spark: SparkSession, table: TableReference, date: java.sql.Date, column: String): Boolean = {
+  def tableHasDataForDate(
+      spark: SparkSession,
+      table: TableReference,
+      date: java.sql.Date,
+      column: String): Boolean = {
     val bq = BigQueryClient.getInstance(spark.sparkContext.hadoopConfiguration)
     bq.hasDataForDate(table, date, column)
   }
@@ -63,8 +67,8 @@ package object bigquery extends FicusInstances {
    */
   implicit class BigQuerySparkSession(self: SparkSession) {
 
-    val sc = self.sqlContext.sparkContext
-    val conf = sc.hadoopConfiguration
+    val sc      = self.sqlContext.sparkContext
+    val conf    = sc.hadoopConfiguration
     lazy val bq = BigQueryClient.getInstance(conf)
 
     // Register GCS implementation
@@ -116,7 +120,7 @@ package object bigquery extends FicusInstances {
     /**
      * Reads a CSV extract of a BigQuery table.
      */
-    def readBigQueryCSVExtract[T: Encoder](url: String, dateFormat: String): Seq[T] = {
+    def readBigQueryCSVExtract[T: Encoder](url: String, dateFormat: String): Seq[T] =
       self.read
         .option("header", true)
         .option("timestampFormat", dateFormat)
@@ -126,9 +130,10 @@ package object bigquery extends FicusInstances {
         .as[T]
         .collect
         .toSeq
-    }
 
-    def readBigQueryCSVExtract[T: Encoder](url: HdfsUrl, dateFormat: String = BQ_CSV_DATE_FORMAT): Seq[T] =
+    def readBigQueryCSVExtract[T: Encoder](
+        url: HdfsUrl,
+        dateFormat: String = BQ_CSV_DATE_FORMAT): Seq[T] =
       readBigQueryCSVExtract(url.toString, dateFormat)
   }
 
@@ -138,18 +143,19 @@ package object bigquery extends FicusInstances {
   implicit class BigQueryDataset[T](self: Dataset[T]) {
 
     val sqlContext = self.sqlContext
-    val conf = sqlContext.sparkContext.hadoopConfiguration
-    val bq = BigQueryClient.getInstance(conf)
+    val conf       = sqlContext.sparkContext.hadoopConfiguration
+    val bq         = BigQueryClient.getInstance(conf)
 
     /**
      * Save a DataFrame to a BigQuery table.
      */
     def saveAsBigQueryTable(
-      tableRef: TableReference,
-      writeDisposition: WriteDisposition.Value,
-      createDisposition: CreateDisposition.Value): Unit = {
+        tableRef: TableReference,
+        writeDisposition: WriteDisposition.Value,
+        createDisposition: CreateDisposition.Value): Unit = {
       val bucket = conf.get(BigQueryConfiguration.GCS_BUCKET_KEY)
-      val temp = s"spark-bigquery-${System.currentTimeMillis()}=${ThreadLocalRandom.current.nextInt(Int.MaxValue)}"
+      val temp =
+        s"spark-bigquery-${System.currentTimeMillis()}=${ThreadLocalRandom.current.nextInt(Int.MaxValue)}"
       val gcsPath = s"gs://$bucket/spark-bigquery-tmp/$temp"
       self.write.json(gcsPath)
 
@@ -157,12 +163,12 @@ package object bigquery extends FicusInstances {
         import org.apache.spark.sql.types._
 
         val fieldType = field.dataType match {
-          case BooleanType => "BOOLEAN"
-          case LongType => "INTEGER"
-          case IntegerType => "INTEGER"
-          case StringType => "STRING"
-          case DoubleType => "FLOAT"
-          case TimestampType => "TIMESTAMP"
+          case BooleanType    => "BOOLEAN"
+          case LongType       => "INTEGER"
+          case IntegerType    => "INTEGER"
+          case StringType     => "STRING"
+          case DoubleType     => "FLOAT"
+          case TimestampType  => "TIMESTAMP"
           case _: DecimalType => "INTEGER"
         }
         new TableFieldSchema().setName(field.name).setType(fieldType)
@@ -182,11 +188,12 @@ package object bigquery extends FicusInstances {
 
   }
 
-  implicit val valueReader: ValueReader[BigQueryTable.PartitionStrategy] = ValueReader[String].map {
-    _ match {
-      case "month" => BigQueryTable.PartitionByMonth
-      case "day" => BigQueryTable.PartitionByDay
-      case other => sys.error(s"Unknown partition strategy")
+  implicit val valueReader: ValueReader[BigQueryTable.PartitionStrategy] =
+    ValueReader[String].map {
+      _ match {
+        case "month" => BigQueryTable.PartitionByMonth
+        case "day"   => BigQueryTable.PartitionByDay
+        case other   => sys.error(s"Unknown partition strategy")
+      }
     }
-  }
 }

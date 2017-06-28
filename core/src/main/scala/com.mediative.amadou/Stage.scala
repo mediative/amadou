@@ -17,13 +17,13 @@
 package com.mediative.amadou
 
 import org.apache.spark.sql._
-import scala.util.{ Failure, Success, Try }
+import scala.util.{Failure, Success, Try}
 
 sealed trait Stage[-I, +T] { self =>
   def name: String
 
   def map[U](f: T => U): Stage[I, U] = new Stage[I, U] {
-    override def name = self.name
+    override def name                                        = self.name
     override def run(ctx: Stage.Context[I]): Stage.Result[U] = self.run(ctx).map(f)
   }
 
@@ -34,7 +34,7 @@ sealed trait Stage[-I, +T] { self =>
   }
 
   def andThen[U](s: Stage[T, U]): Stage[I, U] = flatMap(_ => s)
-  def ~>[U](s: Stage[T, U]): Stage[I, U] = andThen(s)
+  def ~>[U](s: Stage[T, U]): Stage[I, U]      = andThen(s)
 
   def run(ctx: Stage.Context[I]): Stage.Result[T]
 }
@@ -42,10 +42,7 @@ sealed trait Stage[-I, +T] { self =>
 object Stage {
   type Result[A] = Try[A]
 
-  abstract class Context[+I](
-      val spark: SparkSession,
-      val date: DateInterval,
-      val value: I) {
+  abstract class Context[+I](val spark: SparkSession, val date: DateInterval, val value: I) {
     def withValue[U](value: U): Context[U]
     def run[T](stage: Stage[I, T], result: => T): Result[T] = Try(result)
   }
@@ -55,12 +52,13 @@ object Stage {
       new SimpleContext(spark, date, spark)
   }
 
-  class SimpleContext[+I](spark: SparkSession, date: DateInterval, value: I) extends Context[I](spark, date, value) {
+  class SimpleContext[+I](spark: SparkSession, date: DateInterval, value: I)
+      extends Context[I](spark, date, value) {
     override def withValue[U](value: U) = new SimpleContext(spark, date, value)
   }
 
   def apply[S, T](stageName: String)(f: Stage.Context[S] => T): Stage[S, T] = new Stage[S, T] {
-    override def name = stageName
+    override def name                       = stageName
     override def run(ctx: Stage.Context[S]) = ctx.run(this, f(ctx))
   }
 
@@ -89,7 +87,7 @@ object Stage {
           case Seq() => Success(results)
           case Seq(stage, rest @ _*) =>
             stage.run(ctx) match {
-              case Success(result) => iterate(rest, results :+ result)
+              case Success(result)    => iterate(rest, results :+ result)
               case Failure(exception) => Failure(exception)
             }
         }
@@ -98,10 +96,14 @@ object Stage {
     }
   }
 
-  case class SequenceAllException[S, T](failures: Seq[(Stage[S, T], Throwable)]) extends Exception {
+  case class SequenceAllException[S, T](failures: Seq[(Stage[S, T], Throwable)])
+      extends Exception {
     override def getMessage =
       failures
-        .map { case (stage, failure) => s"${stage.name} failed: (${failure.getClass.getName}) ${failure.getMessage}" }
+        .map {
+          case (stage, failure) =>
+            s"${stage.name} failed: (${failure.getClass.getName}) ${failure.getMessage}"
+        }
         .mkString(s"${failures.size} stage(s) failed:\n - ", "\n - ", "")
   }
 
@@ -112,10 +114,14 @@ object Stage {
   def sequenceAll[S, T](stages: Seq[Stage[S, T]]): Stage[S, Seq[T]] = new Stage[S, Seq[T]] {
     override def name = "sequenceAll"
     override def run(ctx: Stage.Context[S]): Stage.Result[Seq[T]] = {
-      val results: Seq[(Stage[S, T], Stage.Result[T])] = stages.map(stage => stage -> stage.run(ctx))
+      val results: Seq[(Stage[S, T], Stage.Result[T])] =
+        stages.map(stage => stage -> stage.run(ctx))
       results.filter(_._2.isFailure) match {
         case Seq() => Success(results.map(_._2.get))
-        case failures => Failure(SequenceAllException(failures.map { case (stage, result) => stage -> result.failed.get }))
+        case failures =>
+          Failure(SequenceAllException(failures.map {
+            case (stage, result) => stage -> result.failed.get
+          }))
       }
     }
   }

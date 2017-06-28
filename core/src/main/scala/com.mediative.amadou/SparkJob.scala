@@ -20,6 +20,7 @@ import scala.concurrent.duration._
 import org.apache.spark.sql._
 
 object SparkJob {
+
   /**
    * Maximum number of dates considered from a schedule.
    */
@@ -45,6 +46,6 @@ trait SparkJob extends Logging {
   def shouldRunForDate(spark: SparkSession, date: DateInterval): Boolean
   def stages: Stage[SparkSession, _] = Stage("Spark")(ctx => run(ctx.spark, ctx.date))
 
-  def maxRetries = 3
+  def maxRetries                          = 3
   def delayBetweenRetries: FiniteDuration = 20.minutes
 }

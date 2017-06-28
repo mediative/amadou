@@ -16,7 +16,7 @@
 
 package com.mediative.amadou
 
-import org.apache.hadoop.fs.{ Path, FSDataOutputStream }
+import org.apache.hadoop.fs.{Path, FSDataOutputStream}
 import org.apache.spark.sql.SparkSession
 
 /**

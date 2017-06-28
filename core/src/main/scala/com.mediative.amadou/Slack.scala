@@ -17,21 +17,21 @@
 package com.mediative.amadou
 
 import org.apache.http.client.methods.HttpPost
-import org.apache.http.entity.{ ContentType, StringEntity }
+import org.apache.http.entity.{ContentType, StringEntity}
 import org.apache.http.impl.client.HttpClients
 import org.json4s.NoTypeHints
 import org.json4s.jackson.Serialization
-import org.json4s.jackson.Serialization.{ write }
+import org.json4s.jackson.Serialization.{write}
 
 object Slack {
   case class PostException(msg: String) extends RuntimeException(msg)
 
   case class Payload(
-    channel: String,
-    text: String,
-    username: String,
-    icon_emoji: String,
-    link_names: Boolean)
+      channel: String,
+      text: String,
+      username: String,
+      icon_emoji: String,
+      link_names: Boolean)
 }
 
 /**
@@ -52,15 +52,16 @@ case class Slack(url: String, channel: String, user: String, icon: String) exten
     val payload = Payload(channel, message, user, icon, true)
     logger.info(s"Posting $payload to $url")
 
-    val client = HttpClients.createDefault()
+    val client        = HttpClients.createDefault()
     val requestEntity = new StringEntity(write(payload), ContentType.APPLICATION_JSON)
-    val postMethod = new HttpPost(url)
+    val postMethod    = new HttpPost(url)
     postMethod.setEntity(requestEntity)
 
     val response = client.execute(postMethod)
     client.close()
     val status = response.getStatusLine
     if (status.getStatusCode != 200)
-      throw PostException(s"$url replied with status ${status.getStatusCode}: ${status.getReasonPhrase}")
+      throw PostException(
+        s"$url replied with status ${status.getStatusCode}: ${status.getReasonPhrase}")
   }
 }

@@ -16,12 +16,15 @@
 
 package com.mediative.amadou.bigquery
 
-import java.io.{ File, FileReader }
+import java.io.{File, FileReader}
 import scala.collection.JavaConversions._
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp
 import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver
-import com.google.api.client.googleapis.auth.oauth2.{ GoogleAuthorizationCodeFlow, GoogleClientSecrets }
-import com.google.api.client.http.{ HttpRequest, HttpRequestInitializer }
+import com.google.api.client.googleapis.auth.oauth2.{
+  GoogleAuthorizationCodeFlow,
+  GoogleClientSecrets
+}
+import com.google.api.client.http.{HttpRequest, HttpRequestInitializer}
 import com.google.api.client.http.javanet.NetHttpTransport
 import com.google.api.client.json.jackson2.JacksonFactory
 import com.google.api.client.util.store.FileDataStoreFactory
@@ -31,9 +34,10 @@ sealed abstract class GoogleAuthentication(val scopes: String*)
 
 object GoogleAuthentication {
   lazy val HTTP_TRANSPORT = new NetHttpTransport()
-  lazy val JSON_FACTORY = new JacksonFactory()
+  lazy val JSON_FACTORY   = new JacksonFactory()
 
-  case object Dbm extends GoogleAuthentication("https://www.googleapis.com/auth/doubleclickbidmanager")
+  case object Dbm
+      extends GoogleAuthentication("https://www.googleapis.com/auth/doubleclickbidmanager")
 
   def apply(auth: GoogleAuthentication, spark: SparkSession): HttpRequestInitializer = auth match {
     case Dbm =>
@@ -43,11 +47,14 @@ object GoogleAuthentication {
       val clientFile = new File(clientFilePath)
       require(clientFile.exists, s"$clientFilePath does not exists")
 
-      val clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, new FileReader(clientFile))
+      val clientSecrets    = GoogleClientSecrets.load(JSON_FACTORY, new FileReader(clientFile))
       val dataStoreFactory = new FileDataStoreFactory(clientFile.getParentFile)
 
       val flow = new GoogleAuthorizationCodeFlow.Builder(
-        HTTP_TRANSPORT, JSON_FACTORY, clientSecrets, auth.scopes)
+        HTTP_TRANSPORT,
+        JSON_FACTORY,
+        clientSecrets,
+        auth.scopes)
         .setDataStoreFactory(dataStoreFactory)
         .build()
 
@@ -56,11 +63,12 @@ object GoogleAuthentication {
       new CustomHttpRequestInitializer(cred)
   }
 
-  class CustomHttpRequestInitializer(wrapped: HttpRequestInitializer) extends HttpRequestInitializer {
+  class CustomHttpRequestInitializer(wrapped: HttpRequestInitializer)
+      extends HttpRequestInitializer {
     override def initialize(httpRequest: HttpRequest) = {
       wrapped.initialize(httpRequest)
       httpRequest.setConnectTimeout(10 * 60000) // 10 minutes connect timeout
-      httpRequest.setReadTimeout(10 * 60000) // 10 minutes read timeout
+      httpRequest.setReadTimeout(10 * 60000)    // 10 minutes read timeout
       ()
     }
   }

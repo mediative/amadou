@@ -18,7 +18,6 @@ package com.mediative.amadou
 package monitoring
 
 class PrintMessagingSystem extends MessagingSystem with Logging {
-  override def publish(topic: String, message: String): Unit = {
+  override def publish(topic: String, message: String): Unit =
     logger.info(s"Publishing to $topic: $message")
-  }
 }

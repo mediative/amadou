@@ -35,11 +35,11 @@ package com.mediative.amadou
  * }}}
  */
 trait ScheduleDsl {
-  def today = Schedule(Day.today)
-  def daily = Schedule.iterate(Day.today)
-  def monthly = Schedule.iterate(Month.today)
+  def today     = Schedule(Day.today)
+  def daily     = Schedule.iterate(Day.today)
+  def monthly   = Schedule.iterate(Month.today)
   def quarterly = Schedule.iterate(Quarter.today)
-  def yearly = Schedule.iterate(Year.today)
+  def yearly    = Schedule.iterate(Year.today)
 }
 
 /**
@@ -61,14 +61,13 @@ trait ScheduleDsl {
 case class Schedule(dates: Stream[DateInterval]) extends Traversable[DateInterval] {
   override final def foreach[U](f: DateInterval => U): Unit = {
     @scala.annotation.tailrec
-    def ensureMonotonicDecreasingOrder(stream: Stream[DateInterval]): Unit = {
+    def ensureMonotonicDecreasingOrder(stream: Stream[DateInterval]): Unit =
       if (stream.nonEmpty) {
         val head = stream.head
         f(head)
         val tail = stream.tail.dropWhile(_ >= head)
         ensureMonotonicDecreasingOrder(tail)
       }
-    }
 
     ensureMonotonicDecreasingOrder(dates)
   }
@@ -85,7 +84,7 @@ case class Schedule(dates: Stream[DateInterval]) extends Traversable[DateInterva
 }
 
 object Schedule {
-  val empty = Schedule(Stream.empty[DateInterval])
+  val empty                               = Schedule(Stream.empty[DateInterval])
   def apply(date: DateInterval): Schedule = Schedule(Stream(date))
   def iterate(interval: DateInterval): Schedule =
     Schedule(Stream.iterate(interval)(_.prev))

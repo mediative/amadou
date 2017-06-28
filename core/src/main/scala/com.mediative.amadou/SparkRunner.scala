@@ -17,15 +17,15 @@
 package com.mediative.amadou
 
 import scala.collection.JavaConversions._
-import scala.util.{ Failure, Success, Try }
+import scala.util.{Failure, Success, Try}
 import com.typesafe.config._
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.scheduler.{ SparkListener, SparkListenerTaskEnd }
+import org.apache.spark.scheduler.{SparkListener, SparkListenerTaskEnd}
 import com.amazonaws.auth.profile.ProfilesConfigFile
 import io.prometheus.client._
 
-import monitoring.{ MessagingSystem, ProcessContext }
+import monitoring.{MessagingSystem, ProcessContext}
 
 abstract class SparkRunner[Job <: SparkJob] extends Logging with ScheduleDsl with ConfigLoader {
   def jobName: String
@@ -33,7 +33,7 @@ abstract class SparkRunner[Job <: SparkJob] extends Logging with ScheduleDsl wit
   def createJob(config: Config): Job
   def recordsProcessed: Collector = sparkRecordsRead
 
-  def main(args: Array[String]): Unit = {
+  def main(args: Array[String]): Unit =
     Try(run) match {
       case Failure(failure) =>
         logger.error("Spark job failed", failure)
@@ -41,18 +41,20 @@ abstract class SparkRunner[Job <: SparkJob] extends Logging with ScheduleDsl wit
       case _ =>
         sys.exit(0)
     }
-  }
 
   def run(): Unit = {
     val config =
-      sys.env.get("DEPLOY_ENVIRONMENT").fold(ConfigFactory.empty) { env =>
-        ConfigFactory.defaultOverrides().withFallback(ConfigFactory.load(env))
-      }.withFallback(ConfigFactory.load())
+      sys.env
+        .get("DEPLOY_ENVIRONMENT")
+        .fold(ConfigFactory.empty) { env =>
+          ConfigFactory.defaultOverrides().withFallback(ConfigFactory.load(env))
+        }
+        .withFallback(ConfigFactory.load())
 
     val messaging = MessagingSystem.create(config)
 
-    val singleDate = sys.env.get("start").flatMap(Day.parse)
-    val job = createJob(config)
+    val singleDate  = sys.env.get("start").flatMap(Day.parse)
+    val job         = createJob(config)
     val sparkConfig = new SparkConf().setAppName(jobName)
 
     for {
@@ -73,7 +75,7 @@ abstract class SparkRunner[Job <: SparkJob] extends Logging with ScheduleDsl wit
      * not logged.
      */
     sys.env.get("AWS_CREDENTIALS").foreach { file =>
-      val creds = new ProfilesConfigFile(file).	getCredentials("default")
+      val creds = new ProfilesConfigFile(file).getCredentials("default")
       spark.sparkContext.hadoopConfiguration.set("fs.s3a.access.key", creds.getAWSAccessKeyId)
       spark.sparkContext.hadoopConfiguration.set("fs.s3a.secret.key", creds.getAWSSecretKey)
     }
@@ -82,13 +84,14 @@ abstract class SparkRunner[Job <: SparkJob] extends Logging with ScheduleDsl wit
 
     val shouldRunForDate: DateInterval => Boolean = singleDate match {
       case Some(date) => date.<=
-      case None => job.shouldRunForDate(spark, _)
+      case None       => job.shouldRunForDate(spark, _)
     }
 
     val dates = schedule
       .take(SparkJob.MaxScheduledDates)
       .takeWhile(shouldRunForDate)
-      .toList.reverse
+      .toList
+      .reverse
 
     logger.info(s"Scheduled dates are: $dates")
     dates.foreach(runForDate(spark, job, messaging))
@@ -97,19 +100,27 @@ abstract class SparkRunner[Job <: SparkJob] extends Logging with ScheduleDsl wit
     spark.stop()
   }
 
-  def runForDate(spark: SparkSession, job: Job, messaging: MessagingSystem)(date: DateInterval): Unit = {
+  def runForDate(spark: SparkSession, job: Job, messaging: MessagingSystem)(
+      date: DateInterval): Unit = {
     val processContext = ProcessContext(jobName, date)
-    val ctx = new Context(job, processContext, spark, messaging, date, spark)
+    val ctx            = new Context(job, processContext, spark, messaging, date, spark)
 
     messaging.publishProcessStarting(processContext)
     job.stages.run(ctx)
     messaging.publishProcessComplete(processContext)
   }
 
-  class Context[+I](job: Job, processContext: ProcessContext, spark: SparkSession, messaging: MessagingSystem, date: DateInterval, value: I)
+  class Context[+I](
+      job: Job,
+      processContext: ProcessContext,
+      spark: SparkSession,
+      messaging: MessagingSystem,
+      date: DateInterval,
+      value: I)
       extends Stage.Context(spark, date, value) {
 
-    override def withValue[U](value: U) = new Context(job, processContext, spark, messaging, date, value)
+    override def withValue[U](value: U) =
+      new Context(job, processContext, spark, messaging, date, value)
 
     override def run[T](stage: Stage[I, T], result: => T): Stage.Result[T] = {
       def runStage(callCount: Int): Stage.Result[T] = {
@@ -128,7 +139,9 @@ abstract class SparkRunner[Job <: SparkJob] extends Logging with ScheduleDsl wit
               messaging.publishProcessFailed(processContext, failure)
               throw failure
             } else {
-              logger.error(s"[$processContext] Will retry stage ${stage.name} in ${job.delayBetweenRetries}", failure)
+              logger.error(
+                s"[$processContext] Will retry stage ${stage.name} in ${job.delayBetweenRetries}",
+                failure)
               messaging.publishStageRetrying(processContext, stage.name)
               Thread.sleep(job.delayBetweenRetries.toMillis)
               runStage(callCount + 1)
@@ -149,23 +162,21 @@ abstract class SparkRunner[Job <: SparkJob] extends Logging with ScheduleDsl wit
   /**
    * Counters will be reset before each job run.
    */
-  protected def counter(name: String, help: String, labels: String*): Counter  = {
+  protected def counter(name: String, help: String, labels: String*): Counter = {
     val collector = Counter.build().name(name).labelNames(labels: _*).help(help).register()
     counters += collector
     collector
   }
 
-  protected def gauge(name: String, help: String, labels: String*): Gauge = {
+  protected def gauge(name: String, help: String, labels: String*): Gauge =
     Gauge.build().name(name).labelNames(labels: _*).help(help).register()
-  }
 
   private def collectMetrics(): Map[String, Double] = {
-    def labeledSamples(sample: Collector.MetricFamilySamples.Sample) = {
+    def labeledSamples(sample: Collector.MetricFamilySamples.Sample) =
       for {
         (label, labelValue) <- sample.labelNames.toSeq.zip(sample.labelValues.toSeq)
-        value <- Try(labelValue.toDouble).toOption
+        value               <- Try(labelValue.toDouble).toOption
       } yield s"${sample.name}_$label" -> value
-    }
 
     val metrics = for {
       family <- CollectorRegistry.defaultRegistry.metricFamilySamples()
@@ -183,11 +194,12 @@ abstract class SparkRunner[Job <: SparkJob] extends Logging with ScheduleDsl wit
 
   hotspot.DefaultExports.initialize()
 
-  private lazy val sparkBytesRead = counter("spark_bytes_read", "Number of bytes read.")
+  private lazy val sparkBytesRead   = counter("spark_bytes_read", "Number of bytes read.")
   private lazy val sparkRecordsRead = counter("spark_records_read", "Number of records read.")
-  private lazy val sparkRecordsWritten = counter("spark_records_written", "Number of records written.")
+  private lazy val sparkRecordsWritten =
+    counter("spark_records_written", "Number of records written.")
 
-  private def sparkListener() = {
+  private def sparkListener() =
     new SparkListener() {
       override def onTaskEnd(taskEnd: SparkListenerTaskEnd): Unit = {
         sparkBytesRead.inc(taskEnd.taskMetrics.inputMetrics.bytesRead)
@@ -197,5 +209,4 @@ abstract class SparkRunner[Job <: SparkJob] extends Logging with ScheduleDsl wit
         sparkRecordsWritten.inc(taskEnd.taskMetrics.outputMetrics.recordsWritten)
       }
     }
-  }
 }

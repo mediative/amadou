@@ -23,28 +23,29 @@ import org.apache.spark.sql.types._
 import scala.concurrent.duration._
 
 object TestEtl extends SparkRunner[TestEtlJob] {
-  val jobName = "test_etl"
+  val jobName  = "test_etl"
   val schedule = today
 
   override val recordsProcessed = gauge("test_etl_processed", "Number of processed rows")
 
-  val RawSchema = StructType(Array(
-    StructField("Object Name", StringType),
-    StructField("Object Colour", StringType),
-    StructField("Observed Time", TimestampType),
-    StructField("Observed Latitude", DoubleType),
-    StructField("Observed Longitude", DoubleType),
-    StructField("Speed", LongType)
-  ))
+  val RawSchema = StructType(
+    Array(
+      StructField("Object Name", StringType),
+      StructField("Object Colour", StringType),
+      StructField("Observed Time", TimestampType),
+      StructField("Observed Latitude", DoubleType),
+      StructField("Observed Longitude", DoubleType),
+      StructField("Speed", LongType)
+    ))
 
   case class Clean(
-    name: String,
-    isPink: Boolean,
-    eventDate: java.sql.Timestamp,
-    latitude: Double,
-    longitude: Double,
-    speed: Long,
-    processingDate: java.sql.Timestamp)
+      name: String,
+      isPink: Boolean,
+      eventDate: java.sql.Timestamp,
+      latitude: Double,
+      longitude: Double,
+      speed: Long,
+      processingDate: java.sql.Timestamp)
 
   override def createJob(config: Config) =
     TestEtlJob(
@@ -56,46 +57,54 @@ object TestEtl extends SparkRunner[TestEtlJob] {
 
 }
 
-case class TestEtlJob(testEtlUrl: HdfsUrl, rawUrl: HdfsUrl, cleanUrl: HdfsUrl, recordsProcessed: Gauge) extends SparkJob {
+case class TestEtlJob(
+    testEtlUrl: HdfsUrl,
+    rawUrl: HdfsUrl,
+    cleanUrl: HdfsUrl,
+    recordsProcessed: Gauge)
+    extends SparkJob {
 
-  import TestEtl.{ RawSchema, Clean }
+  import TestEtl.{RawSchema, Clean}
 
-  override val maxRetries = 1
+  override val maxRetries          = 1
   override val delayBetweenRetries = 10.seconds
 
   def shouldRunForDate(spark: SparkSession, date: DateInterval): Boolean = true
 
   override val stages =
-    clean ~> 'SaveClean.sink[Clean](ctx => ctx.value.write.mode(SaveMode.Overwrite).parquet(cleanUrl / ctx.date))
+    clean ~> 'SaveClean.sink[Clean](ctx =>
+      ctx.value.write.mode(SaveMode.Overwrite).parquet(cleanUrl / ctx.date))
 
-  def clean: Stage[SparkSession, Dataset[Clean]] = for {
-    // Read raw input from input
-    rawData <- 'ReadRaw.source[Row] { ctx =>
-      ctx.spark.read
-        .option("header", true)
-        .option("dateFormat", "yyyy-MM-dd")
-        .schema(RawSchema)
-        .csv(testEtlUrl / ctx.date / "*.csv")
-    }
+  def clean: Stage[SparkSession, Dataset[Clean]] =
+    for {
+      // Read raw input from input
+      rawData <- 'ReadRaw.source[Row] { ctx =>
+        ctx.spark.read
+          .option("header", true)
+          .option("dateFormat", "yyyy-MM-dd")
+          .schema(RawSchema)
+          .csv(testEtlUrl / ctx.date / "*.csv")
+      }
 
-    saveRaw <- 'SaveRaw.sink[Row](ctx => ctx.value.write.mode(SaveMode.Overwrite).csv(rawUrl / ctx.date))
+      saveRaw <- 'SaveRaw.sink[Row](ctx =>
+        ctx.value.write.mode(SaveMode.Overwrite).csv(rawUrl / ctx.date))
 
-    cleanData <- 'CleanData.transform[Row, Clean] { ctx =>
-      import ctx.spark.implicits._
+      cleanData <- 'CleanData.transform[Row, Clean] { ctx =>
+        import ctx.spark.implicits._
 
-      val CleanSchema = implicitly[Encoder[Clean]].schema
-      val isPink = udf((colorName: String) => colorName.compareToIgnoreCase("pink") == 0)
+        val CleanSchema = implicitly[Encoder[Clean]].schema
+        val isPink      = udf((colorName: String) => colorName.compareToIgnoreCase("pink") == 0)
 
-      ctx.value
-        .withColumnRenamed("Object Name", "name")
-        .withColumnRenamed("Observed Time", "eventDate")
-        .withColumnRenamed("Observed Latitude", "latitude")
-        .withColumnRenamed("Observed Longitude", "longitude")
-        .withColumnRenamed("Speed", "speed")
-        .withColumn("isPink", isPink($"Object Colour"))
-        .withColumn("processingDate", lit(ctx.date.asTimestamp))
-        .select(CleanSchema.fieldNames.map(col): _*)
-        .as[Clean]
-    }
-  } yield cleanData
+        ctx.value
+          .withColumnRenamed("Object Name", "name")
+          .withColumnRenamed("Observed Time", "eventDate")
+          .withColumnRenamed("Observed Latitude", "latitude")
+          .withColumnRenamed("Observed Longitude", "longitude")
+          .withColumnRenamed("Speed", "speed")
+          .withColumn("isPink", isPink($"Object Colour"))
+          .withColumn("processingDate", lit(ctx.date.asTimestamp))
+          .select(CleanSchema.fieldNames.map(col): _*)
+          .as[Clean]
+      }
+    } yield cleanData
 }

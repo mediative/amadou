@@ -25,31 +25,31 @@ sealed trait StateRecord {
 }
 
 case object Processing extends StateRecord
-case object Retrying extends StateRecord
-case object Failed extends StateRecord
-case object Complete extends StateRecord
+case object Retrying   extends StateRecord
+case object Failed     extends StateRecord
+case object Complete   extends StateRecord
 
 case class MetricsEvent(
-  jobId: String,
-  processId: String,
-  stage: String,
-  timestamp: Long,
-  message: Map[String, Double])
+    jobId: String,
+    processId: String,
+    stage: String,
+    timestamp: Long,
+    message: Map[String, Double])
 
 case class RunEvent(
-  jobId: String,
-  processId: String,
-  state: String,
-  processingDate: String,
-  timestamp: Long,
-  duration: Long,
-  message: String)
+    jobId: String,
+    processId: String,
+    state: String,
+    processingDate: String,
+    timestamp: Long,
+    duration: Long,
+    message: String)
 
 case class StageEvent(
-  jobId: String,
-  processId: String,
-  stage: String,
-  state: String,
-  timestamp: Long,
-  duration: Long,
-  message: String)
+    jobId: String,
+    processId: String,
+    stage: String,
+    state: String,
+    timestamp: Long,
+    duration: Long,
+    message: String)

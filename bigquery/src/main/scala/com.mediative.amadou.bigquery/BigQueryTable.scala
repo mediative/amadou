@@ -21,10 +21,10 @@ import com.google.api.services.bigquery.model.TableReference
 
 object BigQueryTable {
   type PartitionMapper = DateInterval => DateInterval
-  type Reference = com.google.api.services.bigquery.model.TableReference
+  type Reference       = com.google.api.services.bigquery.model.TableReference
 
   val PartitionByMonth = BigQueryTable.PartitionStrategy(Month.apply)
-  val PartitionByDay = BigQueryTable.PartitionStrategy(Day.apply)
+  val PartitionByDay   = BigQueryTable.PartitionStrategy(Day.apply)
 
   case class PartitionStrategy(mapper: PartitionMapper) {
     def partitionSuffix(date: DateInterval): String = "$" + mapper(date).format("yyyyMMdd")
@@ -55,15 +55,14 @@ case class BigQueryTable(
     table: String,
     partitionBy: Option[BigQueryTable.PartitionStrategy] = None) {
 
-  def partitionedByDay = copy(partitionBy = Some(BigQueryTable.PartitionByDay))
+  def partitionedByDay   = copy(partitionBy = Some(BigQueryTable.PartitionByDay))
   def partitionedByMonth = copy(partitionBy = Some(BigQueryTable.PartitionByMonth))
 
-  def reference(): BigQueryTable.Reference = {
+  def reference(): BigQueryTable.Reference =
     new TableReference()
       .setProjectId(project)
       .setDatasetId(dataset)
       .setTableId(table)
-  }
 
   def referenceFor(date: DateInterval): BigQueryTable.Reference =
     reference.setTableId(table + partitionBy.fold("")(_.partitionSuffix(date)))

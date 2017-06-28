@@ -16,7 +16,7 @@
 
 package com.mediative.amadou
 
-import net.ceedubs.ficus.{ Ficus, FicusConfig, FicusInstances }
+import net.ceedubs.ficus.{Ficus, FicusConfig, FicusInstances}
 import net.ceedubs.ficus.readers.ArbitraryTypeReader
 
 /**

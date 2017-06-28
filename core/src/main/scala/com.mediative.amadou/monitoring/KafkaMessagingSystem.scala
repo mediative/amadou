@@ -19,11 +19,11 @@ package monitoring
 
 import java.util.Properties
 import com.typesafe.config.Config
-import org.apache.kafka.clients.producer.{ Callback, KafkaProducer, ProducerRecord, RecordMetadata }
+import org.apache.kafka.clients.producer.{Callback, KafkaProducer, ProducerRecord, RecordMetadata}
 
 class KafkaMessagingSystem(config: Config) extends MessagingSystem with Logging {
-  private val properties = KafkaMessagingSystem.readProperties(config)
-  private val producer = new KafkaProducer[String, String](properties)
+  private val properties  = KafkaMessagingSystem.readProperties(config)
+  private val producer    = new KafkaProducer[String, String](properties)
   private val topicPrefix = properties.getProperty("topic.prefix")
 
   override def publish(topic: String, message: String): Unit = {
@@ -32,18 +32,17 @@ class KafkaMessagingSystem(config: Config) extends MessagingSystem with Logging 
     logger.info(s"Publishing to $topicName :\n$message\n")
 
     producer.send(new ProducerRecord[String, String](topicName, message), new Callback {
-      override def onCompletion(metadata: RecordMetadata, exception: Exception): Unit = {
+      override def onCompletion(metadata: RecordMetadata, exception: Exception): Unit =
         if (exception != null) {
-          logger.error(s"Cannot publish to $topicName. Caused by: ${exception.getMessage}", exception)
+          logger
+            .error(s"Cannot publish to $topicName. Caused by: ${exception.getMessage}", exception)
         }
-      }
     })
     ()
   }
 
-  override def stop(): Unit = {
+  override def stop(): Unit =
     producer.close()
-  }
 }
 
 object KafkaMessagingSystem {

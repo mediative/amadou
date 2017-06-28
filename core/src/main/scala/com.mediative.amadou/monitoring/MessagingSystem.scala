@@ -30,7 +30,7 @@ case class ProcessContext(
 
 object MessagingSystem {
   def create(config: Config) = config.hasPath("kafka.bootstrap.servers") match {
-    case true => new KafkaMessagingSystem(config.getConfig("kafka"))
+    case true  => new KafkaMessagingSystem(config.getConfig("kafka"))
     case false => new PrintMessagingSystem
   }
 }
@@ -61,48 +61,59 @@ abstract class MessagingSystem {
   def publishStageFailed(context: ProcessContext, stage: String, failure: Throwable): Unit =
     publishStageEvent(context, state = Failed, stage = stage, message = failureToMessage(failure))
 
-  def publishMetrics(context: ProcessContext, stage: String, metrics: Map[String, Double]): Unit = {
-    publish("metrics", MetricsEvent(
-      jobId = context.jobId,
-      processId = context.processId,
-      timestamp = System.currentTimeMillis(),
-      stage = stage,
-      message = metrics
-    ))
-  }
+  def publishMetrics(context: ProcessContext, stage: String, metrics: Map[String, Double]): Unit =
+    publish(
+      "metrics",
+      MetricsEvent(
+        jobId = context.jobId,
+        processId = context.processId,
+        timestamp = System.currentTimeMillis(),
+        stage = stage,
+        message = metrics
+      ))
 
-  private def publishRunEvent(context: ProcessContext, state: StateRecord, message: String = "") = {
-    publish("jobs", RunEvent(
-      jobId = context.jobId,
-      processId = context.processId,
-      timestamp = System.currentTimeMillis(),
-      processingDate = context.processingDate.format("yyyy-MM-dd"),
-      state = state.identifier,
-      duration = state match {
-        case Complete => context.duration
-        case _ => 0L
-      },
-      message = message
-    ))
-  }
+  private def publishRunEvent(context: ProcessContext, state: StateRecord, message: String = "") =
+    publish(
+      "jobs",
+      RunEvent(
+        jobId = context.jobId,
+        processId = context.processId,
+        timestamp = System.currentTimeMillis(),
+        processingDate = context.processingDate.format("yyyy-MM-dd"),
+        state = state.identifier,
+        duration = state match {
+          case Complete => context.duration
+          case _        => 0L
+        },
+        message = message
+      ))
 
-  private def publishStageEvent(context: ProcessContext, state: StateRecord, stage: String, message: String = ""): Unit = {
-    publish("stages", StageEvent(
-      jobId = context.jobId,
-      processId = context.processId,
-      timestamp = System.currentTimeMillis(),
-      stage = stage,
-      state = state.identifier,
-      duration = state match {
-        case Complete => context.duration
-        case _ => 0L
-      },
-      message = message
-    ))
-  }
+  private def publishStageEvent(
+      context: ProcessContext,
+      state: StateRecord,
+      stage: String,
+      message: String = ""): Unit =
+    publish(
+      "stages",
+      StageEvent(
+        jobId = context.jobId,
+        processId = context.processId,
+        timestamp = System.currentTimeMillis(),
+        stage = stage,
+        state = state.identifier,
+        duration = state match {
+          case Complete => context.duration
+          case _        => 0L
+        },
+        message = message
+      ))
 
-  private implicit def processMessageToString(message: RunEvent): String = upickle.default.write(message)
-  private implicit def stageMessageToString(message: StageEvent): String = upickle.default.write(message)
-  private implicit def metricsMessageToString(message: MetricsEvent): String = upickle.default.write(message)
-  private def failureToMessage(failure: Throwable) = s"${failure.getClass.getName}: ${failure.getMessage}"
+  private implicit def processMessageToString(message: RunEvent): String =
+    upickle.default.write(message)
+  private implicit def stageMessageToString(message: StageEvent): String =
+    upickle.default.write(message)
+  private implicit def metricsMessageToString(message: MetricsEvent): String =
+    upickle.default.write(message)
+  private def failureToMessage(failure: Throwable) =
+    s"${failure.getClass.getName}: ${failure.getMessage}"
 }
