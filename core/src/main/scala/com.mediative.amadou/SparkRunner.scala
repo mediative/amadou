@@ -36,10 +36,12 @@ abstract class SparkRunner[Job <: SparkJob] extends Logging with ScheduleDsl wit
   def main(args: Array[String]): Unit =
     Try(run) match {
       case Failure(failure) =>
-        logger.error("Spark job failed", failure)
-        sys.exit(1)
+        // Manual print error to not depend on any logger
+        System.err.println("Spark job failed")
+        failure.printStackTrace(System.err)
+        System.exit(1)
       case _ =>
-        sys.exit(0)
+        System.exit(0)
     }
 
   def run(): Unit = {
