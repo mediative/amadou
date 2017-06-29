@@ -45,13 +45,13 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">Context</span><span class="tparams">[<span name="I">+I</span>]</span><span class="result"> extends <a href="Stage$$Context.html" class="extype" name="com.mediative.amadou.Stage.Context">Stage.Context</a>[<span class="extype" name="com.mediative.amadou.SparkRunner.Context.I">I</span>]</span>
+        <span class="name">Context</span><span class="tparams">[<span name="I">+I</span>]</span><span class="result"> extends <a href="Stage$$Context.html" class="extype" name="com.mediative.amadou.Stage.Context">Stage.Context</a>[<span class="extype" name="com.mediative.amadou.SparkRunner.Context.I">I</span>] with <a href="monitoring/MessagingSystem$$Context.html" class="extype" name="com.mediative.amadou.monitoring.MessagingSystem.Context">monitoring.MessagingSystem.Context</a></span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/mediative/amadou/tree/master/core/src/main/scala/com.mediative.amadou/SparkRunner.scala" target="_blank">SparkRunner.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><a href="Stage$$Context.html" class="extype" name="com.mediative.amadou.Stage.Context">Stage.Context</a>[<span class="extype" name="com.mediative.amadou.SparkRunner.Context.I">I</span>], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><a href="monitoring/MessagingSystem$$Context.html" class="extype" name="com.mediative.amadou.monitoring.MessagingSystem.Context">monitoring.MessagingSystem.Context</a>, <a href="Stage$$Context.html" class="extype" name="com.mediative.amadou.Stage.Context">Stage.Context</a>[<span class="extype" name="com.mediative.amadou.SparkRunner.Context.I">I</span>], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -69,7 +69,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="com.mediative.amadou.SparkRunner.Context"><span>Context</span></li><li class="in" name="com.mediative.amadou.Stage.Context"><span>Context</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="com.mediative.amadou.SparkRunner.Context"><span>Context</span></li><li class="in" name="com.mediative.amadou.monitoring.MessagingSystem.Context"><span>Context</span></li><li class="in" name="com.mediative.amadou.Stage.Context"><span>Context</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
                 <span class="filtertype">Implicitly<br />
@@ -94,7 +94,7 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="com.mediative.amadou.SparkRunner.Context#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(job:Job,processContext:com.mediative.amadou.monitoring.ProcessContext,spark:org.apache.spark.sql.SparkSession,messaging:com.mediative.amadou.monitoring.MessagingSystem,date:com.mediative.amadou.DateInterval,value:I):SparkRunner.this.Context[I]"></a>
+      <a id="&lt;init&gt;(jobId:String,eventDate:com.mediative.amadou.DateInterval,job:Job,retryOptions:com.mediative.amadou.RetryOptions,spark:org.apache.spark.sql.SparkSession,messaging:com.mediative.amadou.monitoring.MessagingSystem,value:I):SparkRunner.this.Context[I]"></a>
       <a id="&lt;init&gt;:Context[I]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -102,10 +102,10 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">Context</span><span class="params">(<span name="job">job: <span class="extype" name="com.mediative.amadou.SparkRunner.Job">Job</span></span>, <span name="processContext">processContext: <a href="monitoring/ProcessContext.html" class="extype" name="com.mediative.amadou.monitoring.ProcessContext">ProcessContext</a></span>, <span name="spark">spark: <span class="extype" name="org.apache.spark.sql.SparkSession">SparkSession</span></span>, <span name="messaging">messaging: <a href="monitoring/MessagingSystem.html" class="extype" name="com.mediative.amadou.monitoring.MessagingSystem">MessagingSystem</a></span>, <span name="date">date: <a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>, <span name="value">value: <span class="extype" name="com.mediative.amadou.SparkRunner.Context.I">I</span></span>)</span>
+        <span class="name">Context</span><span class="params">(<span name="jobId">jobId: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="eventDate">eventDate: <a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>, <span name="job">job: <span class="extype" name="com.mediative.amadou.SparkRunner.Job">Job</span></span>, <span name="retryOptions">retryOptions: <a href="RetryOptions.html" class="extype" name="com.mediative.amadou.RetryOptions">RetryOptions</a></span>, <span name="spark">spark: <span class="extype" name="org.apache.spark.sql.SparkSession">SparkSession</span></span>, <span name="messaging">messaging: <a href="monitoring/MessagingSystem.html" class="extype" name="com.mediative.amadou.monitoring.MessagingSystem">MessagingSystem</a></span>, <span name="value">value: <span class="extype" name="com.mediative.amadou.SparkRunner.Context.I">I</span></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.SparkRunner$Context@&lt;init&gt;(job:Job,processContext:com.mediative.amadou.monitoring.ProcessContext,spark:org.apache.spark.sql.SparkSession,messaging:com.mediative.amadou.monitoring.MessagingSystem,date:com.mediative.amadou.DateInterval,value:I):SparkRunner.this.Context[I]" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner$Context@&lt;init&gt;(jobId:String,eventDate:com.mediative.amadou.DateInterval,job:Job,retryOptions:com.mediative.amadou.RetryOptions,spark:org.apache.spark.sql.SparkSession,messaging:com.mediative.amadou.monitoring.MessagingSystem,value:I):SparkRunner.this.Context[I]" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -272,6 +272,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Stage$$Context.html" class="extype" name="com.mediative.amadou.Stage.Context">Context</a></dd></dl></div>
+    </li><li name="com.mediative.amadou.monitoring.MessagingSystem.Context#duration" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="duration:Long"></a>
+      <a id="duration:Long"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">duration</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Long" class="extype" target="_top">Long</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner$Context@duration:Long" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="monitoring/MessagingSystem$$Context.html" class="extype" name="com.mediative.amadou.monitoring.MessagingSystem.Context">Context</a></dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
       <a id="ensuring((Context[I])⇒Boolean,⇒Any):Context[I]"></a>
@@ -390,6 +407,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="com.mediative.amadou.SparkRunner.Context#eventDate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eventDate:com.mediative.amadou.DateInterval"></a>
+      <a id="eventDate:DateInterval"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eventDate</span><span class="result">: <a href="DateInterval.html" class="extype" name="com.mediative.amadou.DateInterval">DateInterval</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner$Context@eventDate:com.mediative.amadou.DateInterval" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.mediative.amadou.SparkRunner.Context">Context</a> → <a href="monitoring/MessagingSystem$$Context.html" class="extype" name="com.mediative.amadou.monitoring.MessagingSystem.Context">Context</a></dd></dl></div>
     </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <a id="finalize():Unit"></a>
@@ -488,6 +522,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="com.mediative.amadou.SparkRunner.Context#jobId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="jobId:String"></a>
+      <a id="jobId:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">jobId</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner$Context@jobId:String" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.mediative.amadou.SparkRunner.Context">Context</a> → <a href="monitoring/MessagingSystem$$Context.html" class="extype" name="com.mediative.amadou.monitoring.MessagingSystem.Context">Context</a></dd></dl></div>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -539,6 +590,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="com.mediative.amadou.monitoring.MessagingSystem.Context#processId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="processId:String"></a>
+      <a id="processId:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">processId</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner$Context@processId:String" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="monitoring/MessagingSystem$$Context.html" class="extype" name="com.mediative.amadou.monitoring.MessagingSystem.Context">Context</a></dd></dl></div>
     </li><li name="com.mediative.amadou.SparkRunner.Context#run" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="run[T](stage:com.mediative.amadou.Stage[I,T],result:=&gt;T):com.mediative.amadou.Stage.Result[T]"></a>
       <a id="run[T](Stage[I,T],⇒T):Result[T]"></a>
@@ -573,6 +641,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Stage$$Context.html" class="extype" name="com.mediative.amadou.Stage.Context">Context</a></dd></dl></div>
+    </li><li name="com.mediative.amadou.monitoring.MessagingSystem.Context#startTime" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="startTime:Long"></a>
+      <a id="startTime:Long"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">startTime</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Long" class="extype" target="_top">Long</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.SparkRunner$Context@startTime:Long" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="monitoring/MessagingSystem$$Context.html" class="extype" name="com.mediative.amadou.monitoring.MessagingSystem.Context">Context</a></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -740,7 +825,9 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="com.mediative.amadou.Stage.Context">
+        <div class="parent" name="com.mediative.amadou.monitoring.MessagingSystem.Context">
+              <h3>Inherited from <a href="monitoring/MessagingSystem$$Context.html" class="extype" name="com.mediative.amadou.monitoring.MessagingSystem.Context">monitoring.MessagingSystem.Context</a></h3>
+            </div><div class="parent" name="com.mediative.amadou.Stage.Context">
               <h3>Inherited from <a href="Stage$$Context.html" class="extype" name="com.mediative.amadou.Stage.Context">Stage.Context</a>[<span class="extype" name="com.mediative.amadou.SparkRunner.Context.I">I</span>]</h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
