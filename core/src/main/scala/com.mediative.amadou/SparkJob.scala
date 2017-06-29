@@ -16,7 +16,6 @@
 
 package com.mediative.amadou
 
-import scala.concurrent.duration._
 import org.apache.spark.sql._
 
 object SparkJob {
@@ -45,7 +44,4 @@ trait SparkJob extends Logging {
   def run(spark: SparkSession, date: DateInterval): Unit = ()
   def shouldRunForDate(spark: SparkSession, date: DateInterval): Boolean
   def stages: Stage[SparkSession, _] = Stage("Spark")(ctx => run(ctx.spark, ctx.date))
-
-  def maxRetries                          = 3
-  def delayBetweenRetries: FiniteDuration = 20.minutes
 }
