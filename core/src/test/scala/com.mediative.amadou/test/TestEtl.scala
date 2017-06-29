@@ -20,7 +20,6 @@ package test
 import org.apache.spark.sql._
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql.types._
-import scala.concurrent.duration._
 
 object TestEtl extends SparkRunner[TestEtlJob] {
   val jobName  = "test_etl"
@@ -65,9 +64,6 @@ case class TestEtlJob(
     extends SparkJob {
 
   import TestEtl.{RawSchema, Clean}
-
-  override val maxRetries          = 1
-  override val delayBetweenRetries = 10.seconds
 
   def shouldRunForDate(spark: SparkSession, date: DateInterval): Boolean = true
 
