@@ -26,7 +26,7 @@ import org.apache.spark.scheduler.{SparkListener, SparkListenerTaskEnd}
 import com.amazonaws.auth.profile.ProfilesConfigFile
 import io.prometheus.client._
 
-import monitoring.{MessagingSystem, ProcessContext}
+import monitoring.MessagingSystem
 
 case class RetryOptions(delay: FiniteDuration, max: Int)
 
@@ -101,12 +101,11 @@ abstract class SparkRunner[Job <: SparkJob] extends Logging with ScheduleDsl wit
 
     logger.info(s"Scheduled dates are: $dates")
     dates.foreach { date =>
-      val processContext = ProcessContext(jobName, date)
-      val ctx            = new Context(job, processContext, retryOptions, spark, messaging, date, spark)
+      val ctx = new Context(jobName, date, job, retryOptions, spark, messaging, spark)
 
-      messaging.publishProcessStarting(processContext)
+      messaging.publishProcessStarting(ctx)
       job.stages.run(ctx)
-      messaging.publishProcessComplete(processContext)
+      messaging.publishProcessComplete(ctx)
     }
 
     messaging.stop()
@@ -114,41 +113,41 @@ abstract class SparkRunner[Job <: SparkJob] extends Logging with ScheduleDsl wit
   }
 
   class Context[+I](
+      val jobId: String,
+      val eventDate: DateInterval,
       job: Job,
-      processContext: ProcessContext,
       retryOptions: RetryOptions,
       spark: SparkSession,
       messaging: MessagingSystem,
-      date: DateInterval,
       value: I)
-      extends Stage.Context(spark, date, value) {
+      extends Stage.Context(spark, eventDate, value)
+      with MessagingSystem.Context {
 
     override def withValue[U](value: U) =
-      new Context(job, processContext, retryOptions, spark, messaging, date, value)
+      new Context(jobId, eventDate, job, retryOptions, spark, messaging, value)
 
     override def run[T](stage: Stage[I, T], result: => T): Stage.Result[T] = {
       def runStage(callCount: Int): Stage.Result[T] = {
-        logger.info(s"[$processContext] Running stage ${stage.name} try #$callCount")
+        val stageId = s"$jobName/$eventDate/$processId/${stage.name}"
+        logger.info(s"[$stageId] Running stage ${stage.name} try #$callCount")
         counters.foreach(_.clear())
-        messaging.publishStageStarting(processContext, stage.name)
+        messaging.publishStageStarting(this, stage.name)
         Try(result) match {
           case v @ Success(_) =>
-            messaging.publishStageComplete(processContext, stage.name)
-            messaging.publishMetrics(processContext, stage.name, collectMetrics())
+            messaging.publishStageComplete(this, stage.name)
+            messaging.publishMetrics(this, stage.name, collectMetrics())
             v
           case Failure(failure) =>
             if (callCount >= retryOptions.max) {
-              logger.error(
-                s"[$processContext] Giving up after ${retryOptions.max} retries",
-                failure)
-              messaging.publishStageFailed(processContext, stage.name, failure)
-              messaging.publishProcessFailed(processContext, failure)
+              logger.error(s"[$stageId] Giving up after ${retryOptions.max} retries", failure)
+              messaging.publishStageFailed(this, stage.name, failure)
+              messaging.publishProcessFailed(this, failure)
               throw failure
             } else {
               logger.error(
-                s"[$processContext] Will retry stage ${stage.name} in ${retryOptions.delay}",
+                s"[$stageId] Will retry stage ${stage.name} in ${retryOptions.delay}",
                 failure)
-              messaging.publishStageRetrying(processContext, stage.name)
+              messaging.publishStageRetrying(this, stage.name)
               Thread.sleep(retryOptions.delay.toMillis)
               runStage(callCount + 1)
             }

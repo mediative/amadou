@@ -20,48 +20,50 @@ package monitoring
 import com.typesafe.config.Config
 import scala.language.implicitConversions
 
-case class ProcessContext(
-    jobId: String,
-    processingDate: DateInterval,
-    processId: String = java.util.UUID.randomUUID().toString,
-    startTime: Long = System.currentTimeMillis) {
-  def duration: Long = System.currentTimeMillis - startTime
-}
-
 object MessagingSystem {
   def create(config: Config) = config.hasPath("kafka.bootstrap.servers") match {
     case true  => new KafkaMessagingSystem(config.getConfig("kafka"))
     case false => new PrintMessagingSystem
   }
+
+  trait Context {
+    def jobId: String
+    def eventDate: DateInterval
+    def processId: String = java.util.UUID.randomUUID().toString
+    def startTime: Long   = System.currentTimeMillis
+    def duration: Long    = System.currentTimeMillis - startTime
+  }
 }
 
 abstract class MessagingSystem {
+  import MessagingSystem.Context
+
   def publish(topic: String, message: String): Unit
   def stop(): Unit = ()
 
   // high level helper functions
-  def publishProcessStarting(context: ProcessContext): Unit =
+  def publishProcessStarting(context: Context): Unit =
     publishRunEvent(context, state = Processing)
 
-  def publishProcessComplete(context: ProcessContext): Unit =
+  def publishProcessComplete(context: Context): Unit =
     publishRunEvent(context, state = Complete)
 
-  def publishProcessFailed(context: ProcessContext, failure: Throwable): Unit =
+  def publishProcessFailed(context: Context, failure: Throwable): Unit =
     publishRunEvent(context, state = Failed, message = failureToMessage(failure))
 
-  def publishStageStarting(context: ProcessContext, stage: String, message: String = ""): Unit =
+  def publishStageStarting(context: Context, stage: String, message: String = ""): Unit =
     publishStageEvent(context, state = Processing, stage = stage, message = message)
 
-  def publishStageComplete(context: ProcessContext, stage: String, message: String = ""): Unit =
+  def publishStageComplete(context: Context, stage: String, message: String = ""): Unit =
     publishStageEvent(context, state = Complete, stage = stage, message = message)
 
-  def publishStageRetrying(context: ProcessContext, stage: String): Unit =
+  def publishStageRetrying(context: Context, stage: String): Unit =
     publishStageEvent(context, state = Retrying, stage = stage)
 
-  def publishStageFailed(context: ProcessContext, stage: String, failure: Throwable): Unit =
+  def publishStageFailed(context: Context, stage: String, failure: Throwable): Unit =
     publishStageEvent(context, state = Failed, stage = stage, message = failureToMessage(failure))
 
-  def publishMetrics(context: ProcessContext, stage: String, metrics: Map[String, Double]): Unit =
+  def publishMetrics(context: Context, stage: String, metrics: Map[String, Double]): Unit =
     publish(
       "metrics",
       MetricsEvent(
@@ -72,14 +74,14 @@ abstract class MessagingSystem {
         message = metrics
       ))
 
-  private def publishRunEvent(context: ProcessContext, state: StateRecord, message: String = "") =
+  private def publishRunEvent(context: Context, state: StateRecord, message: String = "") =
     publish(
       "jobs",
       RunEvent(
         jobId = context.jobId,
         processId = context.processId,
         timestamp = System.currentTimeMillis(),
-        processingDate = context.processingDate.format("yyyy-MM-dd"),
+        processingDate = context.eventDate.format("yyyy-MM-dd"),
         state = state.identifier,
         duration = state match {
           case Complete => context.duration
@@ -89,7 +91,7 @@ abstract class MessagingSystem {
       ))
 
   private def publishStageEvent(
-      context: ProcessContext,
+      context: Context,
       state: StateRecord,
       stage: String,
       message: String = ""): Unit =
