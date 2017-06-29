@@ -19,7 +19,7 @@ Add the following to your `build.sbt`:
 
 ```sbt
 resolvers += Resolver.bintrayRepo("mediative", "maven")
-libraryDependencies += "com.mediative" %% "amadou-core" % "0.4.2"
+libraryDependencies += "com.mediative" %% "amadou-core" % "0.4.4"
 ```
 
 See the [TestEtl] job to get an idea of what the library provides.
@@ -34,7 +34,7 @@ See the [TestEtl] job to get an idea of what the library provides.
 
 This library is built with sbt, which needs to be installed. Run the following command from the project root, to build and run all test:
 
-    $ sbt compile test
+    $ sbt test
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for how to contribute.
 
@@ -42,7 +42,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for how to contribute.
 
 To release version `x.y.z` run:
 
-    $ sbt release -Dversion=x.y.z
+    $ sbt -Dversion=x.y.z release
 
 This will run the tests, create a tag and publishing JARs and API docs.
 
