@@ -30,6 +30,8 @@ trait SparkJobSuiteBase extends DatasetSuiteBase with BeforeAndAfterAll { self: 
   val config     = ConfigFactory.load()
   val fileSystem = FileSystem.get(new Configuration())
 
+  System.setProperty("derby.stream.error.file", "target/spark-warehouse-derby.log")
+
   override def beforeAll() = {
     super.beforeAll()
 
