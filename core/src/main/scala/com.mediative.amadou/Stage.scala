@@ -96,8 +96,7 @@ object Stage {
     }
   }
 
-  case class SequenceAllException[S, T](failures: Seq[(Stage[S, T], Throwable)])
-      extends Exception {
+  case class SequenceAllException[S, T](failures: Seq[(Stage[S, T], Throwable)]) extends Exception {
     override def getMessage =
       failures
         .map {
