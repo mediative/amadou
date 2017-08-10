@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>Logging - com.mediative.amadou.Logging</title>
-          <meta name="description" content="Logging - com.mediative.amadou.Logging" />
-          <meta name="keywords" content="Logging com.mediative.amadou.Logging" />
+          <title>ManagedIO - com.mediative.amadou.ManagedIO</title>
+          <meta name="description" content="ManagedIO - com.mediative.amadou.ManagedIO" />
+          <meta name="keywords" content="ManagedIO com.mediative.amadou.ManagedIO" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -16,7 +16,7 @@
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../index.html';
-            var hash = 'com.mediative.amadou.Logging';
+            var hash = 'com.mediative.amadou.ManagedIO';
             var anchor = window.location.hash;
             var anchor_opt = '';
             if (anchor.length >= 1)
@@ -28,12 +28,14 @@
         </head>
         <body class="type">
       <div id="definition">
-        <img alt="Trait" src="../../../lib/trait_big.png" />
+        <a href="ManagedIO$.html" title="See companion object"><img alt="Class/Object" src="../../../lib/class_to_object_big.png" /></a>
         <p id="owner"><a href="../../package.html" class="extype" name="com">com</a>.<a href="../package.html" class="extype" name="com.mediative">mediative</a>.<a href="package.html" class="extype" name="com.mediative.amadou">amadou</a></p>
-        <h1>Logging</h1><h3><span class="morelinks"><div>Related Doc:
-            <a href="package.html" class="extype" name="com.mediative.amadou">package amadou</a>
+        <h1><a href="ManagedIO$.html" title="See companion object">ManagedIO</a></h1><h3><span class="morelinks"><div>
+            Related Docs:
+            <a href="ManagedIO$.html" title="See companion object">object ManagedIO</a>
+            | <a href="package.html" class="extype" name="com.mediative.amadou">package amadou</a>
           </div></span></h3><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Logging" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.ManagedIO" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -42,20 +44,18 @@
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">trait</span>
+        <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">Logging</span><span class="result"> extends <span class="extype" name="com.typesafe.scalalogging.LazyLogging">LazyLogging</span></span>
+        <span class="name">ManagedIO</span><span class="tparams">[<span name="T">T &lt;: <span class="extype" name="java.lang.AutoCloseable">AutoCloseable</span></span>]</span><span class="params">(<span name="t">t: <span class="extype" name="scala.util.Try">Try</span>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>]</span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/mediative/amadou/tree/master/core/src/main/scala/com.mediative.amadou/Logging.scala" target="_blank">Logging.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Manage auto closeable resources.
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/mediative/amadou/tree/master/core/src/main/scala/com.mediative.amadou/ManagedIO.scala" target="_blank">ManagedIO.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="com.typesafe.scalalogging.LazyLogging">LazyLogging</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
-        </div><div class="toggleContainer block">
-            <span class="toggle">Known Subclasses</span>
-            <div class="subClasses hiddenContent"><a href="DatabaseUtils$.html" class="extype" name="com.mediative.amadou.DatabaseUtils">DatabaseUtils</a>, <a href="monitoring/KafkaMessagingSystem.html" class="extype" name="com.mediative.amadou.monitoring.KafkaMessagingSystem">KafkaMessagingSystem</a>, <a href="monitoring/PrintMessagingSystem.html" class="extype" name="com.mediative.amadou.monitoring.PrintMessagingSystem">PrintMessagingSystem</a>, <a href="Slack.html" class="extype" name="com.mediative.amadou.Slack">Slack</a>, <a href="SparkJob.html" class="extype" name="com.mediative.amadou.SparkJob">SparkJob</a>, <a href="SparkRunner.html" class="extype" name="com.mediative.amadou.SparkRunner">SparkRunner</a></div>
-          </div></div>
+          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Serializable" class="extype" target="_top">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Product" class="extype" target="_top">Product</a>, <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Equals" class="extype" target="_top">Equals</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
         
 
       <div id="mbrsel">
@@ -72,7 +72,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="com.mediative.amadou.Logging"><span>Logging</span></li><li class="in" name="com.typesafe.scalalogging.LazyLogging"><span>LazyLogging</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="com.mediative.amadou.ManagedIO"><span>ManagedIO</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
                 <span class="filtertype">Implicitly<br />
@@ -94,7 +94,27 @@
 
       <div id="template">
         <div id="allMembers">
-        
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="com.mediative.amadou.ManagedIO#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(t:scala.util.Try[T]):com.mediative.amadou.ManagedIO[T]"></a>
+      <a id="&lt;init&gt;:ManagedIO[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ManagedIO</span><span class="params">(<span name="t">t: <span class="extype" name="scala.util.Try">Try</span>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>]</span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.ManagedIO@&lt;init&gt;(t:scala.util.Try[T]):com.mediative.amadou.ManagedIO[T]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
 
         
 
@@ -114,7 +134,7 @@
         <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Logging@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.ManagedIO@!=(x$1:Any):Boolean" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -131,7 +151,7 @@
         <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Logging@##():Int" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.ManagedIO@##():Int" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -148,34 +168,34 @@
         <span title="gt4s: $plus" class="implicit">+</span><span class="params">(<span name="other">other: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Logging@+(other:String):String" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.ManagedIO@+(other:String):String" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a> to
-            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a>] performed by method any2stringadd in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>] to
+            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>]] performed by method any2stringadd in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>any2stringadd</dd></dl></div>
     </li><li name="scala.Predef.ArrowAssoc#-&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="-&gt;[B](y:B):(A,B)"></a>
-      <a id="-&gt;[B](B):(Logging,B)"></a>
+      <a id="-&gt;[B](B):(ManagedIO[T],B)"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a>, <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>], <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Logging@-&gt;[B](y:B):(A,B)" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.ManagedIO@-&gt;[B](y:B):(A,B)" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a> to
-            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a>] performed by method ArrowAssoc in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>] to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>]] performed by method ArrowAssoc in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
                 <span class="name">@inline</span><span class="args">()</span>
@@ -193,7 +213,7 @@
         <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Logging@==(x$1:Any):Boolean" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.ManagedIO@==(x$1:Any):Boolean" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -210,7 +230,7 @@
         <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Logging@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.ManagedIO@asInstanceOf[T0]:T0" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -227,7 +247,7 @@
         <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Logging@clone():Object" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.ManagedIO@clone():Object" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -240,86 +260,86 @@
         </dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
-      <a id="ensuring((Logging)⇒Boolean,⇒Any):Logging"></a>
+      <a id="ensuring((ManagedIO[T])⇒Boolean,⇒Any):ManagedIO[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>]) ⇒ <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Logging@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.ManagedIO@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:A=&gt;Boolean):A"></a>
-      <a id="ensuring((Logging)⇒Boolean):Logging"></a>
+      <a id="ensuring((ManagedIO[T])⇒Boolean):ManagedIO[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a>) ⇒ <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>]) ⇒ <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Logging@ensuring(cond:A=&gt;Boolean):A" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.ManagedIO@ensuring(cond:A=&gt;Boolean):A" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a>
-      <a id="ensuring(Boolean,⇒Any):Logging"></a>
+      <a id="ensuring(Boolean,⇒Any):ManagedIO[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Logging@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.ManagedIO@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ensuring(cond:Boolean):A"></a>
-      <a id="ensuring(Boolean):Logging"></a>
+      <a id="ensuring(Boolean):ManagedIO[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a></span>
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Logging@ensuring(cond:Boolean):A" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.ManagedIO@ensuring(cond:Boolean):A" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a> to
-            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a>] performed by method Ensuring in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>]] performed by method Ensuring in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -334,28 +354,11 @@
         <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Logging@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.ManagedIO@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="equals(x$1:Any):Boolean"></a>
-      <a id="equals(Any):Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Logging@equals(x$1:Any):Boolean" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <a id="finalize():Unit"></a>
@@ -368,7 +371,7 @@
         <span class="name">finalize</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Logging@finalize():Unit" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.ManagedIO@finalize():Unit" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -379,6 +382,40 @@
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="com.mediative.amadou.ManagedIO#flatMap" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="flatMap[U&lt;:AutoCloseable](f:T=&gt;com.mediative.amadou.ManagedIO[U]):com.mediative.amadou.ManagedIO[U]"></a>
+      <a id="flatMap[U&lt;:AutoCloseable]((T)⇒ManagedIO[U]):ManagedIO[U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">flatMap</span><span class="tparams">[<span name="U">U &lt;: <span class="extype" name="java.lang.AutoCloseable">AutoCloseable</span></span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>) ⇒ <a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.flatMap.U">U</span>]</span>)</span><span class="result">: <a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.flatMap.U">U</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.ManagedIO@flatMap[U&lt;:AutoCloseable](f:T=&gt;com.mediative.amadou.ManagedIO[U]):com.mediative.amadou.ManagedIO[U]" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.mediative.amadou.ManagedIO#foreach" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="foreach(f:T=&gt;Unit):Unit"></a>
+      <a id="foreach((T)⇒Unit):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">foreach</span><span class="params">(<span name="f">f: (<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>) ⇒ <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#com.mediative.amadou.ManagedIO@foreach(f:T=&gt;Unit):Unit" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="scala.Predef.StringFormat#formatted" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="formatted(fmtstr:String):String"></a>
       <a id="formatted(String):String"></a>
@@ -391,13 +428,13 @@
         <span class="implicit">formatted</span><span class="params">(<span name="fmtstr">fmtstr: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Logging@formatted(fmtstr:String):String" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.ManagedIO@formatted(fmtstr:String):String" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a> to
-            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a>] performed by method StringFormat in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>] to
+            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>]] performed by method StringFormat in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
                 <span class="name">@inline</span><span class="args">()</span>
@@ -415,24 +452,7 @@
         <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Logging@getClass():Class[_]" title="Permalink" target="_top">
-        <img src="../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="hashCode():Int"></a>
-      <a id="hashCode():Int"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Int" class="extype" target="_top">Int</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Logging@hashCode():Int" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.ManagedIO@getClass():Class[_]" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -449,28 +469,28 @@
         <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Logging@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.ManagedIO@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="com.typesafe.scalalogging.LazyLogging#logger" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="logger:com.typesafe.scalalogging.Logger"></a>
-      <a id="logger:Logger"></a>
+    </li><li name="com.mediative.amadou.ManagedIO#map" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="map[U](f:T=&gt;U):U"></a>
+      <a id="map[U]((T)⇒U):U"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">lazy val</span>
+        <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">logger</span><span class="result">: <span class="extype" name="com.typesafe.scalalogging.Logger">Logger</span></span>
+        <span class="name">map</span><span class="tparams">[<span name="U">U</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>) ⇒ <span class="extype" name="com.mediative.amadou.ManagedIO.map.U">U</span></span>)</span><span class="result">: <span class="extype" name="com.mediative.amadou.ManagedIO.map.U">U</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Logging@logger:com.typesafe.scalalogging.Logger" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.ManagedIO@map[U](f:T=&gt;U):U" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd>LazyLogging</dd></dl></div>
+      
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -483,7 +503,7 @@
         <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Logging@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.ManagedIO@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -500,7 +520,7 @@
         <span class="name">notify</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Logging@notify():Unit" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.ManagedIO@notify():Unit" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -517,7 +537,7 @@
         <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Logging@notifyAll():Unit" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.ManagedIO@notifyAll():Unit" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -534,28 +554,28 @@
         <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Logging@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.ManagedIO@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="toString():String"></a>
-      <a id="toString():String"></a>
+    </li><li name="com.mediative.amadou.ManagedIO#t" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="t:scala.util.Try[T]"></a>
+      <a id="t:Try[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">def</span>
+        <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+        <span class="name">t</span><span class="result">: <span class="extype" name="scala.util.Try">Try</span>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Logging@toString():String" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.ManagedIO@t:scala.util.Try[T]" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+      
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>
@@ -568,7 +588,7 @@
         <span class="name">wait</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Logging@wait():Unit" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.ManagedIO@wait():Unit" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -591,7 +611,7 @@
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="arg1">arg1: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Logging@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.ManagedIO@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -614,7 +634,7 @@
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Logging@wait(x$1:Long):Unit" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.ManagedIO@wait(x$1:Long):Unit" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -627,23 +647,23 @@
         </dd></dl></div>
     </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="→[B](y:B):(A,B)"></a>
-      <a id="→[B](B):(Logging,B)"></a>
+      <a id="→[B](B):(ManagedIO[T],B)"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a>, <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>], <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../index.html#com.mediative.amadou.Logging@→[B](y:B):(A,B)" title="Permalink" target="_top">
+      <a href="../../../index.html#com.mediative.amadou.ManagedIO@→[B](y:B):(A,B)" title="Permalink" target="_top">
         <img src="../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
-            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a> to
-            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a>] performed by method ArrowAssoc in scala.Predef.
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>] to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>]] performed by method ArrowAssoc in scala.Predef.
             
           </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
     </li></ol>
@@ -655,8 +675,14 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="com.typesafe.scalalogging.LazyLogging">
-              <h3>Inherited from <span class="extype" name="com.typesafe.scalalogging.LazyLogging">LazyLogging</span></h3>
+        <div class="parent" name="scala.Serializable">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></h3>
+            </div><div class="parent" name="java.io.Serializable">
+              <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="scala.Product">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Product" class="extype" target="_top">Product</a></h3>
+            </div><div class="parent" name="scala.Equals">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.11/index.html#scala.Equals" class="extype" target="_top">Equals</a></h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
             </div><div class="parent" name="scala.Any">
@@ -664,19 +690,19 @@
             </div>
         <div class="conversion" name="scala.Predef.any2stringadd">
               <h3>Inherited by implicit conversion any2stringadd from
-                <a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a> to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a>]
+                <a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>] to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>]]
               </h3>
             </div><div class="conversion" name="scala.Predef.StringFormat">
               <h3>Inherited by implicit conversion StringFormat from
-                <a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a> to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a>]
+                <a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>] to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>]]
               </h3>
             </div><div class="conversion" name="scala.Predef.Ensuring">
               <h3>Inherited by implicit conversion Ensuring from
-                <a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a> to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a>]
+                <a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>] to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>]]
               </h3>
             </div><div class="conversion" name="scala.Predef.ArrowAssoc">
               <h3>Inherited by implicit conversion ArrowAssoc from
-                <a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.mediative.amadou.Logging">Logging</a>]
+                <a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>] to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.mediative.amadou.ManagedIO">ManagedIO</a>[<span class="extype" name="com.mediative.amadou.ManagedIO.T">T</span>]]
               </h3>
             </div>
         </div>
