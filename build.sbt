@@ -14,7 +14,12 @@ inThisBuild(
     resolvers ++= Seq(
       Resolver.bintrayRepo("mediative", "maven"),
       Resolver.jcenterRepo
-    )
+    ),
+    envVars in Test ++= Map(
+      "AMADOU_RETRY_MAX" -> "1",
+      "SPARK_LOCAL_IP"   -> "localhost"
+    ),
+    envVars in IntegrationTest ++= (envVars in Test).value
   ))
 
 lazy val Versions = new {
