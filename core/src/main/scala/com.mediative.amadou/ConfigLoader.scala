@@ -17,11 +17,31 @@
 package com.mediative.amadou
 
 import net.ceedubs.ficus.{Ficus, FicusConfig, FicusInstances}
-import net.ceedubs.ficus.readers.ArbitraryTypeReader
+import net.ceedubs.ficus.readers.{ArbitraryTypeReader, ValueReader}
+import java.util.Properties
 
 /**
  * Mixin for loading and injecting values from configuration files.
  */
 trait ConfigLoader extends ArbitraryTypeReader with FicusInstances {
   implicit def toFicusConfig(config: Config): FicusConfig = Ficus.toFicusConfig(config)
+
+  /**
+   * Value reader for optionally loading properties from a file.
+   *
+   * When the named path does not exists an empty Properties instance is returned
+   *
+   * @example
+   * {{{
+   * case class Database(url: String, properties: Properties)
+   * }}}
+   */
+  implicit val propertiesValueReader: ValueReader[Properties] = new ValueReader[Properties] {
+    def read(config: Config, path: String): Properties = {
+      val properties = new Properties()
+      for (path <- Option(path).filter(config.hasPath).map(config.getString))
+        properties.load(new java.io.FileInputStream(path))
+      properties
+    }
+  }
 }
