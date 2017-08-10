@@ -49,4 +49,33 @@ package object amadou {
       Stage.transform(self.name)(transform)
     def sink[T](write: Stage.Context[Dataset[T]] => Unit) = Stage.sink(self.name)(write)
   }
+
+  /**
+   * Helpers for working with Dataset columns.
+   */
+  implicit class SparkColumnOps(val self: Column) extends AnyVal {
+    import org.apache.spark.sql.functions.when
+
+    /**
+     * Filter out values which are null, empty or "null".
+     *
+     * @example
+     * {{{
+     * dataset.filter($"UserId".isDefined)
+     * }}}
+     */
+    def isDefined: Column =
+      self.isNotNull && !(self === "") && !(self === "null")
+
+    /**
+     * Replace "null" string with NULL value.
+     *
+     * @example
+     * {{{
+     * dataset.select($"Description".nullify as "description")
+     * }}}
+     */
+    def nullify: Column =
+      when(self === "null", null).otherwise(self)
+  }
 }
