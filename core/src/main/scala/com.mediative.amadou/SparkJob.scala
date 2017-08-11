@@ -41,7 +41,6 @@ object SparkJob {
  * is only run the the specified date.
  */
 trait SparkJob extends Logging {
-  def run(spark: SparkSession, date: DateInterval): Unit = ()
   def shouldRunForDate(spark: SparkSession, date: DateInterval): Boolean
-  def stages: Stage[SparkSession, _] = Stage("Spark")(ctx => run(ctx.spark, ctx.date))
+  def stages: Stage[SparkSession, _]
 }
